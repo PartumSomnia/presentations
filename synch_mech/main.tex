@@ -1,0 +1,3810 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autonomous Intelligent System, University of Bonn, LaTeX Beamer theme
+% 
+% Copyright (C) 2010-2013 Dirk Holz, dirk.holz@ieee.org
+
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+\documentclass[unknownkeysallowed,aspectratio=169]{beamer} %handout for all on slides %\documentclass[pdftex]{beamer}
+\let\Tiny=\tiny
+
+% all available options ---> 
+% \usetheme[shadow,logoinnavbar,subsection,logoinframe,framenavbar]{AIS}
+\usetheme[shadow,logoinnavbar,subsection]{AIS}
+
+\usefonttheme{serif} % using non standard fonts for beamer [professionalfonts]
+\renewcommand*\footnoterule{}% to remove horizontal line of footnotes
+\usepackage{listings}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{acronym}
+\usepackage{gensymb}
+\usetikzlibrary{shapes}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{media9}
+\pgfplotsset{compat=1.14}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{xcolor}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
+
+%% --- Bibliography
+%\usepackage[style=ieee]{biblatex}
+\usepackage[
+backend=bibtex,
+style=numeric,%authoryear-comp,
+natbib=true,
+sorting=debug,
+maxnames=1,
+uniquelist=true
+]{biblatex}%biblatex
+\addbibresource{../../phd_thesis/references} % references for the thesis
+\DeclareFieldInputHandler{title}{\def\NewValue{}} %% Removes titles
+%\ExecuteBibliographyOptions{
+%    maxnames = 999,
+%    minnames = 3,
+%}
+%\makeatletter\@ifpackageloaded{biblatex}{\addbibresource{../phd_thesis/references.bib}}{\bibliography{references}}\makeatother
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\renewcommand*{\bibfont}{\tiny} % \footnotesize
+
+%% common path to figures
+%\graphicspath{{/home/vsevolod/GIT/GitHub/phd_thesis/v3/Figures/}}
+
+\usepackage{hyperref}
+\usepackage{cleveref}
+\crefformat{footnote}{#2\footnotemark[#1]#3}
+\usepackage{appendixnumberbeamer}
+
+
+%*********************************************************************************************************
+\setbeamercolor{background canvas}{bg=white} % gray!30 gray!30
+\setbeamercolor{background}{parent=background canvas}
+\setbeamercolor{normal text}{fg=black} % white
+\setbeamercolor{palette primary}{fg=black,bg=white} % changed this fg=white,bg=black
+\setbeamertemplate{itemize item}{\color{gray}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{black}$\blacktriangleright$} % white
+% \setbeamercolor{example text}{fg=green!50!black}
+
+\title[Synchrotron \& Afterglows]{
+    Synchrotron emission \& 
+    Modelling ejecta afterglows
+}
+% \subtitle{Constrains sonic  \\ of Galactic and LMC WNE stars}
+\author[V. Nedora]{Vsevolod Nedora}
+
+%\author[Vsevolod]{Vsevolod Nedora\\[10mm]
+%{\small In collaboration with \\ 
+%Sebastiano Bernuzzi\footnote{\tiny{Theoretisch-Physikalisches Institut, Friedrich-SchillerUniversit{\"a}t Jena, 07743, Jena, Germany}},
+%Albino Perego\footnote{\tiny{Department of Physics of the University of Trento, Trento, Italy}}, 
+%David Radice\footnote{\tiny{Pennsylvania State University, State College, PA 16801, United States}}}}
+
+% \text{Supervisor Prof. Norbert Langer}
+\institute[AEI MPG \& Uniiversit{\"a}t Potsdam]
+
+
+%Ilya Mandel\footnote{imandel@star.sr.bham.ac.uk (IM)}
+%Selma E. de Mink\footnote{S.E.deMink@uva.nl (SEdeM)}
+%Vsevolod Nedora\footnote{vsevolod.nedora@uni-jena.de}
+
+\titlegraphic{\vspace{-2.1cm}\includegraphics[width=.12\textwidth, right]{./figs/Core.png}}
+
+\date{\today}
+
+% This is only inserted into the PDF information catalog. Can be left out.
+\subject{Talks}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+% \AtBeginSection[]
+% {
+%   \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[currentsection,hideothersubsection]
+%   \end{frame}
+% }
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+% \beamerdefaultoverlayspecification{<+->}
+
+
+%----------------------------------------------------------------------------------------
+%    USER-SPECIFIC DECLARATIONS AND COMMANDS
+%----------------------------------------------------------------------------------------
+
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
+\DeclareRobustCommand*\mit{\@fontswitch\relax\mathnormal}
+
+%\newcommand{\myhead}[1]{\multicolumn{1}{c}{#1}}
+%\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+%\graphicspath{{/home/vsevolod/GIT/GitHub/phd_thesis/v3/Figures/}}
+
+\newcommand{\todo}[1]{\textcolor{red}{$\blacksquare$ TODO: #1}} 
+\newcommand{\red}[1]{\textcolor{red}{#1}} 
+\newcommand{\gray}[1]{\textcolor{gray}{#1}} 
+\newcommand{\magenta}[1]{\textcolor{magenta}{#1}} %% For terms/concepts to remember 
+\newcommand{\swind}{spiral-wave wind}
+\newcommand{\nwind}{$\nu$-component}
+\newcommand{\gcm}{g cm$^{-3}$}
+\def\igscm{{\rm cm^{2}\,g^{-1}}}
+\newcommand{\dd}{\text{d}}
+\newcommand{\Mmax}{\ensuremath{M_\text{max}^\text{TOV}}} % High-q paper
+
+\newcommand{\GW}{GW170817}
+\newcommand{\AT}{AT2017gfo} %{{SSS17a}} %{{AT170817A}} % AT2017gfo
+\newcommand{\GRB}{GRB170817A}
+
+\newcommand{\eff}{\mathrm{eff}}
+\newcommand{\cf}{\textit{cf.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\pz}{\phantom{0}}
+\newcommand{\SNR}{\mathrm{SNR}}
+
+\newcommand{\rproc}{$r$-process}
+\newcommand{\sproc}{$s$-process}
+\newcommand{\pmerg}{post-merger}
+\newcommand{\mr}{mass ratio}
+\newcommand{\nuc}{nucleosynthesis}
+\newcommand{\wisky}{\texttt{WhiskyTHC}}
+
+\newcommand{\ndef}[1]{\textbf{#1}} %% for new definitions 
+
+\def\Msun{{\text{M}_{\odot}}}
+\def\Rsun{{\text{R}_{\odot}}}
+\def\md{M^{\text{d}}_{\text{ej}}}
+\def\vd{v^{\text{d}}_\infty}
+\def\yd{Y^{\text{d}}_{e}}
+\def\amd{\md}
+\def\avd{\langle\vd\rangle}
+\def\ayd{\langle\yd\rangle}
+\def\thetarms{\theta_{\rm RMS}}
+\def\athetarms{\langle\thetarms\rangle}
+\def\nism{n_{\text{ISM}}}
+% spiral-wind
+\def\mw{M^{\text{w}}_{\text{ej}}}
+\def\vw{v^{\text{w}}_\infty}
+\def\yw{Y^{\text{w}}_{e}}
+\def\amw{\mw}
+\def\avw{\langle\vw\rangle}
+\def\ayw{\langle\yw\rangle}
+% nu-wind
+\def\mnu{M^{\nu\text{w}}_{\text{ej}}}
+\def\vnu{v^{\nu\text{w}}_\infty}
+\def\ynu{Y^{\nu\text{w}}_e}
+\def\amnu{\mnu}
+\def\avnu{\langle\vnu\rangle}
+\def\aynu{\langle\ynu\rangle}
+
+\def\ccm{\,\text{cm}^{-3}}
+
+
+%----------------------------------------------------------------------------------------
+%    USER-SPECIFIC ACRONYMS (IF ANY)
+%----------------------------------------------------------------------------------------
+%\newacro{KH}{Kelvin-Helmholtz} %% NEVER USE IT! WILL BREACK YOUR LATEX
+\newacro{KHI}{Kelvin-Helmholtz instability}
+\newacro{MRI}{magnetorotational instability}
+
+\newacro{BH}{black hole}
+\newacro{BBH}{binary black-hole}
+\newacro{BHNS}{black-hole neutron-star}
+\newacro{BNS}{binary neutron star}
+\newacro{EM}{electromagnetic}
+\newacro{EOS}{equation of state}
+\newacroplural{EOS}[EOSs]{equations of state}
+\newacro{GR}{general relativity}
+\newacro{HD}{hydrodynamics}
+\newacro{MHD}{magnetohydrodynamics}
+\newacro{GRLES}{general-relativistic large-eddy simulation}
+\newacro{GRHD}{general-relativistic hydrodynamics}
+\newacro{GRMHD}{general-relativistic magnetohydrodynamics}
+\newacro{GW}{gravitational wave}
+\newacroplural{GW}[GWs]{gravitational waves}
+\newacro{LES}{large-eddy simulation}
+\newacroplural{LES}[LES]{large-eddy simulations}
+\newacro{GRLES}{general-relativistic large-eddy simulation}
+\newacro{NR}{numerical relativity}
+\newacro{NS}{neutron star}
+\newacroplural{NS}[NSs]{neutron stars}
+\newacro{GRB}{$\gamma$-ray burst}
+\newacro{SGRB}{short $\gamma$-ray burst}
+\newacro{ISM}{interstellar medium}
+\newacro{MNS}{massive neutron star}
+\newacro{NSBH}{neutron star-black hole}
+\newacro{NSE}{nuclear statistical equilibrium}
+\newacro{SN}{supernova}
+\newacroplural{SN}[SNe]{supernovae}
+\newacro{CCSN}{core-collapse supernova}
+\newacroplural{CCSN}[CCSNe]{Core-collapse supernovae}
+\newacro{BBN}{Big Bang nucleosynthesis}
+\newacro{MP}{metal-poor}
+\newacro{AGB}{asymptotic giant branch}
+\newacro{UFG}{ultra-faint dwarf galaxy}
+\newacroplural{UFG}[UFGs]{ultra-faint dwarf galaxies}
+\newacro{NRN}{nuclear reaction network}
+\newacroplural{NRN}[NRNs]{nuclear reaction networks}
+\newacro{kN}{kilonova}
+\newacroplural{kN}[kNe]{kilonovae}
+\newacro{RR}{reaction rate}
+\newacroplural{RR}[RRs]{reaction rates}
+\newacro{MBD}{Maxwell-Boltzmann distribution}
+\newacro{CS}{cross-section}
+\newacro{ODE}{ordinary differential equation}
+\newacroplural{ODE}[ODEs]{ordinary differential equations}
+\newacro{RK}{Runge-Kutta}
+\newacro{SPH}{smoothed particle hydrodynamics}
+\newacro{NIR}{near-infrared}
+\newacro{LC}{light curve}
+\newacroplural{LC}[LCs]{light curves}
+\newacro{UV}{ultraviolet}
+\newacro{LTE}{local thermodynamic equilibrium}
+\newacro{TOV}{Tolman-Oppenheimer-Volkoff}
+\newacro{AH}{apparent horizon}
+\newacro{RMS}{root mean square}
+\newacro{MM}{multi-messenger}
+\newacro{LK}{light curve}
+\newacro{IC}{Inverse Compton}
+\newacro{CBM}{circumburst medium}
+\newacro{LF}{Lorentz factor}
+\newacro{DF}{Doppler factor}
+\newacro{SSC}{synchrotron self-Compton}
+\newacro{SSA}{synchrotron self-absorption}
+\newacro{CoE}{center of explostion}
+\newacro{FS}{forward shock}
+\newacro{RS}{reverse shock}
+\newacro{EFE}{Einstein’s field equations}
+\newacro{ADM}{Arnowitt, Deser and Misner}
+\newacro{IVP}{initial value problem}
+\newacro{RHS}{right hand side}
+\newacro{CTS}{conformal thin-sandwich} 
+\newacro{RMF}{relativistic mean-field}
+\newacro{BTE}{Boltzmann transport equation}
+\newacro{FV}{finite-volume}
+\newacro{FD}{finite-difference}%{finite-differencing}
+\newacro{HRSC}{high-resolution shock-capturing}
+\newacro{CFL}{Courant-Friedrichs-Lewy}
+\newacro{TVD}{total-variation diminishing}
+\newacro{BV}{bounded variation}
+\newacro{TV}{total variation}
+\newacro{PPM}{piecewise parabolic method}
+\newacro{PHM}{piecewise hyperbolic method}
+\newacro{ENO}{essentially non-oscillatory}
+\newacro{WENO}{weighted essentially non-oscillatory}
+\newacro{MP5}{monotonicity-preserving}
+\newacro{HLLE}{Harten, Lax, van Leer and Einfeldt}
+\newacro{HLLC}{Harten-Lax-van Leer-Contact}
+\newacro{LxF}{Lax and Friedrichs}
+\newacro{NT}{Nessyahu and Tadmor}
+\newacro{KT}{Kurganov and Tadmor}
+\newacro{AMR}{adaptive mesh refinement}
+\newacro{PPL}{positivity preserving limiter}
+\newacro{SSP}{strong stability preserving}
+\newacro{PDE}{partial differential equation}
+\newacroplural{PDE}[PDEs]{partial differential equations}
+\newacro{MOL}{method of lines}
+\newacro{EM}{electromagnetic}
+\newacro{BPL}{broken power law}
+
+\newacro{DE}{dynamical ejecta}
+\newacro{SWW}{\swind{}}
+
+
+
+
+
+
+\begin{document}
+
+
+%% --------------------------------------------------------------
+%%
+%% S L I D E S
+%%
+%% --------------------------------------------------------------
+
+
+\begin{frame} %% ---------- title 
+\titlepage
+\end{frame}
+
+\section{Cyclosynchtoron}
+\input{slides/cyclosynchrotron}
+
+%\section{Introduction}
+%\input{Slides/Introduction}
+%\section{Simulations}
+%\input{Slides/BNS_MergSims}
+%\section{Nucleosynthesis}
+%\input{Slides/Nucleosynthesis}
+%\section{Kilonova}
+%\input{Slides/Kilonova}
+%\section{Afterglows}
+%\input{Slides/Afterglow}
+%\section{Statistics}
+%\input{Slides/Statistics}
+%\section{Conclusion}
+%\input{Slides/Conclusion}
+
+%%%% ------- BackUps
+\appendix
+%\input{Slides/Backup}
+
+%%%% ------- Bibliography
+
+\printbibliography[heading=bibintoc]
+%\bibliography{../phd_thesis/references}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%********************************** MOTIVATION *********************************************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%	\begin{itemize}
+%		\item GW170717 -- GRB 170817 -- AT2017gfo
+%		\item Kilonova (observations and models)
+%		\item Binary Neutron Star merger dynamics
+%		\item Ejecta mechanisms 
+%		\item Examples
+%		\item Conclusion
+%	\end{itemize}
+%\end{frame}
+
+%\section{Introduction}
+%
+%% INTRODUCTION
+%\subsection{GW170717 -- GRB 170817 -- AT2017gfo}
+\begin{frame}{}
+	\begin{tikzpicture}[overlay,remember picture]
+	
+	\uncover<1->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.85cm)}]current page.center){
+		\parbox{1.0\textwidth}{17th August 2017: GW detection from elliptical galaxy NGC 4993. \\
+		GW signal 100 seconds. \\ 
+		GRB170817A of $\approx2$ seconds duration \\
+		}};
+	}
+	\uncover<2->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,3.0cm)}]current page.center){
+			\parbox{1.0\textwidth}{
+		\hspace{30mm}\textbf{Neutron Star Collision}
+		}};
+	}
+	\uncover<3->{ % <-> |
+	\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.5cm)}]current page.center){
+		\parbox{1.0\textwidth}{
+			An astronomical transient AT2017gfo 11 hours after the gravitational wave signa. 
+			70 observatories on 7 continents and in space, across the electromagnetic spectrum.}};
+	}
+	\uncover<4->{ % <-> |
+	\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(9.0cm,1.0cm)}]current page.center){
+		\parbox{1.0\textwidth}{
+		\textbf{Kilonova}}};
+	}
+	
+	% --- 
+	
+	% motivation
+	\uncover<1->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-4.8cm,-1.6cm)}]current page.center) {\includegraphics[height=4.5cm]{./figs_intro/gw170817.png}};
+	}
+	
+	% GRB_LVC
+	\uncover<1->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-1.3cm,-1.6cm)}]current page.center) {\includegraphics[height=4.54cm]{./figs_intro/GRB_LVC.pdf}};
+	}
+
+
+	\uncover<3->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.6cm,-1.6cm)}]current page.center) {\includegraphics[height=4.7cm]{./figs_intro/kilonova_obs.jpg}};
+	}
+
+	
+	\end{tikzpicture} 
+\end{frame}
+
+% KILONOVA OBS
+\subsection{Kilonova}
+\begin{frame}{}
+	\begin{tikzpicture}[overlay,remember picture]
+	\uncover<1->{
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.4cm,3.0cm)}]current page.center){  % <-> |
+		\parbox{1.1\textwidth}{\textbf{Kilonova} - EM counterpart to the merger, powered by the radioactive decay of newly-produced heavy nuclei. \\ 
+		}};
+	}
+
+	\uncover<2->{
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.4cm,2.0cm)}]current page.center){  % <-> |
+		\parbox{1.1\textwidth}{
+			\begin{itemize}
+				\item \textcolor{babyblue}{Blue component:} early, low photon opacity
+				\item \textcolor{red}{Red component:} late, high photon opacity 
+			\end{itemize}
+		}};
+	}
+
+	\uncover<3->{
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.4cm,0.5cm)}]current page.center){  % <-> |
+			\parbox{1.1\textwidth}{
+				$r$-process nucleosynthesis (source of the heaviest elements)\par
+				Chemical Evolution of the Universe\\
+		}};
+	}
+	
+	\uncover<1->{
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-2.18cm)}]current page.center) {\includegraphics[height=4.45cm]{./figs_intro/neutronstar-min.jpg}};
+	}
+	
+	% viller
+	\uncover<2->{ 
+	
+		\node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(3.3cm,-2.2cm)}]current page.center) {\includegraphics[height=4.5cm]{./figs_intro/viller_mkn_model.png}};
+	}
+
+%	\uncover<1->{ % <-> |
+%		\node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(-4.3cm,-2.54cm)}]current page.center) {\includegraphics[height=4.1cm]{./figs_intro/kasen_spectra.png}};
+%	}
+%	
+	\end{tikzpicture} 
+\end{frame}
+
+% r - process
+\section{Kilonova}
+\begin{frame}
+	\begin{tikzpicture}[overlay,remember picture]
+	\uncover<3->{ % <-> |	
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.4cm,2.5cm)}]current page.center){
+		\parbox{1.1\textwidth}{\textbf{Ejecta Composition} \\
+			Electron Fraction \\
+			$ Y_e = \frac{n_{e^-} - n_{e^+}}{n_b} $\\
+			$ Y_e = \frac{1}{(1+N_n / N_p)}$ \\
+		}};
+	}
+	
+	\uncover<4->{ % <-> |	
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.4cm,0.5cm)}]current page.center){
+			\parbox{1.1\textwidth}{
+			$Y_e > 0.25$ - Low $\kappa$ - \textcolor{babyblue}{Blue} \\
+			$Y_e < 0.25$ - High $\kappa$ - \textcolor{red}{Red} \\
+		}};
+	}
+	
+	\uncover<1->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.6cm,-1.5cm)}]current page.center){  % <-> |
+		\parbox{0.7\textwidth}{\textbf{$r-$process nucleosynthesis} \\
+			Formation elements heavier than iron \\	
+			Requarements: $T > 10^9$K $n_n > 10^{22}$ cm$^{-3}$ \\
+			Produces: unstable $n$-rich nuclei \\
+			Radioactive decay can power an EM transient \\
+		}};
+	}
+
+	\uncover<2->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.4cm,-3.7cm)}]current page.center){  % <-> |
+		\parbox{1.1\textwidth}{\textbf{Fission and Opacities} \\
+			$r-$prcess forms \textcolor{red}{Lanthanides \& Actinides} \\
+			Complex atomic structure. High opacities $\propto10$ \& $\propto30$ cm$^2$g$^{-1}$
+		}};
+	}
+	
+	\uncover<1->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(2.35cm,1.9cm)}]current page.center) {\includegraphics[height=4.0cm]{./figs_intro/nucleo.pdf}};
+	}
+	
+	\uncover<2->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.75cm,-1.9cm)}]current page.center) {\includegraphics[height=4.0cm]{./figs_intro/nucleo_example1.pdf}};
+	}
+	
+	\end{tikzpicture}
+\end{frame}
+
+
+% r-process and opacities [Tanaka et.al 2019]
+%\begin{frame}
+%	\begin{tikzpicture}[overlay,remember picture]
+%	
+%	\uncover<2->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.28cm,2.1cm)}]current page.center) {\includegraphics[height=3.5cm]{./figs_intro/opacity1.pdf}};
+%	}
+%	
+%	\uncover<1->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.4cm,-2.25cm)}]current page.center) {\includegraphics[height=4.5cm]{./figs_intro/opacity2.pdf}};
+%	}
+%	
+%	\uncover<3->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-3.65cm,-2.5cm)}]current page.center) {\includegraphics[height=4.0cm]{./figs_intro/lightcurve_tanaka2.pdf}};
+%	}
+%	
+%	\uncover<1->{ % <-> |
+%		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,2.7cm)}]current page.center){
+%			\parbox{0.55\textwidth}{\textbf{Opacity calculations} \\	
+%				$\rho = 10^{-13}$ g cm$^{-3}$, $t_{\rm{PM}}=1$ day \\
+%%				$M_{\rm{ej}} = 0.2M_{\odot}$, $\upsilon = 0.1$c \\
+%				LTE assumed \\
+%		}};
+%	}
+%	\uncover<3->{ % <-> |
+%		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,0.5cm)}]current page.center){
+%		\parbox{0.55\textwidth}{\textbf{Kilonova} \\	
+%			Monte-Carlo radiative transfer code \\
+%			\textcolor{yellow}{simple one-dimensional ejecta model},  \\
+%			power-law density structure $\rho\propto r^{-3}$, $<\upsilon>\propto0.1$c, $M_{\rm{ej}} = 0.03M_{\odot}$\\
+%		}};
+%	}
+%	
+%%	\uncover<3->{ % <-> |
+%%		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(3.0cm,-3.0cm)}]current page.center){
+%%			\parbox{0.5\textwidth}{\textbf{Bernoulli criterion} \\
+%%			
+%%		}};
+%%	}
+%	
+%	\end{tikzpicture}
+%\end{frame}
+
+
+% KILONOVA MODELS
+\begin{frame}{}
+\begin{tikzpicture}[overlay,remember picture]
+	\uncover<1->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.4cm,2.8cm)}]current page.center){
+		\parbox{1.1\textwidth}{\textbf{Kilonova models} \\
+		Radiative transfer simulations $\rightarrow$ Spectra (detailed composition). \\ Semi-analitic models $\rightarrow$ bolometric lightcurves (energy evolution \& the amount of radioactive nuclides produced)}};
+	}
+
+	\uncover<3->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,0.0cm)}]current page.center){
+		\parbox{0.5\textwidth}{\textbf{Kilonova Model Paramters} \\
+			$2-3$ components (\textcolor{babyblue}{Blue} and \textcolor{red}{Red}) \\
+			$\textcolor{white}{M_{ej}} \propto 10^{-2}M_{\odot}$ \\
+			$\textcolor{white}{\upsilon_{ej}} \propto 0.25$c \\
+%			$\textcolor{white}{M_{ej}} \propto 0.05M_{\odot}$ \\
+%			$\textcolor{white}{\upsilon_{ej}} \propto 0.1$c \\
+			}};
+	}
+	
+	\uncover<4->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(0.5cm,-0.8cm)}]current page.center){
+		\parbox{0.5\textwidth}{\textbf{Merger \\ simulations...}
+		}};
+	}
+
+%	\uncover<4->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.5cm,0.5cm)}]current page.center) {\includegraphics[height=3.5cm]{./figs_intro/siegal.pdf}};
+%	}
+
+	\uncover<2->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(3.5cm,0.5cm)}]current page.center){
+		\parbox{0.5\textwidth}{\textbf{Semi-Analytic model} \\
+			\textcolor{yellow}{Axisymmetric ejecta components}, \\
+			Polar angle split into bins with radial model for each ejecta component  \footnotesize{\textcolor{gray}{of Grossman et al. (2014)}}. \\
+			Characetrised by:\\
+			$m_{\rm{ej}}^{i}  (\theta)$, $\upsilon_{\rm{rms}}^{i} (\theta)$, $\kappa_{rm{ej}}^{i} (\theta)$
+		}};
+	}
+
+	\uncover<2->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(2.5cm,-3.0cm)}]current page.center) {\includegraphics[height=3.0cm]{./figs_intro/mkn__albino2.pdf}};
+	}%
+
+	\uncover<2->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-2.8cm,-2.99cm)}]current page.center) {\includegraphics[height=3.0cm]{./figs_intro/mkn_albino_models.pdf}};
+	}%
+	
+	\end{tikzpicture} 
+\end{frame}
+
+% Overview of dynamics
+\section{Merger Dynamics}
+\subsection{Binary Neutron Star merger dynamics}
+\begin{frame}
+	\begin{tikzpicture}[overlay,remember picture]
+			
+		\uncover<1->{ % <-> |
+				\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(1.0cm,1.5cm)}]current page.center) {\includegraphics[height=4.5cm]{./figs_intro/merger_nat.png}};
+		}
+		
+			
+		\uncover<2->{ % <-> |
+			\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-3.0cm)}]current page.center){
+				\parbox{0.5\textwidth}{\textbf{Geodesic Criterion} \\
+					$u_{t} \leq -1$ \\
+					($u_{t}$ is the covariant time component of the fluid element 4-velocity) \\
+					Simplicity (Nuetonian$\rightarrow \upsilon_{\infty}>0$) \\
+					Independent of EOS. \\		
+			}};
+		}
+	
+		\uncover<3->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(3.0cm,-3.0cm)}]current page.center){
+			\parbox{0.5\textwidth}{\textbf{Bernoulli criterion} \\
+				$hu_{t} \leq -1$, \\
+				($h$ - enthalpy) \\
+				thermal energy of the fluid is transformed into kinetic one. \\
+		}};
+	}
+			
+	\end{tikzpicture}
+\end{frame}
+
+
+% Dynamical Ejecta 1
+\subsection{Ejecta}
+\begin{frame}
+	\begin{tikzpicture}[overlay,remember picture]
+	
+	\uncover<2->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(5.5cm,3.0cm)}]current page.center){
+			\parbox{1.1\textwidth}{\textbf{Dynamical ejecta average properites} \\
+				$M_{\rm{rj}}\propto10^{-3}$, $\upsilon_{\infty}\propto0.2$, $Y_e\propto0.2$	
+		}};
+	}
+	
+	\uncover<3->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(7.5cm,1.0cm)}]current page.center){
+			\parbox{1.1\textwidth}{\textbf{For kilonova:} \\
+				$Y_e\propto0.2 \rightarrow$ \textcolor{red}{Red} component \\
+				$M_{\rm{ej}} <$ needed. \\	
+		}};
+	}
+	
+	
+	\uncover<1->{ % <-> |
+		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,2.5cm)}]current page.center){
+		\parbox{1.1\textwidth}{\textbf{Dynamical Ejecta} \\
+		Components \\
+		- Tidal : Orbital plane, \textcolor{red}{Low $Y_e$} \\
+		- Shocked : Polar, \textcolor{babyblue}{High $Y_e$} \\
+		}};
+	}
+	
+%	\uncover<3->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.8cm, 1.4cm)}]current page.center) {\includegraphics[height=5.0cm]{./figs_intro/david_ejpars.pdf}};
+%	}
+%	
+%	\uncover<2->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.8cm,-2.7cm)}]current page.center) {\includegraphics[height=3.18cm]{./figs_intro/david_tidalshocked.pdf}};
+%	}
+	
+	\uncover<1->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-2.4cm,-1.56cm)}]current page.center) {\includegraphics[height=5.5cm]{./figs_intro/SFHo_M135135_M0.png}};
+	}
+
+\end{tikzpicture}
+\end{frame}
+
+% Dynamical Ejecta 2
+%\begin{frame}
+%	\begin{tikzpicture}[overlay,remember picture]
+%	\uncover<1->{ % <-> |
+%		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,2.5cm)}]current page.center){
+%			\parbox{1.1\textwidth}{\textbf{Dynamical ejecta average properites} \\
+%			$M_{\rm{rj}}\propto10^{-3}$, $\upsilon_{\infty}\propto0.2$, $Y_e\propto0.2$	
+%		}};
+%	}
+%
+%	\uncover<4->{ % <-> |
+%		\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,0.5cm)}]current page.center){
+%			\parbox{1.1\textwidth}{\textbf{For kilonova:} \\
+%				$Y_e\propto0.2 \rightarrow$ \textcolor{red}{Red} component \\
+%				$M_{\rm{ej}} <$ needed. \\	
+%		}};
+%	}
+%	
+%	\uncover<3->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.8cm, 1.4cm)}]current page.center) {\includegraphics[height=5.1cm]{./figs_intro/david_ejpars.pdf}};
+%	}
+%	
+%	\uncover<1->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.85cm,-2.8cm)}]current page.center) {\includegraphics[height=3.3cm]{./figs_intro/david_tidalshocked.pdf}};
+%	}
+%	
+%	\uncover<2->{ % <-> |
+%		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-3.7cm,-2.8cm)}]current page.center) {\includegraphics[height=3.5cm]{./figs_intro/ejecta_david.pdf}};
+%	}
+%	
+%	\end{tikzpicture}
+%\end{frame}
+
+
+% Secular ejecta
+\begin{frame}
+	\begin{tikzpicture}[overlay,remember picture]
+	\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.55cm,1.cm)}]current page.center){
+		\parbox{0.70\textwidth}{
+			\textbf{Secular Ejecta}
+			\begin{itemize}
+				\normalsize\item Remnant is born with excess in angular momentum and mass.
+				\normalsize\item Disk colling \& heating via outflows.
+				\normalsize\item Neutrino cooling,
+				\normalsize\item neutrino re-absorption \footnotesize{\textcolor{gray}{[Perego+2014].}}
+				\normalsize\item Magnetic stresses \& turbulence \footnotesize{\textcolor{gray}{[Siegel+2014].}}
+				\normalsize\item Nuclear recombination energy unbind matter \& $r-$process heating \footnotesize{\textcolor{gray}{[Fernandez\&Metzger 2013.}}
+			\end{itemize}
+%			
+%			
+%			\textbf{Secular Ejecta} \\
+%			\
+%			
+%			
+%			Remnant with excess in angular momentum and mass. \\
+%			Disk colling \& heating via outflows \\
+%			Neutrino cooling \& \\ 
+%			nutrino absorption \& \\
+%			magnetic stresses and turbulence
+			
+			
+			
+	}};
+	
+	\uncover<2->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.77cm, 0.65cm)}]current page.center) {\includegraphics[height=3.3cm]{./figs_intro/radice_diskej.pdf}};
+	}
+	
+	\uncover<3->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(3.75cm,-2.75cm)}]current page.center) {\includegraphics[height=3.5cm]{./figs_intro/nuwind.pdf}};
+	}
+	
+	\uncover<4->{ % <-> |
+		\node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(-2.6cm,-3.18cm)}]current page.center) {\includegraphics[height=2.5cm]{./figs_intro/magneto.png}};
+	}
+	
+	\end{tikzpicture}
+\end{frame}
+
+% tools
+\subsection{Tools}
+\begin{frame}{}
+	
+	\textbf{Goal: construct a numeral relativity informed kilonova model}
+	\vspace{5mm}
+    \begin{itemize}
+        
+        \normalsize\item\textbf{GRHD} -- \texttt{WhiskyTHC} \\ \footnotesize{\textcolor{gray}{(Radice \& Rezzolla 2012; Radice+2014a,b, Radice+2015)}}
+        \normalsize\item\textbf{Spacetime -- \texttt{z4c} of the \texttt{Einstein Toolkit}}\\ 
+        \footnotesize{\textcolor{gray}{(Bernuzzi \& Hilditch 2010)}}
+        \normalsize\item\normalsize{\textbf{Neutrinos} -- Leakage + M0 (gray)} \\
+        \footnotesize{{\textcolor{gray}{(Galeazzi+2013; Radice+2016b)}}}
+        \normalsize\item\textbf{Viscosity} -- subgrid-scale turbulent angular momentum transport. \\
+        \footnotesize{\textcolor{gray}{GRLES (Radice+2017)}}
+        \normalsize\item{\textbf{Kilonova} -- semi-analytical anisotropic NR informed kilonova model \\
+        \footnotesize{\textcolor{gray}{(Perego+2017)}}}
+    \end{itemize}
+\end{frame}
+
+\section{Examples}
+\subsection{Setup}
+\begin{frame}{}
+    \begin{tikzpicture}[overlay,remember picture]
+    % \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,3.6cm)}]current page.center){
+    % \parbox{0.5\textwidth}{\textbf{NS Merger}}};
+    
+    % SIM NAME | DD2 |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(2.8cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{DD2 M13641364}
+    }}};
+    % D2 MAP
+    \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(0.45cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_dd2/0000000.png}};
+    
+    % SIM MAME | LS220 |
+    \node (t4) [anchor=center,scale=1,opacity=1] at ([shift={(7.0cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{LS220 M13641364}
+    }}};
+    % D2 MAP
+    \node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(4.3cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_ls220/0000000.png}};
+    
+    % Ejecta | LS220 |
+    % \uncover<2->{
+    %     \node (img3)[anchor=center,scale=1,opacity=1] at ([shift={(3.81cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_ls220/ejecta_profile_emp.png}};
+    % % Ejecta | DD2 | 
+    %     \node (img4)[anchor=center,scale=1,opacity=1] at ([shift={(0.20cm,-2.60cm)}]current page.center)     {\includegraphics[height=3cm]{figs_dd2/ejecta_profile_emp.png}};
+    % }
+    % \uncover<3->{
+    %     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm, 3.0cm)}]current page.center){
+    %     \parbox{0.4\textwidth}{\tiny{\textcolor{gray}{The AT2017gfo data is from Pian et al. (2017)}}}};
+    %     \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm,0.75cm)}]current page.center) {\includegraphics[height=3.7cm]{figs_mkn/mkn_0comp.png}};
+    % }
+    
+    \end{tikzpicture} 
+\end{frame}
+
+\subsection{Inspiral}
+\begin{frame}{}
+    
+    \begin{tikzpicture}[overlay,remember picture]
+    
+    % SIM NAME | DD2 |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(2.8cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{DD2 M13641364}
+    }}};
+    % D2 MAP | DD2 |
+    \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(0.45cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_dd2/0059392.png}};
+    % D2 MAP | LS220 |
+    \node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(4.3cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_ls220/0145408.png}};
+    
+    % SIM MAME | LS220 |
+    \node (t4) [anchor=center,scale=1,opacity=1] at ([shift={(7.0cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{LS220 M13641364}
+    }}};
+    % Ejecta | LS220 |
+    % \node (img3)[anchor=center,scale=1,opacity=1] at ([shift={(3.81cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_ls220/ejecta_profile_emp.png}};
+    % % Ejecta | DD2 | 
+    % \node (img4)[anchor=center,scale=1,opacity=1] at ([shift={(0.20cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_dd2/ejecta_profile_emp.png}};
+
+    % \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm, 3.0cm)}]current page.center){
+    % \parbox{0.4\textwidth}{\tiny{\textcolor{gray}{The AT2017gfo data is from Pian et al. (2017)}}}};
+    % \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm,0.75cm)}]current page.center) {\includegraphics[height=3.7cm]{figs_mkn/mkn_0comp.png}};
+    
+    \end{tikzpicture} 
+\end{frame}
+
+
+\subsection{Merger}
+\begin{frame}{}
+    \begin{tikzpicture}[overlay,remember picture]
+    
+    % SIM NAME | DD2 |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(2.8cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{DD2 M13641364}
+    }}};
+    % D2 MAP | DD2 |
+    \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(0.45cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_dd2/0167936.png}};
+    \uncover<2->{
+        \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(0.45cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_dd2/0276480.png}};
+    }
+    
+    % D2 MAP | LS220 |
+    \node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(4.3cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_ls220/0253952.png}};
+    \uncover<2->{
+        \node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(4.3cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_ls220/0362496.png}};
+    }
+    
+    % Cartoon
+    \uncover<3->{
+    	\node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.23cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_cartoon/cart0comp.png}};
+	}
+    
+    % SIM MAME | LS220 |
+    \node (t4) [anchor=center,scale=1,opacity=1] at ([shift={(7.0cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{LS220 M13641364}
+    }}};
+    \uncover<3->{
+    % Ejecta | LS220 |
+        \node (img3)[anchor=center,scale=1,opacity=1] at ([shift={(3.81cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_ls220/ejecta_profile_emp.png}};
+    % Ejecta | DD2 | 
+        \node (img4)[anchor=center,scale=1,opacity=1] at ([shift={(0.20cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_dd2/ejecta_profile_emp.png}};
+    }
+    \uncover<4->{
+    % MKN 
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm, 3.0cm)}]current page.center){
+        \parbox{0.4\textwidth}{\tiny{\textcolor{gray}{The AT2017gfo data is from Pian+17, Tanvir+17}}}};
+        \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm,0.75cm)}]current page.center) {\includegraphics[height=3.7cm]{figs_mkn/mkn_0comp.png}};
+    }
+    \end{tikzpicture} 
+\end{frame}
+
+
+\subsection{Dyn. Phase}
+\begin{frame}{}
+    \begin{tikzpicture}[overlay,remember picture]
+    
+    % SIM NAME | DD2 |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(2.8cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{DD2 M13641364}
+    }}};
+    % D2 MAP | DD2 |
+    \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(0.45cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_dd2/0385024.png}};
+    
+    % D2 MAP | LS220 |
+    \node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(4.3cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_ls220/0468992.png}};
+    
+    % Cartoon
+    \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.23cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_cartoon/cart1comp.png}};
+    
+    % SIM MAME | LS220 |
+    \node (t4) [anchor=center,scale=1,opacity=1] at ([shift={(7.0cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{LS220 M13641364}
+    }}};
+    % Ejecta | LS220 |
+    \node (img3)[anchor=center,scale=1,opacity=1] at ([shift={(3.81cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_ls220/ejecta_profile_dyn.png}};
+    % Ejecta | DD2 | 
+    \node (img4)[anchor=center,scale=1,opacity=1] at ([shift={(0.20cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_dd2/ejecta_profile_dyn.png}};
+    
+    % MKN 
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm, 3.0cm)}]current page.center){
+    \parbox{0.4\textwidth}{\tiny{\textcolor{gray}{Semi-analytical, anisotropic, kilonova model, Perego+17a)}}}};
+    \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm,0.75cm)}]current page.center) {\includegraphics[height=3.7cm]{figs_mkn/mkn_1comp.png}};
+    
+    \end{tikzpicture} 
+\end{frame}
+
+
+\subsection{Spiral Wave Wind}
+\begin{frame}{}
+    \begin{tikzpicture}[overlay,remember picture]
+    
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm,3.70cm)}]current page.center){
+    \parbox{0.4\textwidth}{\tiny{\textcolor{gray}{[arXiv:1907.04872]}}
+    }};
+    
+    % SIM NAME | DD2 |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(2.8cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{DD2 M13641364}
+    }}};
+    % D2 MAP | DD2 |
+    \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(0.45cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_dd2/0710656.png}};
+    % D2 MAP | LS220 |
+    \node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(4.3cm,1.40cm)}]current page.center) {\includegraphics[height=5cm]{figs_ls220/0794624.png}};
+    
+    % Cartoon
+    \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.23cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_cartoon/cart2comp.png}};
+    
+    % SIM MAME | LS220 |
+    \node (t4) [anchor=center,scale=1,opacity=1] at ([shift={(7.0cm,4.10cm)}]current page.center){
+    \parbox{0.8\textwidth}{\scriptsize{\textcolor{black}{LS220 M13641364}
+    }}};
+    % Ejecta | LS220 |
+    \node (img3)[anchor=center,scale=1,opacity=1] at ([shift={(3.81cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_ls220/ejecta_profile_dyn_bern.png}};
+    % Ejecta | DD2 | 
+    \node (img4)[anchor=center,scale=1,opacity=1] at ([shift={(0.20cm,-2.60cm)}]current page.center) {\includegraphics[height=3cm]{figs_dd2/ejecta_profile_dyn_bern.png}};
+    % MKN 
+    \uncover<2->{
+    	\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm, 3.0cm)}]current page.center){
+        \parbox{0.4\textwidth}{\tiny{\textcolor{white}{Assuming that DD2 does not collapse in $250$ms}}}};
+    }
+    
+    \uncover<1>{    
+        \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm,0.75cm)}]current page.center) {\includegraphics[height=3.7cm]{figs_mkn/mkn2comp.png}};
+    }
+    \uncover<2>{
+        \node (img5)[anchor=center,scale=1,opacity=1] at ([shift={(-3.95cm,0.60cm)}]current page.center) {\includegraphics[height=3.4cm]{figs_mkn/mkn2pluscomp.png}};
+    }
+    \end{tikzpicture} 
+\end{frame}
+
+
+
+\subsection{Spiral-Wave wind properties}
+\begin{frame}
+    \begin{tikzpicture}[overlay,remember picture] % (left-rigth up-down)
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.1cm,2.0cm)}]current page.center){
+        \parbox{0.4\textwidth}{\textbf{Properties of the wind:}
+        \begin{itemize} 
+            \item \textbf{Confined to the plane of the binary}
+            \item \textbf{$\upsilon_{\infty}\approx0.2$}
+            \item \textbf{$Y_e\geq0.25$}
+        \end{itemize}}};
+
+        % \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(2.8cm,4.10cm)}]current page.center){
+        %     \parbox{0.8\textwidth}{\scriptsize{\textcolor{white}{DD2\_M13641364\_M0\_LK}}}};
+
+        \uncover<1->{
+            \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(2.25cm,2.40cm)}]current page.center) {\includegraphics[height=3cm]{figs_dd2/correlations_vinf.png}};
+        }
+        \uncover<1->{
+            \node (img1)[anchor=center,scale=1,opacity=1] at ([shift={(2.24cm,-0.55cm)}]current page.center) {\includegraphics[height=2.99cm]{figs_dd2/correlations_ye.png}};
+        }
+
+    \end{tikzpicture}    
+\end{frame}
+
+
+\section{Conclusion}
+\begin{frame}{}
+    \textbf{Idea: construct a numeral relativity informed Kilonova model}\\
+    \vspace{5mm}
+    \textbf{Extracting NR data allows us to improve physical interpretation of the Kilonova model}\\
+    \vspace{5mm}
+    \textbf{Future work}
+    \begin{itemize}
+        \item Longer runs (100+ ms)
+        \item High resolution runs
+        \item Add more physics (MF, neutrino treatment)
+        \item More observed events
+    \end{itemize}
+\end{frame}
+
+
+% \section{Conclusion}
+\begin{frame}{}
+    \Huge{Thank you for your attention}\\
+    \begin{figure}
+		\begin{center}
+			\includegraphics[width=0.50\textwidth]{./figs/Core.png}
+				% 	\vspace{-5mm}
+% 			\caption{\footnotesize{\textcolor{gray}{Computational Relativity Group \url{http://www.computational-relativity.org/}}}}
+			\footnotesize{\textcolor{gray}{Computational Relativity Group \url{http://www.computational-relativity.org/}}}
+		\end{center}
+	\end{figure}
+\end{frame}
+
+%==========================================================================================
+%=====================================----------------=====================================
+%====================================| BACK UP SLIDES |====================================
+%=====================================----------------=====================================
+%==========================================================================================
+\subsection*{EOS}
+\begin{frame}
+	\begin{block}{DD2}
+		\begin{itemize}
+			\item based on nuclear statistical equilibrium with a finite volume correction coupled, to a relativistic mean field theory for treating high density,
+			\item contains neutrons, protons, light nuclei such as deuterons, helions, tritons
+			and alpha particles and heavy nuclei,
+			\item support masses up to $\approx2.4M_{\odot}$
+		\end{itemize}
+	\end{block}
+	\begin{block}{LS220}
+		\begin{itemize}
+			\item is based on the single nucleus approximation for heavy nuclei where the thermal distribution of different nuclear species is replaced by a single representative heavy nucleus,
+			\item contains neutrons, protons, alpha particles and heavy	nuclei.
+			\item support masses up to $\approx2.05M_{\odot}$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{Ejecta Criteria}
+\begin{frame}
+	\begin{block}{Geodesic $u_t < -1$}
+		\begin{itemize}
+			\item $u_{t}$ -- constant of motion for a geodesics (stationary space-time)
+			\item $W = -u_{t}$ for asymptotically flat space at $\infty$.
+			\item assuming, flow is made of isolated particles, following the geodesic, metric is time-independent,
+			\item neglecting pressure and $r-$process heating,
+		\end{itemize}
+	\end{block}
+	\begin{block}{Bernoulli, $hu_t < -1$}
+		\begin{itemize}
+			\item stationary relativistic fluid flow, $h u_{t}$ constant along fluid world lines. 
+			\item thermal energy of the fluid is now assumed to be transformed into kinetic energy as the fluid decompresses.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{Kilonova Model}
+\begin{frame}
+	\begin{block}{Semi-analytic anisotropic kilonova model \textcolor{lightgray}{(Perego et.al 2017)}}
+		\begin{itemize}
+			\item multiple ejecta components (Dynamical, secular)
+			\item Ejecta properties: $m_{\rm{ej}}^{i}  (\theta)$, $\upsilon_{\rm{rms}}^{i} (\theta)$, $\kappa_{rm{ej}}^{i} (\theta)$
+			\item Axisymmetry, 12 $\theta$ bins.
+			\item Radial model inside each bin \textcolor{gray}{(Grossman et.al 2014)}
+			\item energy is reprocessed and reimetted at the photosphere, $Q=M_{\rm{env}}\epsilon_{\rm{nuc}}$. Heating rates \textcolor{gray}{(Korobkin et al. 2012)}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% -------------------------------------| WhiskyTHC |----------------------------------
+% \section*{Supplemental}
+% \section{Tools}
+\subsection{GRHD}
+\begin{frame}{}
+    \begin{tikzpicture}[overlay,remember picture]
+        % \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,3.0cm)}]current page.center){
+        % \parbox{1.0\textwidth}{\textbf{Initial Data:} \texttt{Lorene} pseudo-spectral code \tiny\textcolor{gray}{(Gourgoulhon+1999)}
+        % }};
+    
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,0.0cm)}]current page.center){
+        \parbox{1.0\textwidth}{\textbf{GR Hydro:} \texttt{WhiskyTHC} for $n_p$ and $n_n$ evolution \tiny\textcolor{gray}{(Radice \& Rezzolla 2012; Radice+2014a,b, Radice+2015)}
+        \\
+        \footnotesize{- NS matter is a perfect fluid}
+        \\
+        \footnotesize{- high resolution shock-capturing (HRSC) schemes}
+        \\
+        \footnotesize{P5 scheme for primitive variables reconstruction}
+        \\
+        \footnotesize{Atmosphere is set to $\rho_{0}=6\times10^{4}$g com$^{-3}$}
+        \\
+        \footnotesize{Z4c formulation of Einstein’s equations for spacetime evolution \tiny\textcolor{gray}{((Bernuzzi \& Hilditch 2010})}
+        \\
+        \footnotesize{Grid: $3.024$ km in diameter. \texttt{Carpet} module of the \texttt{Einstein Toolkit} (Berger-Oliger conservative AMR) }
+        }};
+        
+        \end{tikzpicture} 
+\end{frame}
+
+\end{document}
+
+\subsection{Neutrino Viscosity}
+\begin{frame}{}
+    \begin{tikzpicture}[overlay,remember picture]
+        
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm, 2.5cm)}]current page.center){
+        \parbox{1.0\textwidth}{\textbf{Neutrinos:} \texit{Leakage Scheme}, separate treatment of $\nu_e$ and $\Bar{\nu_{e}}$ and $\nu_x$. 
+        \\
+        \footnotesize{Computing $\kappa_{\nu,a}$ and $\kappa_{\nu,s}$, neutrinos follow Fermi-Dirac distribution, separately for number density and for energy density weighted.}
+        \\
+        \footnotesize{Neutrinos are 1) trapped (neglected pressure) and 2) free-streaming, evolved according to M0 (switched on shortly before merger)}
+        }};
+        
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm, 0.5cm)}]current page.center){
+        \parbox{1.0\textwidth}{\textbf{Magnetic Field:} Not included. 
+        \footnotesize{Included effect of the MF on the angular momentum transport via effective viscosity, the subgrid-scale turbulent angular momentum transport \tiny{\textcolor{gray}{Radice+2017}} }
+        }};
+        
+    \end{tikzpicture} 
+\end{frame}
+
+% \begin{frame}{}
+% \Large{\texttt{WhiskyTHC}}
+% \hspace{-20mm}
+%     \begin{itemize}
+%         \item \normalsize{\textbf{Initial Data}: quasi-circular orbit \texttt{Lorene}, \\ pseudo-spectral code \textcolor{gray}{[Gourgoulhon+ (1999)]} }
+%         \item \normalsize{\textbf{Evolution:} \texttt{WhiskyTHC} 
+%         \textcolor{gray}{Radice \& Rezzolla (2012); Radice+ (2014, 2015)}}
+%         \begin{itemize}
+%             \item \footnotesize{high-resolution shock-capturing schemes}
+%             \item \footnotesize{Non-oscillatory reconstruction of the primitive variables with the MP5.}
+%             \item \footnotesize{The spacetime is evolved using the Z4c formulation of
+% Einstein’s equations \textcolor{gray}{Bernuzzi \& Hilditch 2010}}
+%         \end{itemize}
+%         \item \normalsize{\textbf{NS matter} as is a perfect fluid}
+%         \item \normalsize{\textbf{Atmosphere} $6\times 10^4$ g cm$^{-3}$}
+%         \begin{itemize}
+%             \item \footnotesize{rest-mass conservation is insured via positivity-preserving limiter \textcolor{gray}{Radice+ (2014)}}
+%             \item \footnotesize{separate local conservation of the proton and neutron number densities is ensured via consistent multifluid advection method of \textcolor{gray}{Plewa & Müller (1999)}}
+%         \end{itemize}
+%     \end{itemize}
+ 
+% \end{frame}
+
+
+%-------------------------------------| MKN Code |--------------------------------------
+% \begin{frame}{}
+% \Large{\texttt{MKN model}}
+% \footnotesize{
+%     \begin{itemize}
+%         \item Dyn. Ej. $F(\theta)\propto\sin^2(\theta)$
+%         \item Wind. $F(\theta)\propto\text{const}$, $\theta\in\pi/3$, $\upsilon_w\leq0.08$c, $m_{ej;w} = \xi M_{disk}$ $(\xi_w\sim0.02)$
+%         \item Secular. $m_{ej;sec} = \xi M_{disk}$ $(\xi_w\sim0.1)$, uniform $\upsilon\leq0.05$c, equatorial $F_s(\theta)=\sin^2\theta$ $Y_e\leq0.25$
+%     \end{itemize}
+    
+%     \begin{itemize}
+%         \item Axial symmetry,
+%         \item 24 equally spaced bins of $\theta$,
+%         \item Opacity: $\kappa\approx10.$ if $Y_e>0.25$, $\kappa\approx1.$ if $Y_e<0.25$ 
+%         \item In each bin - radial model Grossman et al. (2014)
+%         \item Quick reprocessing of the inner shells radiation by the outermost.
+%         \item Nuclear heating from (Korobkin et al. 2012):
+%     \end{itemize}
+% }
+% \end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%=================================1============================================================
+% \section*{Introduction}%--------------------------------------1--------------------------------
+% \begin{frame}{}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=0.8\textwidth]{lmc_hrd_clean.pdf}
+%         \caption{\textit{Evolutionary tracks Meynet \& Maeder 2005}}
+% 	\end{center}
+% \end{figure}
+% MS(O) $\rightarrow$ RSG $\rightarrow$ WNL $\rightarrow$ WNE $\rightarrow$ WC/WO $\rightarrow$ SN 1b (1b/c)
+% \end{frame}
+
+% \section*{Introduction} %-------------------------------------2--------------------------------
+% \begin{frame}{}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=0.8\textwidth]{lmc_hrd_wne.pdf}
+%         \caption{\textit{WNE stars adopted from Hainich et al. 2014}}
+% 	\end{center}
+% \end{figure}
+% \textbf{Wolf-Rayet Radius Problem}
+% \end{frame}
+
+%=================================2============================================================
+% \section{Introduction}
+
+% \begin{frame}{Era of multimessenger astronomy}
+%         blabla bal\footnote{test}
+%         \begin{tikzpicture}[overlay,remember picture]
+%         	\node (img2)[anchor=center,scale=1,opacity=1] at ([shift={(0.3cm,-0.6cm)}]current page.center) {\includegraphics[height=2.cm]{messengers_of_astronomy.jpg}};  
+%         	\onslide<2->{
+%             	\node(t3) [anchor=center,scale=1,opacity=1] at ([shift={(3.5cm,-4.05cm)}]current page.center)
+%     		    {\tiny{Warburton et al. [1708.03720]}};
+% 		    }
+% 		    \uncover<3->{
+%             	\node(t3) [anchor=center,scale=1,opacity=1] at ([shift={(3.5cm,-4.05cm)}]current page.center)
+%     		    {\tiny{blabla et al. [1708.03720]}};
+% 		    }
+		    
+% 		    \only<3->{ % foreces the footnote to appear only after you uncover that
+%             	\node(t3) [anchor=center,scale=1,opacity=1] at ([shift={(3.5cm,-3.05cm)}]current page.center)
+%     		    {\tiny{blabla2 et al. [1708.03720]}};
+% 		    }
+%         \end{tikzpicture} 
+    
+%         \begin{tikzpicture}[overlay,remember picture]
+%             \node{img1}[anchor=center,scale=1,opacity=1] at ([shift={(3.3cm, -0.6cm)}]current page.center)            {\includegraphics[width=1.15\textwidth]{messengers_of_astronomy.jpg}};
+% % 			\caption{\textcolor{gray}{Credig: \url{https://scienceofcycles.com/topics/charged-particles/}}}
+%         \end{tikzpicture}
+    
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+%         \vspace{-8mm}
+% 			\begin{figure}
+% 				\begin{center}
+%         \begin{tikzpicture}[overlay,remember picture]
+%             \node{img1}[anchor=center,scale=1,opacity=1] at ([shift={(3.3cm, -0.6cm)}]current page.center)            {\includegraphics[width=1.15\textwidth]{messengers_of_astronomy.jpg}};
+% % 			\caption{\textcolor{gray}{Credig: \url{https://scienceofcycles.com/topics/charged-particles/}}}
+%         \end{tikzpicture}
+					
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 			\begin{itemize}
+%                 \onslide<2->{\item \normalsize{ Multiple signals for a single event.}}
+% 				\onslide<3->{\item \normalsize{ \textit{Example}: GW170817 }}
+% 				\item \normalsize{ Interpreted as binary NS merger. }
+% 				\item \normalsize{ Detected: GW, sGRB, \textbf{Kilonova} emission AT2017gfo. }
+% 			\end{itemize}
+%     \end{columns} 
+% \end{frame}
+
+% \begin{frame}{}
+%     testtext
+%     \onslide<2->{
+%         blabla bal\only<2->{\footnote{test}}
+%     }
+    
+% \end{frame}
+
+%=================================MOTIVATION======================================================
+% \section{Motivation}
+
+% \begin{frame}{}
+% 	\begin{itemize}
+% 	    \item $r$-process nucleosynthesis (sorce of heaviest elements)
+% 	    \item Evolution of $r$-process Nucleo. in the Universe
+% 	    \vspace{-0mm}
+% 	        \begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.80\textwidth]{nucleo_motivation.png}
+% 					\vspace{-5mm}
+% 					\caption{\footnotesize{\textcolor{gray}{Credig: \url{http://www.astronomy.ohio-state.edu/~jaj/nucleo/}}}}
+% 				\end{center}
+% 			\end{figure}
+	    
+% 	   % \item Cosmology
+% 	   % \item General relativity testing
+% 	   % \item Nuclear matter EOS probing
+% 	\end{itemize}
+% 	\vspace{-5mm}
+% % 	\begin{columns}
+% % 		\column{0.75\linewidth}
+                             
+% % 		\column{0.60\linewidth}
+% %     \end{columns} 
+% \end{frame}
+
+%=================================KILONOVA====================================================
+% \section{Kilonova}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.65\linewidth}
+%         % \vspace{-8mm}
+%         Spherically symmetric three-component models. \footnotesize{\textcolor{gray}{Viller+ (2017)}}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.80\textwidth]{viller_mkn_model.png}
+% 				% 	\caption{\textcolor{gray}{Credig: \url{https://scienceofcycles.com/topics/charged-particles/}}}
+% 				\end{center}
+% 			\end{figure}
+% 			\vspace{-5mm}
+% 		    \begin{itemize}
+% 			    \item \normalsize{
+% 			    \textbf{\textcolor{babyblue}{Blue}} fast, $La$-poor\\
+% 			 %   $\kappa = 0.5$cm$^2$g$^{-1}$, $M_{ej} \approx 0.02M_{\odot}$ $v_{ej} \approx 0.27$c
+% 			    }
+% 			    \item \normalsize{
+% 			    \textbf{\textcolor{amethyst}{Purple}}, slower $La$-richer\\
+% 			 %   $\kappa = 3$cm$^2$g$^{-1}$, $M_{\ej} \approx 0.047M_\odot$ $v_{ej}\approx 0.15$c
+% 			    }
+% 			    \item \normalsize{
+% 			    \textbf{\textcolor{red}{Red}}, slower, $La-$rich\\
+% 			 %   $\kappa = 10$cm$^2$g$^{-1}$ $M_{ej} ≈ 0.011M_{\odot}$, $v_{ej} ≈ 0.14$c
+% 			    }
+% 			\end{itemize}            
+			
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.60\textwidth]{Albino_kNmodel.png}
+% 					\vspace{-4mm}
+% 					\caption{\footnotesize{\textcolor{gray}{[Perego+ ApJL(2017)]}}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 		\textbf{EM counterpart to the merger, powered by the radioactive decay of newly-produced heavy nuclei.}\\
+%         \textbf{Key parameters}
+% 			\begin{itemize}
+% 			    \item velocity, 
+% 			    \item ejecta mass 
+% 			    \item opacity = ($f(Ye)$)
+% 			\end{itemize}
+% 			\textbf{...needed...}
+% 			\begin{itemize}
+%                 \item \normalsize{ Rad. transfer calc. $\rightarrow$ Heating to EM. }
+% 				\item \normalsize{ Nuc Net Calc $\rightarrow$ Abundances, Rad. heating. }
+% 				\item \normalsize{ NumRel $\rightarrow$ conditions}
+% 			\end{itemize}
+%     \end{columns} 
+% \end{frame}
+
+% \section{Merger Simulations}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.70\linewidth}
+%         \vspace{-2mm}
+%             \begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.80\textwidth]{SFHo_M135135_M0.png}
+% 					\vspace{-4mm}
+% 					\caption{\footnotesize{\textcolor{gray}{SFHo M135135 M0 [Radice+ (2018)]}}}
+% 				\end{center}
+% 			\end{figure}
+% 			\vspace{-10mm}        
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.80\textwidth]{merger_nat.png}
+% 				    \vspace{-4mm}
+% 					\caption{\footnotesize{\textcolor{gray}{Courtesy of David Radice}}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% % 		\textbf{Method}: \texttt{WhiskyTHC},  \\
+
+% 		\textbf{Multiple ejecta channels:}\\
+% 			\begin{itemize}
+%                 \item \normalsize{ \textcolor{red}{Dynamical (tidal \& shocked)} }
+% 				\item \normalsize{ \textcolor{babyblue}{Secular} }
+% 			\end{itemize}
+% 			\textbf{Key parameters}
+% 			\textbf{Largest $M$ flux from bounce}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.90\textwidth]{siegal_like_plot.png}
+% 					\vspace{-4mm}
+% 					\caption{\footnotesize{\textcolor{gray}{Targeted simulation set}}}
+% 				\end{center}
+% 			\end{figure}
+%     \end{columns} 
+% \end{frame}
+
+% \section{MKN Model}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.65\linewidth}
+%         \vspace{-8mm}
+%             \begin{figure}
+%                 \begin{center}
+% 			    	\includegraphics[width=0.70\textwidth]{my_fig.png}
+% 					\vspace{-4mm}
+% 				% 	\caption{\footnotesize{\textcolor{gray}{Targeted simulation set}}}
+% 				\end{center}
+% 			\end{figure}
+% 			\vspace{-5mm}
+% 		    \begin{figure}
+% 				\begin{center}
+% 			    	\includegraphics[width=0.70\textwidth]{tst_mkn.png}
+% 					\vspace{-4mm}
+% 				% 	\caption{\footnotesize{\textcolor{gray}{Targeted simulation set}}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% % 		\textbf{Method}: \texttt{WhiskyTHC},  \\
+%         \textbf{Long Evolved Model}
+%             \begin{figure}
+%                 \begin{center}
+% 			    	\includegraphics[width=0.90\textwidth]{fluxes_DD2.png}
+% 					\vspace{-4mm}
+% 				% 	\caption{\footnotesize{\textcolor{gray}{Targeted simulation set}}}
+% 				\end{center}
+% 			\end{figure}
+
+% 		\textbf{Average Ejecta:}\\
+% 			\begin{itemize}
+%                 \item \normalsize{ \textcolor{babyblue}{Blue} - missed }
+%                 \item \normalsize{ \textcolor{red}{Red} - qualitative }
+% 			\end{itemize}
+% 			\textbf{Key parameters}
+% 			\begin{itemize}
+% 			    \item velocity, mass, $Ye$
+% 			\end{itemize}
+%     \end{columns} 
+% \end{frame}
+
+
+
+
+% \section{Conclusion}
+% \begin{frame}{}
+%     \textbf{Idea: maximally NR informed mkn model}\\
+%     \vspace{5mm}
+%     \textbf{Result: 2NR + 1nonNR component give qualitative fit}\\
+%     \vspace{5mm}
+%     \textbf{Future of NR}
+%     \begin{itemize}
+%         \item More physics (visosity, M1, MF)
+%         \item Longer runs (100+ ms)
+%         \item High resolution runs
+%     \end{itemize}
+%     \textbf{Future of Kilonova model}
+%     \begin{itemize}
+%         \item Self/cross-heating of components
+%         \item Advance radioactive transport
+%         \item Nuclo. Yeilds informed opacities
+%     \end{itemize}
+% \end{frame}
+
+
+
+
+% \begin{frame}{Targeted simulations set}
+%     Method: \texttt{WiskyTHC},  \\
+%     \textbf{Chirp mass}: \\
+%     \textbf{EOS}: LS220, SFHo, DD2, SLy4 \\
+%     \textbf{q}: from 1. to 0.8 \\
+% \end{frame}
+
+% \begin{frame}{Simulation outcomes}
+%     Method: \texttt{WiskyTHC},  \\
+%     \textbf{Chirp mass}: \\
+%     \textbf{EOS}: LS220, SFHo, DD2, SLy4 \\
+%     \textbf{q}: from 1. to 0.8 \\
+% \end{frame}
+
+% \section{backup}
+% \begin{frame}{METHOD}
+% \hspace{-20mm}
+%     \begin{itemize}
+%         \item \normalsize{\textbf{Initial Data}: quasi-circular orbit \texttt{Lorene}, \\ pseudo-spectral code \textcolor{grey}{[Gourgoulhon+ (1999)]} }
+%         \item \normalsize{\textbf{Evolution:} \texttt{WhiskyTHC} 
+%         \textcolor{gray}{Radice \& Rezzolla (2012); Radice+ (2014, 2015)}}
+%         \begin{itemize}
+%             \item \footnotesize{high-resolution shock-capturing schemes}
+%             \item \footnotesize{Non-oscillatory reconstruction of the primitive variables with the MP5.}
+%             \item \footnotesize{The spacetime is evolved using the Z4c formulation of
+% Einstein’s equations \textcolor{gray}{Bernuzzi \& Hilditch 2010}}
+%         \end{itemize}
+%         \item \normalsize{\textbf{NS matter} as is a perfect fluid}
+%         \item \normalsize{\textbf{Atmosphere} $6\times 10^4$ g cm$^{-3}$}
+%         \begin{itemize}
+%             \item \footnotesize{rest-mass conservation is unsured via positivity-preserving limiter \textcolor{gray}{Radice+ (2014)}}
+%             \item \footnotesize{separate local conservation of the proton and neutron number densities is ensured via consistent multifluid advection method of \textcolor{gray}{Plewa & Müller (1999)}}
+%         \end{itemize}
+%     \end{itemize}
+ 
+% \end{frame}
+
+
+% \section{Introduction}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+%         \vspace{-8mm}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.15\textwidth]{WR124.jpg}
+% 					\caption{\textit{Hubble image shows the nebula M1-67 around the Wolf-Rayet star WR 124}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% % 			\begin{block}{WR stars are:}
+% 				\begin{itemize}
+%                 	\item \normalsize{ Massive Luminous Stars}
+% 					\item \normalsize{ Emission lines He, C, N, O }
+% 					\item \normalsize{ High $\dot{M}\rightarrow$ dense winds }
+% 					\item \normalsize{ naked cores of massive stars}
+% 				\end{itemize}
+% % 			\end{block}{}
+%             \vspace{10mm}
+% % 			\begin{alertblock}{WR stars do:}
+% 				\begin{itemize}
+% 					\item \normalsize{enrich interstellar medium}
+% 					\item \normalsize{SNe and GRBs progenitors}
+% 					\item \normalsize{physics of stellar winds}
+%                     \item \normalsize{BH and NS progenitors}
+%                     \item \normalsize{\textcolor{gray}{Exoplanets}}
+% 				\end{itemize}
+% % 			\end{alertblock}
+
+% 	\end{columns} 
+% \end{frame}
+
+
+% % %=================================2.5============================================================
+% 					%--------------------------------------1--------------------------------
+% \begin{frame}{}
+% \textbf{\textcolor{yellow}{Problem: Wolf-Rayet Radius problem}}\\
+% % \hspace{5mm} - $T_{theory} \gg T_{observed}$ $\Rightarrow$ Photosph. in the wind\\
+% \hspace{5mm} - Models: $L\approx f(T_{eff})$, \textbf{but} $\Delta T_{observed} \gg \Delta T_{theory}$ \\
+% % \hspace{5mm} - Photosphere is in the wind $\Rightarrow$ Base of the wind is veiled
+% \hspace{10mm} - \textbf{\textcolor{yellow}{Goal}: connect base of the wind and photosphere, \\
+% \hspace{24mm}   \textbf{$L\approx f(T_{eff}, \textcolor{yellow}{x})$} \& uncertainty}
+% \vspace{-5mm}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+% %         \vspace{-8mm}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs/gal_hrd_tracks2.pdf}
+%                 \vspace{-3mm}
+%         		\caption{\textit{Gal. WNE \small{\textcolor{gray}{(Hamman+06)}}}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs/lmc_hrd_tracks2.pdf}
+%                 \vspace{-3mm}
+%       			\caption{\textit{LMC WNE \small{\textcolor{gray}{(Hainich+14)}}}}
+% 			\end{center}
+% 		\end{figure}
+% 	\end{columns} 
+% \end{frame}
+
+
+
+% % =================================2.75============================================================
+% % 					--------------------------------------1--------------------------------
+% \section{Theory}
+% \begin{frame}{}
+
+% 		\begin{equation*}
+%         	\frac{1}{v}\frac{dv}{dr} = - \Big( g - g_{rad} - 2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr} \Big) / (v^2 - c_s ^2)
+% 		\end{equation*}
+
+% 	\begin{columns}
+% 		\column{0.6\linewidth}
+%         \vspace{-10mm}
+% %         	\begin{figure}
+% % % 				\begin{center}
+% % %                 \hspace{-20mm}
+% % 				\includegraphics[width=1.1\textwidth]{./figs/OPAL_gal.pdf}
+% %         		\caption{\textit{OPAL \small{\textcolor{gray}{(Iglesias+96)}}}}
+% % % 				\end{center}
+% % 			\end{figure}
+			
+% %            
+            
+% 		\column{0.4\linewidth}
+ 
+%  	\begin{itemize}
+%     \item $\upsilon=\upsilon_s$ Spec. Point
+%     \item $\upsilon=c_s$ Base of Wind
+%     \item Rad. driven wind $g_{rad}> 2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr}$
+%     \item $\Gamma_s = g_{rad}/g \approx 1$
+%     \end{itemize}
+    
+%     \begin{itemize}
+%     \item $\Gamma_s = \frac{\kappa_s}{4\pi c G}\frac{L}{M}\approx1$
+% %     \item $\kappa_{Edd} = 4\pi c G \frac{M}{\textcolor{yellow}{L}}$
+% %     \item $\leftarrow$ $\kappa = f(T, \rho)$
+% %     \item $\textcolor{yellow}{\dot{M}}=4\pi r_s ^2 \upsilon_s \rho_s $
+%     \end{itemize}
+    
+%     \begin{itemize}
+%     \item \textbf{\textcolor{yellow}{\textbf{$\frac{d\kappa}{dr} \Big|_s>0$}}}
+%     \end{itemize}
+% % 	\hspace{5mm}\textcolor{green}{IOB = $f(Z)$}
+
+% %     \vspace{-5mm}
+% %     \hspace{10mm}\textbf{ $( \textcolor{yellow}{\dot{M}}, \textcolor{yellow}{L})\rightarrow(\textcolor{cyan}{T_s}, L/M)$ }
+       
+% \end{columns} 
+% \end{frame}
+
+% % --- --- ---
+
+% \begin{frame}{}
+
+% 		\begin{equation*}
+%         	\frac{1}{v}\frac{dv}{dr} = - \Big( g - g_{rad} - 2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr} \Big) / (v^2 - c_s ^2)
+% 		\end{equation*}
+
+% 	\begin{columns}
+% 		\column{0.6\linewidth}
+%         \vspace{-10mm}
+%         	\begin{figure}
+% % 				\begin{center}
+% %                 \hspace{-20mm}
+% 				\includegraphics[width=1.1\textwidth]{./figs/gal_opal2.pdf}
+%         		\caption{\textit{OPAL \small{\textcolor{gray}{(Iglesias+96)}}}}
+% % 				\end{center}
+% 			\end{figure}
+			
+% %            
+            
+% 		\column{0.4\linewidth}
+ 
+%  	\begin{itemize}
+%     \item $\upsilon=c_s$ Spec. Point
+%     \item $\upsilon=c_s$ Base of Wind
+%     \item Rad. driven wind $g_{rad}> 2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr}$
+%     \item $\Gamma_s = g_{rad}/g \approx 1$
+%     \end{itemize}
+    
+%     \begin{itemize}
+%     \item $\Gamma_s = \frac{\kappa_s}{4\pi c G}\frac{L}{M}\approx1$
+% %     \item $\kappa_{Edd} = 4\pi c G \frac{M}{\textcolor{yellow}{L}}$
+% %     \item $\leftarrow$ $\kappa = f(T, \rho)$
+% %     \item $\textcolor{yellow}{\dot{M}}=4\pi r_s ^2 \upsilon_s \rho_s $
+%     \end{itemize}
+    
+    
+%     \begin{itemize}
+%     \item \textbf{\textcolor{yellow}{\textbf{$\frac{d\kappa_s}{dr} \Big|_s>0$}}}
+%     \end{itemize}
+
+% \end{columns} 
+% \end{frame}
+
+% % --- --- ---
+
+% \begin{frame}{}
+
+% 		\begin{equation*}
+%         	\frac{1}{v}\frac{dv}{dr} = - \Big( g - g_{rad} - 2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr} \Big) / (v^2 - c_s ^2)
+% 		\end{equation*}
+
+% 	\begin{columns}
+% 		\column{0.6\linewidth}
+%         \vspace{-10mm}
+%         	\begin{figure}
+% % 				\begin{center}
+% %                 \hspace{-20mm}
+% 				\includegraphics[width=1.1\textwidth]{./figs/gal_opal2__.pdf}
+%         		\caption{\textit{OPAL \small{\textcolor{gray}{(Iglesias+96)}}}}
+% % 				\end{center}
+% 			\end{figure}
+			
+% %            
+            
+% 		\column{0.4\linewidth}
+ 
+%  	\begin{itemize}
+%     \item $\upsilon=c_s$ Spec. Point
+%     \item $\upsilon=c_s$ Base of Wind
+%     \item Rad. driven wind $g_{rad}> 2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr}$
+%     \item $\Gamma_s = g_{rad}/g \approx 1$
+%     \end{itemize}
+    
+%     \begin{itemize}
+%     \item $\Gamma_s = \frac{\kappa_s}{4\pi c G}\frac{L}{M}\approx1$
+% %     \item $\kappa_{Edd} = 4\pi c G \frac{M}{\textcolor{yellow}{L}}$
+% %     \item $\leftarrow$ $\kappa = f(T, \rho)$
+% %     \item $\textcolor{yellow}{\dot{M}}=4\pi r_s ^2 \upsilon_s \rho_s $
+%     \end{itemize}
+    
+    
+%     \begin{itemize}
+%     \item \textbf{\textcolor{yellow}{\textbf{$\frac{d\kappa}{dr} \Big|_s>0$}}}
+%     \item \textbf{S.P. near $\kappa$ bumps}
+%     \item \textbf{\textcolor{green}{FeOB = $f(Z)$}}
+%     \end{itemize}
+    
+
+% %     \vspace{-5mm}
+% %     \hspace{10mm}\textbf{ $( \textcolor{yellow}{\dot{M}}, \textcolor{yellow}{L})\rightarrow(\textcolor{cyan}{T_s}, L/M)$ }
+       
+% \end{columns} 
+% \end{frame}
+
+% %=================================4============================================================
+
+% % \section{Models}
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/eqs1.pdf}
+% % 				\caption{\textit{$15M_{\odot}$, $Z=0.02$ $He$ models.}}
+% 				\end{center}
+% 		\end{figure}  
+% \end{frame}
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/eqs2.pdf}
+% % 				\caption{\textit{$15M_{\odot}$, $Z=0.02$ $He$ models.}}
+% 				\end{center}
+% 		\end{figure}
+%         \vspace{-3mm}
+%         \hspace{20mm}\textbf{Observed $( \textcolor{white}{\dot{M}}, \textcolor{white}{L})\rightarrow(\textcolor{yellow}{T_s})$ base of the wind}
+% \end{frame}
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal_sHRD_rs1_Fe.pdf}
+% 				\caption{\textit{\textbf{Sonic Diagram} \textcolor{green}{FeOB} ($R_s = 1R_{\odot}$, $He$ gas, $Z=0.02$)}}
+% 				\end{center}
+% 		\end{figure}  
+% \end{frame}
+% %=================================4============================================================
+
+% \section{Code}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+%         \vspace{-2mm}
+			
+%             \textbf{\textcolor{yellow}{Lagrangian 1D stellar evolution code, \textcolor{orange}{\texttt{BEC}}}}
+%   			\begin{itemize}
+%     		\item conservation of mass,
+%     		\item definition of velocity,
+%     		\item conservation of momentum,
+%     		\item energy transport,
+%     		\item energy conservation.
+%     		\end{itemize}
+            
+%             \vspace{5mm}
+            
+%             \textbf{\textcolor{yellow}{Sonic Point Boundary Conditions}}
+%             \begin{itemize}
+%     		\item $\dot{M}=4\pi r^2 \rho \upsilon$,
+%     		\item $\upsilon = \sqrt[]{\frac{k_{B}T}{\mu m_{H}}}$,
+%     		\end{itemize}
+            
+% %             \textbf{Wind Models}
+% %             \begin{itemize}
+% %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %             \end{itemize}
+            
+% 		\column{0.5\linewidth}
+        
+% %         	\textbf{\textcolor{cyan}{Grids}}
+% %         	\begin{itemize}
+% %             \item \textcolor{green}{He models}
+% %         	\item $M \in (10,30) M_{\odot}$ for $Z=0.02$ and $Z=0.008$
+% %             \item $\log(\dot{M})\in(-3.5, -6.0)$
+% %             \item $^4He_{core}\in(ZAMS,0.1)$
+% % %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %         	\end{itemize}
+            
+%             \textbf{\textcolor{white}{FOCUS}}
+%             \begin{itemize}
+%             \item \textcolor{green}{Gal:} Hamman et. al. 2006
+%             \item \textcolor{green}{Gal:} GAIA DR2 
+%             \item \textcolor{cyan}{LMC:} Hainisch et. al. 2014
+%             \end{itemize}
+            
+% %             \textbf{\textcolor{red}{Uncertainty}}
+% %         	\begin{itemize}
+% %         	\item Galactic $\log(L)\pm0.2$ LMC $\log(L)\pm0.1$
+% %             \item Galactic, LMC $\log(\dot{M})0.15$ 
+% %             \item $M-L$ ratio $=f(^4 He_{core})$
+% %             \item Galactic $Z\in(0.008, 0.01)$
+% %             \item LMC $Z\in(0.004, 0.01)$
+% % %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %         	\end{itemize}
+       
+% %             \textbf{Wind Models}
+% %             \begin{itemize}
+% %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %             \end{itemize}
+       
+% \end{columns} 
+% \end{frame}
+
+% %=================================4============================================================
+
+% % \section{Models}
+% % \begin{frame}{}
+% % 		\begin{figure}
+% % 			\begin{center}
+% % 				\includegraphics[width=0.8\textwidth]{./figs/gal_15sm_vel_profs2_.pdf}
+% % 				\caption{\textit{$15M_{\odot}$; $Z=0.02$; $He$ models; $\log(\dot{M})\in\{-4.0,-5.0,-5.50\}$}}
+% % 				\end{center}
+% % 		\end{figure}
+% %         \vspace{-3mm}
+% %         \textbf{- \textcolor{green}{Compact} \& \textcolor{cyan}{Extended}; - Critical mass-loss rate}
+% %         \textbf{- Critical mass-loss rate \textcolor{yellow}{= f(Z)}}
+% % \end{frame}
+
+% % \begin{frame}{}
+% % 		\begin{figure}
+% % 			\begin{center}
+% % 				\includegraphics[width=0.8\textwidth]{./figs/gal_lmc_15sm_vel_profs2_.pdf}
+% % 				\caption{\textit{$15M_{\odot}$; $Z=0.02, 0.008$; $He$; $\log(\dot{M})\in\{-4.0,-5.0,-5.5\}$}}
+% % 				\end{center}
+% % 		\end{figure}
+% %         \vspace{-3mm}
+% %         \textbf{- Critical mass-loss rate \textcolor{yellow}{= f(Z)}}
+% % \end{frame}
+
+% %=================================4============================================================
+% % \section{Uncertainty}
+% % \begin{frame}{}
+% % 	\begin{itemize}
+    
+% % 	\item\normalsize Luminosity: \\
+% %     	 \textcolor{green}{Galactic} $\log(L)\pm0.2$ \textcolor{cyan}{LMC} $\log(L)\pm0.1$ \\
+% %          \small{\textcolor{gray}{(Sander+18, Gräfener+17)} }\normalsize
+% %     \item\normalsize Mass-loss rate: \\
+% %     	 \textcolor{green}{Galactic} $\log(\dot{M})\pm0.15$ \textcolor{cyan}{LMC} $\log(\dot{M})\pm0.15$  \\
+% %          \small{\textcolor{gray}{(Sander+18, Gräfener+17)} }  \normalsize
+         
+% %     \item\normalsize $M-L$ relation $=f(^4 He_{core})$: \\
+    	
+% %     \item\normalsize Metallicity: \\
+% %     	 \textcolor{green}{Galactic} $Z\in(0.04, 0.008)$ \\
+% %          \small{\textcolor{gray}{({McWilliam+16[thin disk], Ness+2016 [bulge],Drazdauskas+2016 [open clusters])} }}  \normalsize\\
+% %          \textcolor{cyan}{LMC} $Z\in(0.01, 0.004)$\\
+% %          \small{\textcolor{gray}{({Choudhury+16 [RGBs], Haschke+2012 [old pop])} }}  \normalsize\\
+% % 	\end{itemize}
+% % \end{frame}
+
+% %=================================4============================================================
+% \section{Res. Gal.}
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal_shrd.pdf}
+% 				\caption{\textit{Galactic WNE stars \small{\textcolor{gray}{(Hamman+06)}}}}
+% 				\end{center}
+% 		\end{figure}  
+%         \vspace{-3mm}
+%         \textbf{$T_s - L/M$ relation}
+% \end{frame}
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal_mdot_errs2.pdf}
+% 				\caption{\textit{Galactic WNE stars \small{\textcolor{gray}{(Hamman+06)}}}}
+% 				\end{center}
+% 		\end{figure} 
+%         \vspace{-3mm}
+%         \textbf{\textcolor{green}{Galactic WNE - compact}}
+% \end{frame}
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal.pdf}
+% 				\caption{\textit{Galactic WNE stars \small{\textcolor{gray}{(Hamman+06)}}}}
+% 				\end{center}
+% 		\end{figure}
+%         \vspace{-3mm}
+%         \textbf{$T_s - T_{eff}$ relation! $\Rightarrow$ \textcolor{yellow}{\textbf{$T_{eff} = f\big(L/M, T_s(Z)\big)$}}}
+% \end{frame}
+
+% %=================================GAIA=========================================================
+% \section{GAIA}
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/ll.pdf}
+% 				\caption{\textit{Galactic WNE stars \small{\textcolor{gray}{(Hamman+06, GAIA)}}}}
+% 				\end{center}
+% 		\end{figure} 
+%         \vspace{-3mm}
+%         \textbf{Change in $L$. Unchanged $\dot{M}$}
+% \end{frame}
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal_gaia.pdf}
+% 				\caption{\textit{Galactic WNE stars \small{\textcolor{gray}{(Hamman+06, GAIA)}}}}
+% 				\end{center}
+% 		\end{figure}  
+%         \vspace{-3mm}
+%         \textbf{New $L$} \small{($\dot{M}$ and $T_{eff}$ same)} \textbf{ $\rightarrow$ less tight relation}
+% \end{frame}
+% %=================================GAIA=========================================================
+% \section{Res. LMC}
+% \begin{frame}{}
+		
+% 			\begin{center}
+%             \Huge{Large Magellanic Cloud}
+% % 				\includegraphics[width=0.8\textwidth]{./figs_back/gal_t_lm_r_yc10.pdf}
+% % 				\caption{\textit{$T_s - L/M - R_s$ relation for ZAMS models with $Z=0.02$}}
+% 				\end{center}
+		  
+% \end{frame}
+
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/lmc_mdot_errs2.pdf}
+% 				\caption{\textit{Galactic WNE stars \small{\textcolor{gray}{(Hamman+06)}}}}
+% 				\end{center}
+% 		\end{figure} 
+%         \vspace{-3mm}
+%         \textbf{LMC WNE: 2 populations. \textcolor{green}{Compact} \& \textcolor{cyan}{Extended} $|= f(Z)$}
+% \end{frame}
+
+% % \begin{frame}{}
+% % 	\begin{columns}
+% % 		\column{0.5\linewidth}
+% % %         \vspace{-8mm}
+% %         \hspace{20mm} \textbf{\textcolor{green}{Compact}}
+% %         \vspace{-5mm}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 				\includegraphics[width=1.2\textwidth]{./figs/lmc_shrd_fe.pdf}
+% %         		\caption{\textit{LMC WNE stars \small{\textcolor{gray}{(Hainich+14)}}}}
+% % 				\end{center}
+% % 			\end{figure}
+% % 		\column{0.5\linewidth}
+% %         \hspace{20mm} \textbf{\textcolor{cyan}{Extended}}
+% %         \vspace{-5mm}
+% % 			\begin{figure}
+% % 			\begin{center}
+% % 				\includegraphics[width=1.2\textwidth]{./figs/lmc_shrd_he.pdf}
+% %        			\caption{\textit{LMC WNE stars \small{\textcolor{gray}{(Hainich+14)}}}}
+% % 			\end{center}
+% % 		\end{figure}
+% % 	\end{columns} 
+% % %     \vspace{-3mm}
+% %     \textbf{$T_s - L/M$ relation for \textcolor{yellow}{both} \textcolor{green}{Compact} \& \textcolor{cyan}{Extended}}
+% % \end{frame}
+
+% % \begin{frame}{}
+% % 	\begin{columns}
+% % 		\column{0.5\linewidth}
+% %         \hspace{20mm} \textbf{\textcolor{green}{Compact}}
+% %         \vspace{-5mm}
+% % %         \vspace{-8mm}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 				\includegraphics[width=1.2\textwidth]{./figs/lmc_fe.pdf}
+% %         		\caption{\textit{LMC WNE stars \small{\textcolor{gray}{(Hainich+14)}}}}
+% % 				\end{center}
+% % 			\end{figure}
+% % 		\column{0.5\linewidth}
+% %         \hspace{20mm} \textbf{\textcolor{cyan}{Extended}}
+% %         \vspace{-5mm}
+% % 			\begin{figure}
+% % 			\begin{center}
+% % 				\includegraphics[width=1.2\textwidth]{./figs/lmc_he.pdf}
+% %        			\caption{\textit{LMC WNE stars \small{\textcolor{gray}{(Hainich+14)}}}}
+% % 			\end{center}
+% % 		\end{figure}
+% % 	\end{columns} 
+% % %     \vspace{-3mm}
+% %     \textbf{$T_s - T_{eff}$ relation for \textcolor{yellow}{both} \textcolor{green}{Compact} \& \textcolor{cyan}{Extended}}
+% % \end{frame}
+
+% %=================================GAIA=========================================================
+% \section{Conclusion}
+% % \subsection{Galaxy}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+% %         \vspace{-8mm}
+% 			\textbf{\textcolor{green}{Galaxy}}
+%             \begin{itemize}
+%             \item Compact; IOB driven winds
+%             \item $T_s-L/M$ relation
+%             \item $T_s-T_{eff}$ relation
+%             \textcolor{yellow}{\textbf{$T_{eff} = f\big(L/M, T_s(Z)\big)$}}
+%             \item{GAIA changes $L$; \textcolor{gray}{more investigation needed}}
+
+%             \end{itemize}
+% 		\column{0.5\linewidth}
+% 			\textbf{\textcolor{cyan}{LMC}}
+%             \begin{itemize}
+%             \item Compact \& Extended
+%             \item Strong metallicity dependence
+%             \item $T_s-L/M$ relations \textcolor{yellow}{separate}
+%             \item $T_s-T_{eff}$ relations \textcolor{yellow}{separate}
+%             \item WN2 partially opt. thick winds
+% %             \textcolor{yellow}{\textbf{$T_{eff} = f\big(L/M, T_s(Z)\big)$}}
+%             \end{itemize}
+% 	\end{columns} 
+    
+%         \vspace{7mm}
+%     \centering
+%     \textcolor{black}{
+%     \Large{
+%     Photospheric conditions depends on \\
+%     $L$, and \\
+%     conditions at the base of the wind
+%     }
+%     }
+        
+% \end{frame}
+
+% \begin{frame}{}
+% % 	\begin{columns}
+% % 		\column{0.5\linewidth}
+% % %         \vspace{-8mm}
+% % 			\textbf{\textcolor{green}{Galaxy}}
+% %             \begin{itemize}
+% %             \item Compact; IOB driven winds
+% %             \item $T_s-L/M$ relation
+% %             \item $T_s-T_{eff}$ relation
+% %             \textcolor{yellow}{\textbf{$T_{eff} = f\big(L/M, T_s(Z)\big)$}}
+% %             \item{GAIA changes $L$; \textcolor{gray}{more investigation needed}}
+
+% %             \end{itemize}
+% % 		\column{0.5\linewidth}
+% % 			\textbf{\textcolor{cyan}{LMC}}
+% %             \begin{itemize}
+% %             \item Compact \& Extended
+% %             \item Strong metallicity dependence
+% %             \item $T_s-L/M$ relations \textcolor{yellow}{separate}
+% %             \item $T_s-T_{eff}$ relations \textcolor{yellow}{separate}
+% %             \item WN2 partially opt. thick winds
+% % %             \textcolor{yellow}{\textbf{$T_{eff} = f\big(L/M, T_s(Z)\big)$}}
+% %             \end{itemize}
+% % 	\end{columns} 
+    
+%     	\begin{columns}
+% 		\column{0.5\linewidth}
+% %         \vspace{-8mm}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs/gal_hrd_fits.pdf}
+%                 \vspace{-3mm}
+%         		\caption{\textit{Gal. WNE \small{\textcolor{gray}{(Hamman+06)}}}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs/gal_hrd_fits_gaia.pdf}
+%                 \vspace{-3mm}
+%       			\caption{\textit{LMC WNE \small{\textcolor{gray}{(Hainich+14)}}}}
+% 			\end{center}
+% 		\end{figure}
+% 	\end{columns} 
+    
+%     \vspace{7mm}
+%     \centering
+%     \textcolor{white}{
+%     \Large{
+%     Conditions at the base of the winds \\
+%     determine and can explain the \\
+%     variety of photospheric conditions
+%     }
+%     }
+    
+% \end{frame}
+
+% %--------------------------------------1--------------------------------
+
+% \begin{frame}{}
+		
+% 			\begin{center}
+%             \Huge{Thank you for your attention}
+% % 				\includegraphics[width=0.8\textwidth]{./figs_back/gal_t_lm_r_yc10.pdf}
+% % 				\caption{\textit{$T_s - L/M - R_s$ relation for ZAMS models with $Z=0.02$}}
+% 				\end{center}
+		  
+% \end{frame}
+
+% % \section*{Backup}
+
+% \begin{frame}{}
+% \textbf{
+% More on metallicity
+% }
+
+% \vspace{-8mm}
+
+% \begin{center}
+% \textbf{\textcolor{green}{Galaxy}}
+% \end{center}
+
+% \begin{itemize} 
+% \item \textcolor{yellow}{Galactic Disk} \textcolor{gray}{(Pedicelli+09)}, large sample of Cepheids, metallicity is higher than average in the inner disk with no clear trend. Occurrence of chemical inhomogeneities across all Galactic quadrants
+% \item \textcolor{yellow}{Galactic Bulge} $[\text{Fe}/\text{H}] = +0.06$ respective to the thin disk \textcolor{gray}{(McWilliam+16)}. Limits: $[\text{Fe}/\text{H}] = +0.3$ and $[\text{Fe}/\text{H}] = -0.3$. \textcolor{gray}{(Ness+16)}: $-3.0 < [\text{Fe}/\text{H}] < -1.0$.
+% \item Young open clusters NGC 4609 \& 5316 $[\text{Fe}/\text{H}] = 0.16 \pm +0.08$ and $[\text{Fe}/\text{H}] = -0.02 \pm 0.05$ \textcolor{gray}{(Drazdauskas+16)}.
+% \end{itemize}
+
+% \begin{center}
+% \textbf{\textcolor{cyan}{LMC}}
+% \end{center}
+
+% \begin{itemize}
+% \item Photometric study, an analysis of RGB stars in LMC was performed [Fe/H] $= -0.37 \pm 0.12$ dex \textcolor{gray}{(Choudhury+16)}.
+% \item Study of spectra of an old population of RR Lyrae stars suggests $[\text{Fe}/\text{H}] = -0.02 \pm 0.05$ \textcolor{gray}{(Haschke+12)}.
+% \end{itemize}
+
+% \end{frame}
+
+% \begin{frame}{$M-L$ relation}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs_back/gal_yc_l_lm.pdf}
+% 				\caption{\textit{$M-L$ relation for $Z=0.02$}}
+% 				\end{center}
+% 		\end{figure}  
+% \end{frame}
+
+% \begin{frame}{$L-R_s$ relation}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs_back/gal_t_lm_r_yc10.pdf}
+% 				\caption{\textit{$T_s - L/M - R_s$ relation for ZAMS models with $Z=0.02$}}
+% 				\end{center}
+% 		\end{figure}  
+% \end{frame}
+
+% \begin{frame}{Atmosphere analysis}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs_back/gal_atm.pdf}
+% 				\caption{\textit{$T_* - R_t - T_{eff}$ relation from galactic Atm. models.} \textcolor{gray}{(Hamman+06)}}
+% 				\end{center}
+% 		\end{figure}  
+% \end{frame}
+
+% % --- ---- ---
+
+% \begin{frame}{$T_* - L$ panels + observations}
+% \textbf{Uncertainty: $\log(T_*)\pm0.1$, $\log(R_t)\pm0.1$}
+% \begin{equation*}
+% 	R_t = R_* \Bigg[\frac{\upsilon_{\infty}}{2500\text{ km/s}^{-1}} \Big/ \frac{\dot{M}\sqrt[]{D}}{10^{-4}M_{\odot}\text{yr}^{-1}}\Bigg]^{2/3}
+% 	\end{equation*}
+    
+%     \vspace{-10mm}
+    
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+% %         \vspace{-8mm}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs_back/gal_tstar_errs.pdf}
+%                 \vspace{-3mm}
+%         		\caption{\textit{Gal. WNE \small{\textcolor{gray}{(Hamman+06)}}}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs_back/lmc_tstar_errs.pdf}
+%                 \vspace{-3mm}
+%       			\caption{\textit{LMC WNE \small{\textcolor{gray}{(Hainich+14)}}}}
+% 			\end{center}
+% 		\end{figure}
+% 	\end{columns} 
+% \end{frame}
+
+% % --- --- ---
+
+% \begin{frame}{Grids}
+
+    
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+% %         \vspace{-8mm}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs_back/GAL_WNE_grid.pdf}
+%                 \vspace{-3mm}
+%         		\caption{\textit{Gal. WNE Grid}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=1.2\textwidth]{./figs_back/LMC_WNE_grid.pdf}
+%                 \vspace{-3mm}
+%       			\caption{\textit{LMC WNE Grid}}
+% 			\end{center}
+% 		\end{figure}
+% 	\end{columns} 
+% \end{frame}
+
+% \begin{frame}{Grid for $Z=0.04$}
+
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs_back/gal2_wne.pdf}
+%                 \vspace{-3mm}
+%         		\caption{\textit{Super Gal. WNE Grid}}
+% 				\end{center}
+% 			\end{figure}
+
+% \end{frame}
+
+%--------------------------------------1--------------------------------
+% \section{Theory}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+%         \vspace{-10mm}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=1.2\textwidth]{./figs/15sm_gal_opac_prof.pdf}
+% % % 					\caption{\textit{Hubble image shows the nebula M1-67 around the Wolf-Rayet star WR 124}}
+% % 				\end{center}
+% % 			\end{figure}
+%             \vspace{-15mm}
+% %             \begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=1.2\textwidth]{./figs/15sm_gal_vel_prof.pdf}
+% %                     \vspace{-4mm}
+% % 					\caption{\textit{$15M_{\odot}$, $Z=0.02$ $He$ model.}}
+% % 				\end{center}
+% % 			\end{figure}
+            
+% 		\column{0.5\linewidth}
+        
+        
+%     \vspace{-10mm}    
+%     \begin{eqnarray*}
+% %     \label{eq:wind_momentum}
+%     \frac{1}{\upsilon} \frac{d\upsilon}{dr} = \\
+%     -\Bigg(g-g_{rad} - 2\frac{\upsilon_s ^2}{r} + \frac{dc_s ^2}{dr}\Bigg) 
+%     \cdot \frac{1}{\upsilon^2-\upsilon_s^2}
+%     \end{eqnarray*}
+    
+%     \vspace{-5mm}
+    
+%     \begin{itemize}
+%     \item $\upsilon=\upsilon_s$ Critical Point
+%     \item Rad. driven wind $g_{rad}> 2\frac{\upsilon_s ^2}{r} + \frac{dc_s ^2}{dr}$
+%     \item $\frac{d\kappa}{dr} \Big|_s>0$
+%     \item Models: $\Gamma_s = g_{rad}/g \approx 1$
+%     \item $\Gamma = \frac{\kappa}{4\pi c G}\frac{L}{M}\approx1$
+%     \item $\kappa_{Edd} = 4\pi c G \frac{M}{\textcolor{red}{L}}$
+%     \item OPAL tables $\kappa = f(T_s, \rho)$
+%     \item $\textcolor{blue}{\dot{M}}=4\pi r_s ^2 \upsilon_s \rho_s $
+%     \end{itemize}
+        
+%     \hspace{10mm}\textbf{ $( \textcolor{blue}{\dot{M}}, \textcolor{red}{L})\rightarrow(T_s, L/M)$ }     
+       
+% \end{columns} 
+% \end{frame}
+
+
+%=================================3============================================================
+
+% \section{Code}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+%         \vspace{-2mm}
+			
+%             \textbf{BEC Lagrangian 1D stellar evolution code}
+%    			\begin{itemize}
+%     		\item conservation of mass,
+%     		\item definition of velocity,
+%     		\item conservation of momentum,
+%     		\item energy transport,
+%     		\item energy conservation.
+%     		\end{itemize}
+            
+%             \textbf{Sonic Point Boundary Conditions}
+%             \begin{itemize}
+%     		\item $\dot{M}=4\pi r^2 \rho \upsilon$,
+%     		\item $\upsilon = \sqrt[]{\frac{k_{B}T}{\mu m_{H}}}$,
+%     		\end{itemize}
+            
+% %             \textbf{Wind Models}
+% %             \begin{itemize}
+% %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %             \end{itemize}
+            
+% 		\column{0.5\linewidth}
+        
+% %         	\textbf{Grids}	
+% %         	\begin{itemize}
+% %         	\item $M \in (10,30) M_{\odot}$ for $Z=0.02$ and $Z=0.008$
+% %             \item $\log(\dot{M})\in(-3.5, -6.0)M_{\odot}$
+% %             \item Chemical Evolution
+% % %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %         	\end{itemize}
+       
+% %             \textbf{Wind Models}
+% %             \begin{itemize}
+% %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %             \end{itemize}
+       
+% \end{columns} 
+% \end{frame}
+
+% %=================================5============================================================
+
+% \section{Models}
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal_15sm_vel_profs.pdf}
+% 				\caption{\textit{$15M_{\odot}$, $Z=0.02$ $He$ models.}}
+% 				\end{center}
+% 		\end{figure}  
+% \end{frame}
+
+% \begin{frame}{}
+% 		\begin{figure}
+% 			\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal_lmc_15sm_vel_profs.pdf}
+% 				\caption{\textit{$15M_{\odot}$, $Z=0.02$, $Z=0.008$ $He$ models.}}
+% 				\end{center}
+% 		\end{figure}  
+% \end{frame}
+
+
+% %=================================6============================================================
+
+
+% \section{Galaxy}
+
+
+% \begin{frame}{}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/gal_mdot_l_nolegend.pdf}
+% 				\caption{\textit{Galactic WNE (Hamman+06)}}
+% 				\end{center}
+% 			\end{figure}  
+%             Galactic WNE - compact
+% \end{frame}
+
+% %=================================6============================================================
+
+% \begin{frame}{}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/tsteff_gal_nolegend.pdf}
+% 				\caption{\textit{Galactic WNE (Hamman+06)}}
+% 				\end{center}
+% 			\end{figure}  
+%             $T_s-T_{eff}$ relation
+% \end{frame}
+
+% %=================================6============================================================
+
+% \section{GAIA}
+% \begin{frame}{}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/l_l_nolegend.pdf}
+% 				\caption{\textit{Galactic WNE (Hamman+06, Pauli)}}
+% 				\end{center}
+% 			\end{figure}  
+%             Luminosity change
+% \end{frame}
+
+% \begin{frame}{}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/tsteff_gal_gaia_nolegend.pdf}
+% 				\caption{\textit{Galactic WNE (Hamman+06, Pauli)}}
+% 				\end{center}
+% 			\end{figure}  
+%             $T_s-T_{eff}$ relation less tight 
+% \end{frame}
+% %=================================6============================================================
+% \section{LMC}
+% \begin{frame}{}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/lmc_mdot_l_nolegend.pdf}
+% 				\caption{\textit{LMC WNE (Hainish+14)}}
+% 				\end{center}
+% 			\end{figure}  
+%             $T_s-T_{eff}$ relation less tight 
+% \end{frame}
+
+% \begin{frame}{}
+% 			\begin{figure}
+% 				\begin{center}
+% 				\includegraphics[width=0.8\textwidth]{./figs/tsteff_lmc_he_nolegend.pdf}
+% 				\caption{\textit{LMC WNE (Hainish+14)}}
+% 				\end{center}
+% 			\end{figure}  
+%             $T_s\sim T_{eff}$ 
+% \end{frame}
+
+% \section{Conclusion}
+% \begin{frame}{}
+% It all had happened before and will happen again...
+% \end{frame}
+
+% \section{Galaxy GAIA}
+
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+
+%             \vspace{-15mm}
+%             \begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.1\textwidth]{./figs/tsteff_errs2.pdf}
+%                     \vspace{-3mm}
+% 					\caption{\textit{$T_s-T_{eff}$ for Gal. WNE (Hamman+06, GAIA)}}
+% 				\end{center}
+% 			\end{figure}
+            
+% 		\column{0.4\linewidth}
+        
+%     		\vspace{-10mm} 
+    		
+%             \textbf{Sonic Point}
+%             \begin{itemize}
+%             \item Still almost all WNE have compact structure
+%             \item Tight Relation $T_s-L/M$
+%             \item $\tau_{s} \geq 10$ for almost all WNE.
+%             \end{itemize}
+            
+%             \textbf{Photospheric}
+%             \begin{itemize}
+%             \item Observed relation $T_s-T_{eff}$
+%             \end{itemize}
+
+% \end{columns} 
+% \end{frame}
+
+% %=================================7============================================================
+
+
+% % \begin{frame}{}
+
+% \begin{frame}
+% \begin{textblock*}{11cm}(0cm,1cm) % {block width} (coords)
+% \includegraphics[width=1.2\textwidth]{./figs/mdot_vinf_errs.pdf}
+% \hspace{5mm} Figure: $\upsilon_{\infty}$ for $\beta\in\{0.9, 1.0, 1.15\}$ for Galactic WNE (Hamman+06, GAIA)\\
+% \end{textblock*}
+
+% \hspace{-10cm}
+% \vspace{5.5cm}
+
+% \textbf{Wind Models}
+% \begin{itemize}
+% \item All subclasses: $\beta\in(0.9,1.15)$
+% \item $\beta$ $\uparrow$ as Subclass $\downarrow$
+% \item Single $\beta$ oversimplification
+% \end{itemize}
+
+
+% \end{frame}
+
+
+
+% %=================================8============================================================
+
+% \section{LMC}
+
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+
+%             \vspace{-15mm}
+%             \begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.2\textwidth]{./figs/mdot_errs3.pdf}
+%                     \vspace{-4mm}
+% 					\caption{\textit{$T_s-T_{eff}$ for Gal. WNE (Hainich+14)}}
+% 				\end{center}
+% 			\end{figure}
+            
+% 		\column{0.5\linewidth}
+        
+%     		\vspace{-10mm} 
+    		
+% %             \textbf{Sonic Point}
+%             \begin{itemize}
+%             \item Compact (WN2\&WN3) / Extended (WN4)
+%             \item Transition during evolution
+%             \item $\tau_{s} \geq 10$ for almost all WNE.
+%             \end{itemize}
+            
+% %             \textbf{Photospheric}
+% %             \begin{itemize}
+% %             \item Observed relation $T_s-T_{eff}$ \textit{less tight even with uncertainties}
+% %             \end{itemize}
+
+% \end{columns} 
+% \end{frame}
+
+% %=================================9============================================================
+
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+
+%             \vspace{-15mm}
+%             \begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.2\textwidth]{./figs/tsteff_he_errs3.pdf}
+%                     \vspace{-4mm}
+% 					\caption{\textit{$T_s-T_{eff}$ for Gal. WNE (Hainich+14)}}
+% 				\end{center}
+% 			\end{figure}
+            
+% 		\column{0.5\linewidth}
+        
+%     		\vspace{-10mm} 
+    		
+% %             \textbf{Sonic Point}
+%             \begin{itemize}
+%             \item Compact (WN2\&WN3) / Extended (WN4)
+%             \item Transition during evolution
+%             \item $\tau_{s} \geq 10$ for almost all WNE.
+%             \end{itemize}
+            
+% %             \textbf{Photospheric}
+% %             \begin{itemize}
+% %             \item Observed relation $T_s-T_{eff}$ \textit{less tight even with uncertainties}
+% %             \end{itemize}
+
+% \end{columns} 
+% \end{frame}
+
+% %=================================10============================================================
+
+
+% % \begin{frame}{}
+
+% \begin{frame}
+% \begin{textblock*}{11cm}(0cm,1cm) % {block width} (coords)
+% \includegraphics[width=1.2\textwidth]{./figs/lmc_mdot_lm_vinf_errs.pdf}
+% \hspace{5mm} Figure: $\upsilon_{\infty}$ for $\beta\in\{0.5, 1.0, 1.15\}$ for LMC WNE (Hainich+14)\\
+% \end{textblock*}
+
+% \hspace{-10cm}
+% \vspace{5cm}
+% % Figure: $\upsilon_{\infty}$ for $\beta\in{0.5, 4.0, 1.15}$ for LMC WNE (Hainich+14)\\
+
+% \textbf{Wind Models}
+% \begin{itemize}
+% \item Early (compact) WNE $\beta\approx0.5$
+% \item Late (extended) WNE $\beta\approx1.0$
+% \item Single $\beta$ between domains is an oversimplification
+% \end{itemize}
+
+
+% \end{frame}
+
+
+% %=================================11============================================================
+
+
+% \section{Conclusion}
+% \begin{frame}{}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+%         \vspace{-2mm}
+			
+%             \textbf{Galaxy}
+%    			\begin{itemize}
+%     		\item Confirmed compactness,
+%     		\item Observe linear $T_s \propto L/M$ relation, (within uncertainties) 
+%     		\item Observe linear $T_s \propto 1/ T_{eff}$ relation (if Hamman+06)
+%     		\item GAIA: less tight $T_s-L/M$ and almost absent $T_s -T_{eff}$
+%     		\item Wind: $\beta\approx1.0$
+%             \item $\beta \propto 1/$subclass
+%     		\end{itemize}
+            
+        
+            
+% 		\column{0.5\linewidth}
+        
+%         	\textbf{LMC}	
+%         	\begin{itemize}
+%     		\item Compact WN4 | Extended WN2 \& WN3,
+%             \item Strong dependence on metallicity
+%     		\item Linear $T_s \propto L/M$ relation in both domains, (within uncertainties) 
+%     		\item WN2 partially thick winds
+%     		\item $\beta \propto1.0$ for compact
+%             \item $\beta \propto0.5$ for extended
+%     		\end{itemize}
+       
+% %             \textbf{Wind Models}
+% %             \begin{itemize}
+% %             \item $\upsilon(r) = \upsilon_{\infty}\Big(1-\frac{r_s}{r}\Big)^{\beta}$
+% %             \end{itemize}
+       
+% \end{columns} 
+% \end{frame}
+
+% %=================================3============================================================
+% 					%--------------------------------------1--------------------------------
+% \begin{frame}{}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=0.8\textwidth]{lmc_hrd_clean.pdf}
+%         \caption{\textit{Evolutionary tracks Meynet \& Maeder 2005}}
+% 	\end{center}
+% \end{figure}
+% MS(O) $\rightarrow$ RSG $\rightarrow$ WNL $\rightarrow$ WNE $\rightarrow$ WC/WO $\rightarrow$ SN 1b (1b/c)
+% \end{frame}
+
+% 					%-------------------------------------2--------------------------------
+% \begin{frame}{}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=0.8\textwidth]{lmc_hrd_wne.pdf}
+%         \caption{\textit{WNE stars adopted from Hainich et al. 2014}}
+% 	\end{center}
+% \end{figure}
+% \textbf{Wolf-Rayet Radius Problem}
+% \end{frame}
+
+
+% %=================================4============================================================
+% \section{Structure}
+% \begin{frame}{}%--------------------------------------1--------------------------------
+% \vspace{-5mm}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=1.0\textwidth]{structure_gal10_empty.pdf}
+% %         \caption{\textit{WNE stars adopted from Hainich et al. 2014}}
+% 	\end{center}
+% \end{figure}
+% \begin{block}{}
+% \begin{itemize}
+% \item \normalsize{Hydrostatic core}
+% \item \normalsize{Optically thick, dens wind}
+% \end{itemize}
+% \end{block}
+% \end{frame}
+
+% \begin{frame}{}%--------------------------------------2--------------------------------
+% \vspace{-5mm}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=1.0\textwidth]{structure_gal10.pdf}
+% %         \caption{\textit{WNE stars adopted from Hainich et al. 2014}}
+% 	\end{center}
+% \end{figure}
+% \begin{block}{}
+% \begin{itemize}
+% \item \normalsize{High $\dot{M}\rightarrow$ Compact  (Iron bump) solutions}
+% \item \normalsize{Low  $\dot{M}\rightarrow$ Inflated (HeII bump) solutions}
+% \end{itemize}
+% \end{block}
+% \end{frame}
+
+% % 	\begin{block}{}
+% % 		\begin{equation*}
+% %         	\frac{1}{v}\frac{dv}{dr} = - \Big( g - g_{rad} - 2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr} \Big) / (v^2 - c_s ^2)
+% % 		\end{equation*}
+% %         At $v = c_s$ Critical Point. $\Gamma = g / g_{rad} = 1 - \Big(2\frac{c_s ^2}{r} + \frac{dc_s ^2}{dr} \Big)/g$ \\
+% %         Radiation driven wind: if $g \gg \frac{dc_s ^2}{dr} - 2\frac{c_s ^2}{r}$ $\rightarrow$ \\
+% %         $\Gamma_{r_{sp}} \approx 1$ $(g=g_{rad})$ for a smooth transonic flow.\\
+% %         Requires: $\frac{d\kappa}{dr}\big|_{r_s}>0$
+% %         \begin{equation*}
+% %         	\text{Sonic Horizon } (v>c_s)
+% %         	\begin{cases}
+% %         		\text{waves swept though supersonic part.} \\
+% %         		\text{diffusive approximation } \lambda < H_p \text{ and } \tau > 1
+% %         	\end{cases}
+% %         \end{equation*}
+% %         Sonic Point in LTE (Isotropic rad. field.) $\rightarrow$ $T, \rho$, rad. transfer is a local problem, enough to obtain ionization state of plasma
+% % 	\end{block}
+% %     \begin{block}{}
+% %     	Adopting BEC (1D Lagrangian stellar evolution code) with:\\
+% %         GA. and SP. boundary cond. ($\dot{M} = 4\pi r^2 \rho v$, $v =c_s = \sqrt[]{k_b T / \mu m_H}$)
+% %     \end{block}
+
+
+% %*****************************************5****************************************************
+
+% \section{Previous Results}%redundant
+% \begin{frame}{}
+% 	\vspace{-5mm}
+% 	\begin{columns}
+% 		\column{0.4\linewidth}
+%         \begin{center}
+%         	\Large{Theory}
+%         \end{center}
+%         OPAL: $\kappa=f(T, \rho)$
+%         $\dot{M} = 4\pi r^2 \rho v_s(T)$\\
+%         $\kappa_{edd} = 4\pi c G \frac{M}{L}$\\
+%         \begin{center}
+%         	\Large{Assumptions}
+%         \end{center}
+%         \vspace{-4mm}
+%         Validity of $\kappa_R$ (OPAL) \\
+%         $\kappa = \kappa_{edd}$ $(\Gamma = 1)$\\
+%         $L-M$ Relation ZAMS\\ 
+%         $R_s = 1R_{\odot}$
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=1.2\textwidth]{min_mdot_Luca.pdf}
+% %                     \vspace{-4mm}
+% % 					\caption{\textit{8 from Grassitelli et al. 2017}}
+% % 				\end{center}
+% % 			\end{figure}
+% 		\column{0.8\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.75\textwidth]{sHRD_Luca.pdf}
+%                     \vspace{-5mm}
+% 					\caption{\textit{9 from Grassitelli et al. 2017}}
+% 				\end{center}
+% 			\end{figure}
+% 	\end{columns} 
+%     \vspace{-4mm}
+%     \begin{alertblock}{Conclusions}
+% 		\begin{itemize}
+% 			\item \normalsize{Galactic WNE: Compact, Iron bump solutions}
+% 			\item \normalsize{Large spread in HRD $\rightarrow$ smaller scatter in sonic HRD}
+% 		\end{itemize}
+% 	\end{alertblock}
+%     \textbf{\textcolor{red}{Why exist a spread in sonic HRD? Test the assumptions?}}
+% \end{frame}
+
+% %*****************************************6****************************************************
+
+% \section{Method}%redundant
+% \begin{frame}{}
+% 	\vspace{-10mm}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.2\textwidth]{wne_region2.pdf}
+% %                     \vspace{-5mm}
+% 					\caption{\textit{Models $Z=0.02$, M $\in [10, 25]M_{\odot}$, $Y_c\in[0.98, 0.1]$, $\log{\dot{M}}\in[-3., -6]$}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.2\textwidth]{wne_region_lmc2.pdf}
+% %                     \vspace{-5mm}
+% 					\caption{\textit{Models $Z=0.008$, M $\in [10, 30]M_{\odot}$, $Y_c\in[0.99, 0.1]$, $\log{\dot{M}}\in[-3., -6]$}}
+% 				\end{center}
+% 			\end{figure}
+% 	\end{columns} 
+%     \vspace{-4mm}
+%     \begin{block}{Numerical Relations}
+% 		\begin{itemize}
+% 			\item \normalsize{Relations: $(L, Y_c) - M$, and $(L/M, \dot{M}) - (R_s, T_s)$}
+% 		\end{itemize}
+% 	\end{block}
+% %     \begin{block}{Questions}
+% %     	\begin{itemize}
+% %     	\item \normalsize{Reason for a spread in sonic HRD}
+% %         \item \normalsize{Analysis of LMC WNE population}
+% %     	\end{itemize}
+% %     \end{block}
+% \end{frame}
+
+% %*****************************************7****************************************************
+% \section{Results Galaxy}%redundant
+% \begin{frame}{}
+% 	\vspace{-5mm}
+% 	\begin{columns}
+% 		\column{0.4\linewidth}
+%         \begin{center}
+%         	\Large{GALAXY}
+%         \end{center}
+%         \begin{block}{Conclusion}
+% 			\begin{itemize}
+% 				\item \normalsize{Negligible effect of adopting $(L/M, \dot{M}) - (R_s, T_s)$ relation}
+%             	\item \normalsize{Observational error $>$ effect of evolution}
+% 			\end{itemize}
+%         \end{block}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=1.2\textwidth]{min_mdot_Luca.pdf}
+% %                     \vspace{-4mm}
+% % 					\caption{\textit{8 from Grassitelli et al. 2017}}
+% % 				\end{center}
+% % 			\end{figure}
+% 		\column{0.8\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.95\textwidth]{gal_sHRD.pdf}
+%                     \vspace{-5mm}
+% 					\caption{\textit{Galactic Sonic HRD}}
+% 				\end{center}
+% 			\end{figure}
+% 	\end{columns} 
+%     \vspace{-4mm}
+%     \begin{block}{Conclusion}
+%     	\begin{itemize}
+%     	\item \normalsize{Withing the error bar from observations and evolution, properties of galactic WNE stars are mostly defined by $L/M$}
+%     	\end{itemize}
+%     \end{block}
+% \end{frame}
+
+
+% %*****************************************8****************************************************
+% \section{Results LMC}%redundant
+% % \begin{frame}{}
+% % 	\vspace{-5mm}
+% % 	\begin{columns}
+% % 		\column{0.4\linewidth}
+% %         \begin{center}
+% %         	\Large{LMC}
+% %         \end{center}
+% % 		\begin{block}{Results}
+% % 			\begin{itemize}
+% %         		\item \normalsize{Effects of evolution $\geq$ observational error}
+% %                 \item \normalsize{Only some WN4 seems to be compact (Iron bump)}
+% %             	\item \normalsize{Early type WN2 \& WN3 lie below critical $\dot{M}$}
+% % 			\end{itemize}
+% % 	\end{block}
+% % % 			\begin{figure}
+% % % 				\begin{center}
+% % % 					\includegraphics[width=1.2\textwidth]{min_mdot_Luca.pdf}
+% % %                     \vspace{-4mm}
+% % % 					\caption{\textit{8 from Grassitelli et al. 2017}}
+% % % 				\end{center}
+% % % 			\end{figure}
+% % 		\column{0.8\linewidth}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=0.95\textwidth]{lmc_mdot.pdf}
+% %                     \vspace{-5mm}
+% % 					\caption{\textit{$\dot{M}_{cr}$ plot (only Fe bump)}}
+% % 				\end{center}
+% % 			\end{figure}
+% % 	\end{columns} 
+% %     \vspace{-4mm}
+% %     \begin{block}{Questions}
+% %     	\begin{itemize}
+% %     	\item \normalsize{Mechanism of wind acceleration (WN2 \& WN3)?}
+% %         \item \normalsize{Are winds of WN2 \& WN3 optically thick $(\tau > 1)$?}
+% %     	\end{itemize}
+% %     \end{block}
+% % \end{frame}
+
+
+% %*****************************************9****************************************************
+% \begin{frame}{}
+% 	\vspace{-5mm}
+% 	\begin{columns}
+% 		\column{0.4\linewidth}
+%         \begin{center}
+%         	\Large{LMC}
+%         \end{center}
+%         Atmosphere: $\beta-$vel. law
+%         $\tau = \int_{r_s} ^{\infty}\rho(r)\kappa(\rho, T)dr$
+% 		\begin{block}{Results}
+% 			\begin{itemize}
+%         		\item \normalsize{largest $L$ WN4 -- compact}
+%                 \item \normalsize{All WNE stars -- optically thick winds}
+%             	\item \normalsize{WN2 \& WN3: inflated}
+% 			\end{itemize}
+% 	\end{block}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=1.2\textwidth]{min_mdot_Luca.pdf}
+% %                     \vspace{-4mm}
+% % 					\caption{\textit{8 from Grassitelli et al. 2017}}
+% % 				\end{center}
+% % 			\end{figure}
+% 		\column{0.8\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.98\textwidth]{Figure_1.pdf}
+%                     \vspace{-5mm}
+% 					\caption{\textit{$\dot{M}_{cr}$ plot with color-coded optical depth}}
+% 				\end{center}
+% 			\end{figure}
+% 	\end{columns} 
+%     \vspace{-4mm}
+%     \begin{block}{Conclusion}
+%     	\begin{itemize}
+%     	\item \normalsize{Sonic HRD is possible as $\tau > 1$ and $\Gamma \in (0.8, 1)$}
+% %         \item \normalsize{Are winds of WN2 \& WN3 optically thick $(\tau > 1)$?}
+%     	\end{itemize}
+%     \end{block}
+% \end{frame}
+
+
+
+
+% %*****************************************10***************************************************
+% \begin{frame}{}
+% 	\vspace{-5mm}
+% 	\begin{columns}
+% 		\column{0.4\linewidth}
+%         \begin{center}
+%         	\Large{LMC}
+%         \end{center}
+% 		\begin{block}{Results}
+% 			\begin{itemize}
+%         		\item \normalsize{Early type WN2 \& WN3 lowest $T_s$}
+% 				\item \normalsize{Jump in $T_s$ (Fe $\rightarrow$ HeII)}
+% 		\end{itemize}
+% 	\end{block}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=1.2\textwidth]{min_mdot_Luca.pdf}
+% %                     \vspace{-4mm}
+% % 					\caption{\textit{8 from Grassitelli et al. 2017}}
+% % 				\end{center}
+% % 			\end{figure}
+% 		\column{0.8\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.98\textwidth]{lmc_sHRD.pdf}
+%                     \vspace{-5mm}
+% 					\caption{\textit{Sonic HRD for $Fe$(left) \& $HeII$(right)}}
+% 				\end{center}
+% 			\end{figure}
+% 	\end{columns} 
+%     \vspace{-4mm}
+%     \begin{block}{Conclusion}
+%     	\begin{itemize}
+%     	\item \normalsize{Connection between $T_s$, $T_{eff}$?}
+% %         \item \normalsize{Are winds of WN2 \& WN3 optically thick $(\tau > 1)$?}
+%     	\end{itemize}
+%     \end{block}
+% \end{frame}
+% %*****************************************10***************************************************
+
+% \begin{frame}{}
+% 	\vspace{-5mm}
+% 	\begin{columns}
+% 		\column{0.4\linewidth}
+%         \begin{center}
+%         	\Large{LMC}
+%         \end{center}
+% 		\begin{block}{Results}
+% 			\begin{itemize}
+%             	\item \normalsize{Compact - Extended; no effect on $T_{eff}$ ($T_{eff}$ smoothly $\uparrow$)}
+%                 \item \normalsize{WN4 (Fe) $T_{eff} < T_s$}
+%                 \item \normalsize{WN2 \& WN3: $T_{eff} > T_s$ and $T_{eff} \sim T_{He\_ZAMS}$.}
+% 		\end{itemize}
+% 	\end{block}
+% % 			\begin{figure}
+% % 				\begin{center}
+% % 					\includegraphics[width=1.2\textwidth]{min_mdot_Luca.pdf}
+% %                     \vspace{-4mm}
+% % 					\caption{\textit{8 from Grassitelli et al. 2017}}
+% % 				\end{center}
+% % 			\end{figure}
+% 		\column{0.8\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.92\textwidth]{lmc_mdot_t_eff.pdf}
+%                     \vspace{-5mm}
+% 					\caption{\textit{$\dot{M}_{cr}$ plot with color-coded $T_{eff}$}}
+% 				\end{center}
+% 			\end{figure}
+% 	\end{columns} 
+%     \vspace{-4mm}
+%     \begin{block}{Hypothesis}
+%     	\begin{itemize}
+%         \item \normalsize{Compact core (Fe) - large $R_{eff}$, Infatuated envelope (HeII) - smaller $R_{eff}$}
+%     	\end{itemize}
+%     \end{block}
+% \end{frame}
+% %*****************************************10**********************************************
+% \section*{Conclusion}
+% \begin{frame}
+% 	\begin{block}{Galaxy}
+% 		\begin{itemize}
+% 			\item \normalsize{Properties of the hydrostatic cores of H-free WNE stars (compact) = $f(L)$.}
+% 		\end{itemize}
+% 	\end{block}
+    
+%     \begin{block}{LMC}
+% 		\begin{itemize}
+% 			\item \normalsize{Early type WN2 \& WN3, inflated: winds accelerated to $v>v_s$ by $HeII$ opacity bump}
+%             \item \normalsize{Properties of Hydrostatic cores of H-free WNE stars (compact \& inflated) = $f(L)$}
+%             \item \normalsize{Compact WN4: $\tau \gg 1$, $T_{eff} < T_{ZAMS}$\\ (Photosphere deep in the wind).}
+%             \item \normalsize{Inflated WN2 \& WN3: $\tau \geq 1$, $T_{eff} \sim T_{ZAMS}$\\ (Photosphere is close to the hydrostatic core)}
+% 		\end{itemize}
+% 	\end{block}
+% \end{frame}
+% % ====================================================================================================
+% \begin{frame}
+% 	\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=0.50\textwidth]{face-1296207_960_720.png}
+%                     \vspace{-5mm}
+% % 					\caption{\textit{$\dot{M}_{cr}$ plot with color-coded $T_{eff}$}}
+% 				\end{center}
+% 			\end{figure}
+
+% 	\begin{center}
+% 		\Huge{Thank You for listening!}
+% 	\end{center}
+% \end{frame}
+
+% % ====================================================================================================
+% \begin{frame}{}
+%     \begin{center}
+% 		\Huge{Mass -- Luminosity Relation}
+% 	\end{center}
+% 	\vspace{-10mm}
+% 	\begin{columns}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.2\textwidth]{gal_LM.pdf}
+% %                     \vspace{-5mm}
+% 					\caption{\textit{Models $Z=0.02$}}
+% 				\end{center}
+% 			\end{figure}
+% 		\column{0.5\linewidth}
+% 			\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.2\textwidth]{LM.pdf}
+% %                     \vspace{-5mm}
+% 					\caption{\textit{Models $Z=0.008$, }}
+% 				\end{center}
+% 			\end{figure}
+% 	\end{columns} 
+%     \vspace{-4mm}
+% %     \begin{block}{Numerical Relations}
+% % 		\begin{itemize}
+% % 			\item \normalsize{Relations: $(L, Y_c) - M$, and $(L/M, \dot{M}) - (R_s, T_s)$}
+% % 		\end{itemize}
+% % 	\end{block}
+% %     \begin{block}{Questions}
+% %     	\begin{itemize}
+% %     	\item \normalsize{Reason for a spread in sonic HRD}
+% %         \item \normalsize{Analysis of LMC WNE population}
+% %     	\end{itemize}
+% %     \end{block}
+% \end{frame}
+% % ====================================================================================================
+
+% \begin{frame}
+% \vspace{-5mm}
+% 	\begin{center}
+% 		\Huge{$(L/M, Ts) - (R_s)$}
+% 	\end{center}
+%     \vspace{-5mm}
+% 	\begin{figure}
+% 				\begin{center}
+% 					\includegraphics[width=1.10\textwidth]{t_lm_r_6yc_vals.pdf}
+%                     \vspace{-5mm}
+% % 					\caption{\textit{$(L/M, Ts) - (R_s)$}}}
+% 				\end{center}
+% 			\end{figure}
+% \end{frame}
+% % ====================================================================================================
+
+% \begin{frame}{}%--------------------------------------3--------------------------------
+% \vspace{-5mm}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=1.0\textwidth]{profs.pdf}
+% %         \caption{\textit{WNE stars adopted from Hainich et al. 2014}}
+% 	\end{center}
+% \end{figure}
+% % \begin{block}{}
+% % \begin{itemize}
+% % \item \normalsize{High $\dot{M}\rightarrow$ Compact  (Iron bump) solutions}
+% % \item \normalsize{Low  $\dot{M}\rightarrow$ Inflated (HeII bump) solutions}
+% % \end{itemize}
+% % \end{block}
+% \end{frame}
+
+
+
+
+% %\begin{frame}{Cluster Case \& Chemically homogeneous evolution}
+
+% %\subsection[Other channels]{Star Evolution Before Binary (Cluster)}
+% %\Large{\textbf{Star Evolution Before Binary (Cluster)}} \\
+
+% %\begin{itemize}
+% %\item Massive stars in Globular Clusters $\rightarrow$
+% %\item independent evolution into BH $\rightarrow$
+% %\item three body interaction $\rightarrow$
+% %\item Merger.
+% %\end{itemize}
+
+% %\subsection[Other channels]{Chemically homogeneous evolution}
+% %\Large{\textbf{Chemically homogeneous evolution}} \\
+% \begin{frame}{Homogeneous evolution Channel}
+
+% \begin{block}{}
+% \begin{itemize}
+% \item Close Binary $\rightarrow$ Strong Tides $\rightarrow$ Tidal locking $\rightarrow$
+% \item Rapid rotation, $\rightarrow$ mixing $\rightarrow$
+% \item homogeneous evolution $\rightarrow$ $R_{*} < R_{RL}$;
+% \item BH formation $\rightarrow$ Merger.
+% \end{itemize}
+% \end{block}
+
+% %\vspace{10mm}
+% %\begin{center}
+% % $\downarrow$ Details \& Rotation $\downarrow$
+% %\end{center}
+
+% \end{frame}
+% %**********************************************************************************************
+% \section{Stellar Rotation}
+% %**********************************************************************************************
+% %\subsection*{Slow-Rotating case for a single Massive Star}
+
+% \begin{frame}{Effects of Stellar Rotation}
+
+%        \begin{columns}
+%           \column{0.5\linewidth}
+%           \vspace{-4mm}
+%  			\begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=1.0\textwidth]{HDR1.pdf}
+%                     \vspace{-3mm}
+%              	\caption{Evolutionary tracks for low metallicity stars (Source: MIST \cite{mist})}
+%              	\end{center}
+%           	\end{figure}
+%            \column{0.62\linewidth}
+% 						\vspace{-53.5mm}
+%            		\begin{center}
+%                 		\begin{alertblock}{Non-Rotating case}
+%                 		\begin{itemize}
+%                         \item \normalsize{ Steep Core-Envelope $\nabla\mu$ \& $\nabla p$ }
+%                         \item \normalsize{ \textcolor{red}{'redward'} evolutionary track }
+%                         \item \normalsize{ Binary: common envelope evolution. }
+%                         \end{itemize}
+%                 		\end{alertblock}
+%                 \end{center}
+%                            \vspace{-5mm}
+              
+%        \end{columns}
+
+
+% %\begin{frame}{Slow-Rotating case for a single Massive Star}
+% %	\begin{itemize}
+% %	\item Massive stars $\rightarrow$ Convective core, Radiative envelope.
+% %    \item Mixing: Convection, Meridional circulations, Internal Shear.    
+% %    \item Mixing $\uparrow$ if $z\downarrow$, $M\uparrow$, $\omega\uparrow$.
+% %    \item Steep Core-Envelope $\nabla\mu$ \& $\nabla p$,
+% %    \item 'redward' evolutionary track (Shell expands and cools).
+% %    \item In a close binary: common envelope evolution. 
+% %	\end{itemize}
+    
+    
+
+% \end{frame}
+% %**********************************************************************************************
+% %\subsection*{Fast-Rotating case for a single Massive Star}
+
+% \begin{frame}{Effects of Stellar Rotation}
+
+%        \begin{columns}
+%           \column{0.5\linewidth}
+%           \vspace{-4mm}
+%  			\begin{figure}
+%                 \begin{center}
+%                     \includegraphics[width=1.0\textwidth]{HDR2.pdf}
+%                     \vspace{-3mm}
+%              	\caption{Evolutionary tracks for low metallicity stars (Source: MIST \cite{mist})}
+%              	\end{center}
+%           	\end{figure}
+%            \column{0.62\linewidth}
+% 						\vspace{-5mm}
+%            		\begin{center}
+%                 		\begin{alertblock}{Non-Rotating case}
+%                 		\begin{itemize}
+%                         \item \normalsize{ Steep Core-Envelope $\nabla\mu$ \& $\nabla p$ }
+%                         \item \normalsize{ \textcolor{red}{'redward'} evolutionary track }
+%                         \item \normalsize{ Binary: common envelope evolution. }
+%                         \end{itemize}
+%                 		\end{alertblock}
+%                 \end{center}
+%                            \vspace{-8mm}
+%                 \begin{center}
+%                         \begin{block}{Fast-Rotating case}
+%                         \begin{itemize}                            
+%                         \item Rotation Mixing:
+%                         \begin{itemize}
+%                               \item Internal shear %(fig:\ref{fig:IS})
+%                               \item Meridional Current %(fig:\ref{fig:MC})
+%                         \end{itemize}
+%                         \item if $\omega$ is high, $z$ low, $\nabla\mu \rightarrow 0$ ;
+%                         \item 'Case M' evolution.
+%                         \item $t\uparrow \rightarrow R\downarrow, L\uparrow$.
+%                         \item \textcolor{blue}{'blueward'} evolutionary track.
+%                         \end{itemize} 
+%                         \end{block}	
+% 			  \end{center}
+              
+%        \end{columns}
+
+
+% %\begin{frame}{Slow-Rotating case for a single Massive Star}
+% %	\begin{itemize}
+% %	\item Massive stars $\rightarrow$ Convective core, Radiative envelope.
+% %    \item Mixing: Convection, Meridional circulations, Internal Shear.    
+% %    \item Mixing $\uparrow$ if $z\downarrow$, $M\uparrow$, $\omega\uparrow$.
+% %    \item Steep Core-Envelope $\nabla\mu$ \& $\nabla p$,
+% %    \item 'redward' evolutionary track (Shell expands and cools).
+% %    \item In a close binary: common envelope evolution. 
+% %	\end{itemize}
+    
+    
+
+% \end{frame}
+
+% %**********************************************************************************************
+% %\subsection*{Fast-Rotating case for a Binary of massive stars}
+% \begin{frame}{Close binary Evolution}
+%        \begin{columns}
+%           \column{0.5\linewidth}
+%              \centering
+%              \includegraphics<1>[width=1.1\textwidth]{CaseM.pdf}
+%            \column{0.5\linewidth}
+%            		\begin{center}
+%                 \normalsize{
+%                         \begin{block}{}
+%                             \begin{itemize}
+%                                 \item \textbf{Strong Tides} 
+%                                 \item Tidal Lock, $(\omega_{orb}=\omega_{spin})$
+%                                 \item \textbf{Rapid Rotation}
+%                                 \item Case M evolution
+%                             \end{itemize}
+%                         \end{block}
+% %                       \vspace{-2mm}
+%                         \begin{block}{Results}
+%                           \begin{itemize}
+%                           \item  Helium stars are formed 
+%                           \item  Separate evolution into BHs 
+%                           \item  Merger 
+%                           \end{itemize} 
+%                         \end{block}    
+%                         }
+% 			  \end{center}               
+%        \end{columns}
+% \end{frame}
+
+% %**********************************************************************************************
+% %\subsection*{Fast-Rotating case for a Binary of massive stars}
+% \begin{frame}{Parameter Space for Case M evolution}
+% 		\vspace{-3mm}
+% 		  \begin{figure}
+%                 \begin{center}
+%               			\includegraphics[width=0.7\textwidth]{ParSpace.pdf}
+%                     \vspace{-3mm} 
+%              \end{center}
+%           \end{figure}
+%           \centering Window for Chemically Homogeneous Evolution. \\
+%           Tidally locked, $m_1=m_2$ binary. 
+% \end{frame}
+% %**********************************************************************************************
+
+% %\begin{frame}{Window for Case M evolution}
+% %		\vspace{-3mm}
+% %		  \begin{figure}
+% %                \begin{center}
+% %                	\includegraphics[width=0.7\textwidth]{ParSpace.pdf}
+% %                    \vspace{-3mm}
+% %             		\caption{Narrow region of massive $M>\sim 40$ M$_{\odot}$ (companion) and short period 1.5 - 2.5 days Binaries. Constrain of Mass and Period.}  
+% %             \end{center}
+% %          \end{figure}
+% %\end{frame}
+% %**********************************************************************************************
+
+% \section{Merger Rate Estimation}
+% \subsection{Back-of-The-Envelope Estimate}
+% \begin{frame}{Back-of-The-Envelope Estimate}
+% 	\begin{block}{Local Merger Rate}
+    
+% 	    \begin{equation*}
+%     	\frac{dN}{dVdt} = \frac{dN_{\text{gal}}}{dV}\dot{N}_\text{SF}f_{\text{z}}f_{\text{mass}}f_{\text{sep}} \rightarrow \frac{dN}{dt} \sim 20 \text{Gpc}^{-3}yr^{-1},
+%     \end{equation*}
+	
+%     \end{block}
+
+    
+%     \normalsize{
+%     \begin{itemize}
+%     \item $dN_{\text{gal}}/dV = 0.01$Mpc$^{-3}$ -- space density of MW type of  galaxies\footnote{\label{181}From Observations}.
+%     \item $\dot{N}_\text{SF}$ -- star formation rate  per galaxy per unit $t$ (MW)\cref{181} 
+%     \item $f_{\text{z}<0.004} \sim 0.1$ stars with $z<0.004$. \footnote{Simulations} 
+%     \item $f_{\text{mass}} \sim 10^{-4}$ binaries with  $M_1>60M_{\odot}$ and $M_2>40M_{\odot}$.\footnote{IMF of Kroupa+2003}
+%     \item $f_{\text{sep}} \sim 0.1$ binaries with required initial separation.\footnote{Assumption based of observations (Sana+2012)\cite{Sana}.}
+%     \end{itemize}
+% 	}
+    
+% \end{frame}
+% %**********************************************************************************************
+
+
+
+% %**********************************************************************************************
+% \subsection*{Simulations}
+% \begin{frame}{Detailed Analysis}
+
+% 		\begin{block}{Rate of BH-BH binaries mergers at time $t_m$}
+% 		\pause
+% %        \begin{center}
+% 	    \begin{equation*}
+%     	\begin{aligned}
+%         	\frac{d^4 N_{\text{merge}}}{dV_{\text{c}}dtdm_1dm_2}(t_{\text{m}})
+%             = \underbrace{ \int_{P_{\text{min}}} ^{P_{\text{max}}} dP }_\text{Period} \times
+%             \underbrace{ \int_0 ^1 dZ }_\text{Metallicity} \times
+%             \underbrace{ \int_0 ^{t_\text{m}} dt }_\text{Cosmic Time} \times  \\
+%         	\underbrace{ \times p(t_{\text{m}};m_1,m_2, P, Z, t_{\text{b}}) }_\text{Probability Density}  
+%             \times  \frac{d^2 M_{\text{SFR}}}{dtdV_c}(t_{\text{b}}) 
+%             \underbrace{ \times \frac{d^5 N_{\text{binaries}}}{dm_1 dm_2 dP dZ dM_{\text{SFR}}}(t_\text{b}) }_\text{Number Density of Binaries }\\
+% 	\end{aligned}
+%     \end{equation*}
+    
+    
+%     \begin{equation*}
+%             \frac{d^2N_{\text{merge}}}{dV_{\text{c}}dt} = \int_{m_1, m_2} \frac{d^4 N_{\text{merge}}}{dV_{\text{c}}dtdm_1dm_2}(t_{\text{m}}). 
+%     \end{equation*}
+% %	\end{center}
+        
+% 		\end{block}
+
+% \end{frame}
+% %**********************************************************************************************
+% %\subsection*{Rigorous Analythis}
+% \begin{frame}{Population Synthesis}
+	
+%     \begin{block}{Calculate Rate of binary BH mergers}
+%     \textit{Principle}:
+%     \begin{itemize}
+%     \item Create an Initial Parameter Space for Binaries.
+%     \item Randomly draw binaries and distribute across $z$.
+%     \item Select the Case M evolution.
+%     \item Analyse.
+%     \end{itemize}
+%     \end{block}
+    
+% \end{frame}
+% %**********************************************************************************************
+% \subsection{Detailed Calculations}
+% \begin{frame}{Initial Assumptions and Population synthesis}
+% 		\begin{itemize}
+% 		    \item 4 parameters: \textcolor{gray}{$\{M_1, M_2, \text{Separation}, \text{Cosmic Time} (z')\}$.}
+%     		\item Probability distributions.
+% 		\end{itemize}
+       
+%         \begin{block}{Initial Assumptions}
+%             \begin{normalsize}
+%         		\begin{itemize} 
+%              \item \textbf{Massive Stars} \textcolor{gray}{$M_1>20M_{\odot}$ and follows a Kroupa IMF, flat relation for secondary $q=M_2/M_1$, $q\in [0.1,1]$}
+%              \item \textbf{Short Period} \textcolor{gray}{ $dN/\log_{10}P\propto (\log_{10} P)^{-0.5}$, where $\log_{10}(P/d)\in[0.075,3.5]$ }
+%              \item \textbf{Rapid Rotation} \textcolor{gray}{ $\omega(Z,M) \in [\omega_c, \omega_k]$, where $\omega_c$ - start of homogeneous mixing $\sim 30$\% of Keplarian velocity $\omega_k$.}%\footnote{Evolution code is used}
+%              \item \textbf{Low Metalicity} \textcolor{gray}{$Z<0.004$}
+% %             \item \textbf{Tidal Lock} $\rightarrow$ Binaries are circular.
+%       %       \item \textbf{Binaries are circular} \textcolor{gray}{assuming strong tides.}
+%       %       \item \textbf{Stellar radii} obtained from 1D evolution code.
+%       %       \item \textbf{Stellar spin} is synchronized with stellar orbit.
+%        			\end{itemize}   
+%         	\end{normalsize}
+%         \end{block}
+       	
+    
+% \end{frame}
+% %**********************************************************************************************
+% \begin{frame}{Monte Carlo method and Selection Criteria}
+% 		\begin{normalsize}
+%           \begin{itemize}
+%               \item Monte Carlo method: simulate $\sim 10^{7}$ binaries.
+%               \item Binaries evolved beyond supernovae (SN)\footnote{\textcolor{gray}{Grid of a stellar models is adopted}}.
+%               \item Select Case M binaries: 
+%               \begin{block}{Selection Criteria}
+%                     \begin{itemize}
+%                     \item $M\in[20-300]M_{\odot}$,
+%                     \item no Roch lobe overflow,
+%                     \item binary is compact,
+%                     \item ${m_1,m_2}_{pre-SN}<63M_{\odot}$ \textcolor{gray}{to avoid pair instability SN},
+%                     \item $t_{merge} < t_{Hubble}$ \textcolor{gray}{Time from binary formation to merger}.
+%           	    \end{itemize}
+%               \end{block}
+%           \end{itemize}
+% 		\end{normalsize}
+
+    	
+%         \textbf{Result: out of $\approx 10^7$ binaries, $\approx 500$ is selected.}
+% \end{frame}
+
+% %**********************************************************************************************
+% \section{Results}
+% %\subsection{Result of Modelling}
+% \begin{frame}{Simulated Systems}
+% \vspace{-2mm}
+%           \begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=0.7\textwidth]{Sample.pdf}
+% %                    \vspace{mm}
+%              \end{center}
+%           \end{figure}
+%           \vspace{-3mm}
+%    Gray -- all simulated systems. 
+%    1900 - Case M evolution.
+%    \textcolor{blue}{blue} -- $t_{merge}>t_{Hubble}$. 
+%    pink -- 700 pair-instability supernovae.
+%    Red -- BH Mergers.
+% \end{frame}
+% %**********************************************************************************************
+% \begin{frame}{Time Delay Distribution}
+% 		\vspace{-3mm}
+% 		  \begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=0.7\textwidth]{Delay.pdf}
+%                     \vspace{-3mm}
+%              \end{center}
+%           \end{figure}
+%           \vspace{-3mm}
+%           \centering Time delay between formation and merger.\\
+%           Most of the Binary formation: $z>2$. High $\tau \rightarrow$ more contribution.
+% \end{frame}
+
+
+% %**********************************************************************************************
+% \begin{frame}{Merger Rate distribution across Redshit}
+% 		\vspace{-3mm}
+% 		  \begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=0.7\textwidth]{MerRates.pdf}
+%                     \vspace{-3mm}
+%              \end{center}
+%           \end{figure}
+%           \centering Total Merger rate (black) vs Redshift. Coloured lines - individual contributions (rate$\times 100$) \textcolor{gray}{convolution of low z SFR and time delay}
+% \end{frame}
+
+% %**********************************************************************************************
+% \begin{frame}{Distribution of BH mergers at $z=0$}
+% 		\vspace{-3mm}
+% 		  \begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=0.7\textwidth]{Dist.pdf}
+%                     \vspace{-3mm}
+%              \end{center}
+%           \end{figure}
+%           \centering
+% Mass ration $q=m_2/m_1$. \\
+% Colour - rate of mergers. \\
+% Result: High / comparable masses preferred. 
+% \end{frame}
+% %**********************************************************************************************
+% %**********************************************************************************************
+% \begin{frame}{Model Uncertainties}
+% 		1D models for rotation mixing. \\
+%         Binary: additional mixing processes.
+% 		\vspace{-3mm}
+% 		  \begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=1.0\textwidth]{table_parts.pdf}
+%                     \vspace{-3mm} 
+%              \end{center}
+%           \end{figure}
+%           \vspace{-3mm}
+%           \centering Cosmic Merger Rate at $z=0$ under different assumptions.
+% \end{frame}
+% %**********************************************************************************************
+% \section{Conclusions}
+% \begin{frame}{Conclusions}
+
+% \begin{block}{}
+% 	\begin{itemize}
+% 	\item \textbf{Merger Rate} of $\sim 10$ at $z'=0$ per Gpc$^3$\\
+% 	 Peak of $\sim 20$ at $Z \sim 0.5$ per Gpc$^3$.
+% 	\item Merger Rate comparable to other channels.
+% %	\item Consistency with lack of detection on LIGO-Virgo.
+% 	\item \textbf{Typical mergers}: $m_1\sim m_2$, $m_1+m_2\sim 50-110$ M$_{\odot}$
+% 	\item \textbf{Long delay} of at least 4 Gyr. Signals expected from $Z < 1.5$.    
+% %    \item Uncertainties  No uncertainties regarding Common-Envelope evolution.
+% 	\end{itemize}
+% \end{block}
+
+% \end{frame}
+% %**********************************************************************************************
+
+% \begin{frame}{To be continued...}
+% \textit{\Huge{Thank you for Your Attention}}
+% \end{frame}
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %**********************************************************************************************
+% %\section{References}
+% \begin{frame}{References}
+% \begin{thebibliography}{3}
+
+% \bibitem{Mandel}
+% Mandel I., and de Mink S.E., MNRAS 458, 2634 (2016)
+
+% \bibitem{BHH}  
+% Krzysztof Belczynski,	Daniel E. Holz,	Tomasz Bulik \& Richard O’Shaughnessy Nature 534, 512–515 (23 June 2016) doi:10.1038/nature18322
+
+% \bibitem{Brott}
+% Brott I. et al., 2011a, A\&A, 530, A115
+
+% \bibitem{Sana}
+% Sana H. et al., 2012, Science, 337, 444
+
+% \bibitem{mist}
+% http://waps.cfa.harvard.edu/MIST/model\_grids.html
+
+% \end{thebibliography}
+% \end{frame}
+% %**********************************************************************************************
+% %\section*{Back Up}
+% %\subsection*{Mass Loss}
+% \begin{frame}{Stellar Wind}
+% \begin{normalsize}
+
+% %	\textbf{Effect:} tidal mixing in a binary.\\
+% %    \textbf{Result:} $\omega_c$ may be lower than for a single rotating star.\\
+% %    \vspace{5mm}
+% %    \textbf{Effect:} At low Z Stellar wind is Reduced (+$v_{wind} \downarrow$), but in a tight system, is important.\\
+% %    \textbf{Result:} $M_{stars}\downarrow \rightarrow t_{before merger}\downarrow$.\\
+%     Wind $\downarrow$ M and affect final orbit. \\
+%     \begin{center}
+% 	\begin{tabular}{ c | c }
+%  		Fast Wind (Jeans mode) & Slow wind ($v_{wind}\sim v_{stars}$)\\ 
+%  							\hline  
+%  		Isotropic Mass Loss &  Wind interacts with both stars \\
+%  		No interaction with the system &  May harden the Binary \\
+%  		Lesser of Angular Momentum & Strong Angular momentum loss \\
+% 	\end{tabular}
+% 	\end{center}
+    
+%     \end{normalsize}
+    
+%     \textcolor{gray}{In standard simulation, the Jeans Mode of wind is used.}
+% \end{frame}
+% %**********************************************************************************************
+% \begin{frame}{Mass Loss \& Stellar Evolution}
+%     \Large{\textbf{Mass Loss}}
+% 	\begin{itemize}
+%         \item $f_{\text{MS}} = 0.1$, $f_{\text{WR}} = 0.25$, $f_{\text{SN}} = 0.1$, 
+%         \item Mass fallback fraction and natal lick - uncertain. (Natal kick is ignored). 
+%     \end{itemize}
+%     \Large{\textbf{Evolution}}
+%     \begin{itemize}
+%         \item Mass and angular momentum loss (Jeans mode) $\rightarrow$ orbit widens.
+%         \item After BH formation, $E_{BHs}\downarrow$ though GW\footnote{$\tau_{\text{merg}}$ dominates the whole evolution}     
+%     \end{itemize}
+% \end{frame}
+% %**********************************************************************************************
+% %\subsection*{Back Up}
+% %**********************************************************************************************
+% \begin{frame}{\textcolor{red}{Cumulative Merger Rate} and \textcolor{blue}{Formation Rate}}
+% 		\vspace{-3mm}
+% 		  \begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=0.7\textwidth]{FormMerg.pdf}
+%                     \vspace{-3mm}
+%              		\caption{Here the there are no mergers after $z\sim 1-1.5$, and no formation after $z\sim 4-4.5$. Then the rates are constant. (cumulative rate is per year as measured by an observer at $z=0$. }  
+%              \end{center}
+%           \end{figure}
+% \end{frame}
+% %**********************************************************************************************
+% %**********************************************************************************************
+% \begin{frame}{Individual Contribution to the Merger Rate}
+% 		\vspace{-3mm}
+% 		  \begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=0.7\textwidth]{Contr.pdf}
+%                     \vspace{-3mm}
+%              		\caption{Here, the mass of the Binary is given as a Chirp Mass $(M=m_1m_2)^{3/5}(m_1+m_2)^{-1/5})$. More contribution comes from long time delay Binaries (high $z$), while low $z$ binaries more numerous.}  
+%              \end{center}
+%           \end{figure}
+% \end{frame}
+% %**********************************************************************************************
+
+
+% %**********************************************************************************************
+% \begin{frame}{Fast-Rotating case for a single Massive Star}
+% %\Large{\textbf{Consequences of fast rotation:}} \\
+
+%        \begin{columns}
+%           \column{0.5\linewidth}
+%  			\begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=1.0\textwidth]{Shear.pdf}
+%                     \vspace{-1mm}
+%              	\caption{Internal Shear Principle}
+%                 \label{fig:IS}
+%              	\end{center}
+%           	\end{figure}
+%            \column{0.62\linewidth}
+%  			\begin{figure}
+%                 \begin{center}
+%                 	\includegraphics[width=1.0\textwidth]{MerCur.jpg}
+%                     \vspace{-1mm}
+%              	\caption{Meridional Circulation Principle}
+%                 \label{fig:MC}
+%              	\end{center}
+%           	\end{figure}                                      
+%        \end{columns}
+% \end{frame}
+% %**********************************************************************************************
+% %**********************************************************************************************
+
+\end{document}
+
+
+%**********************************************************************************************
+%\begin{frame}{Itemize, Enumerate and Description}
+%  \begin{itemize}
+%  \item one item
+%    \begin{itemize}
+%    \item first subitem
+%    \item second subitem
+%    \end{itemize}
+%  \item another item
+%  \item yet another item
+%  \end{itemize}
+%  \begin{enumerate}
+%  \item first item
+%  \item second item
+%  \item third item
+%  \end{enumerate}
+%  \begin{description}
+%  \item[ABCD] Characters
+%  \item[123432] Numbers
+%  \item[nothing] ``nothing'' in here
+%  \end{description}
+%\end{frame}
+%**********************************************************************************************
+%
+%\begin{frame}{Blocks}
+%  \begin{block}{block with title}
+%    Content: Summarized information in block. 
+%  \end{block}  
+%  \begin{exampleblock}{An example}
+%    Some example in here!
+%  \end{exampleblock}
+%  \begin{alertblock}{An alert block}
+%    For something that's really important and/or a serious drawback of something.
+%  \end{alertblock}
+%  \begin{block}{}
+%    Content of a block without title 
+%  \end{block}  
+%\end{frame}
+
+
+% \section*{Summary}
+
+% \begin{frame}
+%  \frametitle<presentation>{Summary}
+
+%  \begin{itemize}
+%  \item The \alert{first main message} of your talk in one or two lines.
+%  \end{itemize}
+
+%  % The following outlook is optional.
+%  \vskip0pt plus.5fill
+%  \begin{itemize}
+%  \item Outlook
+%    \begin{itemize}
+%    \item Something you haven't solved.
+%    \item Something else you haven't solved.
+%    \end{itemize}
+%  \end{itemize}
+% \end{frame}
+
+%**********************************************************************************************

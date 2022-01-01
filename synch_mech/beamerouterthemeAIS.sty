@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autonomous Intelligent System, University of Bonn, LaTeX Beamer theme
+% 
+% Copyright (C) 2010-2013 Dirk Holz, dirk.holz@ieee.org
+
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\newif\ifbeamer@themeouterAIS@subsection
+\newif\ifbeamer@themeouterAIS@logoinnavbar
+
+\DeclareOptionBeamer{subsection}[true]{\csname beamer@themeouterAIS@subsection#1\endcsname}
+\DeclareOptionBeamer{logoinnavbar}[true]{\csname beamer@themeouterAIS@logoinnavbar#1\endcsname}
+\ExecuteOptionsBeamer{subsection=false,logoinnavbar=false}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\setbeamercolor*{author in head/foot}{parent=palette secondary}
+\setbeamercolor*{title in head/foot}{parent=palette primary}
+\setbeamercolor*{date in head/foot}{parent=palette tertiary}
+\setbeamercolor*{footlineAIS}{parent=palette secondary}
+\setbeamercolor*{section in head/foot}{parent=palette secondary}
+\setbeamercolor*{subsection in head/foot}{parent=palette quaternary}
+\setbeamercolor*{frametitle}{parent=palette quaternary}
+
+
+\beamer@compresstrue
+
+\AtBeginDocument{
+  {
+    \usebeamerfont*{headline}
+    \colorlet{global.bg}{bg}
+    \usebeamercolor{subsection in head/foot}
+    \usebeamercolor{section in head/foot}
+    \usebeamercolor{frametitle}
+
+    \ifbeamer@themeouterAIS@subsection
+    \pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+      color(0ex)=(global.bg);%
+      color(1ex)=(subsection in head/foot.bg);%
+      color(3.25ex)=(subsection in head/foot.bg);%
+      color(4.25ex)=(section in head/foot.bg);%
+      color(9.75ex)=(section in head/foot.bg)%
+    }
+    \pgfdeclareverticalshading{beamer@aboveframetitle}{\the\paperwidth}{%
+      color(0ex)=(frametitle.bg);%
+      color(1ex)=(frametitle.bg);%
+      color(2ex)=(subsection in head/foot.bg)
+    }
+    \else
+    \pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+      color(0ex)=(global.bg);%
+      color(1ex)=(section in head/foot.bg);%
+      color(7ex)=(section in head/foot.bg)%
+    }
+    \pgfdeclareverticalshading{beamer@aboveframetitle}{\the\paperwidth}{%
+      color(0ex)=(frametitle.bg);%
+      color(1ex)=(frametitle.bg);%
+      color(2ex)=(section in head/foot.bg)
+    }
+    \fi  
+
+    \pgfdeclareverticalshading{beamer@belowframetitle}{\the\paperwidth}{%
+      color(0ex)=(global.bg);%
+      color(1ex)=(frametitle.bg)
+    }
+  }
+}
+
+\defbeamertemplate*{headline}{smoothbars theme}
+{%
+  \pgfuseshading{beamer@barshade}%
+  \ifbeamer@themeouterAIS@subsection%
+  \vskip-9.75ex%
+  \else%
+  \vskip-7ex%
+  \fi%
+  \hbox{%
+    \ifbeamer@themeouterAIS@logoinnavbar%
+    \begin{beamercolorbox}[wd=.75\paperwidth,ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}%
+      \insertnavigation{0.74\paperwidth}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.25\paperwidth,ignorebg,ht=2.25ex,dp=3.75ex,right]{section in head/foot}%
+    % the figure here is the one that defines the logo in the upper right corner
+      \vspace{-8ex}\includegraphics[width=0.12\paperwidth]{./figs/combined_logo.png}\hspace*{2ex}%
+    \end{beamercolorbox}%
+    \else%
+    \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}%
+      \insertnavigation{\paperwidth}%
+    \end{beamercolorbox}%
+    \fi  
+  }
+  \ifbeamer@themeouterAIS@subsection%
+  \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}%
+    \usebeamerfont{subsection in head/foot}\insertsubsectionhead%
+  \end{beamercolorbox}%
+  \fi%
+}%
+
+
+\defbeamertemplate*{footline}{infolines theme}
+{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.125\paperwidth,ht=2.25ex,dp=1ex,left]{footlineAIS}%
+      \hspace*{2ex}\usebeamerfont{footlineAIS}\insertshortauthor
+      % \hspace*{2ex}\usebeamerfont{footlineAIS}\insertshortauthor~~(\insertshortinstitute)
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.75\paperwidth,ht=2.25ex,dp=1ex,center]{footlineAIS}%
+      \usebeamerfont{footlineAIS}{\bfseries\insertshorttitle}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.125\paperwidth,ht=2.25ex,dp=1ex,right]{footlineAIS}%
+      \usebeamerfont{footlineAIS}\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}}%
+  \vskip0pt%
+}%
+
+
+\defbeamertemplate*{frametitle}{smoothbars theme}
+{%
+  \nointerlineskip%
+  \usebeamerfont{headline}%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.5ex,dp=0ex,vmode]{empty}
+    \pgfuseshading{beamer@aboveframetitle}%
+  \end{beamercolorbox}%
+  \vskip-.5ex%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
+    \usebeamerfont*{frametitle}\insertframetitle%
+    \ifx\insertframesubtitle\@empty%
+    \strut\par%
+    \else
+    \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+    \fi%%
+    \usebeamerfont{headline}%
+    \vskip.5ex  
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=.5ex,dp=0ex]{empty}
+    \pgfuseshading{beamer@belowframetitle}%
+  \end{beamercolorbox}%
+}
+
+\mode
+<all>
