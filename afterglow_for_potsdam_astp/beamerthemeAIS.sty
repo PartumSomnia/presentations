@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autonomous Intelligent System, University of Bonn, LaTeX Beamer theme
+% 
+% Copyright (C) 2010-2013 Dirk Holz, dirk.holz@ieee.org
+
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\newif\ifbeamer@themeAIS@logoinframe
+\newif\ifbeamer@themeAIS@framenavbar
+\DeclareOptionBeamer{subsection}[true]{\def\beamer@themeAIS@subsection{#1}}
+\DeclareOptionBeamer{shadow}[true]{\def\beamer@themeAIS@shadow{#1}}
+\DeclareOptionBeamer{logoinnavbar}[true]{\def\beamer@themeAIS@logoinnavbar{#1}}
+\DeclareOptionBeamer{logoinframe}[true]{\csname beamer@themeAIS@logoinframe#1\endcsname}
+\DeclareOptionBeamer{framenavbar}[true]{\csname beamer@themeAIS@framenavbar#1\endcsname}
+\ExecuteOptionsBeamer{subsection=false,shadow=false,logoinnavbar=false,logoinframe=false,framenavbar=false}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\setbeamertemplate{mini frames}[box]
+\useoutertheme[subsection=\beamer@themeAIS@subsection,logoinnavbar=\beamer@themeAIS@logoinnavbar]{AIS}
+
+\useinnertheme[shadow=\beamer@themeAIS@shadow]{AIS}
+
+% \usefonttheme{professionalfonts}
+\usefonttheme{default}
+
+\usecolortheme{AIS}
+
+\definecolor{AIS_blue}{RGB}{0, 66, 145}
+
+% \setbeamertemplate{background canvas}[vertical shading][top=white, middle=white, bottom=blue!8!white]
+
+\newcommand{\AIShighlight}[1]{\textcolor{bonnblue}{#1}}
+\newcommand{\highlight}[1]{\textcolor{bonnblue}{#1}}
+\newcommand{\good}[1]{\textcolor{green!60!black}{#1}}
+\newcommand{\bad}[1]{\textcolor{red!80!black}{#1}}
+
+\ifbeamer@themeAIS@framenavbar
+\usenavigationsymbolstemplate{%
+  \vbox{\hspace*{-1.5cm}
+    \hfill
+    \hbox{\insertslidenavigationsymbol}
+    \hbox{\insertframenavigationsymbol}
+    \hbox{\insertsubsectionnavigationsymbol}
+    \hbox{\insertsectionnavigationsymbol}
+    \hbox{\insertdocnavigationsymbol}
+    \hbox{\insertbackfindforwardnavigationsymbol}
+    \ifbeamer@themeAIS@logoinframe%
+    \includegraphics[scale=0.03]{logo_uni_jena.jpg}%
+    \fi%
+  }
+}
+\else
+\ifbeamer@themeAIS@logoinframe%
+\usenavigationsymbolstemplate{\includegraphics[scale=0.03]{logo_uni_jena.jpg}}
+\else
+\usenavigationsymbolstemplate{}
+\fi%
+\fi
+
+\mode<all>
