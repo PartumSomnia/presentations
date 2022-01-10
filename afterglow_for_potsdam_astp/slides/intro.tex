@@ -60,7 +60,42 @@
 %    up to $\omega \sim \omega_{b}\gamma_e^2$ with universal shape. % cyclotron frequency $omega_b = eB/m_ec$
 %\end{itemize}
 
+
 % =============================================================================================
+
+%\section{Phsyics}
+\subsection{Motivation for detailed kilonova afterglow modelling}
+\begin{frame}{}  %% ---------- Intro/motivation 
+    \begin{tikzpicture}[overlay,remember picture]
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-0.5cm)}]current page.center){
+                \parbox{0.6\textwidth}{
+                    Blast wave dynamics under ``thin-shell'' approximation. 
+                    \begin{itemize}
+                        \item late-time cahnge in afterglow (not a jet)
+                        \item Statistical fit indicates
+                        Harder radio-to-X-ray spectrum (lower $p$)
+                        \item Observations in radio suggest optically thin spectrum
+                    \end{itemize}
+            }};
+        }
+        \uncover<1-1>{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,2.0cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \includegraphics[height=3.0cm]{figures/figure4_2021paper.pdf}
+            }};
+        }
+        \uncover<1-1>{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-2.0cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \includegraphics[height=3.0cm]{figures/SED1234days.eps}
+            }};
+        }
+    \end{tikzpicture}
+\end{frame}
+
+% =============================================================================================
+
 \section{GRB afterglow}
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
@@ -80,7 +115,7 @@
                         %
                     \end{itemize}
                     
-                    \textbf{Observations of afterglow describe:}: 
+                    \textbf{Key observables}:
                     \begin{itemize}
                         \item $F_{\nu;p}\propto E_{\rm iso} n_{\rm ISM}^{(p+1)/4}\theta_{\rm obs}^{-2p}\varepsilon_e^{p-1}\varepsilon_B^{(p+1)/4}D_{L}\nu^{(1-p)/2}$
                         \item $t_p\propto E_{\rm iso}^{1/3}n_{\rm ISM}^{-1/3}\theta_{\rm obs}^2$
@@ -137,7 +172,7 @@
                     \textbf{Main Features}:
                     \begin{itemize}
                         \item Synchrotron emission from mildly relativistic ejecta
-                        (phenomenologically similar to GRB afterglow and SNe remnants)
+                        (similar to GRB afterglow and SNe remnants)
                         %
                         \item Expected in sGRBs but have not observed$(^*)$
                         %
@@ -145,12 +180,12 @@
                         %
                     \end{itemize}
                     
-                    \textbf{Information can be gained}: 
+                    \textbf{Observables of the afterglow}: 
                     \begin{itemize}
                         \item $F_{\nu,p}\propto E n^{(p+1)/4}\beta^{(5p-7)/2}\varepsilon_e^{p-1}\varepsilon_B^{(p+1)/4}D_L^{-2}\nu^{(-p-1)/2}$
-                        \item $t_{p}\propto E^{1/3} n_{\rm ISM}^{-1/3} \beta^{-5/3}$
+                        \item $t_{p}\propto E^{1/3} n^{-1/3} \beta^{-5/3}$
                         %
-                        \item Observed on a timescale of years.
+                        \item Timescale of years.
                         %
                         \item Trace the properties of the fastest ejecta
                         %
@@ -235,7 +270,7 @@
                     Blast wave dynamics under ``thin-shell'' approximation. 
                     \begin{itemize}
                         \item jet/ejection duration is short (ejecta thickness is small)
-                        \item $E_{\rm kin} \gg e_{\rm th}, p$
+                        \item $E_{\rm kin} \gg e_{\rm th}, P$
                         \item $4$ region system 
                     \end{itemize}
                     \begin{equation*}
@@ -247,19 +282,19 @@
                         \rho' = 4\Gamma\rho, \hspace{2mm}
                         \epsilon' = 4\Gamma\rho c^2
                     \end{equation*}
-                    After $dt$, blast-wave speeps up $dm$ 
-                    from ISM, and energy consiervation gives $d\Gamma$.
-                    Separate presciption for spreading $d\theta/dt$. 
+                    After $dt$, blast-wave sweeps up $dm$ 
+                    from ISM, and energy conservation gives $d\Gamma$.
+                    Separate inclusion of $d\theta/dt$. 
             }};
         }
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-2.0cm)}]current page.center){
                 \parbox{0.5\textwidth}{
-                    Turbulent magnetic fields in the shock downstream \& first order Fermi acceleration
+                    \textbf{Shock downstream}: \\
                     \begin{itemize}
-                        \item Equipartition parameters $\varepsilon_e$, $\varepsilon_B$
-                        \item first order Fermi acceleration of electrons
-                        \item Non-thermal (thernal) electron population
+                        \item fluid compression;
+                        \item magnetic field amplification ($\varepsilon_B$)
+                        \item first order Fermi acceleration ($\varepsilon_e$)
                     \end{itemize}
             }};
         }
@@ -300,11 +335,13 @@
                         Q(\gamma,t) = 
 %                        \frac{dN_{\rm inj}}{dt d\gamma}=
                         \begin{cases}
-                            Q_0(\gamma_m, t)\Big(\frac{\gamma}{\gamma_m}\Big)^{-p} & \gamma\in(\gamma_m,\gamma_M), \\
+                            \textcolor{red}{Q_0}(\gamma_m, t)\Big(\frac{\gamma}{\gamma_m}\Big)^{-p} & \gamma\in(\gamma_m,\gamma_M), \\
                             0 & \text{elswhere}.
                         \end{cases}
                     \end{equation*}
                     %
+                    Is $Q_0 = f(B)$ -- YES! 
+                    
                     Steady state solution $\partial/\partial t' = 0$ and $\dot{\gamma}_{\rm adi} = 0$.
                     Cooling $\gamma_c = 6\pi m_e c / ( \sigma_T B^2 t )$.
                     
@@ -343,9 +380,10 @@
                     Afterglow spectrum is defined by $\gamma_m$ and $\gamma_c$
             }};
         }
-        
     \end{tikzpicture}
 \end{frame}
+
+
 
 % =============================================================================================
 
@@ -463,7 +501,7 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,-0.5cm)}]current page.center){
                 \parbox{0.65\textwidth}{
-                    \textbf{Main Features}:
+%                    \textbf{Main Features}:
                     \begin{itemize}
                         \item Set of NS BNS simulations targeted to \GW{}.
                         %
@@ -473,7 +511,7 @@
                         %
                     \end{itemize}
                     
-                    \textbf{Information can be gained}: 
+                    \textbf{If GRB170817A change in afterglow is the emergence of a new component}: 
                     \begin{itemize}
                         \item New data for GRB170817A! Change in afterglow at $t_{\rm X}$
                         %
