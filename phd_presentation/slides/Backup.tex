@@ -1,0 +1,265 @@
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+\begin{frame}{Disk mass evolution} %% ---------- title 
+
+%During the merger, shocks, generated at the collisional interface of the \ac{NS} cores,
+%as well as, tidal torques exerted by the non axisymmetric remnant, result in a formation
+%of the disk. Matter, energy and angular momentum are injected into the disk as the spiral 
+%density waves propagate outwards from the mass-shedding \ac{MNS} remnant 
+%\citep{Bernuzzi:2015opx,Radice:2018xqa}.
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,1.0cm)}]current page.center){
+        \parbox{0.6\textwidth}{
+            The disk baryonic mass is computed as the volume integral of the conserved rest-mass density 
+            %
+            \begin{equation*}
+            \label{eq:method:mdisk}
+            M_{\text{disk}} = \int_{\rho>10^{13}\,\text{\gcm}} \sqrt{\gamma}~W\rho \dd^3 x
+            \end{equation*}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-0.2cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=6cm]{phd_figs/disk/total_disk_mass_evo.pdf}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-2.2cm)}]current page.center){
+        \parbox{0.6\textwidth}{
+            \begin{itemize}
+            \item The long-term evolution of the disk is driven by its interaction with the remnant and cooling.
+            \item Accretion vs. mass shedding
+            \item spiral density waves inject mass and energy into disk and it heats up \& expands
+            \item Soft EOS (strong desntiy modes) \& high temps (allowed by EOS) $\rightarrow$ mass-shedding
+            \end{itemize}
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+\begin{frame}{The evolution of the mass-weighted electron fraction} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.6cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item During the formation, shocks and spiral waves raise the disk $Y_e\sim0.25$
+            \item The bulk, shielded from neutrinos, returns to $Y_e\lesssim0.1$.
+            \item The outer part of the disk, is subjected to the strong irradiation and reaches $Y_e\sim0.4$.
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.5cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{phd_figs/disk/final_disk_timecorr_blh_q1_Lk.pdf}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.5cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{phd_figs/disk/final_disk_timecorr_ls220_q14_LK.pdf}
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+%\includegraphics[width=0.49\textwidth]{disk/final_disk_timecorr_blh_q1_Lk.pdf}
+%\includegraphics[width=0.49\textwidth]{disk/final_disk_timecorr_ls220_q14_LK.pdf}
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+
+\begin{frame}{Final disk structure} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item Low $Y_e$ inner disk
+            \item High $Y_e$ outer disk
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{phd_figs/disk/final_structure/slice_xz_entr_ye_blh_q1_rl3.pdf}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{phd_figs/disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+%\includegraphics[width=0.49\textwidth]{disk/final_structure/slice_xz_entr_ye_blh_q1_rl3.pdf}
+%\includegraphics[width=0.49\textwidth]{disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+
+\begin{frame}{Final disk properties \& composition} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item Bimodal structure in $\langle Y_e \rangle$ and $\langle s \rangle$, second peak \ac{EOS} \& \mr{} dependent
+            \item High $Y_e$ outer disk
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(0.0cm,-1.5cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \includegraphics[height=5cm]{phd_figs/disk/final_structure/disk_hist_shared.pdf}
+    }};
+}
+
+%\uncover<1->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=5cm]{disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
+%    }};
+%}
+
+\end{tikzpicture}
+
+\end{frame}
+
+
+
+% ---------------------------------------------------------
+%
+% Spiral wave wind
+%
+% --------------------------------------------------------
+
+
+\begin{frame}{Spiral-wave wind -- Mass}
+\begin{tikzpicture}[overlay,remember picture]
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,0.5cm)}]current page.center){
+        \parbox{0.7\textwidth}{
+            Bernoulli criterion ($hu_t < -1$, stationary flow)\\
+            \begin{itemize}
+            \item is an idicator of the remnant lifetime,
+            \item is larger if \ac{EOS} is softer (as $m=1$ is stronger) % stiffer \ac{EOS} leads to a more massive disk 
+            \item is larger if $q>1$
+            \item increases if turbulent viscocity is present
+            \end{itemize}
+            $M_{\text{wind}}$ is larger for more extended disks. % that in turn depend on thermal pressure
+    }};
+}
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-0.2cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=6cm]{phd_figs/ejecta_postdyn/wind_mass_flux.pdf}
+    }};
+}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Spiral-wave wind \& neutrino-driven wind} %% ---------- title 
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+%    \includegraphics[width=0.49\textwidth]{slices/slice_xz_ye_hu_1.pdf}
+%\includegraphics[width=0.49\textwidth]{slices/slice_xz_abs_energy_hu_3.pdf}
+%\includegraphics[width=0.49\textwidth]{slices/slice_xy_ye_hu_1.pdf}
+%\includegraphics[width=0.49\textwidth]{slices/slice_xy_abs_energy_hu_3.pdf}
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item absorption of $\nu_e$ neutrinos raises the $Y_e$ of the polar outflow, drives outflow
+            \item \nwind{} is not a steady state outflow, ${\sim}10^{-3}-10^{-4}M_{\odot}$
+            %% The strongest neutrino heating occurs in the vicinity of the remnant at densities $\rho\sim10^{11}$~\gcm,
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{phd_figs/slices/slice_xz_ye_hu_1.pdf}
+    }};
+}
+%\uncover<2->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=5cm]{slices/slice_xy_ye_hu_1.pdf}
+%    }};
+%}
+
+%%% Right: $-hu_0$ and the absorption energy rate $Q_{\text{abs};\:\bar{\nu}_e}$ 
+%%% of electron antineutrinos normalized to the fluid density $D$.
+%%%  heating energy rate due to electron anti-neutrino absorption $Q_{\text{abs};\:\bar{\nu}_e}$
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{phd_figs/slices/slice_xz_abs_energy_hu_3.pdf}
+    }};
+}
+%\uncover<2->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=5cm]{slices/slice_xy_abs_energy_hu_3.pdf}
+%    }};
+%}
+
+\end{tikzpicture}
+
+\end{frame}
