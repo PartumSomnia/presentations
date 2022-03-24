@@ -24,6 +24,17 @@
                 \item Microphsyical EOS with finite temperature effects.
             \end{itemize}
             Overall, $37$ unique simulations targeted to \GW{}, (some $100+$~ms) % total of $76$,  \\
+            % Initial data: constraint equations + Helical killing vector + conformal flatness
+            % For free evolution we use z4c: conformal decomposition of the metric fields with improved constraint propagation + dampening (better for non-vacuum spacte time)
+            % Moving-puncture gauge (1+log and Gamma-driver) to deal with forming BHs and moving pucntures
+            % GRHD is in the conservative formulation, with central, HRSC scheme.
+            % Neutrinos are treated with moment formalism, where moment representaiton of Boltzman equation, truncated at (M1 - 2nd moment) with closure achieved via interpolation between otpically thin and thick regimes. 
+            % LEackages scheme is na approximation to transport equations that concerns only with the change in leptonic number and loss of energy (no momentum transport or diffusion)
+            % EOS: Skyrme model with finite-temperature and composition dependencies (LS220 SLy4) 
+            %      Rel.Mean.Field with -//- (DD2 SFh0)
+            %      Brueckner-Hartree-Fock extensitions to finite.temp. (BLh)
+            % SOftening at very high rho - Lambda-Hyperons or phase transition
+            % Numerically: evolution is performed with method of lines and BErger-Oliger algorithm with sub-cycling in time and refluxing 
     }};
 }
 %
@@ -67,6 +78,7 @@
             \begin{equation*}
                 \tilde{\Lambda} := \frac{16}{13}\frac{(M_A + 12M_B)M_A^4}{M^5}+(A\leftrightarrow B)
             \end{equation*}
+            % Gravitational massess are estimated in (conformal, assymptitic? flatness?) in far-field regime and are estimated as integrals over fluid configuration
             %
             $\downarrow\tilde{\Lambda}$ for softer EOS, $\uparrow M$, $\uparrow q=M_A/M_B$ \\
             %
@@ -165,9 +177,9 @@
         }
         %
         \uncover<1->{ % <-> |
-            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.5cm)}]current page.center){
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.6cm)}]current page.center){
                 \parbox{0.5\textwidth}{
-                    \includegraphics[height=6cm]{phd_figs/remnant/dens_modes/modes_rho_dd2.pdf}
+                    \includegraphics[height=6.4cm]{phd_figs/remnant/dens_modes/modes_rho_dd2.pdf}
                     \hspace*{10mm} Density modes in the remnant 
                     %Modes analysis for exemplary equal-mass long-live and short-lived
                     %        remnants. The evolution of the $m=2$ and the $m=1$ monitored by
@@ -197,11 +209,6 @@
         }
 
 \end{tikzpicture}
-
-
-
-
-
 %\begin{itemize}
 %    \item Not axisymmetric. Angular momentum redistribution, \acp{GW} losses %\cite{Bernuzzi:2015opx,Radice:2018xqa}
 %    \item Long-term evolution driven by viscous processes \& weak interactions
@@ -227,7 +234,6 @@
 %    \item High $q$ models undergo prompt collapse (no core bounce) % central density monotonically rises\citep{Radice:2020ddv,Bernuzzi:2020tgt,Bernuzzi:2020txg}. 
 %    \item 
 %\end{itemize}
-
 \end{frame}
 
 %% ----------------------------------------
@@ -290,9 +296,7 @@
 %% ----------------------------------------------------------------
 
 \begin{frame}{Spiral arms in \pmerg{} remnant$^\text{\citep{Nedora:2019jhl}}$} %% ---------- title 
-
 \begin{tikzpicture}[overlay,remember picture]
-
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.2cm)}]current page.center){
         \parbox{0.65\textwidth}{
@@ -347,9 +351,9 @@
 \begin{tikzpicture}[overlay,remember picture]
 
 \uncover<1->{ % <-> |
-    \node (img2) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-0.2cm)}]current page.center){
+    \node (img2) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-0.4cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=5.5cm]{phd_figs/remnant/evol_jflux_2d_DD2_M13641364_M0_SR_R1.pdf}
+            \includegraphics[height=6.0cm]{phd_figs/remnant/evol_jflux_2d_DD2_M13641364_M0_SR_R1.pdf}
             
             \hspace*{2.8mm}Ang. mom. transport through disk
     }};
@@ -430,6 +434,8 @@
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,0.5cm)}]current page.center){
         \parbox{0.7\textwidth}{
             \begin{itemize}
+                % Viscosity foces rotating equilibria to rotate rigidly
+                % Non-axial symmetry -- gravitational radiation
                 \item Remnant borm with excess in $M_b$ and $J$ (HMNS)
                 \item GWs remove some $J$
                 \item Massive outflows from expanded disk
@@ -489,9 +495,9 @@
     \uncover<1->{ % <-> |
         \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.9cm,1.6cm)}]current page.center){
             \parbox{0.7\textwidth}{
-                Bernoulli criterion ($hu_t < -1$, stationary flow)
+                Bernoulli criterion ($hu_t < -1$, steady flow)
                 \begin{itemize}
-                    \item generic for long-lived remnants
+                    \item present for any long-lived remnants
                     \item larger if \ac{EOS} is softer or $q>1$
                     \item increases if turbulent viscocity is present
                 \end{itemize}
@@ -518,4 +524,49 @@
     }};
 }
 \end{tikzpicture}
+\end{frame}
+
+%% ----------------------------------------------------------------
+%%
+%% Dynamical Ejecta
+%%
+%% ----------------------------------------------------------------
+
+\begin{frame}{Fast component of the dynamical ejecta$^\text{\citep{Nedora:2021eoj}}$} %% ---------- title 
+    \begin{tikzpicture}[overlay,remember picture]
+        
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.2cm)}]current page.center){
+                \parbox{0.65\textwidth}{
+                    Geodesic criterion ($u_t < -1$, ballisitc trajectory, no pressure)
+                    \begin{itemize}
+                        \item the fastest ejecta produced at \textit{core bounces},
+                        \item ejecta properties depend in the binary parameters
+                        \item ejecta is velocity- \& laterally- structured,
+                    \end{itemize}
+            }};
+        }
+        
+        
+        %shocks are generated at the collisional interface of the \acp{NS} cores,
+        %as well as, tidal torques exerted by the non axisymmetric remnant result in a formation
+        %of the disk.
+        %Matter, energy and angular momentum are injected into the disk as the spiral 
+        %density waves propagate outwards from the mass-shedding \ac{MNS} remnant
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.1cm,-0.75cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \includegraphics[height=7.3cm]{phd_figs/ejecta_dyn/fast_ejecta/SFHo_q100_LK_SR.pdf}
+                    %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
+            }};
+        }
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,-1.85cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \includegraphics[height=4.4cm]{phd_figs/ejecta_dyn/fast_ejecta/scatter_ekej_vej06.pdf}
+                    %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
+            }};
+        }
+        
+    \end{tikzpicture}
 \end{frame}
