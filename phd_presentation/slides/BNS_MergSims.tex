@@ -14,8 +14,8 @@
             \end{equation*}
             %
             Complex numerical implementation. Expensive simulations. \\
-            Numerical relativity codes, \eg, \wisky{} code$^\text{\citep{Radice:2013apa,Radice:2012cu,Radice:2013xpa,Radice:2013hxh,
-                                 Radice:2015nva,Radice:2016dwd,Radice:2018pdn,Radice:2020ids}}$
+            Numerical relativity codes, \eg, \wisky{} code$^\text{\textcolor{gray}{\citep{Radice:2013apa,Radice:2012cu,Radice:2013xpa,Radice:2013hxh,
+                                 Radice:2015nva,Radice:2016dwd,Radice:2018pdn,Radice:2020ids}}}$
             \begin{itemize}
                 \item Z4c formulation of $3+1$ decomposed, general relativity,
                 %\item Conservative formualtion of relativistic hydrodynamics,
@@ -35,6 +35,8 @@
             %      Brueckner-Hartree-Fock extensitions to finite.temp. (BLh)
             % SOftening at very high rho - Lambda-Hyperons or phase transition
             % Numerically: evolution is performed with method of lines and BErger-Oliger algorithm with sub-cycling in time and refluxing 
+            % --------
+            % Test: L2 norm of the normalized hamiltonian and momentum constraints (vialation)
     }};
 }
 %
@@ -60,7 +62,7 @@
     \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.1cm,0.5cm)}]current page.center){
         \parbox{0.50\textwidth}{
-            
+            % Grav. radiation losses cause the orbital separation to shrink (Softer EOSs -- longer inspiral)
             % Inspiral (${\simeq}10\,$orbits); NSs Zero-temperature, $\beta$-equilibrium \\
             % Merger \& post-merger, $T{\sim}50\,$MeV, $\rho{\sim3.6}\rho_0$. \\
             % Postmerger: Remnant $+$ disk $+$ ejecta; \\
@@ -73,7 +75,7 @@
             % The dynamics of the two bodies can be described with tidal coupling constant that 
             % describes tidal interaction at leading order
             % Tidal interaction (i) attractive (ii) short range: They accelerate merger, increase frequency
-            can be parameterized with \textit{reduced tidal parameter}
+            can be parameterized with \textit{reduced tidal parameter}$^{\text{\textcolor{gray}{\cite{Favata:2013rwa}}}}$
             %
             \begin{equation*}
                 \tilde{\Lambda} := \frac{16}{13}\frac{(M_A + 12M_B)M_A^4}{M^5}+(A\leftrightarrow B)
@@ -87,7 +89,8 @@
             % Gauge invariant quantities: Reduced binding energy and angular momentum
             % During the evolution they decrease as GW carry energy away
             % Quasiuniversality: EOS can be captured with $\tilde{\Lambda}$ for equal mass binary
-        
+            % 
+            % 
     }};
     }
 %
@@ -98,6 +101,7 @@
             BH, long/short-lived remnants, and disks \\
             % Early postmerger: 
             Core bounces: cold inside, hot interface; shocks at NS surface only \\
+            % Right after the merger double-core structure is formed by the two central cores of merging NSs. Cors collide and bounce repeadetly untill they merge. In this process outer layers gain J due to Orbital Angular Momentum Advection and Torques arasing from double-core, non-axisymmetric structure of the sustem. Result: core immersed in low-rho cloud
             % Neutrino burst, ${\sim}15\,$MeV. 
             % Neutrino decouple at different radii
             % Abundance of free $n$, absorbe $\nu_e$, raise $Y_e$; emission of $\bar{\nu}_e$
@@ -112,7 +116,7 @@
             % Simulations give upper limitof GWs energy
             % GWs backreacts on the fluid, damping the non-axisymmetric modes
             Remnant evolves towards axisymmetry \\
-            % Postmerger state: super-Keplerian $J>J_{\rm max}^{\rm equilib}$, $M_b>M_{b \rm, max}^{\rm eqilib}$
+            % Postmerger state: super-Keplerian $J>J_{\rm max}^{\rm equilib}$, $M_b>M_{b \rm, max}^{\rm eqilib}$ -- Highly differential rotation remnant
             % Thermal and neutrino effects $\uparrow$ pressure (${\simeq}10\%$), hence, radius, but not the $M_{\rm max}$. 
             % Rotatin increases NS $M_{\rm max}$ and $R$. 
             % Note: In postmerger $M_{\rm max}^{\rm hot} < M_{\rm max}^{\rm cold}$
@@ -136,6 +140,11 @@
             % Disks around BHs are more compact and hotter
             % In case of PC, $q=1$ binaries give little disk, while $q{\simeq}1.4$ result in more massive disks. Hiher $q$ lead to tidal disruption of a compantion and formation of a massive cold disk.
             % In high $q$ cases tidal tail falls back, disturbing the disk
+            % -------
+            % Constraints on NS mass and radius can come from NICER, XMM, NANOGrav, of pulsars and LVC of GW170817
+            % Disk formation After merger, anguilar momentum is transfered from inner to the outer layers causing outer layers to expand (and it will remain outside the ISCO when BH forms). 
+            % In prompt collapse cases the disk expected to be smaller as there is no angular momentum transport due to turbulence. Only external and low density outer layers of the star are able to gaun enough angular momentum die to tidal torques and pushed away from the bulk of the merging stars. 
+            % Soft EOS remnant cannot hold high J by tidal torques. 
     }};
     }
 
@@ -160,7 +169,7 @@
 \end{frame}
 %% ----------------------------------------------------------------------------
 
-\begin{frame}{Hydrodynamic modes in the \pmerg{} remnant$^\text{\citep{Nedora:2019jhl,Nedora:2020pak}}$} %% ---------- title 
+\begin{frame}{Hydrodynamic modes in the \pmerg{} remnant$^\text{\textcolor{gray}{\citep{Nedora:2019jhl,Nedora:2020pak}}}$} %% ---------- title 
     
     \begin{tikzpicture}[overlay,remember picture]
         
@@ -173,6 +182,7 @@
                         \label{eq:modes}
                         C_m(t) = \int \rho(x,y,z=0,t) e^{-i m \phi(x,y)} \text{d}x \text{d} y \, ,
                     \end{equation*}
+                % Non-axysimmetric oscillation modes of the remnant persist
             }};
         }
         %
@@ -203,7 +213,7 @@
                         and later $m=2$ is damped by the emission of \acp{GW}
                         \item One-armed $m=1$ is present on ${\sim}100$~ms 
                         \item $m=1$ mode is stronger if \mr{} is higher
-                        \item And as the $m=1$ modes are not efficiently damped$^\text{\citep{Paschalidis:2015mla,Radice:2016gym,Lehner:2016wjg,East:2016zvv}}$
+                        \item And as the $m=1$ modes are not efficiently damped$^\text{\textcolor{gray}{\citep{Paschalidis:2015mla,Radice:2016gym,Lehner:2016wjg,East:2016zvv}}}$
                     \end{itemize}
             }};
         }
@@ -295,7 +305,7 @@
 %%
 %% ----------------------------------------------------------------
 
-\begin{frame}{Spiral arms in \pmerg{} remnant$^\text{\citep{Nedora:2019jhl}}$} %% ---------- title 
+\begin{frame}{Spiral arms in \pmerg{} remnant$^\text{\textcolor{gray}{\citep{Nedora:2019jhl}}}$} %% ---------- title 
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.2cm)}]current page.center){
@@ -346,7 +356,7 @@
 %%
 %% ----------------------------------------------------------------
 
-\begin{frame}{Angular momentum transport in \pmerg{} remnant$^\text{\citep{Nedora:2020pak}}$} %% ---------- title 
+\begin{frame}{Angular momentum transport in \pmerg{} remnant$^\text{\textcolor{gray}{\citep{Nedora:2020pak}}}$} %% ---------- title 
 
 \begin{tikzpicture}[overlay,remember picture]
 
@@ -393,7 +403,7 @@
 
 
 
-\begin{frame}{Long term evolution \& remnant's fate$^\text{\citep{Nedora:2020pak}}$} %% ---------- title 
+\begin{frame}{Long term evolution \& remnant's fate$^\text{\textcolor{gray}{\citep{Nedora:2020pak}}}$} %% ---------- title 
 
 %As the disk expands and cools, the recombination of nucleons into alpha particles 
 %starts to take place. The energy, released in recombination, might be sufficient 
@@ -436,6 +446,10 @@
             \begin{itemize}
                 % Viscosity foces rotating equilibria to rotate rigidly
                 % Non-axial symmetry -- gravitational radiation
+                % ADM mass and angular momentum must be conserved 
+                % J_GW is computed from the Weil scalar (Psi4) decomposed into s=-2 spin-weighted spherical harmonics
+                % Angular momentum, trasported away by GWs
+                % Differential rotation is reduced by the non-axisymmetric torques and GWs losses that redistribute angular momentum from inner to the outer regions
                 \item Remnant borm with excess in $M_b$ and $J$ (HMNS)
                 \item GWs remove some $J$
                 \item Massive outflows from expanded disk
@@ -489,13 +503,20 @@
 %%
 %% ----------------------------------------------------------------
 
-\begin{frame}{Spiral-wave wind -- Properties$^\text{\citep{Nedora:2020pak}}$}
+\begin{frame}{Spiral-wave wind -- Properties$^\text{\textcolor{gray}{\citep{Nedora:2020pak}}}$}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
     \uncover<1->{ % <-> |
         \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.9cm,1.6cm)}]current page.center){
             \parbox{0.7\textwidth}{
-                Bernoulli criterion ($hu_t < -1$, steady flow)
+                %$E=-u_t-1 > 0$, positive fluid specific energy (unboind matter)
+                Bernoulli criterion ($E=-hu_t -1 > 0$, steady flow)
+                %Bernoulli criterion ($hu_t < -1$, steady flow)
+                % fall-back accretion, associated ram-pressure, can chocke emerging winds (eg., MF-driven)
+                % Magnetic field must overcome ram pressure of FB accretion
+                % < magnetocentrifugal mechanism >
+                % neutrinos can extract E from inner region of disk (and trigger jet)
+                % neutrino pair-annihilation can trigger jet with is powered by BZ mechanism
                 \begin{itemize}
                     \item present for any long-lived remnants
                     \item larger if \ac{EOS} is softer or $q>1$
@@ -532,16 +553,19 @@
 %%
 %% ----------------------------------------------------------------
 
-\begin{frame}{Fast component of the dynamical ejecta$^\text{\citep{Nedora:2021eoj}}$} %% ---------- title 
+\begin{frame}{Fast component of the dynamical ejecta$^\text{\textcolor{gray}{\citep{Nedora:2021eoj}}}$ } %% ---------- title 
     \begin{tikzpicture}[overlay,remember picture]
         
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.2cm)}]current page.center){
                 \parbox{0.65\textwidth}{
-                    Geodesic criterion ($u_t < -1$, ballisitc trajectory, no pressure)
+                    % During merger, orbital anguilar momentum transport by tidal torques induces the ejection of the outer layers of stars forming tidal component of the DE. 
+                    % Geodesic criterion ($u_t < -1$, ballisitc trajectory, no pressure)
+                    Geodesic criterion ($E=-u_t-1 > 0$) % positive fluid specific energy (unboind matter)
                     \begin{itemize}
                         \item the fastest ejecta produced at \textit{core bounces},
-                        \item ejecta properties depend in the binary parameters
+                        \item absent in high-$q$ simulations
+                        \item larger for $q{\sim}1$, low $\tilde{\Lambda}$,
                         \item ejecta is velocity- \& laterally- structured,
                     \end{itemize}
             }};

@@ -3,50 +3,58 @@
 %% A F T E R G L O W
 %%
 %% --------------------------------------------------------------
-\begin{frame}{Introduction}
+\begin{frame}{Afterglow}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.9cm,1.3cm)}]current page.center){
-        \parbox{0.70\textwidth}{
-            GRBs, cocoon, ejecta produce afterglow \\
-            Synchrotron emission arising when a shock propagates through ISM
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,1.3cm)}]current page.center){
+        \parbox{0.60\textwidth}{
             \begin{itemize}
-            \item Trace physics of jet formation
-            \item Information on the fastest ejecta
+                \item Synchrotron emission arising when a shock propagates through ISM$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$
+                \item \GRB{} afterglow, structured jet, off-axis$^{\textcolor{gray}{\text{\cite{Hajela:2019mjy}}}}$
+                \item expected \ac{kN} ejecta afterglow$^{\textcolor{gray}{\text{\cite{Kathirgamaraju:2019xwu}}}}$
             \end{itemize}
     }};
 }
 
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.9cm,-2.0cm)}]current page.center){
-        \parbox{0.70\textwidth}{
-            \GRB{}, non-thermal EM counterpart to \GW{}
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-2.0cm)}]current page.center){
+        \parbox{0.60\textwidth}{
+            Change in afterglow in X-ray, $1243$ days post-merger. Possible explanations: 
             \begin{itemize}
-            \item Very long follow-up
-            \item Structured jet model explans slow rise
-            \item Spectrums is described by power law$^{(*)}$
+            \item change in microphysics parameters
+            \item ISM density variation
+            \item emergence of a new component
             \end{itemize}
     }};
 }
 
-%\uncover<1->{ % <-> |
-%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,-3.5cm)}]current page.center){
-%        \parbox{0.60\textwidth}{
-%            Several open questions
-%            \begin{itemize}
-%            \item Insufficient ejecta to explain early blue part.
-%            \end{itemize}
-%    }};
-%}
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(5.0cm,1.8cm)}]current page.center){
+        \parbox{0.40\textwidth}{
+            \textbf{ Light curve peak: }
+            \begin{equation*}
+                \begin{aligned}
+                    F_{\nu,p} & \propto E n^{(p+1)/4}  
+                    \textcolor{red}{ \beta^{(5p-7)/2} }   \\
+                    & \times \varepsilon_e^{p-1}\varepsilon_B^{(p+1)/4} D_L^{-2}\nu^{(-p-1)/2} \\
+                    t_{p} & \propto E^{1/3} n^{-1/3} 
+                    \textcolor{red}{ \beta^{-5/3} }
+                \end{aligned}
+            \end{equation*}
+    }};
+}
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(6.0cm,-0.8cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.2cm,-1.8cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=6.3cm]{phd_figs/jet_ascenci20.pdf}
-
-            Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$
+            %\includegraphics[height=6.3cm]{phd_figs/jet_ascenci20.pdf}
+            \includegraphics[height=4.5cm]{figures/Hajela22_obs_pl_noNR.pdf}
+            %Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$
     }};
 }
+
+
+
 \end{tikzpicture}
 \end{frame}
 
@@ -56,117 +64,184 @@
 %%
 %% =======================================================
 
-\begin{frame}{Method} %% ---------- title 
-
-\begin{tikzpicture}[overlay,remember picture]
-
-\uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.9cm,-0.7cm)}]current page.center){
-        \parbox{0.53\textwidth}{
-            Passing through the cold ISM, shock front 
-            \begin{itemize}
-                \item randomizes the particles' $\vec{\upsilon}$,
-                \item compresses the plasma,
-                \item amplifies the magnetic fields 
-                \item accelerates the inbound particles % to a power-law distribution function.
-            \end{itemize}
-            
-            \textbf{Dynamics} --
-            %A relativistic shock propagating into a cold upstream medium.
-            $3$ conservation laws: baryon number, energy, momentum fluxes across shock front.
-%            The latter two $T^{\mu\nu} = (\rho' c^2 + p') u^{\mu} u^{\nu} + p' g^{\mu\nu},$
-            %
-%            These equations can be written as 
-            %
-%            \begin{equation} % subequations
-%            \begin{aligned} % align
-%            \frac{e_2'}{n_2'} &= (\gamma_{21} - 1)m_p c^2 \\
-%            \frac{n_2'}{n_1'} &= \frac{\hat{\gamma}\gamma_{21} + 1}{\hat{\gamma}-1} \\
-%            \gamma_{1s}^2 &= \frac{(\gamma_{21} + 1) [\hat{\gamma}(\gamma_{21}-1)+1]^2}{\hat{\gamma}(2-\hat{\gamma})(\gamma_{21}-1)+2}
-%            \end{aligned} % align
-%            \label{eq:afterglow:blast}
-%            \end{equation} % subequations
-            %
-%            \begin{figure*}[t]
-%            \centering 
-%            \includegraphics[width=0.45\textwidth]{Fig_8_KZ.pdf}
-%            \caption{
-%                This is a schematic sketch of a pair of shocks produced when a relativistic
-%                jet from a \ac{GRB} collides with the \ac{CBM}, as viewed from the
-%                rest frame of unshocked \ac{CBM}. Regions 2 \& 3 represent shocked \ac{CBM} and \ac{GRB}
-%                jet respectively. They move together with the same \ac{LF} ($\gamma_2$, as viewed
-%                by a stationary observer in the unshocked \ac{CBM}), and have the same pressure but
-%                different densities.
-%                (Adapted from \citet{Kumar:2014upa}, figure~8)
-%            }
-%            \label{fig:aafg:theory:sr8}
-%            \end{figure*}
-            %
-%            where subscripts $2$ and $1$ stand for downstream and upstream respectively, 
-%            $e'$ is the internal energy density, $n'$ is the proton number density, 
-%            $\gamma_{21}$ is the relative \ac{LF} of plasma in region 
-%            $2$ with respect to the region $1$
-%            $\gamma_{1s}$ is the relative \ac{LF} of plasma in region $1$ with respect to the shock front,
-%            $\hat{\gamma}$ is the adiabatic index of the fluid, for the ideal, relativistic 
-%            fluid is $\hat{\gamma}=4/3$ and subrelativisitc $\hat{\gamma}=5/3$.
-%            The $2$ and $1$ regions are also shown in Fig.~\ref{fig:aafg:theory:sr8} 
-%            (see also \cite{Nava:2013} for a more comprehensive take).
+%\begin{frame}{Method} %% ---------- title 
+%
+%\begin{tikzpicture}[overlay,remember picture]
+%
+%\uncover<1->{ % <-> |
+%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.9cm,-0.7cm)}]current page.center){
+%        \parbox{0.53\textwidth}{
+%            Passing through the cold ISM, shock front 
+%            \begin{itemize}
+%                \item randomizes the particles' $\vec{\upsilon}$,
+%                \item compresses the plasma,
+%                \item amplifies the magnetic fields 
+%                \item accelerates the inbound particles % to a power-law distribution function.
+%            \end{itemize}
+%            
+%            \textbf{Dynamics} --
+%            %A relativistic shock propagating into a cold upstream medium.
+%            $3$ conservation laws: baryon number, energy, momentum fluxes across shock front.
+%%            The latter two $T^{\mu\nu} = (\rho' c^2 + p') u^{\mu} u^{\nu} + p' g^{\mu\nu},$
 %            %
-%            Solving the system Eq.~\eqref{eq:afterglow:blast} gives the full evolution 
-%            of the \blast{}. 
-            
-            \textbf{Electrons:} continuity eq. in energy space 
-            \begin{equation*}
-            \frac{\partial }{\partial t}\frac{d n_e}{d\gamma_e} + \frac{\partial}{\partial \gamma_e}\Big[ \dot{\gamma_e}\frac{dn_e}{d\gamma_e} \Big] = S(\gamma_e), \rightarrow \frac{d n_e}{d\gamma_e} \propto \gamma^{-p}
-            \end{equation*}
-            %
-            Charactersitc, $\gamma_c$ , $\gamma_M$ , $\gamma_m$
-            %
-%            where $\dot{\gamma_e} = -\sigma_T B^2 \gamma_e^2 / (6\pi m_e c)$ is the rate at 
-%            which electron \ac{LF} changes due to losses, $S(\gamma_e)$ is the injection 
-%            rate of electrons into the system.
+%%            These equations can be written as 
 %            %
-%            Assume that the minimum \ac{LF} of injected electrons is $\gamma_m$, \eg, 
-%            where $S(\gamma_e) = 0$ for $\gamma_e < \gamma_m$.
+%%            \begin{equation} % subequations
+%%            \begin{aligned} % align
+%%            \frac{e_2'}{n_2'} &= (\gamma_{21} - 1)m_p c^2 \\
+%%            \frac{n_2'}{n_1'} &= \frac{\hat{\gamma}\gamma_{21} + 1}{\hat{\gamma}-1} \\
+%%            \gamma_{1s}^2 &= \frac{(\gamma_{21} + 1) [\hat{\gamma}(\gamma_{21}-1)+1]^2}{\hat{\gamma}(2-\hat{\gamma})(\gamma_{21}-1)+2}
+%%            \end{aligned} % align
+%%            \label{eq:afterglow:blast}
+%%            \end{equation} % subequations
 %            %
-%            \begin{equation}
-%            dn_e/d\gamma_e \propto 
-%            \begin{cases}
-%            \gamma_e^{-2} &\text{ if } \gamma_c < \gamma_e < \gamma_m, \\
-%            \gamma_e^{-p-1} &\text{ if } \gamma_e > \gamma_c > \gamma_m
-%            \end{cases}
-%            \label{eq:afterglow:elec_dist}
-%            \end{equation}
+%%            \begin{figure*}[t]
+%%            \centering 
+%%            \includegraphics[width=0.45\textwidth]{Fig_8_KZ.pdf}
+%%            \caption{
+%%                This is a schematic sketch of a pair of shocks produced when a relativistic
+%%                jet from a \ac{GRB} collides with the \ac{CBM}, as viewed from the
+%%                rest frame of unshocked \ac{CBM}. Regions 2 \& 3 represent shocked \ac{CBM} and \ac{GRB}
+%%                jet respectively. They move together with the same \ac{LF} ($\gamma_2$, as viewed
+%%                by a stationary observer in the unshocked \ac{CBM}), and have the same pressure but
+%%                different densities.
+%%                (Adapted from \citet{Kumar:2014upa}, figure~8)
+%%            }
+%%            \label{fig:aafg:theory:sr8}
+%%            \end{figure*}
+%            %
+%%            where subscripts $2$ and $1$ stand for downstream and upstream respectively, 
+%%            $e'$ is the internal energy density, $n'$ is the proton number density, 
+%%            $\gamma_{21}$ is the relative \ac{LF} of plasma in region 
+%%            $2$ with respect to the region $1$
+%%            $\gamma_{1s}$ is the relative \ac{LF} of plasma in region $1$ with respect to the shock front,
+%%            $\hat{\gamma}$ is the adiabatic index of the fluid, for the ideal, relativistic 
+%%            fluid is $\hat{\gamma}=4/3$ and subrelativisitc $\hat{\gamma}=5/3$.
+%%            The $2$ and $1$ regions are also shown in Fig.~\ref{fig:aafg:theory:sr8} 
+%%            (see also \cite{Nava:2013} for a more comprehensive take).
+%%            %
+%%            Solving the system Eq.~\eqref{eq:afterglow:blast} gives the full evolution 
+%%            of the \blast{}. 
+%            
+%            \textbf{Electrons:} continuity eq. in energy space 
+%            \begin{equation*}
+%            \frac{\partial }{\partial t}\frac{d n_e}{d\gamma_e} + \frac{\partial}{\partial \gamma_e}\Big[ \dot{\gamma_e}\frac{dn_e}{d\gamma_e} \Big] = S(\gamma_e), \rightarrow \frac{d n_e}{d\gamma_e} \propto \gamma^{-p}
+%            \end{equation*}
+%            %
+%            Charactersitc, $\gamma_c$ , $\gamma_M$ , $\gamma_m$
+%            %
+%%            where $\dot{\gamma_e} = -\sigma_T B^2 \gamma_e^2 / (6\pi m_e c)$ is the rate at 
+%%            which electron \ac{LF} changes due to losses, $S(\gamma_e)$ is the injection 
+%%            rate of electrons into the system.
+%%            %
+%%            Assume that the minimum \ac{LF} of injected electrons is $\gamma_m$, \eg, 
+%%            where $S(\gamma_e) = 0$ for $\gamma_e < \gamma_m$.
+%%            %
+%%            \begin{equation}
+%%            dn_e/d\gamma_e \propto 
+%%            \begin{cases}
+%%            \gamma_e^{-2} &\text{ if } \gamma_c < \gamma_e < \gamma_m, \\
+%%            \gamma_e^{-p-1} &\text{ if } \gamma_e > \gamma_c > \gamma_m
+%%            \end{cases}
+%%            \label{eq:afterglow:elec_dist}
+%%            \end{equation}
+%            
+%    }};
+%
+%    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(3.9cm,-0.7cm)}]current page.center){
+%    \parbox{0.53\textwidth}{
+%        \textbf{Synchrotron emission} %\citep{RybickiLightman:1985} --
+%        %
+%        \begin{equation*}
+%        P_{syn} = \frac{2q^4 E^2}{3c^3 m_e^2}
+%        \,
+%        \omega_{syn}\sim\frac{qB\gamma_e^2}{m_e c}
+%        %\,
+%        %P_{syn}(\nu_{syn}) \sim P_{syn}/\nu_{syn}
+%        \end{equation*}
+%        %
+%        \begin{equation*}
+%        f_{\nu} = \int_{\gamma_{\nu}}^{\infty} d\gamma_e \frac{dn_e}{d\gamma_e}P_{syn}(\nu) 
+%        \end{equation*}
+%        
+%        \textbf{EATS}
+%        %
+%        \begin{equation*}
+%        F(\nu,t) = c\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta
+%        \end{equation*}
+%        with $c = (1+z) / (2d_L^2)$
+%}};
+%}
+%\end{tikzpicture}
+%\end{frame}
+\begin{frame}{Model}  %% ---------- Intro/motivation 
+    \begin{tikzpicture}[overlay,remember picture]
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.6cm,1.2cm)}]current page.center){
+                \parbox{1.\textwidth}{
+                    \textbf{Structure:} lateral, $\{\theta_i\}$, and velocity $\{\upsilon_i\}$; \\
+                    \textbf{Dynamics:} Semi-analytic model (energy conservation) in 
+                    this-shell (unifrom-shell) approximation; adiabatic evolution; outflow "in cones": \\
+                    $\{E_{i, 0},\Gamma_{i,0} \}=f(\Gamma,\theta)$; ($\Gamma=(1-\beta^2)^{-2}$); $\beta=\upsilon/c$; 
+                    \vspace{-2mm}
+                    \begin{equation*}
+                        dE_{\rm tot} = 0 \rightarrow d [ \Gamma (M_0 + m) c^2 + \Gamma_{\rm eff}E_{\rm int}' ] = \Gamma_{\rm ISM} dm c^2 + \Gamma_{\rm eff} dE_{\rm rad}'.
+                    \end{equation*}
+                    %$\Gamma$ is the bulk Lorentz factor. \\
+                    % From shock-conditions: $\rho_{\rm sh}$, $\beta_{\rm sh}$, $R_{\rm sh}$
+            }};
             
-    }};
-
-    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(3.9cm,-0.7cm)}]current page.center){
-    \parbox{0.53\textwidth}{
-        \textbf{Synchrotron emission} %\citep{RybickiLightman:1985} --
-        %
-        \begin{equation*}
-        P_{syn} = \frac{2q^4 E^2}{3c^3 m_e^2}
-        \,
-        \omega_{syn}\sim\frac{qB\gamma_e^2}{m_e c}
-        %\,
-        %P_{syn}(\nu_{syn}) \sim P_{syn}/\nu_{syn}
-        \end{equation*}
-        %
-        \begin{equation*}
-        f_{\nu} = \int_{\gamma_{\nu}}^{\infty} d\gamma_e \frac{dn_e}{d\gamma_e}P_{syn}(\nu) 
-        \end{equation*}
+        }
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-2.0cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \textbf{Evolution}: free-coasting + deceleration; \\
+                    %Electrons accelerated to power-law distribution $\gamma_e^{-p}$
+                    Total energy in electrons and magnetic fields $\epsilon_e$, $\epsilon_B$;
+                    Assume for electrons local istropic distribution of angles relative $\vec{B}$; \\
+                    Assume $\vec{B}$ is random mix of orientations; \\
+                    Spectrum from a PL electrons is also PL; \\
+                    %Assume local cooling rate $=$ expansion time
+                    Emission is isotropic in the rest-frame
+                    %Intensity-weighted mean change in any charactersitic gets broadened
+            }};
+        }
+        % Margalit B., Quataert E., 2021, ApJL, 923, L14. 
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-2.4cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \begin{equation*}
+                        P_{\nu'} = \int_{\gamma_{\nu'}}^{\infty} d\gamma_e \frac{dn'}{d\gamma_e}P_{s}'(\nu'); \hspace{3mm} \frac{dn'}{d\gamma_e} \propto
+                        \begin{cases}
+                            \gamma_e^{-2} &\text{s.c.} \\ 
+                            \gamma_e^{-p-1} &\text{f.c.}
+                        \end{cases}
+                    \end{equation*}
+                    %
+                    \begin{equation*}
+                        F(\nu,t) = \frac{1+z} {2d_L^2}\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{\rm em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta
+                    \end{equation*}
+                    \textbf{Synchrotron Radiation}
+            }};
+        }
         
-        \textbf{EATS}
-        %
-        \begin{equation*}
-        F(\nu,t) = c\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta
-        \end{equation*}
-        with $c = (1+z) / (2d_L^2)$
-}};
-}
-\end{tikzpicture}
+        %        \uncover<1-1>{ % <-> |
+            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.3cm)}]current page.center){
+                %                \parbox{0.6\textwidth}{
+                    %                    \includegraphics[height=7.8cm]{figures/structure2.pdf}
+                    %                    %\includesvg[height=7.2cm]{figures/structure2}
+                    %            }};
+            %        }
+        %        \uncover<1->{ % <-> |
+            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,-2.4cm)}]current page.center){
+                %                \parbox{1.0\textwidth}{
+                    %                    \includegraphics[height=3.5cm]{figures/TNS_blast_wave.pdf}
+                    %            }};
+            %            
+            %        }
+        
+    \end{tikzpicture}
 \end{frame}
-
 %% =======================================================
 %%
 %%                   Method :: Code
