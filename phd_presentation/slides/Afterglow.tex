@@ -19,7 +19,7 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-2.0cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            Change in afterglow in X-ray, $1243$ days post-merger. Possible explanations: 
+            Change in afterglow in X-ray, $1243$ days post-merger. Possible explanations $^{\textcolor{gray}{\text{\cite{Hajela:2021faz}}}}$: 
             \begin{itemize}
             \item change in microphysics parameters
             \item ISM density variation
@@ -31,7 +31,7 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(5.0cm,1.8cm)}]current page.center){
         \parbox{0.40\textwidth}{
-            \textbf{ Light curve peak: }
+            \textbf{ Light curve peak$^{\textcolor{gray}{\text{\cite{Nakar:2019fza}}}}$: }
             \begin{equation*}
                 \begin{aligned}
                     F_{\nu,p} & \propto E n^{(p+1)/4}  
@@ -174,54 +174,140 @@
 %}
 %\end{tikzpicture}
 %\end{frame}
-\begin{frame}{Model}  %% ---------- Intro/motivation 
+\begin{frame}{Model: dynamics}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.6cm,1.2cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.6cm,0.2cm)}]current page.center){
                 \parbox{1.\textwidth}{
                     \textbf{Structure:} lateral, $\{\theta_i\}$, and velocity $\{\upsilon_i\}$; \\
                     \textbf{Dynamics:} Semi-analytic model (energy conservation) in 
-                    this-shell (unifrom-shell) approximation; adiabatic evolution; outflow "in cones": \\
+                    this-shell (unifrom-shell) approximation; 
+                    $ T^{\mu\nu} = (\rho' c^2 + p') u^{\mu}u^{\nu} + p' g^{\mu\nu} $ \\
+                    adiabatic evolution; outflow "in cones": \\
                     $\{E_{i, 0},\Gamma_{i,0} \}=f(\Gamma,\theta)$; ($\Gamma=(1-\beta^2)^{-2}$); $\beta=\upsilon/c$; 
                     \vspace{-2mm}
                     \begin{equation*}
-                        dE_{\rm tot} = 0 \rightarrow d [ \Gamma (M_0 + m) c^2 + \Gamma_{\rm eff}E_{\rm int}' ] = \Gamma_{\rm ISM} dm c^2 + \Gamma_{\rm eff} dE_{\rm rad}'.
+                        dE_{\rm tot} = 0 \rightarrow d [ \Gamma (M_0 + m) c^2 + \Gamma_{\rm eff}E_{\rm int}' ] = dm c^2 + \Gamma_{\rm eff} dE_{\rm rad}'.
                     \end{equation*}
                     %$\Gamma$ is the bulk Lorentz factor. \\
-                    % From shock-conditions: $\rho_{\rm sh}$, $\beta_{\rm sh}$, $R_{\rm sh}$
+                    From shock-conditions: $\rho_{\rm sh}$, $\beta_{\rm sh}$, $R_{\rm sh}$ \\
+                    \textbf{Evolution}: free-coasting + deceleration; \\
+            }};
+            
+        }
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-2.0cm)}]current page.center){
+%                \parbox{0.5\textwidth}{
+%                    \textbf{Evolution}: free-coasting + deceleration; \\
+%                    %Electrons accelerated to power-law distribution $\gamma_e^{-p}$
+%                    Total energy in electrons and magnetic fields $\epsilon_e$, $\epsilon_B$;
+%                    Assume for electrons local istropic distribution of angles relative $\vec{B}$; \\
+%                    Assume $\vec{B}$ is random mix of orientations; \\
+%                    Spectrum from a PL electrons is also PL; \\
+%                    %Assume local cooling rate $=$ expansion time
+%                    Emission is isotropic in the rest-frame
+%                    %Intensity-weighted mean change in any charactersitic gets broadened
+%            }};
+%        }
+        % Margalit B., Quataert E., 2021, ApJL, 923, L14. 
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-2.4cm)}]current page.center){
+%                \parbox{0.5\textwidth}{
+%                    \begin{equation*}
+%                        P_{\nu'} = \int_{\gamma_{\nu'}}^{\infty} d\gamma_e \frac{dn'}{d\gamma_e}P_{s}'(\nu'); \hspace{3mm} \frac{dn'}{d\gamma_e} \propto
+%                        \begin{cases}
+%                            \gamma_e^{-2} &\text{s.c.} \\ 
+%                            \gamma_e^{-p-1} &\text{f.c.}
+%                        \end{cases}
+%                    \end{equation*}
+%                    %
+%                    \begin{equation*}
+%                        F(\nu,t) = \frac{1+z} {2d_L^2}\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{\rm em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta
+%                    \end{equation*}
+%                    \textbf{Synchrotron Radiation}
+%            }};
+%        }
+        
+        %        \uncover<1-1>{ % <-> |
+            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.3cm)}]current page.center){
+                %                \parbox{0.6\textwidth}{
+                    %                    \includegraphics[height=7.8cm]{figures/structure2.pdf}
+                    %                    %\includesvg[height=7.2cm]{figures/structure2}
+                    %            }};
+            %        }
+        %        \uncover<1->{ % <-> |
+            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,-2.4cm)}]current page.center){
+                %                \parbox{1.0\textwidth}{
+                    %                    \includegraphics[height=3.5cm]{figures/TNS_blast_wave.pdf}
+                    %            }};
+            %            
+            %        }
+        
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Model: radiation}  %% ---------- Intro/motivation 
+    \begin{tikzpicture}[overlay,remember picture]
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,1.4cm)}]current page.center){
+                \parbox{0.6\textwidth}{
+                    \textbf{Shocks}$^{\textcolor{gray}{\text{\cite{Rezzolla:2013,Kumar:2014upa,Zhang:2018book,Nava:2013}}}}$
+                    \begin{itemize}
+                        \item comresses fluid, $\rho_{\rm sh} = 4 \Gamma_{\rm sh} \rho_{\rm ISM}$
+                        \item amplifies magnetic fields, $B=\sqrt{8 \pi \epsilon_B e'}$
+                        \item accelerates electrons, $\frac{dn'}{d\gamma_e} \propto \gamma_e^{-p}$ 
+                    \end{itemize}
+                    
             }};
             
         }
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-2.0cm)}]current page.center){
-                \parbox{0.5\textwidth}{
-                    \textbf{Evolution}: free-coasting + deceleration; \\
-                    %Electrons accelerated to power-law distribution $\gamma_e^{-p}$
-                    Total energy in electrons and magnetic fields $\epsilon_e$, $\epsilon_B$;
-                    Assume for electrons local istropic distribution of angles relative $\vec{B}$; \\
-                    Assume $\vec{B}$ is random mix of orientations; \\
-                    Spectrum from a PL electrons is also PL; \\
-                    %Assume local cooling rate $=$ expansion time
-                    Emission is isotropic in the rest-frame
-                    %Intensity-weighted mean change in any charactersitic gets broadened
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,1.3cm)}]current page.center){
+                \parbox{0.6\textwidth}{
+                    \textbf{Electron spectrum}$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
+                    Broken power law
+                    \vspace{-3mm}
+                    \begin{equation*}\label{eq:method:gm_pl_only}
+                        \gamma_m' = \frac{p-2}{p-1} \frac{\epsilon_e e'}{n' m_e c^2} \hspace{3mm} 
+                        \gamma_c' = \frac{6 \pi m_e c \Gamma}{\sigma_T t_{\rm em} B'^2}, \hspace{3mm}
+                        %e' = \frac{E_{\rm int}'}{V'}
+                    \end{equation*}
+                    $\gamma_m' < \gamma_c' (>\gamma_c')$: slow (fast) cooling
             }};
+            
         }
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-2.0cm)}]current page.center){
+%                \parbox{0.5\textwidth}{
+%                    \textbf{Evolution}: free-coasting + deceleration; \\
+%                    %Electrons accelerated to power-law distribution $\gamma_e^{-p}$
+%                    Total energy in electrons and magnetic fields $\epsilon_e$, $\epsilon_B$;
+%                    Assume for electrons local istropic distribution of angles relative $\vec{B}$; \\
+%                    Assume $\vec{B}$ is random mix of orientations; \\
+%                    Spectrum from a PL electrons is also PL; \\
+%                    %Assume local cooling rate $=$ expansion time
+%                    Emission is isotropic in the rest-frame
+%                    %Intensity-weighted mean change in any charactersitic gets broadened
+%            }};
+%        }
         % Margalit B., Quataert E., 2021, ApJL, 923, L14. 
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-2.4cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-2.2cm)}]current page.center){
                 \parbox{0.5\textwidth}{
+                    \textbf{Synchrotron Radiation$^{\textcolor{gray}{\text{\cite{RybickiLightman:1985,Sari:1997qe,Johannesson:2006zs}}}}$}
                     \begin{equation*}
-                        P_{\nu'} = \int_{\gamma_{\nu'}}^{\infty} d\gamma_e \frac{dn'}{d\gamma_e}P_{s}'(\nu'); \hspace{3mm} \frac{dn'}{d\gamma_e} \propto
-                        \begin{cases}
-                            \gamma_e^{-2} &\text{s.c.} \\ 
-                            \gamma_e^{-p-1} &\text{f.c.}
-                        \end{cases}
+                        P_{\nu'} = \int_{\gamma_{\nu'}}^{\infty} d\gamma_e \frac{dn'}{d\gamma_e}p'(\nu'), \hspace{2mm}
+                        p'(\nu')=\frac{\sigma_T B^2 \gamma_e \upsilon_e^2}{4\pi c};
+%                        \hspace{3mm} \frac{dn'}{d\gamma_e} \propto
+%                        \begin{cases}
+%                            \gamma_e^{-2} &\text{s.c.} \\ 
+%                            \gamma_e^{-p-1} &\text{f.c.}
+%                        \end{cases}
                     \end{equation*}
-                    %
+                    \textbf{Observed flux density$^{\textcolor{gray}{\text{\cite{Granot:2005cc}}}}$}
                     \begin{equation*}
                         F(\nu,t) = \frac{1+z} {2d_L^2}\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{\rm em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta
                     \end{equation*}
-                    \textbf{Synchrotron Radiation}
             }};
         }
         
@@ -239,7 +325,12 @@
                     %            }};
             %            
             %        }
-        
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-2.1cm)}]current page.center){
+                \parbox{0.6\textwidth}{
+                        \includegraphics[height=4.0cm]{figures/Sari97_spectrum_slow_cool.pdf}
+            }};
+        }
     \end{tikzpicture}
 \end{frame}
 %% =======================================================
@@ -353,7 +444,7 @@
 %%
 %% =======================================================
 
-\begin{frame}{Kilonova afterglow for \GRB{} rebrightening} %% ---------- title 
+\begin{frame}{Kilonova afterglow for \GRB{} rebrightening$^{\textcolor{gray}{\text{\cite{Nedora:2021eoj}}}}$} %% ---------- title 
 
 \begin{tikzpicture}[overlay,remember picture]
 

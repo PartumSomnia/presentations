@@ -78,7 +78,7 @@
             can be parameterized with \textit{reduced tidal parameter}$^{\text{\textcolor{gray}{\cite{Favata:2013rwa}}}}$
             %
             \begin{equation*}
-                \tilde{\Lambda} := \frac{16}{13}\frac{(M_A + 12M_B)M_A^4}{M^5}+(A\leftrightarrow B)
+                \tilde{\Lambda} := \frac{16}{13}\frac{(M_A + 12M_B)M_A^4 \Lambda_A}{M^5}+(A\leftrightarrow B)
             \end{equation*}
             % Gravitational massess are estimated in (conformal, assymptitic? flatness?) in far-field regime and are estimated as integrals over fluid configuration
             %
@@ -383,8 +383,8 @@
                 \item ${\sim}50\%$ of $J$ remnant $\rightarrow$ disk
                 \item Mass injection is stronger in models with stiffer EOS. 
                 \item Accretion, mass-shedding, weak processes
-                \item Larger temperatures lead to lower rotational frequency at which the mass 
-                shedding occurs% \citep{Kaplan:2013wra}. 
+                % \item Larger temperatures lead to lower rotational frequency at which the mass 
+                % shedding occurs% \citep{Kaplan:2013wra}. 
             \end{itemize}
     }};
 }
@@ -450,7 +450,7 @@
                 % J_GW is computed from the Weil scalar (Psi4) decomposed into s=-2 spin-weighted spherical harmonics
                 % Angular momentum, trasported away by GWs
                 % Differential rotation is reduced by the non-axisymmetric torques and GWs losses that redistribute angular momentum from inner to the outer regions
-                \item Remnant borm with excess in $M_b$ and $J$ (HMNS)
+                \item Remnant born with excess in $M_b$ and $J$ (HMNS)
                 \item GWs remove some $J$
                 \item Massive outflows from expanded disk
                 driven by $m=\{1,2\}$ and $J$ transport
@@ -557,14 +557,14 @@
     \begin{tikzpicture}[overlay,remember picture]
         
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.2cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.4cm)}]current page.center){
                 \parbox{0.65\textwidth}{
                     % During merger, orbital anguilar momentum transport by tidal torques induces the ejection of the outer layers of stars forming tidal component of the DE. 
                     % Geodesic criterion ($u_t < -1$, ballisitc trajectory, no pressure)
                     Geodesic criterion ($E=-u_t-1 > 0$) % positive fluid specific energy (unboind matter)
                     \begin{itemize}
                         \item the fastest ejecta produced at \textit{core bounces},
-                        \item absent in high-$q$ simulations
+                        %\item absent in high-$q$ simulations
                         \item larger for $q{\sim}1$, low $\tilde{\Lambda}$,
                         \item ejecta is velocity- \& laterally- structured,
                     \end{itemize}
