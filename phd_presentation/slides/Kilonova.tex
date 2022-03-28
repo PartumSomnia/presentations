@@ -6,26 +6,35 @@
 \begin{frame}{Introduction}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,1.3cm)}]current page.center){
-        \parbox{0.60\textwidth}{
-            Kilonova -- thermal EM counterpart to mergers, \\
-            powered by the decay of produced elements$^{\textcolor{gray}{\text{\cite{Metzger:2016pju}}}}$
-            \begin{itemize}
-                \item Fast rise and decay
-                \item Strong dependency on composition
-                \item Dependency on the obs. angle
-            \end{itemize}
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,1.3cm)}]current page.center){
+        \parbox{0.56\textwidth}{
+            \textbf{Kilonova} (kN) -- thermal EM counterpart to mergers, 
+            powered by the decay of produced elements$^{\textcolor{gray}{\text{\cite{Metzger:2016pju}}}}$. \\
+            Nuclear heating in ejecta, $\varepsilon_{\rm nuc}\propto t^{-\alpha}$. \\
+            Ejecta expands and become transparent. \\
+            % tdiff = \rho \kappa R^2 / c
+            % Assuming constant opacty ; constant expansion speed v; uniform density \rho = m / (4pi R^3 / 3)
+            $t_{\rm lc} = \sqrt{3\kappa m_{\rm ej} / (4 \pi c \upsilon_{\rm ej})}$, 
+            $L_{\rm lc} = m_{\rm ej} \varepsilon_{\rm nuc}(t_{\rm lc})$; 
+            % Characteristic luminocity us approx radioactive heating rate at this escape timescale
+            % Larger, massive ejecta -- brighter lightcurve 
+            % Opacity - bound bound transitions in d-shells in iron-group elements (low kappa) and f-shell in lanthinides (high kappa)
+%            \begin{itemize}
+%                \item Fast rise and decay
+%                \item Strong dependency on composition
+%                \item Dependency on the obs. angle
+%            \end{itemize}
     }};
 }
 
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,-1.5cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \AT{}, counterpart to \GW{}$^{\textcolor{gray}{\text{\cite{Villar:2017wcc}}}}$
+            \AT{}, counterpart to \GW{}$^{\textcolor{gray}{\text{\cite{Villar:2017wcc}}}}$ \\
+            Two spatially disticnt components$^{\textcolor{gray}{\text{\cite{Kasen:2017sxr}}}}$:
             \begin{itemize}
-            \item Extensive follow-up
-            \item Early peak in blue bands (low $\kappa$)
-            \item Late peak in red, IR, bands (high $\kappa$)
+            \item low $\kappa$ -- early "blue" peak,
+            \item high $\kappa$ -- late "red" peak.
             \end{itemize}
     }};
 }
@@ -33,7 +42,7 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,-3.5cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \textbf{Open quesion}: insufficient ejecta to explain early blue part.
+            \textbf{Issue:} insufficient ejecta to explain early "blue" \ac{kN}.
 %            \begin{itemize}
 %                \item Insufficient ejecta to explain early blue part.
 %            \end{itemize}
@@ -48,6 +57,74 @@
             
     }};
 }
+
+
+%        \parbox{0.7\textwidth}{
+%    Key components %$M_{\rm ej}$, $\upsilon_{\rm ej}$, $Y_{e\rm; ej}$
+%    \begin{itemize}
+%        %            
+%        \item Energy generation \& energy release:
+%        %            Key ejecta properties $M$, $\upsilon$, $Y_e$, that determine \\
+%        %            heating, $\dot{Q}(t)$, thermalization, opacity
+%        %            
+%        %            \begin{equation*}
+%            %            \dot{Q}_i \propto \exp(-t/\tau_i), \,\, 
+%            %            \dot{Q}_{LP} = f \frac{M c^2}{t}, \,\,  
+%            \item nuclear heating $\dot{Q}_{r,\upsilon} = dM_{\upsilon}X_{r,\upsilon}\dot{e}_{r}(t)$,
+%            
+%            %            \end{equation*}
+%        %            where $f$ is free parameter and $M$ is the ejecta mass.
+%        %            the $dM_{\upsilon}$ is ejecta mass layer (with velocity $\upsilon$).
+%        %            The layer has a fraction $X{r,\upsilon}$ of \rproc{} elements, 
+%        where specific heating, $\dot{e}_r(t)$, requires detailed \nuc{}.
+%        %            for which is from detailed \nuc{} calculations \citep{Korobkin:2012uy}
+%        
+%        %            For the radiation the diffusion timescale is
+%        %            \begin{equation}
+%            %            \tau = \rho \kappa R = \frac{3}{4}\frac{M\kappa}{4\pi R^2} \hspace{5mm} 
+%            %            t_{diff} \approx \frac{R}{c}\tau = \frac{3}{4}\frac{M\kappa}{4\pi c R} = \frac{3}{4}\frac{M\kappa}{\pi c \upsilon t}
+%            %            \end{equation}
+%        %            where $M$ is the ejecta mass, $\kappa$ is the opacity (cross section per unit mass), 
+%        %            $\rho$ is the density, \eg, $\rho=3M/(4\pi R^3)$ is the mean density.
+%        
+%        \item Emission peaks when $t=t_{\rm diff}=f(\kappa)$ Arnett's law$^\text{\textcolor{gray}{\citep{Arnett:1982}}}$.
+%        %            \begin{equation}
+%            %            t_{peak} = \Big(\frac{3}{4}\frac{1}{\beta}\frac{M\kappa}{\pi \upsilon c}\Big)^{1/2}
+%            %            \end{equation}
+%        %            and the peak luminocity is set by $\dot{Q}(t)$
+%        
+%        Opacity $\kappa$ requries detailed atomic calculations
+%        \\
+%        %
+%        %            \begin{equation*}
+%            %            F_{\nu}(\mathbf{n},t) = \int_{\mathbf{n}_{\Omega} \cdot \mathbf{n}> 0} 
+%            %            \left( \frac{R_{\text{ph}}(\Omega,t)}{D_L} \right)^2  B_{\nu}(T_{\text{eff}}(\Omega,t))~\mathbf{n} \cdot  \dd\boldsymbol{\Omega} 
+%            %            \end{equation*}
+%        
+%        %            where $\mathbf{n}$ is the unitary vector along the line of sight, $\mathbf{n}_{\Omega}$ is the unitary 
+%        %            vector spanning the solid angle $\Omega$, $D_L$ is the luminosity distance, $R_{\text{ph}}$ is the local 
+%        %            radial coordinate of the photospheric surface, and $B_{\nu}(T_{\rm eff})$ is the spectral radiance at 
+%        %            frequency $\nu$ for a surface of temperature $T_{\text{eff}}$
+%        
+%        %%%% Magnitude
+%        %            We also make use of the apparent AB magnitude mag$_b$ in a given photometric band $b$, defined as:
+%        
+%        %            \begin{equation*}
+%            %            \text{mag}_b(\mathbf{n},t) = -2.5 \log_{10}\left( F_{\nu_b}(\mathbf{n},t) \right)-48.6\,,
+%            %            \end{equation*}
+%        %            where $\nu_b$ is the effective central frequency of band $b$.
+%    \end{itemize}
+%    
+%    
+%    %             \texttt{MKN} code$^\text{\citep{Perego:2017wtu}}$ \\
+%    %             multicomponent, anisotropic semi-analytical model \\
+%    %             geometry imported from \ac{NR} simulations \\
+%    %             opacities \& heating rates from from dedicated studies 
+%    %             \citep{Tanaka:2019iqp,Korobkin:2012uy} \\
+%    
+%    
+
+
 \end{tikzpicture}
 \end{frame}
 
@@ -160,88 +237,22 @@
 %%
 %% --------------------------------------------------------------
 
-\begin{frame}{Synthetic kilonova light curves} %% ---------- title 
+\begin{frame}{Kilonova code} %% ---------- title 
 
 \begin{tikzpicture}[overlay,remember picture]
 
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.0cm,0.9cm)}]current page.center){
-        \parbox{0.7\textwidth}{
-            Key components %$M_{\rm ej}$, $\upsilon_{\rm ej}$, $Y_{e\rm; ej}$
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,-0.6cm)}]current page.center){
+        \parbox{0.63\textwidth}{
+            \texttt{MKN code}: 
+            multicomponent, anisotropic semi-analytical model $^{\textcolor{gray}{\text{\cite{Perego:2017wtu}}}}$
             \begin{itemize}
-%            
-            \item Energy generation \& energy release:
-%            Key ejecta properties $M$, $\upsilon$, $Y_e$, that determine \\
-%            heating, $\dot{Q}(t)$, thermalization, opacity
-%            
-%            \begin{equation*}
-%            \dot{Q}_i \propto \exp(-t/\tau_i), \,\, 
-%            \dot{Q}_{LP} = f \frac{M c^2}{t}, \,\,  
-             \item nuclear heating $\dot{Q}_{r,\upsilon} = dM_{\upsilon}X_{r,\upsilon}\dot{e}_{r}(t)$,
-             
-%            \end{equation*}
-%            where $f$ is free parameter and $M$ is the ejecta mass.
-%            the $dM_{\upsilon}$ is ejecta mass layer (with velocity $\upsilon$).
-%            The layer has a fraction $X{r,\upsilon}$ of \rproc{} elements, 
-             where specific heating, $\dot{e}_r(t)$, requires detailed \nuc{}.
-%            for which is from detailed \nuc{} calculations \citep{Korobkin:2012uy}
-
-%            For the radiation the diffusion timescale is
-%            \begin{equation}
-%            \tau = \rho \kappa R = \frac{3}{4}\frac{M\kappa}{4\pi R^2} \hspace{5mm} 
-%            t_{diff} \approx \frac{R}{c}\tau = \frac{3}{4}\frac{M\kappa}{4\pi c R} = \frac{3}{4}\frac{M\kappa}{\pi c \upsilon t}
-%            \end{equation}
-%            where $M$ is the ejecta mass, $\kappa$ is the opacity (cross section per unit mass), 
-%            $\rho$ is the density, \eg, $\rho=3M/(4\pi R^3)$ is the mean density.
-            
-             \item Emission peaks when $t=t_{\rm diff}=f(\kappa)$ Arnett's law$^\text{\textcolor{gray}{\citep{Arnett:1982}}}$.
-%            \begin{equation}
-%            t_{peak} = \Big(\frac{3}{4}\frac{1}{\beta}\frac{M\kappa}{\pi \upsilon c}\Big)^{1/2}
-%            \end{equation}
-%            and the peak luminocity is set by $\dot{Q}(t)$
-
-             Opacity $\kappa$ requries detailed atomic calculations
-             \\
-%
-%            \begin{equation*}
-%            F_{\nu}(\mathbf{n},t) = \int_{\mathbf{n}_{\Omega} \cdot \mathbf{n}> 0} 
-%            \left( \frac{R_{\text{ph}}(\Omega,t)}{D_L} \right)^2  B_{\nu}(T_{\text{eff}}(\Omega,t))~\mathbf{n} \cdot  \dd\boldsymbol{\Omega} 
-%            \end{equation*}
-            
-%            where $\mathbf{n}$ is the unitary vector along the line of sight, $\mathbf{n}_{\Omega}$ is the unitary 
-%            vector spanning the solid angle $\Omega$, $D_L$ is the luminosity distance, $R_{\text{ph}}$ is the local 
-%            radial coordinate of the photospheric surface, and $B_{\nu}(T_{\rm eff})$ is the spectral radiance at 
-%            frequency $\nu$ for a surface of temperature $T_{\text{eff}}$
-             
-             %%%% Magnitude
-%            We also make use of the apparent AB magnitude mag$_b$ in a given photometric band $b$, defined as:
-
-%            \begin{equation*}
-%            \text{mag}_b(\mathbf{n},t) = -2.5 \log_{10}\left( F_{\nu_b}(\mathbf{n},t) \right)-48.6\,,
-%            \end{equation*}
-%            where $\nu_b$ is the effective central frequency of band $b$.
-             \end{itemize}
-             
-             
-%             \texttt{MKN} code$^\text{\citep{Perego:2017wtu}}$ \\
-%             multicomponent, anisotropic semi-analytical model \\
-%             geometry imported from \ac{NR} simulations \\
-%             opacities \& heating rates from from dedicated studies 
-%             \citep{Tanaka:2019iqp,Korobkin:2012uy} \\
-             
-             
-
-    }};
-}
-
-\uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.0cm,-2.6cm)}]current page.center){
-        \parbox{0.70\textwidth}{
-            \texttt{MKN} code$^{\textcolor{gray}{\text{\cite{Perego:2017wtu}}}}$
-            \begin{itemize}
-                \item multicomponent, anisotropic semi-analytical model 
-                \item geometry imported from \ac{NR} simulations 
-                \item opacities \& heating rates from from dedicated studies$^\text{\textcolor{gray}{\citep{Tanaka:2019iqp,Korobkin:2012uy}}}$ 
+                \item Ejecta $m(\theta)$, $\upsilon(\theta)$, $\kappa(\theta)$
+                \item Nuclear heating rate $\varepsilon_{\rm nuc} = f(t)$, 
+                \item Mean plank opacities from atomic calculation$^{\textcolor{gray}{\text{\cite{Tanaka:2019iqp}}}}$
+                \item Black-body radiation with $T_{\rm eff}$ from $R_{\rm ph}$
+%                \item geometry imported from \ac{NR} simulations 
+%                \item opacities \& heating rates from from dedicated studies$^\text{\textcolor{gray}{\citep{Tanaka:2019iqp,Korobkin:2012uy}}}$ 
             \end{itemize}
     }};
 }
