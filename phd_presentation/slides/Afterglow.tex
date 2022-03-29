@@ -7,11 +7,11 @@
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,1.3cm)}]current page.center){
-        \parbox{0.60\textwidth}{
+        \parbox{0.65\textwidth}{
             \begin{itemize}
-                \item Synchrotron emission arising when a shock propagates through ISM$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$
+                \item Synchrotron emission arising when ejecta moves through ISM$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$
                 \item \GRB{} afterglow, structured jet, off-axis$^{\textcolor{gray}{\text{\cite{Hajela:2019mjy}}}}$
-                \item expected \ac{kN} ejecta afterglow$^{\textcolor{gray}{\text{\cite{Kathirgamaraju:2019xwu}}}}$
+                \item expected kN ejecta afterglow$^{\textcolor{gray}{\text{\cite{Kathirgamaraju:2019xwu}}}}$
             \end{itemize}
     }};
 }
@@ -19,7 +19,8 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-2.0cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            Change in afterglow in X-ray, $1243$ days post-merger. Possible explanations $^{\textcolor{gray}{\text{\cite{Hajela:2021faz}}}}$: 
+            \GRB{} \textbf{x-ray light curve changed} $1243$ days post-merger. 
+            Possible explanations$^{\textcolor{gray}{\text{\cite{Hajela:2021faz}}}}$: 
             \begin{itemize}
             \item change in microphysics parameters
             \item ISM density variation
@@ -177,7 +178,7 @@
 \begin{frame}{Model: dynamics}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.6cm,-0.2cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.6cm,-0.4cm)}]current page.center){
                 \parbox{1.\textwidth}{
                     \textbf{Dynamics:} Semi-analytic model (energy conservation) in 
                     this-shell (unifrom-shell) approximation; \\
@@ -185,7 +186,10 @@
                     we write evolution equation: 
                     \vspace{-2mm}
                     \begin{equation*}
-                        dE_{\rm tot} = 0 \rightarrow d [ \Gamma (M_0 + m) c^2 + \Gamma_{\rm eff}E_{\rm int}' ] = dm c^2 + \Gamma_{\rm eff} dE_{\rm rad}'.
+                        \begin{aligned}
+                            dE_{\rm tot} = 0 \rightarrow & d [ \Gamma (M_0 + m) c^2 + \Gamma_{\rm eff}E_{\rm int}' ] = dm c^2 + \Gamma_{\rm eff} dE_{\rm rad}'. \\
+                            & dE_{\rm int}' = dE_{\rm sh}' + dE_{\rm ad}' + dE_{\rm rad}',
+                        \end{aligned}
                     \end{equation*}
                     Consider adiabatic evolution \\
                     \textbf{Structure:} lateral, $\{\theta_i\}$, and velocity $\{\upsilon_i\}$; \\

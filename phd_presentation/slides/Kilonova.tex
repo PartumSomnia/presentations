@@ -3,12 +3,12 @@
 %% K I L O N O V A
 %%
 %% --------------------------------------------------------------
-\begin{frame}{Introduction}
+\begin{frame}{Kilonova (kN)}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,1.3cm)}]current page.center){
         \parbox{0.56\textwidth}{
-            \textbf{Kilonova} (kN) -- thermal EM counterpart to mergers, 
+            Thermal \ac{EM} counterpart to mergers, 
             powered by the decay of produced elements$^{\textcolor{gray}{\text{\cite{Metzger:2016pju}}}}$. \\
             Nuclear heating in ejecta, $\varepsilon_{\rm nuc}\propto t^{-\alpha}$. \\
             Ejecta expands and become transparent. \\
@@ -30,11 +30,11 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,-1.5cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \AT{}, counterpart to \GW{}$^{\textcolor{gray}{\text{\cite{Villar:2017wcc}}}}$ \\
-            Two spatially disticnt components$^{\textcolor{gray}{\text{\cite{Kasen:2017sxr}}}}$:
+            \textbf{\AT{}}, counterpart to \GW{}$^{\textcolor{gray}{\text{\cite{Villar:2017wcc}}}}$ \\
+            Two spatially distinct components$^{\textcolor{gray}{\text{\cite{Kasen:2017sxr}}}}$:
             \begin{itemize}
-            \item low $\kappa$ -- early "blue" peak,
-            \item high $\kappa$ -- late "red" peak.
+            \item low $\kappa$ (high $Y_e$) -- early \textcolor{blue}{"blue"} peak,
+            \item high $\kappa$ (low $Y_e$) -- late \textcolor{red}{"red"} peak.
             \end{itemize}
     }};
 }
@@ -42,14 +42,14 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,-3.5cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \textbf{Issue:} insufficient ejecta to explain early "blue" \ac{kN}.
+            \textbf{Issue:} insufficient ejecta to explain early \textcolor{blue}{"blue"} early emission.
 %            \begin{itemize}
 %                \item Insufficient ejecta to explain early blue part.
 %            \end{itemize}
     }};
 }
 
-\uncover<1->{ % <-> |
+\uncover<1-1>{ % <-> |
     \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.8cm,-0.2cm)}]current page.center){
         \parbox{0.5\textwidth}{
             \includegraphics[height=5.8cm]{figures/KasenBolKn.pdf}
@@ -57,7 +57,27 @@
             
     }};
 }
-
+\uncover<2->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.5cm)}]current page.center){
+        \parbox{0.45\textwidth}{
+            \includegraphics[height=4.8cm]{phd_figs/mkn__albino2.pdf} \\
+            \textbf{Model}: multicomponent, anisotropic semi-analytical. \texttt{MKN} code$^{\textcolor{gray}{\text{\cite{Perego:2017wtu}}}}$\\ 
+            Black-body radiation; freely expanding ejecta
+            % Ejecta compoenents in \texttt{MKN}
+            %            \caption{Graphic representation of the analyzed
+                %                ejecta profiles for isotropic and anisotropic cases
+                %                from an azimuthal perspective and for a fixed moment of time.
+                %                The black dot represents the remnant and the dashed line is the projected orbital
+                %                plane of the binary. The shadowed areas describe the ejecta profiles: the shape
+                %                characterizes the mass distribution, while the colors refer to 
+                %                the prior assumptions on the opacity parameter.
+                %                In particular, blue regions denote opacities lower than $5~\igscm$,
+                %                red regions refer to opacities greater than $5~\igscm$,
+                %                and oranges areas indicate a broadly distributed opacity.
+                %                All shells are isotropically expanding with a constant velocity.
+                %                (Adapted from \citet{Breschi:2021wzr})
+        }};
+    }
 
 %        \parbox{0.7\textwidth}{
 %    Key components %$M_{\rm ej}$, $\upsilon_{\rm ej}$, $Y_{e\rm; ej}$
@@ -237,60 +257,60 @@
 %%
 %% --------------------------------------------------------------
 
-\begin{frame}{Kilonova code} %% ---------- title 
-
-\begin{tikzpicture}[overlay,remember picture]
-
-\uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,-0.6cm)}]current page.center){
-        \parbox{0.63\textwidth}{
-            \texttt{MKN code}: 
-            multicomponent, anisotropic semi-analytical model $^{\textcolor{gray}{\text{\cite{Perego:2017wtu}}}}$
-            \begin{itemize}
-                \item Ejecta $m(\theta)$, $\upsilon(\theta)$, $\kappa(\theta)$
-                \item Nuclear heating rate $\varepsilon_{\rm nuc} = f(t)$, 
-                \item Mean plank opacities from atomic calculation$^{\textcolor{gray}{\text{\cite{Tanaka:2019iqp}}}}$
-                \item Black-body radiation with $T_{\rm eff}$ from $R_{\rm ph}$
-%                \item geometry imported from \ac{NR} simulations 
-%                \item opacities \& heating rates from from dedicated studies$^\text{\textcolor{gray}{\citep{Tanaka:2019iqp,Korobkin:2012uy}}}$ 
-            \end{itemize}
-    }};
-}
-
-\uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.1cm,-0.2cm)}]current page.center){
-        \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/mkn__albino2.pdf}
-            
-            \hspace*{10mm} Ejecta compoenents in \texttt{MKN}
-%            \caption{Graphic representation of the analyzed
-%                ejecta profiles for isotropic and anisotropic cases
-%                from an azimuthal perspective and for a fixed moment of time.
-%                The black dot represents the remnant and the dashed line is the projected orbital
-%                plane of the binary. The shadowed areas describe the ejecta profiles: the shape
-%                characterizes the mass distribution, while the colors refer to 
-%                the prior assumptions on the opacity parameter.
-%                In particular, blue regions denote opacities lower than $5~\igscm$,
-%                red regions refer to opacities greater than $5~\igscm$,
-%                and oranges areas indicate a broadly distributed opacity.
-%                All shells are isotropically expanding with a constant velocity.
-%                (Adapted from \citet{Breschi:2021wzr})
-    }};
-}
-
-%\texttt{MKN} code
+%\begin{frame}{Kilonova code} %% ---------- title 
+%
+%\begin{tikzpicture}[overlay,remember picture]
+%
 %\uncover<1->{ % <-> |
-%    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-1.8cm)}]current page.center){
-%        \parbox{0.6\textwidth}{
+%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,-0.6cm)}]current page.center){
+%        \parbox{0.63\textwidth}{
+%            \texttt{MKN code}: 
+%            multicomponent, anisotropic semi-analytical model $^{\textcolor{gray}{\text{\cite{Perego:2017wtu}}}}$
 %            \begin{itemize}
-%            \item multicomponent, anisotropic semi-analytical 
+%                \item Ejecta $m(\theta)$, $\upsilon(\theta)$, $\kappa(\theta)$
+%                \item Nuclear heating rate $\varepsilon_{\rm nuc} = f(t)$, 
+%                \item Mean plank opacities from atomic calculation$^{\textcolor{gray}{\text{\cite{Tanaka:2019iqp}}}}$
+%                \item Black-body radiation with $T_{\rm eff}$ from $R_{\rm ph}$
+%%                \item geometry imported from \ac{NR} simulations 
+%%                \item opacities \& heating rates from from dedicated studies$^\text{\textcolor{gray}{\citep{Tanaka:2019iqp,Korobkin:2012uy}}}$ 
 %            \end{itemize}
 %    }};
 %}
-
-\end{tikzpicture}
-
-\end{frame}
+%
+%\uncover<1->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.1cm,-0.2cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=5cm]{phd_figs/mkn__albino2.pdf}
+%            
+%            \hspace*{10mm} Ejecta compoenents in \texttt{MKN}
+%%            \caption{Graphic representation of the analyzed
+%%                ejecta profiles for isotropic and anisotropic cases
+%%                from an azimuthal perspective and for a fixed moment of time.
+%%                The black dot represents the remnant and the dashed line is the projected orbital
+%%                plane of the binary. The shadowed areas describe the ejecta profiles: the shape
+%%                characterizes the mass distribution, while the colors refer to 
+%%                the prior assumptions on the opacity parameter.
+%%                In particular, blue regions denote opacities lower than $5~\igscm$,
+%%                red regions refer to opacities greater than $5~\igscm$,
+%%                and oranges areas indicate a broadly distributed opacity.
+%%                All shells are isotropically expanding with a constant velocity.
+%%                (Adapted from \citet{Breschi:2021wzr})
+%    }};
+%}
+%
+%%\texttt{MKN} code
+%%\uncover<1->{ % <-> |
+%%    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-1.8cm)}]current page.center){
+%%        \parbox{0.6\textwidth}{
+%%            \begin{itemize}
+%%            \item multicomponent, anisotropic semi-analytical 
+%%            \end{itemize}
+%%    }};
+%%}
+%
+%\end{tikzpicture}
+%
+%\end{frame}
 
 
 
