@@ -4,50 +4,141 @@
 %%
 %% --------------------------------------------------------------
 
-\begin{frame}{Motivation}  %% ---------- Intro/motivation 
+\begin{frame}%{Binary neutron star (BNS) mergers}  %% ---------- Intro/motivation 
 
 \begin{tikzpicture}[overlay,remember picture]
 
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,1.5cm)}]current page.center){
-        \parbox{1.1\textwidth}{
-            Binary neutron star (BNS) mergers are unique cosmic laboratories to study 
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,3.0cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+        \begin{footnotesize}
+            \textbf{Neutron stars (NSs)} are collapsed cores of massive supergiant stars
+            % which had a total mass of between 10 and 25 solar masses
+%            Unknown inner structure \\
+%            If in binary, they will collide \\ 
+        \end{footnotesize}
+    }};
+}
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,0.0cm)}]current page.center){
+        \parbox{0.55\textwidth}{
+            Binary neutron star (BNS) mergers relate to
             \begin{itemize}
-                \item theory of gravity in a strong field regime,
-                \item properties of matter at supranuclear densities,
-                \item cosmic chemical evolution,%\nuc{} of the heaviest elements in the Universe,
+                \item origin of heaviest elements;
+                \item origin of (some) short \acp{GRB};
+                \item thoery of gravity;
+                \item cosmology;
+                %\item \nuc{} of the heaviest elements in the Universe,
                 %\item cosmology.%, using \ac{BNS} mergers as standard sirens
             \end{itemize}
     }};
 }
-
-\uncover<2->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,-1.5cm)}]current page.center){
-        \parbox{1.1\textwidth}{
-            In August 2017, a BNS merger was observed as a source of 
-        
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-3.0cm)}]current page.center){
+        \parbox{0.55\textwidth}{
+            \textit{Numerical relativity (NR) simulations} $\rightarrow$ 
+            % \vspace{-5mm}
             \begin{itemize}
-                \item \acp{GW}, \GW{},
-                \item thermal electromagnetic (EM) emission, kilonova (kN), \AT{},
-                \item non-thermal \ac{EM} short gamma-ray burst (GRB), \GRB{}
+                \item \acp{GW} 
+                \item ejecta properties 
             \end{itemize}
-            
-            for the first time. \\
-            
-%            Wealth of information about different physical processes occurring in BNS\\
-            %\red{Questions}: remnant's lifetime; ejecta mass/composition; sources of \rproc{} elements
     }};
 }
+%\uncover<1->{ % <-> |
+%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-2.0cm)}]current page.center){
+%        \parbox{0.55\textwidth}{
+%            \textbf{Multimessenger event}
+%            \begin{itemize}
+%                \item \GW{} (Gravitational waves)
+%                \item \AT{} (kilonova)  %thermal electromagnetic (EM) emission, kilonova (kN), \AT{},
+%                \item \GRB{} (short GRB)% non-thermal \ac{EM} short gamma-ray burst (GRB), \GRB{}
+%            \end{itemize}
+%            
+%%            Wealth of information about different physical processes occurring in BNS\\
+%            %\red{Questions}: remnant's lifetime; ejecta mass/composition; sources of \rproc{} elements
+%    }};
+%}
 
-\uncover<3->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(0.0cm,-3.4cm)}]current page.center){
-        \parbox{1.1\textwidth}{
-%            \textcolor{black}{Major advanclemts} were maid in our understanding of related physical processes \\
-            \textcolor{black}{ \textbf{Key questions}}: remnant fate; origin of the early kilonova emission; origin of the late \ac{GRB} afterglow; \\
-            \textbf{What is NS equation of state (\ac{EOS})?}
+%\uncover<1->{ % <-> |
+%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(0.0cm,-3.4cm)}]current page.center){
+%        \parbox{1.1\textwidth}{
+%%            \textcolor{black}{Major advanclemts} were maid in our understanding of related physical processes \\
+%            \textcolor{black}{ \textbf{Key questions}}: remnant fate; origin of the early kilonova emission; origin of the late \ac{GRB} afterglow; \\
+%            \textbf{What is NS equation of state (\ac{EOS})?}
+%    }};
+%}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.4cm,-0.2cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5.3cm]{figures/bns_cartoon_inveted.jpg}\\
+            Artist depiction of merging neutron stars \\
+            \textcolor{gray}{ \footnotesize{
+                    Credit: University of Warwick/Mark Garlick} 
+                }
     }};
 }
 
 
 \end{tikzpicture}
+\end{frame}
+
+%% ----------------------------------------------------------------------------------
+
+\begin{frame}%{Binary neutron star (BNS) mergers}  %% ---------- Intro/motivation 
+    
+    \begin{tikzpicture}[overlay,remember picture]
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,2.0cm)}]current page.center){
+                \parbox{0.60\textwidth}{
+                    August 2017 \textbf{Multimessenger event}
+                    \begin{itemize}
+                        \item \GW{} -- \ac{GW}
+                        \item \AT{} -- thermal \ac{EM} emission, kilonova (kN)  %thermal electromagnetic (EM) emission, kilonova (kN), \AT{},
+                        \item \GRB{} -- non-thermal \ac{EM} short \ac{GRB}% non-thermal \ac{EM} short gamma-ray burst (GRB), \GRB{}
+                    \end{itemize}
+                    
+                    %            Wealth of information about different physical processes occurring in BNS\\
+                    %\red{Questions}: remnant's lifetime; ejecta mass/composition; sources of \rproc{} elements
+            }};
+        }
+        
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,0.0cm)}]current page.center){
+                \parbox{0.60\textwidth}{
+                     \textit{\ac{EM} models} $\rightarrow$ ejecta properties.
+            }};
+        }
+    
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,-2.0cm)}]current page.center){
+                \parbox{0.60\textwidth}{
+                    \textbf{Question:}\\
+                    Binary parameters and \ac{NS} \ac{EOS}?
+                    %by using \ac{NR} simulations and \ac{EM} counterparts 
+            }};
+        }
+    
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(0.0cm,-3.4cm)}]current page.center){                    Artist depiction of merging neutron stars \\
+%                \textcolor{gray}{ \footnotesize{
+%                        Credit: University of Warwick/Mark Garlick} 
+%                }
+%                \parbox{1.1\textwidth}{
+%                    %            \textcolor{black}{Major advanclemts} were maid in our understanding of related physical processes \\
+%                    \textcolor{black}{ \textbf{Key questions}}: remnant fate; origin of the early kilonova emission; origin of the late \ac{GRB} afterglow; \\
+%                    \textbf{What is NS equation of state (\ac{EOS})?}
+%            }};
+%        }
+        
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.cm,0.0cm)}]current page.center){
+                \parbox{0.4\textwidth}{
+                    \includegraphics[height=5.3cm]{figures/at2017gfo_smartt.png}\\
+                    Image of AT2017gfo\footcite{Smartt:2017fuw}
+                    %$^{\textcolor{gray}{\text{\cite{Smartt:2017fuw}}}}$
+            }};
+        }
+        
+    \end{tikzpicture}
 \end{frame}

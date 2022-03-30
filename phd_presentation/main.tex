@@ -52,7 +52,7 @@
 %\usepackage[style=ieee]{biblatex}
 \usepackage[
 backend=bibtex,
-style=numeric,%authoryear-comp,
+style=authoryear-comp,%authoryear-comp,
 natbib=true,
 sorting=debug,
 maxnames=1,
@@ -60,11 +60,11 @@ uniquelist=true
 ]{biblatex}%biblatex
 \addbibresource{references} % references for the thesis % ../phd_thesis/references
 \DeclareFieldInputHandler{title}{\def\NewValue{}} %% Removes titles
-%\ExecuteBibliographyOptions{
-%    maxnames = 999,
-%    minnames = 3,
-%}
-%\makeatletter\@ifpackageloaded{biblatex}{\addbibresource{../phd_thesis/references.bib}}{\bibliography{references}}\makeatother
+\ExecuteBibliographyOptions{
+    maxnames = 1,
+    minnames = 1,
+}
+\makeatletter\@ifpackageloaded{biblatex}{\addbibresource{../phd_thesis/references.bib}}{\bibliography{references}}\makeatother
 \setbeamertemplate{bibliography item}{\insertbiblabel}
 \renewcommand*{\bibfont}{\tiny} % \footnotesize
 

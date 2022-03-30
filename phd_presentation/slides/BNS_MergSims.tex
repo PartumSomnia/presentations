@@ -10,18 +10,20 @@
         \parbox{1.1\textwidth}{
             Key physics: General Relativity, fluid dynamics, radiation transport. 
             \begin{equation*}
-                R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi T_{\mu\nu}, \hspace{5mm} \nabla_{\mu}T^{\mu\nu} = 0, \hspace{5mm} \frac{DF}{Dl}=\mathcal{C}[F], \hspace{5mm} \text{EOS}
+                R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi T_{\mu\nu}, \hspace{5mm} \nabla_{\mu}T^{\mu\nu} = 0, \hspace{5mm} \frac{DF}{Dl}=\mathcal{C}[F]
             \end{equation*}
             %
             Complex numerical implementation. Expensive simulations. \\
-            Numerical relativity codes, \eg, \wisky{} code$^\text{\textcolor{gray}{\citep{Radice:2013apa,Radice:2012cu,Radice:2013xpa,Radice:2013hxh,
-                                 Radice:2015nva,Radice:2016dwd,Radice:2018pdn,Radice:2020ids}}}$
+            Numerical relativity codes, \eg, \wisky{} code
+            %$^\text{\textcolor{gray}{\citep{Radice:2013apa,Radice:2012cu,Radice:2013xpa,Radice:2013hxh,
+                                 %Radice:2015nva,Radice:2016dwd,Radice:2018pdn,Radice:2020ids}}}$
+            \footcite{Radice:2015nva,Radice:2018pdn,Radice:2020ids}
             \begin{itemize}
-                \item Z4c formulation of $3+1$ decomposed, general relativity,
+                \item General Relativity%Z4c formulation of $3+1$ decomposed, general relativity,
                 %\item Conservative formualtion of relativistic hydrodynamics,
-                \item Neutrino radiation transport via Leakage $+$ M0 scheme,
-                \item Turbulent viscosity of magnetic origin via GRLES appraoch,
-                \item Microphsyical EOS with finite temperature effects.
+                \item Neutrino transport %Neutrino radiation transport via Leakage $+$ M0 scheme,
+                \item Turbulent viscosity of magnetic origin% via GRLES appraoch,
+                \item Microphsyical \ac{EOS} with finite temperature effects.
             \end{itemize}
             Overall, $37$ unique simulations targeted to \GW{}, (some $100+$~ms) % total of $76$,  \\
             % Initial data: constraint equations + Helical killing vector + conformal flatness
@@ -57,17 +59,17 @@
 
 %% ----------------------------------------------------------------------------
 
-\begin{frame}{Representative picture of a binary neutron star merger} %% ---------- title 
+\begin{frame}%{Representative picture of a binary neutron star merger} %% ---------- title 
 \begin{tikzpicture}[overlay,remember picture]
     \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.1cm,0.5cm)}]current page.center){
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.1cm,-2.1cm)}]current page.center){
         \parbox{0.50\textwidth}{
             % Grav. radiation losses cause the orbital separation to shrink (Softer EOSs -- longer inspiral)
             % Inspiral (${\simeq}10\,$orbits); NSs Zero-temperature, $\beta$-equilibrium \\
             % Merger \& post-merger, $T{\sim}50\,$MeV, $\rho{\sim3.6}\rho_0$. \\
             % Postmerger: Remnant $+$ disk $+$ ejecta; \\
             % Fate: $J$ transport; MHD; $\nu$, GWs \\
-            \textbf{System parametrization:} \\
+            \textbf{Key parameters:} \\
             Tidal interaction 
             % Distrortion of the mass distribution of a given NS in a Grav. Field of another
             % Parametrized with Love Number (computed by solving perturbation of a relativistic star k=f(EOS,Compactness))
@@ -75,7 +77,7 @@
             % The dynamics of the two bodies can be described with tidal coupling constant that 
             % describes tidal interaction at leading order
             % Tidal interaction (i) attractive (ii) short range: They accelerate merger, increase frequency
-            can be parameterized with \textit{reduced tidal parameter}$^{\text{\textcolor{gray}{\cite{Favata:2013rwa}}}}$
+            can be parameterized with \textit{reduced tidal parameter}\footcite{Favata:2013rwa}%$^{\text{\textcolor{gray}{\cite{Favata:2013rwa}}}}$
             %
             \begin{equation*}
                 \tilde{\Lambda} := \frac{16}{13}\frac{(M_A + 12M_B)M_A^4 \Lambda_A}{M^5}+(A\leftrightarrow B)
@@ -95,15 +97,16 @@
     }
 %
     \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(3.6cm,0.8cm)}]current page.center){
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-2.0cm)}]current page.center){
         \parbox{0.55\textwidth}{
             \textbf{Ejecta}:
             \begin{itemize}
                 \item Dynamical (${\lesssim}10\,$ms); 
                 \item Secular (${\gtrsim 10\,}$ms)
             \end{itemize}
+            \vspace{5mm}
             \textbf{Post-merger state:} \\
-            BH or long/short-lived remnants plus disks \\
+            BH or long/short-lived remnants \& disks \\
             % Early postmerger: 
             % Core bounces: cold cores, hot interface; shocks at NS surface only \\
             % Right after the merger double-core structure is formed by the two central cores of merging NSs. Cors collide and bounce repeadetly untill they merge. In this process outer layers gain J due to Orbital Angular Momentum Advection and Torques arasing from double-core, non-axisymmetric structure of the sustem. Result: core immersed in low-rho cloud
@@ -112,7 +115,7 @@
             % Abundance of free $n$, absorbe $\nu_e$, raise $Y_e$; emission of $\bar{\nu}_e$
             % Possible phase transition softens EOS
             % Impact of phase transition depends on density at which it occure
-            While cores fuse, remnant is \textit{deformed} \\%remnant shows bar-like deformation \\
+            % While cores fuse, remnant is \textit{deformed} \\%remnant shows bar-like deformation \\
             % Main post-merger GW freq. = 2 times dynamical freq.
             % Peaks in GWs associated with hydro mode 
             % Peak frequencies depend on NS prop. -- quasiuniversality
@@ -120,7 +123,7 @@
             % Most luminous $\neq$ largest energy
             % Simulations give upper limitof GWs energy
             % GWs backreacts on the fluid, damping the non-axisymmetric modes
-            Remnant evolves towards \textit{axisymmetry} \\
+            % Remnant evolves towards \textit{axisymmetry} \\
             % Postmerger state: super-Keplerian $J>J_{\rm max}^{\rm equilib}$, $M_b>M_{b \rm, max}^{\rm eqilib}$ -- Highly differential rotation remnant
             % Thermal and neutrino effects $\uparrow$ pressure (${\simeq}10\%$), hence, radius, but not the $M_{\rm max}$. 
             % Rotatin increases NS $M_{\rm max}$ and $R$. 
@@ -154,7 +157,7 @@
     }
 
     \uncover<1->{ % <-> |
-        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-1.cm,-2.8cm)}]current page.center){
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-1.cm,1.8cm)}]current page.center){
             \parbox{1.0\textwidth}{
                 \includegraphics[height=2.7cm]{figures/bns_evolution_transparent.pdf}
                 %            \hspace*{10mm} Density modes in the remnant 
@@ -592,7 +595,7 @@
 
 
 
-\begin{frame}{Long term evolution \& remnant's fate$^\text{\textcolor{gray}{\citep{Nedora:2020pak}}}$} %% ---------- title 
+\begin{frame}{Origin on the spiral-wave wind\footcite{Nedora:2019jhl,Nedora:2020pak}}%{Long term evolution \& remnant's fate}%$^\text{\textcolor{gray}{\citep{Nedora:2020pak}}}$} %% ---------- title 
 
 %As the disk expands and cools, the recombination of nucleons into alpha particles 
 %starts to take place. The energy, released in recombination, might be sufficient 
@@ -632,7 +635,7 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,1.2cm)}]current page.center){
         \parbox{0.64\textwidth}{
-            Fourier mode decomposition $e^{-i m\phi}$ of the Eulerian rest-mass density 
+            With fourier mode decomposition $e^{-i m\phi}$ of the Eulerian rest-mass density \textbf{we find:}
             %Modes analysis for exemplary equal-mass long-live and short-lived
             %                    %        remnants. The evolution of the $m=2$ and the $m=1$ monitored by
             %                    %        Eq.~\eqref{eq:modes} is shown for the DD2 and LS220 remnant with and
@@ -644,9 +647,10 @@
             %                    %        the short-lived remnant.
             %                    %        (Adopted from \cite{Nedora:2020pak})
             \begin{itemize}
-                \item Remnant is \textbf{not axisymmetric}, (prominant $m=2$ and $m=1$ modes); 
-                \item One-armed $m=1$ is present on ${\sim}100$~ms 
-                \item Injection of matter, energy, angular momentum
+                %\item Remnant is \textbf{not axisymmetric}, (prominant $m=2$ and $m=1$ modes); 
+                \item Prominant $m=2$ and $m=1$ modes; 
+                \item One-armed, $m=1$, persits till ${\sim}100$~ms;
+                \item Injection of matter, energy, angular momentum, $J$;
                 %                        \item Bar-shaped $m=2$ dominats the \textbf{early} phase
                 %                        and later $m=2$ is damped by the emission of \acp{GW}
                 %                        \item One-armed $m=1$ is present on ${\sim}100$~ms 
@@ -666,7 +670,7 @@
     }};
 }
 \uncover<2->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,-2.5cm)}]current page.center){
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,-1.9cm)}]current page.center){
         \parbox{0.65\textwidth}{
             \begin{itemize}
                 % Viscosity foces rotating equilibria to rotate rigidly
@@ -675,9 +679,9 @@
                 % J_GW is computed from the Weil scalar (Psi4) decomposed into s=-2 spin-weighted spherical harmonics
                 % Angular momentum, trasported away by GWs
                 % Differential rotation is reduced by the non-axisymmetric torques and GWs losses that redistribute angular momentum from inner to the outer regions
-                \item Remnant \textbf{has an excess} in baryonic mass, $M_b$, and angular momentum, $J$;
+                \item Excess in baryonic mass, $M_b$, and $J$;
                 % \item \acp{GW} remove some $J$
-                \item Angular momentum is lost to \acp{GW} and outflows
+                \item $J$ is lost to \acp{GW} and outflows
                 %\item Massive outflows from expanded disk
                 %driven by $m=\{1,2\}$ and $J$ transport
                 \item \textbf{Spiral-wave wind}, driven by $m=\{1,2\}$ instabilities, removes $J$ and $M_b$
@@ -698,13 +702,14 @@
                 %%        and disk, and it is given in units where $c=G=\Msun=1$.
                 %%        (Adapted from \citet{Nedora:2019jhl})
                 %%    }
-            \hspace*{2.8mm}Spiral arms within the disk
+            \hspace*{2.8mm}Spiral arms within the disk%\footcite{Nedora:2019jhl}
     }};
 }
 \uncover<2->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,-0.2cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,-0.4cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=6cm]{phd_figs/ejecta_sec/secular_j_mb_RNS_blh.pdf}
+            \includegraphics[height=6cm]{phd_figs/ejecta_sec/secular_j_mb_RNS_blh.pdf}\\
+            \hspace*{10mm}Long-term remnant evolution%\footcite{Nedora:2020pak}
 %            Baryon mass vs angular momentum diagram for the BLh $q=1$ remnant.
 %            The colored diamond marks the baryonic mass and angular momentum at the end
 %            of the dynamical gravitational-wave dominated phase.
@@ -743,7 +748,7 @@
 %%
 %% ----------------------------------------------------------------
 
-\begin{frame}{Properties of the \swind{}$^\text{\textcolor{gray}{\citep{Nedora:2019jhl,Nedora:2020pak}}}$}
+\begin{frame}{Properties of the \swind{}\footcite{Nedora:2019jhl,Nedora:2020pak}}%$^\text{\textcolor{gray}{\citep{Nedora:2019jhl,Nedora:2020pak}}}$}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
     \uncover<1->{ % <-> |
@@ -778,8 +783,8 @@
             \textbf{Properties of \swind:}
             \begin{itemize}
                 \item $\amw\propto t_{\text{coll}} \gg \amd$
-                \item $Y_e=1/(1+n_n/n_p)\gtrsim0.3$%$0.1\lesssim \ayw\lesssim0.4$ peak ${\simeq}0.35$
-                \item $\avw \sim 0.1\,$c / ${\sim}0.2\,$c
+                \item $\ayw > \ayd$ and $\ayw>0.3$%$0.1\lesssim \ayw\lesssim0.4$ peak ${\simeq}0.35$
+                %\item $\avw \sim 0.1\,$c / ${\sim}0.2\,$c
            %\item broad distribution around the binary plane, high $0.1\lesssim \ayw\lesssim0.4$ peak ${\simeq}0.35$.%$\langle Y_e \rangle$
             %\item The low electron fraction material originates primarily at early times, when the material did not have enough time to be processed by neutrinos and before the outflow reaches quasi-steady state.
             %\item $\avw$ is ${\sim}0.1\,$c / ${\sim}0.2\,$c for soft/still \acp{EOS}
@@ -809,11 +814,11 @@
 %%
 %% ----------------------------------------------------------------
 
-\begin{frame}{Fast component of the dynamical ejecta$^\text{\textcolor{gray}{\citep{Nedora:2021eoj}}}$ } %% ---------- title 
+\begin{frame}{Fast component of the dynamical ejecta\footcite{Nedora:2021eoj}}%$^\text{\textcolor{gray}{\citep{Nedora:2021eoj}}}$ } %% ---------- title 
     \begin{tikzpicture}[overlay,remember picture]
         
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.4cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.8cm)}]current page.center){
                 \parbox{0.65\textwidth}{
                     % During merger, orbital anguilar momentum transport by tidal torques induces the ejection of the outer layers of stars forming tidal component of the DE. 
                     % Geodesic criterion ($u_t < -1$, ballisitc trajectory, no pressure)
@@ -841,9 +846,9 @@
             }};
         }
         \uncover<1->{ % <-> |
-            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,-1.85cm)}]current page.center){
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,-1.56cm)}]current page.center){
                 \parbox{0.5\textwidth}{
-                    \includegraphics[height=4.4cm]{phd_figs/ejecta_dyn/fast_ejecta/scatter_ekej_vej06.pdf}
+                    \includegraphics[height=5.0cm]{phd_figs/ejecta_dyn/fast_ejecta/scatter_ekej_vej06.pdf}
                     %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
             }};
         }
