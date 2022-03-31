@@ -62,19 +62,28 @@ uniquelist=true
 \DeclareFieldInputHandler{title}{\def\NewValue{}} %% Removes titles
 \ExecuteBibliographyOptions{
     maxnames = 1,
-    minnames = 1,
+    minnames = 1
 }
 \makeatletter\@ifpackageloaded{biblatex}{\addbibresource{../phd_thesis/references.bib}}{\bibliography{references}}\makeatother
 \setbeamertemplate{bibliography item}{\insertbiblabel}
 \renewcommand*{\bibfont}{\tiny} % \footnotesize
-
+%\renewcommand{\bibitem}[1]{%
+%    \color{gray}\mybibitem{#1}
+%}
 
 % \graphicspath{{/home/vsevolod/Work/GIT/GitHub/phd_thesis/v3/Figures/}} % /home/vsevolod/Work/GIT/GitHub/phd_thesis/v3/Figures/
 
 \usepackage{hyperref}
 \usepackage{cleveref}
-\crefformat{footnote}{#2\footnotemark[#1]#3}
+\crefformat{footnote,color=gray}{#2\footnotemark[#1]#3}
 \usepackage{appendixnumberbeamer}
+\hypersetup{
+    colorlinks=false,
+    citecolor=Violet,
+    linkcolor=Red,
+    urlcolor=Blue}
+\renewcommand\thefootnote{\textcolor{gray}{\arabic{footnote}}}
+\setbeamercolor{footnote}{fg=gray} % CHANGES color for footnote!
 
 
 %*********************************************************************************************************

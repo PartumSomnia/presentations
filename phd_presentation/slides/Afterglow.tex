@@ -3,47 +3,74 @@
 %% A F T E R G L O W
 %%
 %% --------------------------------------------------------------
-\begin{frame}{Afterglow}
+\begin{frame}%{Afterglow}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,1.3cm)}]current page.center){
-        \parbox{0.65\textwidth}{
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.2cm)}]current page.center){
+        \parbox{0.95\textwidth}{
+            \begin{footnotesize}
+                \textbf{Afterglow} non-thermal (synchrotron) emission arasing from ejecta moving through ISM\footcite{Sari:1997qe,Kumar:2014upa};
+            \end{footnotesize}
             \begin{itemize}
-                \item Synchrotron emission arising when ejecta moves through ISM$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$
-                \item \GRB{} afterglow, structured jet, off-axis$^{\textcolor{gray}{\text{\cite{Hajela:2019mjy}}}}$
-                \item expected kN ejecta afterglow$^{\textcolor{gray}{\text{\cite{Kathirgamaraju:2019xwu}}}}$
+                \item Long \ac{GRB} (associated with supernovae)
+                \item Short \ac{GRB} (predicted to occure at \ac{BNS} mergers)
             \end{itemize}
+            \textbf{Kilonova afterglow} -- expected\footcite{Nakar:2011cw,Kathirgamaraju:2019xwu}, but no clear detection
+%            \begin{itemize}
+%                \item Ejecta moves through ISM $\rightarrow$ synchrotron emission (afterglow)\footcite{Sari:1997qe,Kumar:2014upa}%$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$
+%                \item \GRB{} afterglow, structured jet, off-axis\footcite{Hajela:2019mjy}%$^{\textcolor{gray}{\text{\cite{Hajela:2019mjy}}}}$
+%                \item expected kN ejecta afterglow\footcite{Kathirgamaraju:2019xwu}%$^{\textcolor{gray}{\text{\cite{Kathirgamaraju:2019xwu}}}}$
+%            \end{itemize}
     }};
 }
 
-\uncover<1->{ % <-> |
+\uncover<2->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-0.2cm)}]current page.center){
+        \parbox{0.60\textwidth}{
+            \textbf{\GRB{}:} counterpart to \GW{} -- structured jet, observed off-axis\footcite{Troja:2017nqp,Hajela:2019mjy}\\
+            \textbf{Rebrightening} $1243$~days post-merger\footcite{Hajela:2021faz};
+    }};
+}
+
+%\uncover<1->{ % <-> |
+%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-2.0cm)}]current page.center){
+%        \parbox{0.60\textwidth}{
+%            \textbf{Rebrightening} $1243$~days post-merger\footcite{Hajela:2021faz};
+%            \begin{itemize}
+%                \item change in microphysics parameters;
+%                \item ISM density variation;
+%                \item emergence of a new component;
+%            \end{itemize}
+%    }};
+%}
+
+\uncover<3->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-2.0cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \GRB{} \textbf{x-ray light curve changed} $1243$ days post-merger. 
-            Possible explanations$^{\textcolor{gray}{\text{\cite{Hajela:2021faz}}}}$: 
-            \begin{itemize}
-            \item change in microphysics parameters
-            \item ISM density variation
-            \item emergence of a new component
-            \end{itemize}
+            \textbf{Question:} can kilonova afterglow explain observations?
+%            \begin{itemize}
+%                \item change in microphysics parameters;
+%                \item ISM density variation;
+%                \item emergence of a new component;
+%            \end{itemize}
     }};
 }
 
-\uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(5.0cm,1.8cm)}]current page.center){
-        \parbox{0.40\textwidth}{
-            \textbf{ Light curve peak$^{\textcolor{gray}{\text{\cite{Nakar:2019fza}}}}$: }
-            \begin{equation*}
-                \begin{aligned}
-                    F_{\nu,p} & \propto E n^{(p+1)/4}  
-                    \textcolor{black}{ \beta^{(5p-7)/2} }   \\
-                    & \times \varepsilon_e^{p-1}\varepsilon_B^{(p+1)/4} D_L^{-2}\nu^{(-p-1)/2} \\
-                    t_{p} & \propto E^{1/3} n^{-1/3} 
-                    \textcolor{black}{ \beta^{-5/3} }
-                \end{aligned}
-            \end{equation*}
-    }};
-}
+%\uncover<1->{ % <-> |
+%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(5.0cm,1.8cm)}]current page.center){
+%        \parbox{0.40\textwidth}{
+%            \textbf{ Light curve peak$^{\textcolor{gray}{\text{\cite{Nakar:2019fza}}}}$: }
+%            \begin{equation*}
+%                \begin{aligned}
+%                    F_{\nu,p} & \propto E n^{(p+1)/4}  
+%                    \textcolor{black}{ \beta^{(5p-7)/2} }   \\
+%                    & \times \varepsilon_e^{p-1}\varepsilon_B^{(p+1)/4} D_L^{-2}\nu^{(-p-1)/2} \\
+%                    t_{p} & \propto E^{1/3} n^{-1/3} 
+%                    \textcolor{black}{ \beta^{-5/3} }
+%                \end{aligned}
+%            \end{equation*}
+%    }};
+%}
 
 \uncover<1->{ % <-> |
     \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.2cm,-1.8cm)}]current page.center){
@@ -175,15 +202,16 @@
 %}
 %\end{tikzpicture}
 %\end{frame}
-\begin{frame}{Model: dynamics}  %% ---------- Intro/motivation 
+\begin{frame}{Dynamics}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.6cm,-0.4cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.6cm,-0.0cm)}]current page.center){
                 \parbox{1.\textwidth}{
-                    \textbf{Dynamics:} Semi-analytic model (energy conservation) in 
-                    this-shell (unifrom-shell) approximation; \\
-                    From stress-energy tensor %$ T^{\mu\nu} = (\rho' c^2 + p') u^{\mu}u^{\nu} + p' g^{\mu\nu}$ \\
-                    we write evolution equation: 
+                    Semi-analytic model (energy conservation) in a 
+                    this-shel approximation; \\
+                    
+                    %From stress-energy tensor %$ T^{\mu\nu} = (\rho' c^2 + p') u^{\mu}u^{\nu} + p' g^{\mu\nu}$ \\
+                    %we write evolution equation: 
                     \vspace{-2mm}
                     \begin{equation*}
                         \begin{aligned}
@@ -191,13 +219,16 @@
                             & dE_{\rm int}' = dE_{\rm sh}' + dE_{\rm ad}' + dE_{\rm rad}',
                         \end{aligned}
                     \end{equation*}
-                    Consider adiabatic evolution \\
+                    
+                    Adiabatic evolution, $d\Gamma/dR$; \\
+                    If $\rho_{\rm ISM}=\text{const}$: free-coasting ($\Gamma=\Gamma_0$), and deceleration $\Gamma\downarrow$.\\
+                    
                     \textbf{Structure:} lateral, $\{\theta_i\}$, and velocity $\{\upsilon_i\}$; \\
                     \textbf{Initial conditions}: ejecta profile, \\
-                    $\{ E_{ij, 0} \}=f(\Gamma_{i, 0},\theta_{j, 0})$; ($\Gamma=(1-\beta^2)^{-2}$); $\beta=\upsilon/c$; \\
-                    \textbf{Main stages:} free-coasting + deceleration; \\
+                    $\{ E_{ij, 0} \}=f(\Gamma_{i, 0},\theta_{j, 0})$; %($\Gamma=(1-\beta^2)^{-2}$); $\beta=\upsilon/c$; \\
+                    %\textbf{Main stages:} free-coasting + deceleration; \\
                     %$\Gamma$ is the bulk Lorentz factor. \\
-                    \textbf{Shock properties}, $\rho_{\rm sh}$, $\beta_{\rm sh}$, $R_{\rm sh}$ \\
+                    %\textbf{Shock properties}, $\rho_{\rm sh}$, $\beta_{\rm sh}$, $R_{\rm sh}$ \\
             }};
             
         }
@@ -252,12 +283,108 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Model: radiation}  %% ---------- Intro/motivation 
+%\begin{frame}{Radiation}  %% ---------- Intro/motivation 
+%    \begin{tikzpicture}[overlay,remember picture]
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,1.4cm)}]current page.center){
+%                \parbox{0.6\textwidth}{
+%                    \textbf{A shock}\footcite{Zhang:2018book}%$^{\textcolor{gray}{\text{\cite{Rezzolla:2013,Kumar:2014upa,Zhang:2018book,Nava:2013}}}}$
+%                    \begin{itemize}
+%                        \item comresses fluid, $\rho_{\rm sh} = 4 \Gamma_{\rm sh} \rho_{\rm ISM}$
+%                        \item amplifies magnetic fields, $B=\sqrt{8 \pi \epsilon_B e'}$
+%                        \item accelerates electrons, $\frac{dn'}{d\gamma_e} \propto \gamma_e^{-p}$ 
+%                    \end{itemize}
+%                    
+%            }};
+%            
+%        }
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,1.3cm)}]current page.center){
+%                \parbox{0.6\textwidth}{
+%                    \textbf{Electron spectrum}$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
+%                    Broken power law (BPL) with 
+%                    \vspace{-3mm}
+%                    \begin{equation*}\label{eq:method:gm_pl_only}
+%                        \gamma_m' = \frac{p-2}{p-1} \frac{\epsilon_e e'}{n' m_e c^2} \hspace{3mm} 
+%                        \gamma_c' = \frac{6 \pi m_e c \Gamma}{\sigma_T t_{\rm em} B'^2}, \hspace{3mm}
+%                        %e' = \frac{E_{\rm int}'}{V'}
+%                    \end{equation*}
+%                    Regimes: $\gamma_m' < \gamma_c' (>\gamma_c')$: slow (fast) cooling
+%            }};
+%            
+%        }
+%%        \uncover<1->{ % <-> |
+%%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-2.0cm)}]current page.center){
+%%                \parbox{0.5\textwidth}{
+%%                    \textbf{Evolution}: free-coasting + deceleration; \\
+%%                    %Electrons accelerated to power-law distribution $\gamma_e^{-p}$
+%%                    Total energy in electrons and magnetic fields $\epsilon_e$, $\epsilon_B$;
+%%                    Assume for electrons local istropic distribution of angles relative $\vec{B}$; \\
+%%                    Assume $\vec{B}$ is random mix of orientations; \\
+%%                    Spectrum from a PL electrons is also PL; \\
+%%                    %Assume local cooling rate $=$ expansion time
+%%                    Emission is isotropic in the rest-frame
+%%                    %Intensity-weighted mean change in any charactersitic gets broadened
+%%            }};
+%%        }
+%        % Margalit B., Quataert E., 2021, ApJL, 923, L14. 
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-2.2cm)}]current page.center){
+%                \parbox{0.5\textwidth}{
+%                    \textbf{Synchrotron Radiation$^{\textcolor{gray}{\text{\cite{RybickiLightman:1985,Sari:1997qe,Johannesson:2006zs}}}}$}
+%%                    \begin{equation*}
+%%                        P_{\nu'} =  \int_{\gamma_{\nu'}}^{\infty} d\gamma_e \frac{dn'}{d\gamma_e}p'(\nu'), \hspace{2mm}
+%%                        p'(\nu')=\frac{\sigma_T B^2 \gamma_e \upsilon_e^2}{4\pi c};
+%%%                        \hspace{3mm} \frac{dn'}{d\gamma_e} \propto
+%%%                        \begin{cases}
+%%%                            \gamma_e^{-2} &\text{s.c.} \\ 
+%%%                            \gamma_e^{-p-1} &\text{f.c.}
+%%%                        \end{cases}
+%%                    \end{equation*}
+%                    \begin{equation*}
+%                        P_{\nu'}' =  \text{BPL}\big(\nu',\, \nu_m'(\gamma_m'),\, \nu_c'(\gamma_c')\big)
+%                    \end{equation*}
+%                    \textbf{Observed flux density$^{\textcolor{gray}{\text{\cite{Granot:2005cc}}}}$}
+%                    \begin{equation*}
+%                        F(\nu,t) = \frac{1+z} {2d_L^2}\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{\rm em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta
+%                    \end{equation*}
+%            }};
+%        }
+%        
+%        %        \uncover<1-1>{ % <-> |
+%            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.3cm)}]current page.center){
+%                %                \parbox{0.6\textwidth}{
+%                    %                    \includegraphics[height=7.8cm]{figures/structure2.pdf}
+%                    %                    %\includesvg[height=7.2cm]{figures/structure2}
+%                    %            }};
+%            %        }
+%        %        \uncover<1->{ % <-> |
+%            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,-2.4cm)}]current page.center){
+%                %                \parbox{1.0\textwidth}{
+%                    %                    \includegraphics[height=3.5cm]{figures/TNS_blast_wave.pdf}
+%                    %            }};
+%            %            
+%            %        }
+%        \uncover<1->{ % <-> |
+%            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-2.2cm)}]current page.center){
+%                \parbox{0.6\textwidth}{
+%                        \includegraphics[height=4.0cm]{figures/Sari97_spectrum_slow_cool.pdf}
+%%                        Overall, an afterglow spectrum has three characteristic frequencies: 
+%%                        (i) $\nu_i$ (injection break) at which most of the injected electrons radiate 
+%%                        (ii) $\nu_c$ (cooling break) at which for electrons expansion timescale is equal 
+%%                        to the radiative cooling timesacle
+%%                        (iii) $\nu_a$ an absorption break, below which synchrotron emission is absorbed by 
+%%                        electrons in free-free transitions in magnetic fields, (\ac{SSA}).
+%            }};
+%        }
+%    \end{tikzpicture}
+%\end{frame}
+\begin{frame}{Radiation}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,1.4cm)}]current page.center){
                 \parbox{0.6\textwidth}{
-                    \textbf{A shock}$^{\textcolor{gray}{\text{\cite{Rezzolla:2013,Kumar:2014upa,Zhang:2018book,Nava:2013}}}}$
+                    \textbf{A shock}\footcite{Zhang:2018book}%$^{\textcolor{gray}{\text{\cite{Rezzolla:2013,Kumar:2014upa,Zhang:2018book,Nava:2013}}}}$
                     \begin{itemize}
                         \item comresses fluid, $\rho_{\rm sh} = 4 \Gamma_{\rm sh} \rho_{\rm ISM}$
                         \item amplifies magnetic fields, $B=\sqrt{8 \pi \epsilon_B e'}$
@@ -270,80 +397,44 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,1.3cm)}]current page.center){
                 \parbox{0.6\textwidth}{
-                    \textbf{Electron spectrum}$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
-                    Broken power law (BPL) with 
+                    \textbf{Synchrotron radiation spectrum}\footcite{Sari:1997qe,Wijers:1998st} \\%$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
+                    Broken power law (BPL); \\ 
+                    $\nu_m\propto\gamma_m$, $\nu_c\propto\gamma_c$ \\
+            }};
+            
+        }
+
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-1.7cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \textbf{Electron spectrum}: %$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
+                    broken power law (BPL) with 
                     \vspace{-3mm}
                     \begin{equation*}\label{eq:method:gm_pl_only}
                         \gamma_m' = \frac{p-2}{p-1} \frac{\epsilon_e e'}{n' m_e c^2} \hspace{3mm} 
                         \gamma_c' = \frac{6 \pi m_e c \Gamma}{\sigma_T t_{\rm em} B'^2}, \hspace{3mm}
                         %e' = \frac{E_{\rm int}'}{V'}
                     \end{equation*}
-                    Regimes: $\gamma_m' < \gamma_c' (>\gamma_c')$: slow (fast) cooling
-            }};
-            
-        }
-%        \uncover<1->{ % <-> |
-%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-2.0cm)}]current page.center){
-%                \parbox{0.5\textwidth}{
-%                    \textbf{Evolution}: free-coasting + deceleration; \\
-%                    %Electrons accelerated to power-law distribution $\gamma_e^{-p}$
-%                    Total energy in electrons and magnetic fields $\epsilon_e$, $\epsilon_B$;
-%                    Assume for electrons local istropic distribution of angles relative $\vec{B}$; \\
-%                    Assume $\vec{B}$ is random mix of orientations; \\
-%                    Spectrum from a PL electrons is also PL; \\
-%                    %Assume local cooling rate $=$ expansion time
-%                    Emission is isotropic in the rest-frame
-%                    %Intensity-weighted mean change in any charactersitic gets broadened
-%            }};
-%        }
-        % Margalit B., Quataert E., 2021, ApJL, 923, L14. 
-        \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-2.2cm)}]current page.center){
-                \parbox{0.5\textwidth}{
-                    \textbf{Synchrotron Radiation$^{\textcolor{gray}{\text{\cite{RybickiLightman:1985,Sari:1997qe,Johannesson:2006zs}}}}$}
-%                    \begin{equation*}
-%                        P_{\nu'} =  \int_{\gamma_{\nu'}}^{\infty} d\gamma_e \frac{dn'}{d\gamma_e}p'(\nu'), \hspace{2mm}
-%                        p'(\nu')=\frac{\sigma_T B^2 \gamma_e \upsilon_e^2}{4\pi c};
-%%                        \hspace{3mm} \frac{dn'}{d\gamma_e} \propto
-%%                        \begin{cases}
-%%                            \gamma_e^{-2} &\text{s.c.} \\ 
-%%                            \gamma_e^{-p-1} &\text{f.c.}
-%%                        \end{cases}
-%                    \end{equation*}
-                    \begin{equation*}
-                        P_{\nu'}' =  \text{BPL}\big(\nu',\, \nu_m'(\gamma_m'),\, \nu_c'(\gamma_c')\big)
-                    \end{equation*}
-                    \textbf{Observed flux density$^{\textcolor{gray}{\text{\cite{Granot:2005cc}}}}$}
-                    \begin{equation*}
-                        F(\nu,t) = \frac{1+z} {2d_L^2}\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{\rm em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta
-                    \end{equation*}
+                \vspace{-5mm}
+                    \begin{footnotesize}
+                        \begin{itemize}
+                            \item Slow cooling $\gamma_m' < \gamma_c'$
+                            \item Fast cooling $\gamma_m' > \gamma_c'$
+                        \end{itemize}
+                    \end{footnotesize}
             }};
         }
-        
-        %        \uncover<1-1>{ % <-> |
-            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.3cm)}]current page.center){
-                %                \parbox{0.6\textwidth}{
-                    %                    \includegraphics[height=7.8cm]{figures/structure2.pdf}
-                    %                    %\includesvg[height=7.2cm]{figures/structure2}
-                    %            }};
-            %        }
-        %        \uncover<1->{ % <-> |
-            %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,-2.4cm)}]current page.center){
-                %                \parbox{1.0\textwidth}{
-                    %                    \includegraphics[height=3.5cm]{figures/TNS_blast_wave.pdf}
-                    %            }};
-            %            
-            %        }
+
         \uncover<1->{ % <-> |
-            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-2.2cm)}]current page.center){
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-1.9cm)}]current page.center){
                 \parbox{0.6\textwidth}{
-                        \includegraphics[height=4.0cm]{figures/Sari97_spectrum_slow_cool.pdf}
-%                        Overall, an afterglow spectrum has three characteristic frequencies: 
-%                        (i) $\nu_i$ (injection break) at which most of the injected electrons radiate 
-%                        (ii) $\nu_c$ (cooling break) at which for electrons expansion timescale is equal 
-%                        to the radiative cooling timesacle
-%                        (iii) $\nu_a$ an absorption break, below which synchrotron emission is absorbed by 
-%                        electrons in free-free transitions in magnetic fields, (\ac{SSA}).
+                    \includegraphics[height=4.5cm]{figures/Sari97_spectrum_slow_cool.pdf}
+                    %                        Overall, an afterglow spectrum has three characteristic frequencies: 
+                    %                        (i) $\nu_i$ (injection break) at which most of the injected electrons radiate 
+                    %                        (ii) $\nu_c$ (cooling break) at which for electrons expansion timescale is equal 
+                    %                        to the radiative cooling timesacle
+                    %                        (iii) $\nu_a$ an absorption break, below which synchrotron emission is absorbed by 
+                    %                        electrons in free-free transitions in magnetic fields, (\ac{SSA}).
             }};
         }
     \end{tikzpicture}
