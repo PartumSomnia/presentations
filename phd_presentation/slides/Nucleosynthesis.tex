@@ -9,9 +9,9 @@
     \uncover<1->{ % <-> |
         \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.5cm,1.2cm)}]current page.center){
             \parbox{0.7\textwidth}{
-                Heaviest elements in the Universe
+                \textit{Heaviest elements in the Universe:}
                 \begin{itemize}
-                    \item Produced via \rproc{} \& \sproc{}.
+                    \item Produced via \rproc{} \& \sproc{}%\footcite{Arcones:2010}.
                     \item Compact object mergers.
                     \item Magnetorotationally driven CCSN.
                 \end{itemize}
@@ -21,7 +21,7 @@
     \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.5cm,-2.2cm)}]current page.center){%([shift={(7.0cm,1.7cm)}]current page.center){
         \parbox{0.7\textwidth}{
-            Observational constrains
+            \textit{Observational constrains:}
             \begin{itemize}
                 \item MP stars: \rproc{} material came early 
                 \item UFG: support rare high-yeld events
@@ -36,7 +36,7 @@
         \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.15cm,-0.5cm)}]current page.center){
             \parbox{0.5\textwidth}{
                 \includegraphics[height=5.5cm]{phd_figs/Fig_1_1_Lip.pdf}
-                Observed abundances in Solar System$^\text{\citep{Lippuner:2018phd}}$
+                Observed abundances in Solar System\footcite{Lippuner:2018phd}%$^\text{\citep{Lippuner:2018phd}}$
 %                    \caption{Observed abundances in our solar system as a function of mass number
 %                    $A$. The lightest elements were created in the Big Bang and fusion in stars predominantly
 %                    creates alpha elements. The iron peak is made in core-collapse and type
@@ -97,7 +97,7 @@
 %    and exit channels representing reactants and products. Then, \ac{RR} is defined as a speed 
 %    at which a reaction proceeds per particle in the entrance channel. 
     %
-    \textit{Abundance}, $Y_i$, evolution is$^{\text{\citep{Hix:1999}}}$
+    \textit{Abundance}, $Y_i$, evolution is\footcite{Hix:1999}%$^{\text{\citep{Hix:1999}}}$
     %
     \begin{equation*}
     Y_i = \frac{n_i}{n_B} = \frac{N_i}{N_B}, \hspace{5mm}
@@ -117,12 +117,12 @@
 %    \ac{RR}, a factor describing creation or destruction of particles (of species $i$), 
 %    \ie, number of particles, and abundances of reactants. 
     %
-    \texttt{SkyNet}$^{\text{\citep{Lippuner:2015gwa}}}$ solves 
+    \texttt{SkyNet}\footcite{Lippuner:2015gwa}%$^{\text{\citep{Lippuner:2015gwa}}}$ solves 
     system of stiff \acp{ODE} %requiring implicit or specialized explicit solvers
     evolving the composition vector, $Y(t)$, %is evolved via implicit backward Euler method
     %The multi-dimensional, $N\times N$, root-finding problem is solved via Newton-Raphson method
     
-    \textbf{Parameterized model}$^{\text{\citep{Lippuner:2015gwa,Radice:2018pdn}}}$ -- pre-computed \nuc{} for homologously expanding ejecta, $Y_i=f(Y_e, \tau, s)$, where
+    \textbf{Parameterized model}\footcite{Lippuner:2015gwa,Radice:2018pdn}%$^{\text{\citep{Lippuner:2015gwa,Radice:2018pdn}}}$ -- pre-computed \nuc{} for homologously expanding ejecta, $Y_i=f(Y_e, \tau, s)$, where
     %
     \begin{equation*}
         \rho(s, Y_e, T=6\text{GK})\Big(\frac{3\tau}{2.72 t}\Big)^3 = \rho(t) = \rho_E\Big(\frac{\upsilon_E}{r_E}t\Big)^{-3},
@@ -143,28 +143,29 @@
 %%
 %% --------------------------------------------------------------
 
-\begin{frame}{Nucleosynthesis in ejecta$^\text{\citep{Nedora:2019jhl,Nedora:2020pak}}$} %% ---------- title 
+\begin{frame}{Spiral-wave wind contribute to the light \rproc{}\footcite{Nedora:2019jhl,Nedora:2020pak}}%$^\text{\citep{Nedora:2019jhl,Nedora:2020pak}}$} %% ---------- title 
     \begin{tikzpicture}[overlay,remember picture]
+%    \uncover<1->{ % <-> |
+%        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.6cm)}]current page.center){
+%            \parbox{1.0\textwidth}{
+%                Spiral-wave wind contribute to the light \rproc{}
+%%                \begin{itemize}
+%%                    \item Final $Y_i$ in \textit{total} ejecta are agreement with solar across all \rproc{} peaks. 
+%%                    \item Actinide production depends strongly on the $Y_{e;\text{ej}}$, and thus, on the \mr{}.
+%%                    %% The strongest neutrino heating occurs in the vicinity of the remnant at densities $\rho\sim10^{11}$~\gcm,
+%%                \end{itemize}
+%        }};
+%    }
     \uncover<1->{ % <-> |
-        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
-            \parbox{1.0\textwidth}{
-                \begin{itemize}
-                    \item Final $Y_i$ in \textit{total} ejecta are agreement with solar across all \rproc{} peaks. 
-                    \item Actinide production depends strongly on the $Y_{e;\text{ej}}$, and thus, on the \mr{}.
-                    %% The strongest neutrino heating occurs in the vicinity of the remnant at densities $\rho\sim10^{11}$~\gcm,
-                \end{itemize}
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.8cm)}]current page.center){
+            \parbox{0.6\textwidth}{
+                \includegraphics[height=7.0cm]{phd_figs/nucleo/nucleo_dd2_blh.pdf}
         }};
     }
     \uncover<1->{ % <-> |
-        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.5cm,-1.5cm)}]current page.center){
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-0.4cm)}]current page.center){
             \parbox{0.5\textwidth}{
-                \includegraphics[height=5cm]{phd_figs/nucleo/nucleo_dd2_blh.pdf}
-        }};
-    }
-    \uncover<1->{ % <-> |
-        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.0cm,-1.5cm)}]current page.center){
-            \parbox{0.5\textwidth}{
-                \includegraphics[height=5.5cm]{phd_figs/nucleo/cc_nucleo_BLh_total.pdf}
+                \includegraphics[height=6.5cm]{phd_figs/nucleo/cc_nucleo_BLh_total.pdf}
         }};
     }
     \end{tikzpicture}

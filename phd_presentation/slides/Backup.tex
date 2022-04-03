@@ -3,7 +3,7 @@
 %%
 %%
 %% --------------------------------------------------------------------------------------------
-
+\section{Disk}
 \begin{frame}{Disk mass evolution} %% ---------- title 
 
 %During the merger, shocks, generated at the collisional interface of the \ac{NS} cores,
@@ -15,21 +15,21 @@
 \begin{tikzpicture}[overlay,remember picture]
 
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,1.0cm)}]current page.center){
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,1.0cm)}]current page.center){
         \parbox{0.6\textwidth}{
             The disk baryonic mass is computed as the volume integral of the conserved rest-mass density 
             %
             \begin{equation*}
             \label{eq:method:mdisk}
-            M_{\text{disk}} = \int_{\rho>10^{13}\,\text{\gcm}} \sqrt{\gamma}~W\rho \dd^3 x
+            M_{\text{disk}} = \int_{\rho>10^{13}\,\text{\gcm}} \sqrt{\gamma}~W\rho \, \dd^3 x
             \end{equation*}
     }};
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-0.2cm)}]current page.center){
-        \parbox{0.5\textwidth}{
-            \includegraphics[height=6cm]{phd_figs/disk/total_disk_mass_evo.pdf}
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-0.4cm)}]current page.center){
+        \parbox{0.6\textwidth}{
+            \includegraphics[height=6.5cm]{phd_figs/disk/total_disk_mass_evo.pdf}
     }};
 }
 
@@ -71,16 +71,16 @@
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.5cm,-1.5cm)}]current page.center){
-        \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/disk/final_disk_timecorr_blh_q1_Lk.pdf}
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-1.7cm)}]current page.center){
+        \parbox{0.4\textwidth}{
+            \includegraphics[height=5.2cm]{phd_figs/disk/final_disk_timecorr_blh_q1_Lk.pdf}
     }};
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.5cm,-1.5cm)}]current page.center){
-        \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/disk/final_disk_timecorr_ls220_q14_LK.pdf}
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-2cm,-1.7cm)}]current page.center){
+        \parbox{0.4\textwidth}{
+            \includegraphics[height=5.2cm]{phd_figs/disk/final_disk_timecorr_ls220_q14_LK.pdf}
     }};
 }
 
@@ -113,16 +113,16 @@
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.5cm,-1.5cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/disk/final_structure/slice_xz_entr_ye_blh_q1_rl3.pdf}
+            \includegraphics[height=5.4cm]{phd_figs/disk/final_structure/slice_xz_entr_ye_blh_q1_rl3.pdf}
     }};
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-1.5cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
+            \includegraphics[height=5.4cm]{phd_figs/disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
     }};
 }
 
@@ -155,9 +155,9 @@
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(0.0cm,-1.5cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.7cm,-1.5cm)}]current page.center){
         \parbox{1.0\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/disk/final_structure/disk_hist_shared.pdf}
+            \includegraphics[height=5.2cm]{phd_figs/disk/final_structure/disk_hist_shared.pdf}
     }};
 }
 
@@ -179,27 +179,26 @@
 % Spiral wave wind
 %
 % --------------------------------------------------------
-
-
+\section{Winds}
 \begin{frame}{Spiral-wave wind -- Mass}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,0.5cm)}]current page.center){
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.0cm,0.5cm)}]current page.center){
         \parbox{0.7\textwidth}{
-            Bernoulli criterion ($hu_t < -1$, stationary flow)\\
+            %Bernoulli criterion ($hu_t < -1$, stationary flow)\\
             \begin{itemize}
             \item is an idicator of the remnant lifetime,
             \item is larger if \ac{EOS} is softer (as $m=1$ is stronger) % stiffer \ac{EOS} leads to a more massive disk 
             \item is larger if $q>1$
             \item increases if turbulent viscocity is present
             \end{itemize}
-            $M_{\text{wind}}$ is larger for more extended disks. % that in turn depend on thermal pressure
+            \textbf{$M_{\text{wind}}$ is larger for more extended disks}. % that in turn depend on thermal pressure
     }};
 }
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-0.2cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-0.4cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=6cm]{phd_figs/ejecta_postdyn/wind_mass_flux.pdf}
+            \includegraphics[height=6.5cm]{phd_figs/ejecta_postdyn/wind_mass_flux.pdf}
     }};
 }
 \end{tikzpicture}
@@ -224,17 +223,17 @@
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
         \parbox{1.0\textwidth}{
             \begin{itemize}
-            \item absorption of $\nu_e$ neutrinos raises the $Y_e$ of the polar outflow, drives outflow
-            \item \nwind{} is not a steady state outflow, ${\sim}10^{-3}-10^{-4}M_{\odot}$
+            \item Absorption of electron neutrinos raises $Y_e$ of the polar outflow, drives outflow.
+            \item Neutrino-wind is not a steady state outflow, ejecting ${\sim}10^{-3}-10^{-4}M_{\odot}$.
             %% The strongest neutrino heating occurs in the vicinity of the remnant at densities $\rho\sim10^{11}$~\gcm,
             \end{itemize}
     }};
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.5cm,-1.5cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/slices/slice_xz_ye_hu_1.pdf}
+            \includegraphics[height=5.5cm]{phd_figs/slices/slice_xz_ye_hu_1.pdf}
     }};
 }
 %\uncover<2->{ % <-> |
@@ -248,9 +247,9 @@
 %%% of electron antineutrinos normalized to the fluid density $D$.
 %%%  heating energy rate due to electron anti-neutrino absorption $Q_{\text{abs};\:\bar{\nu}_e}$
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-1.5cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/slices/slice_xz_abs_energy_hu_3.pdf}
+            \includegraphics[height=5.5cm]{phd_figs/slices/slice_xz_abs_energy_hu_3.pdf}
     }};
 }
 %\uncover<2->{ % <-> |

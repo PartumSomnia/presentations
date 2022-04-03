@@ -8,14 +8,16 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.2cm)}]current page.center){
         \parbox{0.95\textwidth}{
-            \begin{footnotesize}
-                \textbf{Afterglow} non-thermal (synchrotron) emission arasing from ejecta moving through ISM\footcite{Sari:1997qe,Kumar:2014upa};
-            \end{footnotesize}
-            \begin{itemize}
-                \item Long \ac{GRB} (associated with supernovae)
-                \item Short \ac{GRB} (predicted to occure at \ac{BNS} mergers)
-            \end{itemize}
-            \textbf{Kilonova afterglow} -- expected\footcite{Nakar:2011cw,Kathirgamaraju:2019xwu}, but no clear detection
+%            \begin{footnotesize}
+%                \textbf{Afterglow} non-thermal (synchrotron) emission arasing from ejecta moving through ISM\footcite{Sari:1997qe,Kumar:2014upa};
+%            \end{footnotesize}
+%            \begin{itemize}
+%                \item Long \ac{GRB} (associated with supernovae)
+%                \item Short \ac{GRB} (predicted to occure at \ac{BNS} mergers)
+%            \end{itemize}
+            \textbf{Afterglow} non-thermal (synchrotron) emission arasing from ejecta moving through ISM\footcite{Sari:1997qe,Kumar:2014upa};
+            \\
+            \textbf{Kilonova afterglow} -- expected\footcite{Nakar:2011cw,Kathirgamaraju:2019xwu}, but so far no clear detection
 %            \begin{itemize}
 %                \item Ejecta moves through ISM $\rightarrow$ synchrotron emission (afterglow)\footcite{Sari:1997qe,Kumar:2014upa}%$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$
 %                \item \GRB{} afterglow, structured jet, off-axis\footcite{Hajela:2019mjy}%$^{\textcolor{gray}{\text{\cite{Hajela:2019mjy}}}}$
@@ -73,10 +75,10 @@
 %}
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.2cm,-1.8cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.3cm,-1.5cm)}]current page.center){
         \parbox{0.5\textwidth}{
             %\includegraphics[height=6.3cm]{phd_figs/jet_ascenci20.pdf}
-            \includegraphics[height=4.5cm]{figures/Hajela22_obs_pl_noNR.pdf}
+            \includegraphics[height=5.0cm]{figures/Hajela22_obs_pl_noNR.pdf}
             %Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$
     }};
 }
@@ -397,38 +399,51 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,1.3cm)}]current page.center){
                 \parbox{0.6\textwidth}{
-                    \textbf{Synchrotron radiation spectrum}\footcite{Sari:1997qe,Wijers:1998st} \\%$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
-                    Broken power law (BPL); \\ 
-                    $\nu_m\propto\gamma_m$, $\nu_c\propto\gamma_c$ \\
+                    \textbf{Synchrotron radiation spectrum} \\%$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
+                    Broken power law (BPL)\footcite{Sari:1997qe,Wijers:1998st}; \\ 
+                    %$\nu_m\propto\gamma_m$, $\nu_c\propto\gamma_c$ \\
             }};
             
         }
 
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-1.7cm)}]current page.center){
+%                \parbox{0.5\textwidth}{
+%                    \textbf{Electron spectrum}: %$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
+%                    broken power law (BPL) with 
+%                    \vspace{-3mm}
+%                    \begin{equation*}\label{eq:method:gm_pl_only}
+%                        \gamma_m' = \frac{p-2}{p-1} \frac{\epsilon_e e'}{n' m_e c^2} \hspace{3mm} 
+%                        \gamma_c' = \frac{6 \pi m_e c \Gamma}{\sigma_T t_{\rm em} B'^2}, \hspace{3mm}
+%                        %e' = \frac{E_{\rm int}'}{V'}
+%                    \end{equation*}
+%                \vspace{-5mm}
+%                    \begin{footnotesize}
+%                        \begin{itemize}
+%                            \item Slow cooling $\gamma_m' < \gamma_c'$
+%                            \item Fast cooling $\gamma_m' > \gamma_c'$
+%                        \end{itemize}
+%                    \end{footnotesize}
+%            }};
+%        }
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-1.7cm)}]current page.center){
                 \parbox{0.5\textwidth}{
-                    \textbf{Electron spectrum}: %$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$ \\
-                    broken power law (BPL) with 
-                    \vspace{-3mm}
-                    \begin{equation*}\label{eq:method:gm_pl_only}
-                        \gamma_m' = \frac{p-2}{p-1} \frac{\epsilon_e e'}{n' m_e c^2} \hspace{3mm} 
-                        \gamma_c' = \frac{6 \pi m_e c \Gamma}{\sigma_T t_{\rm em} B'^2}, \hspace{3mm}
-                        %e' = \frac{E_{\rm int}'}{V'}
-                    \end{equation*}
-                \vspace{-5mm}
-                    \begin{footnotesize}
-                        \begin{itemize}
-                            \item Slow cooling $\gamma_m' < \gamma_c'$
-                            \item Fast cooling $\gamma_m' > \gamma_c'$
-                        \end{itemize}
-                    \end{footnotesize}
+                    \textbf{Spectral breaks}: 
+                    \begin{itemize}
+                        \item $\nu_m$ -- injection break; %at which most of the injected electrons radiate 
+                        \item $\nu_c$ -- cooling break; %at which for electrons expansion timescale is equal 
+                        \item $\nu_a$ -- absorption break. % below which synchrotron emission is absorbed by electrons in free-free transitions in magnetic
+                    \end{itemize}
+                    
             }};
         }
 
+
         \uncover<1->{ % <-> |
-            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-1.9cm)}]current page.center){
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.6cm,-1.6cm)}]current page.center){
                 \parbox{0.6\textwidth}{
-                    \includegraphics[height=4.5cm]{figures/Sari97_spectrum_slow_cool.pdf}
+                    \includegraphics[height=5.0cm]{figures/Sari97_spectrum_slow_cool.pdf}
                     %                        Overall, an afterglow spectrum has three characteristic frequencies: 
                     %                        (i) $\nu_i$ (injection break) at which most of the injected electrons radiate 
                     %                        (ii) $\nu_c$ (cooling break) at which for electrons expansion timescale is equal 
@@ -555,26 +570,26 @@
 \begin{tikzpicture}[overlay,remember picture]
 
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.1cm)}]current page.center){
         \parbox{1.0\textwidth}{
             \begin{itemize}
             \item Kilonova afterglow is consistent with changing afterglow of \GW{}
-            \item Models with $q>1$ and moderately soft \ac{EOS} fit better
+            \item Moderate $q$ and \ac{EOS} softness are preferred
             \end{itemize}
     }};
 }
 
 \uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.2cm,-1.2cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/kn_afterglow/best_xray_obs_representative_all_eos.pdf}
+            \includegraphics[height=5.5cm]{phd_figs/kn_afterglow/best_xray_obs_representative_all_eos.pdf}
     }};
 }
 
-\uncover<1->{ % <-> |
-    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+\uncover<2->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.2cm)}]current page.center){
         \parbox{0.5\textwidth}{
-            \includegraphics[height=5cm]{phd_figs/kn_afterglow/scatter_lightcurve_tpeak_vs_lambda.pdf}
+            \includegraphics[height=6.1cm]{phd_figs/kn_afterglow/scatter_lightcurve_tpeak_vs_lambda.pdf}
     }};
 }
 
