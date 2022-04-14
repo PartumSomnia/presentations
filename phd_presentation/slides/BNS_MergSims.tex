@@ -10,22 +10,23 @@
         \parbox{1.1\textwidth}{
             Key physics: General Relativity, fluid dynamics, radiation transport. 
             \begin{equation*}
-                R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi T_{\mu\nu}, \hspace{5mm} \nabla_{\mu}T^{\mu\nu} = 0, \hspace{5mm} \frac{DF}{Dl}=\mathcal{C}[F]
+                R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi T_{\mu\nu}, \hspace{5mm} \nabla_{\mu}T^{\mu\nu} = 0, \hspace{5mm} \frac{DF}{Dl}=\mathcal{C}[F].
             \end{equation*}
             %
             Complex numerical implementation. Expensive simulations. \\
-            Numerical relativity codes, \eg, \wisky{} code
+            Numerical relativity code \wisky{}
             %$^\text{\textcolor{gray}{\citep{Radice:2013apa,Radice:2012cu,Radice:2013xpa,Radice:2013hxh,
                                  %Radice:2015nva,Radice:2016dwd,Radice:2018pdn,Radice:2020ids}}}$
             \footcite{Radice:2015nva,Radice:2018pdn,Radice:2020ids}
+            includes: 
             \begin{itemize}
-                \item General Relativity%Z4c formulation of $3+1$ decomposed, general relativity,
+                \item general relativity,%Z4c formulation of $3+1$ decomposed, general relativity,
                 %\item Conservative formulation of relativistic hydrodynamics,
-                \item Neutrino transport %Neutrino radiation transport via Leakage $+$ M0 scheme,
-                \item Turbulent viscosity of magnetic origin% via GRLES appraoch,
-                \item Microphsyical \ac{EOS} with finite temperature effects.
+                \item neutrino transport, %Neutrino radiation transport via Leakage $+$ M0 scheme,
+                \item turbulent viscosity of magnetic origin,% via GRLES appraoch,
+                \item microphsyical \ac{EOS} with finite temperature effects.
             \end{itemize}
-            Overall, $37$ unique simulations targeted to \GW{}, (some $100+$~ms) % total of $76$,  \\
+            Overall, $37$ unique simulations targeted to \GW{}; some $100+$~ms long. % total of $76$,  \\
             % Initial data: constraint equations + Helical killing vector + conformal flatness
             % For free evolution we use z4c: conformal decomposition of the metric fields with improved constraint propagation + dampening (better for non-vacuum spacte time)
             % Moving-puncture gauge (1+log and Gamma-driver) to deal with forming BHs and moving pucntures
@@ -70,7 +71,7 @@
             % Postmerger: Remnant $+$ disk $+$ ejecta; \\
             % Fate: $J$ transport; MHD; $\nu$, GWs \\
             \textbf{Key parameters:} \\
-            Tidal interaction 
+            tidal interaction 
             % Distrortion of the mass distribution of a given NS in a Grav. Field of another
             % Parametrized with Love Number (computed by solving perturbation of a relativistic star k=f(EOS,Compactness))
             % Combining compactness and Love we get tidal polarizability parameter
@@ -80,7 +81,7 @@
             can be parameterized with \textit{reduced tidal parameter}\footcite{Favata:2013rwa}%$^{\text{\textcolor{gray}{\cite{Favata:2013rwa}}}}$
             %
             \begin{equation*}
-                \tilde{\Lambda} := \frac{16}{13}\frac{(M_A + 12M_B)M_A^4 \Lambda_A}{M^5}+(A\leftrightarrow B)
+                \tilde{\Lambda} := \frac{16}{13}\frac{(M_A + 12M_B)M_A^4 \Lambda_A}{M^5}+(A\leftrightarrow B).
             \end{equation*}
             % Gravitational massess are estimated in (conformal, assymptitic? flatness?) in far-field regime and are estimated as integrals over fluid configuration
             %
@@ -101,12 +102,12 @@
         \parbox{0.55\textwidth}{
             \textbf{Ejecta}:
             \begin{itemize}
-                \item Dynamical (${\lesssim}10\,$ms); 
-                \item Secular (${\gtrsim 10\,}$ms)
+                \item dynamical (${\lesssim}10\,$ms),
+                \item secular (${\gtrsim 10\,}$ms).
             \end{itemize}
             \vspace{5mm}
             \textbf{Post-merger state:} \\
-            BH or long/short-lived remnants \& disks \\
+            BH or long/short-lived remnants \& disks. \\
             % Early postmerger: 
             % Core bounces: cold cores, hot interface; shocks at NS surface only \\
             % Right after the merger double-core structure is formed by the two central cores of merging NSs. Cors collide and bounce repeadetly untill they merge. In this process outer layers gain J due to Orbital Angular Momentum Advection and Torques arasing from double-core, non-axisymmetric structure of the sustem. Result: core immersed in low-rho cloud
@@ -648,9 +649,9 @@
             %                    %        (Adopted from \cite{Nedora:2020pak})
             \begin{itemize}
                 %\item Remnant is \textbf{not axisymmetric}, (prominant $m=2$ and $m=1$ modes); 
-                \item Prominent $m=2$ and $m=1$ modes; 
-                \item One-armed, $m=1$, persist till ${\sim}100$~ms;
-                \item Injection of matter, energy, angular momentum, $J$;
+                \item prominent $m=2$ and $m=1$ modes; 
+                \item one-armed, $m=1$, persist till ${\sim}100$~ms;
+                \item injection of matter, energy, angular momentum, $J$;
                 %                        \item Bar-shaped $m=2$ dominats the \textbf{early} phase
                 %                        and later $m=2$ is damped by the emission of \acp{GW}
                 %                        \item One-armed $m=1$ is present on ${\sim}100$~ms 
@@ -679,13 +680,13 @@
                 % J_GW is computed from the Weil scalar (Psi4) decomposed into s=-2 spin-weighted spherical harmonics
                 % Angular momentum, trasported away by GWs
                 % Differential rotation is reduced by the non-axisymmetric torques and GWs losses that redistribute angular momentum from inner to the outer regions
-                \item Excess in baryonic mass, $M_b$, and $J$;
+                \item excess in baryonic mass, $M_b$, and $J$;
                 % \item \acp{GW} remove some $J$
-                \item $J$ is lost to \acp{GW} and outflows
+                \item $J$ is lost to \acp{GW} and outflows;
                 %\item Massive outflows from expanded disk
                 %driven by $m=\{1,2\}$ and $J$ transport
-                \item \textbf{Spiral-wave wind}, driven by $m=\{1,2\}$ instabilities, removes $J$ and $M_b$
-                \item The remnant can reach \textbf{stable configuration}
+                \item \textbf{spiral-wave wind}, driven by $m=\{1,2\}$ instabilities, removes $J$ and $M_b$;
+                \item the remnant can reach \textbf{stable configuration}.
                 %\item Study of remnant's fate requires long 3D \ac{NR} simulations
             \end{itemize}
     }};
@@ -702,14 +703,14 @@
                 %%        and disk, and it is given in units where $c=G=\Msun=1$.
                 %%        (Adapted from \citet{Nedora:2019jhl})
                 %%    }
-            \hspace*{2.8mm}Spiral arms within the disk%\footcite{Nedora:2019jhl}
+            \hspace*{2.8mm}Spiral arms within the disk.%\footcite{Nedora:2019jhl}
     }};
 }
 \uncover<2->{ % <-> |
     \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,-0.4cm)}]current page.center){
         \parbox{0.5\textwidth}{
             \includegraphics[height=6cm]{phd_figs/ejecta_sec/secular_j_mb_RNS_blh.pdf}\\
-            \hspace*{10mm}Long-term remnant evolution%\footcite{Nedora:2020pak}
+            \hspace*{10mm}Long-term remnant evolution.%\footcite{Nedora:2020pak}
 %            Baryon mass vs angular momentum diagram for the BLh $q=1$ remnant.
 %            The colored diamond marks the baryonic mass and angular momentum at the end
 %            of the dynamical gravitational-wave dominated phase.
@@ -754,13 +755,15 @@
     \uncover<1->{ % <-> |
         \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.5cm,0.5cm)}]current page.center){
             \parbox{0.48\textwidth}{
-                %$E=-u_t-1 > 0$, positive fluid specific energy (unboind matter)
+                %$E=-u_t-1 > 0$, 
                 \begin{footnotesize}
+                    \textbf{Unbound matter}: fluid specific energy $>0$:
                     \begin{itemize}
-                        \item \textit{Dynamical ejecta}; ballistic; geodesic criterion ($E=-u_t-1 > 0$)
-                        \item \textit{Winds}; steady-state; Bernoulli criterion ($E=-hu_t -1 > 0$)
+                        \item \textit{dynamical ejecta} -- geodesic criterion; %($E=-u_t-1 > 0$).
+                        \item \textit{winds} -- Bernoulli criterion. %($E=-hu_t -1 > 0$).
                     \end{itemize}
                 \end{footnotesize}
+                \vspace{5mm}
                 %Bernoulli criterion ($E=-hu_t -1 > 0$, steady flow) for the wind; \\
                 %Geodesic criterion ($E=-u_t-1 > 0$, ballistic), for dynamical ejecta \\
                 %Bernoulli criterion ($hu_t < -1$, steady flow)
@@ -771,8 +774,8 @@
                 % neutrino pair-annihilation can trigger jet with is powered by BZ mechanism
                 \textbf{Spiral-wave wind:}
                 \begin{itemize}
-                    \item in models with long-lived remnant
-                    \item larger if \ac{EOS} is softer or $q>1$
+                    \item in models with long-lived remnant,
+                    \item larger if \ac{EOS} is softer or $q>1$.
                     %\item increases if turbulent viscosity is present
                 \end{itemize}
 %                $M_{\text{wind}}$ is larger for more extended disks. % that in turn depend on thermal pressure
@@ -782,8 +785,10 @@
         \parbox{0.48\textwidth}{
             \textbf{Properties of \swind:}
             \begin{itemize}
-                \item $\amw\propto t_{\text{coll}} \gg \amd$
-                \item $\ayw > \ayd$ and $\ayw>0.3$%$0.1\lesssim \ayw\lesssim0.4$ peak ${\simeq}0.35$
+                \item It is more massive, $M_{\rm wind}=f(t)$
+%                \item $\amw\propto t_{\text{coll}} \gg \amd$,
+                \item and less neutron rich, $\ayw>0.3$.
+                %\item $\ayw > \ayd$ and $\ayw>0.3$.%$0.1\lesssim \ayw\lesssim0.4$ peak ${\simeq}0.35$
                 %\item $\avw \sim 0.1\,$c / ${\sim}0.2\,$c
            %\item broad distribution around the binary plane, high $0.1\lesssim \ayw\lesssim0.4$ peak ${\simeq}0.35$.%$\langle Y_e \rangle$
             %\item The low electron fraction material originates primarily at early times, when the material did not have enough time to be processed by neutrinos and before the outflow reaches quasi-steady state.
@@ -824,10 +829,10 @@
                     % Geodesic criterion ($u_t < -1$, ballisitc trajectory, no pressure)
                     % Geodesic criterion ($E=-u_t-1 > 0$) % positive fluid specific energy (unboind matter)
                     \begin{itemize}
-                        \item the fastest ejecta produced at \textit{core bounces},
+                        \item The fast ejecta is produced at \textit{core bounces}.
                         %\item absent in high-$q$ simulations
-                        \item larger for $q{\sim}1$, low $\tilde{\Lambda}$,
-                        \item ejecta is velocity- \& laterally- structured,
+                        \item Mass is larger for $q{\sim}1$, low $\tilde{\Lambda}$.
+                        \item Ejecta is velocity- \& laterally- structured.
                     \end{itemize}
             }};
         }

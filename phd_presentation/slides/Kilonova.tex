@@ -3,13 +3,13 @@
 %% K I L O N O V A
 %%
 %% --------------------------------------------------------------
-\begin{frame}{Kilonova (kN)}
+\begin{frame}{Kilonova}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,1.3cm)}]current page.center){
         \parbox{0.56\textwidth}{
             Thermal \ac{EM} counterpart to mergers, 
-            powered by the decay of synthesized elements\footcite{Paczynski:1993gz,Metzger:2016pju}%$^{\textcolor{gray}{\text{\cite{Paczynski:1993gz,Metzger:2016pju}}}}$. \\
+            powered by the decay of synthesized elements\footcite{Paczynski:1993gz,Metzger:2016pju}.%$^{\textcolor{gray}{\text{\cite{Paczynski:1993gz,Metzger:2016pju}}}}$. \\
             \\
             
             Nuclear heating rate, $\varepsilon_{\rm nuc}\propto t^{-\alpha}$. \\
@@ -17,7 +17,7 @@
             % tdiff = \rho \kappa R^2 / c
             % Assuming constant opacty ; constant expansion speed v; uniform density \rho = m / (4pi R^3 / 3)
             $t_{\rm lc} = \sqrt{3\kappa m_{\rm ej} / (4 \pi c \upsilon_{\rm ej})}$, 
-            $L_{\rm lc} = m_{\rm ej} \varepsilon_{\rm nuc}(t_{\rm lc})$; 
+            $L_{\rm lc} = m_{\rm ej} \varepsilon_{\rm nuc}(t_{\rm lc})$. 
             % Characteristic luminocity us approx radioactive heating rate at this escape timescale
             % Larger, massive ejecta -- brighter lightcurve 
             % Opacity - bound bound transitions in d-shells in iron-group elements (low kappa) and f-shell in lanthinides (high kappa)
@@ -32,9 +32,9 @@
 \uncover<1->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,-1.5cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \textbf{\AT{}}, counterpart to \GW{}\footcite{Villar:2017wcc}%$^{\textcolor{gray}{\text{\cite{Villar:2017wcc}}}}$ \\
+            \textbf{\AT{}}, counterpart to \GW{}\footcite{Villar:2017wcc}.%$^{\textcolor{gray}{\text{\cite{Villar:2017wcc}}}}$ \\
             
-            Two spatially distinct components\footcite{Kasen:2017sxr,Perego:2017wtu}%$^{\textcolor{gray}{\text{\cite{Kasen:2017sxr}}}}$:
+            Two spatially distinct components\footcite{Kasen:2017sxr,Perego:2017wtu}:%$^{\textcolor{gray}{\text{\cite{Kasen:2017sxr}}}}$:
             \begin{itemize}
             \item low $\kappa$ (high $Y_e$) -- early \textcolor{blue}{"blue"} peak,
             \item high $\kappa$ (low $Y_e$) -- late \textcolor{red}{"red"} peak.
@@ -45,14 +45,14 @@
 \uncover<2->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-3.6cm)}]current page.center){
         \parbox{0.50\textwidth}{
-            \textbf{Question:} can \swind{} help explaining early \textcolor{blue}{"blue"} emission.
+            Can \swind{} help explaining early \textcolor{blue}{"blue"} emission?
 %            \begin{itemize}
 %                \item Insufficient ejecta to explain early blue part.
 %            \end{itemize}
     }};
 }
 
-\uncover<1-1>{ % <-> |
+\uncover<1-2>{ % <-> |
     \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.8cm,-0.2cm)}]current page.center){
         \parbox{0.5\textwidth}{
             \includegraphics[height=5.8cm]{figures/KasenBolKn.pdf}
@@ -64,7 +64,7 @@
     \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.1cm)}]current page.center){
         \parbox{0.45\textwidth}{
             \includegraphics[height=4.8cm]{phd_figs/mkn__albino2.pdf} \\
-            \textbf{Model}: multicomponent, anisotropic semi-analytical. \texttt{MKN} code%\footcite{Perego:2017wtu}%$^{\textcolor{gray}{\text{\cite{Perego:2017wtu}}}}$\\ 
+            \textbf{Model}: multicomponent, anisotropic semi-analytical. \texttt{MKN} code.%\footcite{Perego:2017wtu}%$^{\textcolor{gray}{\text{\cite{Perego:2017wtu}}}}$\\ 
             %Black-body radiation; freely expanding ejecta
             % Ejecta compoenents in \texttt{MKN}
             %            \caption{Graphic representation of the analyzed
@@ -382,8 +382,8 @@
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.2cm)}]current page.center){
         \parbox{1.0\textwidth}{
             \begin{itemize}
-            \item Dynamical ejecta cannot explain early blue emission
-            \item Probe of remnant dynamics, lifetime and EOS
+            \item Dynamical ejecta cannot explain early blue emission.
+            \item Winds probe remnant dynamics, lifetime and EOS.
             \end{itemize}
     }};
 }

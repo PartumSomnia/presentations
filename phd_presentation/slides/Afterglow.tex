@@ -6,8 +6,8 @@
 \begin{frame}%{Afterglow}
 \begin{tikzpicture}[overlay,remember picture]
 \uncover<1->{ % <-> |
-    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.2cm)}]current page.center){
-        \parbox{0.95\textwidth}{
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.cm,2.2cm)}]current page.center){
+        \parbox{1.1\textwidth}{
 %            \begin{footnotesize}
 %                \textbf{Afterglow} non-thermal (synchrotron) emission arasing from ejecta moving through ISM\footcite{Sari:1997qe,Kumar:2014upa};
 %            \end{footnotesize}
@@ -15,9 +15,9 @@
 %                \item Long \ac{GRB} (associated with supernovae)
 %                \item Short \ac{GRB} (predicted to occure at \ac{BNS} mergers)
 %            \end{itemize}
-            \textbf{Afterglow} non-thermal (Synchrotron) emission from ejecta moving through ISM\footcite{Sari:1997qe,Kumar:2014upa};
+            \textbf{Afterglow} is non-thermal (synchrotron) emission from ejecta moving through ISM\footcite{Sari:1997qe,Kumar:2014upa};
             \\
-            \textbf{Kilonova afterglow} -- expected\footcite{Nakar:2011cw,Kathirgamaraju:2019xwu}, but so far no clear detection
+            \textbf{Kilonova afterglow} -- expected\footcite{Nakar:2011cw,Kathirgamaraju:2019xwu}, but so far there was no clear detection
 %            \begin{itemize}
 %                \item Ejecta moves through ISM $\rightarrow$ synchrotron emission (afterglow)\footcite{Sari:1997qe,Kumar:2014upa}%$^{\textcolor{gray}{\text{\cite{Sari:1997qe}}}}$
 %                \item \GRB{} afterglow, structured jet, off-axis\footcite{Hajela:2019mjy}%$^{\textcolor{gray}{\text{\cite{Hajela:2019mjy}}}}$
@@ -29,8 +29,8 @@
 \uncover<2->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-0.2cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \textbf{\GRB{}:} counterpart to \GW{} -- structured jet, observed off-axis\footcite{Troja:2017nqp,Hajela:2019mjy}\\
-            \textbf{Rebrightening} $1243$~days post-merger\footcite{Hajela:2021faz};
+            \textbf{\GRB{}} is a counterpart to \GW{} -- structured jet, observed off-axis\footcite{Troja:2017nqp,Hajela:2019mjy}.\\
+            \textbf{Rebrightening} $1243$~days post-merger\footcite{Hajela:2021faz}.
     }};
 }
 
@@ -49,7 +49,7 @@
 \uncover<3->{ % <-> |
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-2.0cm)}]current page.center){
         \parbox{0.60\textwidth}{
-            \textbf{Question:} can kilonova afterglow explain observations?
+            Can kilonova afterglow explain this change in afterglow?
 %            \begin{itemize}
 %                \item change in microphysics parameters;
 %                \item ISM density variation;
@@ -222,12 +222,12 @@
                         \end{aligned}
                     \end{equation*}
                     
-                    Adiabatic evolution, $d\Gamma/dR$; \\
-                    If $\rho_{\rm ISM}=\text{const}$: free-coasting ($\Gamma=\Gamma_0$), and deceleration $\Gamma\downarrow$.\\
+                    Adiabatic evolution, $\Gamma=f(R)$; \\
+                    If $\rho_{\rm ISM}=\text{const}$: free-coasting ($\Gamma=\Gamma_0$), and deceleration,  $\Gamma\downarrow$.\\
                     
                     \textbf{Structure:} lateral, $\{\theta_i\}$, and velocity $\{\upsilon_i\}$; \\
                     \textbf{Initial conditions}: ejecta profile, \\
-                    $\{ E_{ij, 0} \}=f(\Gamma_{i, 0},\theta_{j, 0})$; %($\Gamma=(1-\beta^2)^{-2}$); $\beta=\upsilon/c$; \\
+                    $\{ E_{ij, 0} \}=f(\Gamma_{i, 0},\theta_{j, 0})$. %($\Gamma=(1-\beta^2)^{-2}$); $\beta=\upsilon/c$; \\
                     %\textbf{Main stages:} free-coasting + deceleration; \\
                     %$\Gamma$ is the bulk Lorentz factor. \\
                     %\textbf{Shock properties}, $\rho_{\rm sh}$, $\beta_{\rm sh}$, $R_{\rm sh}$ \\
@@ -386,11 +386,11 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.6cm,1.4cm)}]current page.center){
                 \parbox{0.6\textwidth}{
-                    \textbf{A shock}\footcite{Zhang:2018book}%$^{\textcolor{gray}{\text{\cite{Rezzolla:2013,Kumar:2014upa,Zhang:2018book,Nava:2013}}}}$
+                    \textbf{A shock}\footcite{Zhang:2018book}:%$^{\textcolor{gray}{\text{\cite{Rezzolla:2013,Kumar:2014upa,Zhang:2018book,Nava:2013}}}}$
                     \begin{itemize}
-                        \item compresses fluid, $\rho_{\rm sh} = 4 \Gamma_{\rm sh} \rho_{\rm ISM}$
-                        \item amplifies magnetic fields, $B=\sqrt{8 \pi \epsilon_B e'}$
-                        \item accelerates electrons, $\frac{dn'}{d\gamma_e} \propto \gamma_e^{-p}$ 
+                        \item compresses fluid, $\rho_{\rm sh} = 4; \Gamma_{\rm sh} \rho_{\rm ISM}$;
+                        \item amplifies magnetic fields, $B=\sqrt{8 \pi \epsilon_B e'}$;
+                        \item accelerates electrons, $\frac{dn'}{d\gamma_e} \propto \gamma_e^{-p}$.
                     \end{itemize}
                     
             }};
@@ -427,7 +427,7 @@
 %            }};
 %        }
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-1.7cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.4cm,-1.5cm)}]current page.center){
                 \parbox{0.5\textwidth}{
                     \textbf{Spectral breaks}: 
                     \begin{itemize}
@@ -435,7 +435,8 @@
                         \item $\nu_c$ -- cooling break; %at which for electrons expansion timescale is equal to the radiative cooling timesacle
                         \item $\nu_a$ -- absorption break. % below which synchrotron emission is absorbed by electrons in free-free transitions in magnetic
                     \end{itemize}
-                    
+                     \vspace{4mm}
+                    \textbf{EATS} integration $\rightarrow$ $F_{\nu}(t_{\rm obs})$
             }};
         }
 
@@ -573,8 +574,8 @@
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,2.1cm)}]current page.center){
         \parbox{1.0\textwidth}{
             \begin{itemize}
-            \item Kilonova afterglow is consistent with changing afterglow of \GW{}
-            \item Moderate $q$ and \ac{EOS} softness are preferred
+            \item Overall agreement between models and observations.
+            \item Very soft \acp{EOS} are less favored.
             \end{itemize}
     }};
 }

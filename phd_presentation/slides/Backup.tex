@@ -3,7 +3,248 @@
 %%
 %%
 %% --------------------------------------------------------------------------------------------
-\section{Disk}
+\section{Disk-Remnant}
+\begin{frame}{Angular momentum flux\footcite{Nedora:2019jhl}} %% ---------- title 
+\begin{tikzpicture}[overlay,remember picture]
+\uncover<1->{ % <-> |
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.2cm)}]current page.center){
+                \parbox{0.65\textwidth}{
+                        The angular momentum flux in the cylindrical coordinates.% $x^i=(r,\phi,z)$.
+                        % $\phi^{\nu}$ is the generator of the rotations in the orbital plane.
+                        \begin{equation*}
+                            \alpha\sqrt{\gamma}T^r _{\nu}\phi^{\nu} =
+                            \alpha\sqrt{\gamma}\rho h W^2 (v^{r}v_{\phi})\, ,
+                            \end{equation*}
+                        assiming $\phi^{\mu} = (\partial_{\phi})^{\mu}$ is a Killing vector. % angular momentum is conserved
+                }};
+    }
+
+\uncover<1-1>{ % <-> |
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.3cm,-0.6cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                        \includegraphics[height=6cm]{phd_figs/raycasting_smooth_cropped.pdf}
+                        
+                        \hspace*{2.8mm}Spiral arms within the disk
+                }};
+    }
+
+%shocks are generated at the collisional interface of the \acp{NS} cores,
+%as well as, tidal torques exerted by the non axisymmetric remnant result in a formation
+%of the disk.
+%Matter, energy and angular momentum are injected into the disk as the spiral 
+%density waves propagate outwards from the mass-shedding \ac{MNS} remnant
+\uncover<1->{ % <-> |
+        \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-1.8cm)}]current page.center){
+                \parbox{0.6\textwidth}{
+                        \begin{itemize}
+                                \item Shocks and tidal torques exerted from non-axisymmetric remnant $\rightarrow$ disk;
+                                \item spiral arms is a generic hydrodynamic effect.
+                            \end{itemize}
+                        Injection of matter, energy and angular momentum.
+                }};
+    }
+
+\end{tikzpicture}
+
+\end{frame}
+%
+%
+%%% ----------------------------------------------------------------
+%%%
+%%% Angular momentum trasport
+%%%
+%%% ----------------------------------------------------------------
+%
+\begin{frame}{Angular momentum transport in \pmerg{} remnant\footcite{Nedora:2020pak}}%$^\text{\textcolor{gray}{\citep{Nedora:2020pak}}}$} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+        \node (img2) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-0.4cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                        \includegraphics[height=6.0cm]{phd_figs/remnant/evol_jflux_2d_DD2_M13641364_M0_SR_R1.pdf}
+                        
+                        \hspace*{2.8mm}Ang. mom. transport through disk
+                }};
+    }
+%shocks are generated at the collisional interface of the \acp{NS} cores,
+%as well as, tidal torques exerted by the non axisymmetric remnant result in a formation
+%of the disk.
+%Matter, energy and angular momentum are injected into the disk as the spiral 
+%density waves propagate outwards from the mass-shedding \ac{MNS} remnant
+
+\uncover<1->{ % <-> |
+        \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-0.8cm)}]current page.center){
+                \parbox{0.6\textwidth}{
+                        \begin{itemize}
+                                \item The $J$ is transported via spiral waves induced by $m=\{1,2\}$ modes.
+                                \item Spiral density modes inject ${\sim}0.1-0.4\,\Msun$ into the disk
+                                \item ${\sim}50\%$ of $J$ remnant $\rightarrow$ disk
+                                \item Mass injection is stronger in models with stiffer EOS. 
+                                \item Accretion, mass-shedding, weak processes
+                                % \item Larger temperatures lead to lower rotational frequency at which the mass 
+                                % shedding occurs% \citep{Kaplan:2013wra}. 
+                            \end{itemize}
+                }};
+    }
+
+\end{tikzpicture}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+%% ----------------------------------------------------------------
+%%
+%% Long-term Evolution
+%%
+%% ----------------------------------------------------------------
+
+
+
+\begin{frame}{Origin on the spiral-wave wind\footcite{Nedora:2019jhl,Nedora:2020pak}}%{Long term evolution \& remnant's fate}%$^\text{\textcolor{gray}{\citep{Nedora:2020pak}}}$} %% ---------- title 
+
+%As the disk expands and cools, the recombination of nucleons into alpha particles 
+%starts to take place. The energy, released in recombination, might be sufficient 
+%for the outermost layers to become unbound, generating an outflow and contributing 
+%to the disk depletion \citep{Beloborodov:2008nx,Lee:2009uc,Fernandez:2013tya}.
+%%
+%This process however is expected to take place on timescales, longer than
+%those that are simulated here. On the $\sim100$~ms timescale, however, the outflows 
+%are driven by the neutrino heating, above the remnant, the so-called neutrino-driven 
+%wind (\nwind; \citep{Dessart:2008zd,Perego:2014fma,Just:2014fka}), and by the dynamical 
+%interactions between the \ac{MNS} remnant and the disk, the \swind{} \citep{Nedora:2019jhl}.
+%%
+%We discuss the properties of the \nwind{} found in our simulations
+%in Sec.~\ref{sec:bns_sims:nwind} and the properties of the 
+%\swind{} in Sec.~\ref{sec:bns_sims:sww}.
+
+\begin{tikzpicture}[overlay,remember picture]
+    
+    %We evaluate the amount of angular momentum lost to \acp{GW} following the 
+    %\citet{Damour:2011fu,Bernuzzi:2012ci,Bernuzzi:2015rla}\footnote{
+        %    The radiated angular momentum is computed from the 
+        %    multipole loments $N_{lm}$ for the \ac{NR} complex "news function" at infinity. 
+        %    The $J_{z;\text{rad}}(t)$ is computed as \citep{Damour:2011fu} 
+        %    \begin{equation*}
+            %    \Delta J_{z\text{rad}}(t) \frac{1}{16}\sum_{l,m}^{l_{max}}\int_{t_0}^{t} dt' m \mathcal{L}[h_{lm}(t')(N_{lm}(t'))^*],
+            %    \end{equation*}
+        %    where $h_{lm}$ is the multipolar metric waveform, 
+        %    $N_{lm}(t) = dh_{lm}(t) / dt$, the news function, and $l_{max}=8$.
+        %    The $J$ loss is metric dependent ($h$).
+        %    The $h$ (strain???) is computed from $\Psi_4(t) = dN/dt = d^2h/dt^2$ by a 
+        %    frequency-domain integration procedure with a low-frequency cut 
+        %    $\omega_0 = 0.032/(m_1+m_2)$.
+        %    The routines used for the calculation are taken from the scientific library
+        %    \texttt{scidata}, available at \url{https://bitbucket.org/dradice/scidata}.
+        %}.
+    
+    \uncover<1->{ % <-> |
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,1.2cm)}]current page.center){
+            \parbox{0.64\textwidth}{
+                With Fourier mode decomposition, $e^{-i m\phi}$, of the Eulerian rest-mass density \textbf{we find:}
+                %Modes analysis for exemplary equal-mass long-live and short-lived
+                %                    %        remnants. The evolution of the $m=2$ and the $m=1$ monitored by
+                %                    %        Eq.~\eqref{eq:modes} is shown for the DD2 and LS220 remnant with and
+                %                    %        without turbulent viscosity. The $m=2$ mode in the long-lived
+                %                    %        remnant is strongly damped by the emission of gravitational
+                %                    %        radiation and becomes comparable to the $m=1$ mode on a timescale of
+                %                    %        ${\gtrsim}20\,$ms. Turbulent viscosity sustain the $m=2$ mode for
+                %                    %        a longer period. The $m=2$ mode is instead dominant to collapse in
+                %                    %        the short-lived remnant.
+                %                    %        (Adopted from \cite{Nedora:2020pak})
+                \begin{itemize}
+                    %\item Remnant is \textbf{not axisymmetric}, (prominant $m=2$ and $m=1$ modes); 
+                    \item Prominent $m=2$ and $m=1$ modes; 
+                    \item One-armed, $m=1$, persist till ${\sim}100$~ms;
+                    \item Injection of matter, energy, angular momentum, $J$;
+                    %                        \item Bar-shaped $m=2$ dominats the \textbf{early} phase
+                    %                        and later $m=2$ is damped by the emission of \acp{GW}
+                    %                        \item One-armed $m=1$ is present on ${\sim}100$~ms 
+                    %                        \item $m=1$ mode is stronger if \mr{} is higher
+                    %                        \item And as the $m=1$ modes are not efficiently damped$^\text{\textcolor{gray}{\citep{Paschalidis:2015mla,Radice:2016gym,Lehner:2016wjg,East:2016zvv}}}$
+                    %%    \item Not axisymmetric. Angular momentum redistribution, \acp{GW} losses %\cite{Bernuzzi:2015opx,Radice:2018xqa}
+                    %%    \item Long-term evolution driven by viscous processes \& weak interactions
+                    %%    \item After \ac{GW} losses \ac{MNS} have excess in $M$ with respect to the cold, rigid.rot equilibria %\citep{Radice:2018xqa}.
+                    %%    \item \ac{MNS} remnant evolves towards stability at the mass-shedding limit
+                    %%    \item Collapse to a \ac{BH} depends on post-merger state, temperature and composition
+                    %\begin{itemize}
+                    %                \item Shocks and tidal torques exerted from non-axisymmetric remnant $\rightarrow$ disk;
+                    %                \item spiral arms is a generic hydrodynamic effect.
+                    %            \end{itemize}
+                %            Injection of matter, energy and angular momentum.
+            \end{itemize}
+    }};
+}
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.4cm,-1.9cm)}]current page.center){
+        \parbox{0.65\textwidth}{
+            \begin{itemize}
+                % Viscosity foces rotating equilibria to rotate rigidly
+                % Non-axial symmetry -- gravitational radiation
+                % ADM mass and angular momentum must be conserved 
+                % J_GW is computed from the Weil scalar (Psi4) decomposed into s=-2 spin-weighted spherical harmonics
+                % Angular momentum, trasported away by GWs
+                % Differential rotation is reduced by the non-axisymmetric torques and GWs losses that redistribute angular momentum from inner to the outer regions
+                \item Excess in baryonic mass, $M_b$, and $J$;
+                % \item \acp{GW} remove some $J$
+                \item $J$ is lost to \acp{GW} and outflows
+                %\item Massive outflows from expanded disk
+                %driven by $m=\{1,2\}$ and $J$ transport
+                \item \textbf{Spiral-wave wind}, driven by $m=\{1,2\}$ instabilities, removes $J$ and $M_b$
+                \item The remnant can reach \textbf{stable configuration}
+                %\item Study of remnant's fate requires long 3D \ac{NR} simulations
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,-0.4cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=6cm]{phd_figs/remnant/dens_modes/modes_rho_dd2.pdf}\\
+            \hspace*{10mm}Demsity modes%\footcite{Nedora:2020pak}
+            %            Baryon mass vs angular momentum diagram for the BLh $q=1$ remnant.
+            %            The colored diamond marks the baryonic mass and angular momentum at the end
+            %            of the dynamical gravitational-wave dominated phase.
+            %            After the GW phase, the evolution is driven by the massive outflows.
+            %            The solid black line is the $M_b$ and $J$ estimated from the 3D data
+            %            integrals under the assumption of axisymmetry.
+            %            The green dashed line is a conservative estimate
+            %            of the mass ejection and a possible trajectory for the viscous
+            %            evolution as estimated in \citet{Radice:2018xqa}. The crosses are
+            %            a linear extrapolation in time of the solid black line. The gray
+            %            shaded region is the region of stability of rigidly rotating NS equilibria.
+            %            Adopted from \cite{Nedora:2020pak}
+    }};
+}
+
+%\uncover<1->{ % <-> |
+    %    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-1.8cm)}]current page.center){
+        %        \parbox{0.6\textwidth}{
+            %            \begin{itemize}
+                %            \item The long-term evolution of the disk is driven by its interaction with the \ac{MNS} 
+                %            remnant and cooling.
+                %            \item Accretion vs. mass shedding
+                %            \item spiral density waves inject mass and energy into disk and it heats up \& expands
+                %            \item Softness \ac{EOS} (strong desntiy modes) \& high temps (allowed by \ac{EOS}) $\rightarrow$ mass-shedding
+                %            \end{itemize}
+            %    }};
+    %}
+
+\end{tikzpicture}
+
+\end{frame}
+
+
+%\section{Disk}
 \begin{frame}{Disk mass evolution} %% ---------- title 
 
 %During the merger, shocks, generated at the collisional interface of the \ac{NS} cores,
@@ -33,17 +274,17 @@
     }};
 }
 
-\uncover<1->{ % <-> |
-    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-2.2cm)}]current page.center){
-        \parbox{0.6\textwidth}{
-            \begin{itemize}
-            \item The long-term evolution of the disk is driven by its interaction with the remnant and cooling.
-            \item Accretion vs. mass shedding
-            \item spiral density waves inject mass and energy into disk and it heats up \& expands
-            \item Soft EOS (strong desntiy modes) \& high temps (allowed by EOS) $\rightarrow$ mass-shedding
-            \end{itemize}
-    }};
-}
+%\uncover<1->{ % <-> |
+%    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-2.2cm)}]current page.center){
+%        \parbox{0.6\textwidth}{
+%            \begin{itemize}
+%            \item The long-term evolution of the disk is driven by its interaction with the remnant and cooling.
+%            \item Accretion vs. mass shedding
+%            \item spiral density waves inject mass and energy into disk and it heats up \& expands
+%            \item Soft EOS (strong desntiy modes) \& high temps (allowed by EOS) $\rightarrow$ mass-shedding
+%            \end{itemize}
+%    }};
+%}
 
 \end{tikzpicture}
 
@@ -65,7 +306,7 @@
             \begin{itemize}
             \item During the formation, shocks and spiral waves raise the disk $Y_e\sim0.25$
             \item The bulk, shielded from neutrinos, returns to $Y_e\lesssim0.1$.
-            \item The outer part of the disk, is subjected to the strong irradiation and reaches $Y_e\sim0.4$.
+            \item The outer part of the disk is subjected to the strong irradiation and reaches $Y_e\sim0.4$.
             \end{itemize}
     }};
 }
@@ -148,7 +389,7 @@
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
         \parbox{1.0\textwidth}{
             \begin{itemize}
-            \item Bimodal structure in $\langle Y_e \rangle$ and $\langle s \rangle$, second peak \ac{EOS} \& \mr{} dependent
+            \item Bimodal structure in $\langle Y_e \rangle$ and $\langle s \rangle$. Second peak \ac{EOS} \& \mr{} dependent
             \item High $Y_e$ outer disk
             \end{itemize}
     }};
@@ -187,7 +428,7 @@
         \parbox{0.7\textwidth}{
             %Bernoulli criterion ($hu_t < -1$, stationary flow)\\
             \begin{itemize}
-            \item is an idicator of the remnant lifetime,
+            \item is an indicator of the remnant lifetime,
             \item is larger if \ac{EOS} is softer (as $m=1$ is stronger) % stiffer \ac{EOS} leads to a more massive disk 
             \item is larger if $q>1$
             \item increases if turbulent viscocity is present
@@ -223,7 +464,7 @@
     \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
         \parbox{1.0\textwidth}{
             \begin{itemize}
-            \item Absorption of electron neutrinos raises $Y_e$ of the polar outflow, drives outflow.
+            %\item Absorption of electron neutrinos raises $Y_e$ of the polar outflow, drives outflow.
             \item Neutrino-wind is not a steady state outflow, ejecting ${\sim}10^{-3}-10^{-4}M_{\odot}$.
             %% The strongest neutrino heating occurs in the vicinity of the remnant at densities $\rho\sim10^{11}$~\gcm,
             \end{itemize}
