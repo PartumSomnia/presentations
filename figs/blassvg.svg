@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="209.59917mm"
+   height="88.061264mm"
+   viewBox="0 0 209.59917 88.061264"
+   version="1.1"
+   id="svg719189"
+   inkscape:export-filename="/media/vsevolod/3538-3931/Work/GIT/GitHub/presentations/afterglow_for_potsdam_astp/figures/blast_wave_struct.png"
+   inkscape:export-xdpi="260.89999"
+   inkscape:export-ydpi="260.89999"
+   inkscape:version="1.1.1 (eb90963e84, 2021-10-02)"
+   sodipodi:docname="blassvg.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview719191"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.0998546"
+     inkscape:cx="58.18951"
+     inkscape:cy="290.49294"
+     inkscape:window-width="1263"
+     inkscape:window-height="1082"
+     inkscape:window-x="136"
+     inkscape:window-y="93"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs719186">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path12429" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path12426" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.53265724,-0.18219707)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.265, 0.53;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 51.695583,11.045278 0.03984,60.005552"
+       id="path719329-8"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.264583, 0.793749;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 158.18822,7.6848239 157.85337,70.41694"
+       id="path719329-1"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 106.72201,9.1655879 106.45073,70.81309"
+       id="path719329"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart)"
+       d="M 209.49001,20.299224 0.53271085,20.214542"
+       id="path719541" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';white-space:pre;inline-size:0;stroke-width:0.264583"
+       x="179.44469"
+       y="14.261375"
+       id="text754569"
+       transform="translate(2.6343962,1.3501849)"><tspan
+         id="tspan754567"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="179.44469"
+         y="14.261375">I</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="130.12054"
+       y="16.178558"
+       id="text771415"><tspan
+         sodipodi:role="line"
+         id="tspan771413"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="130.12054"
+         y="16.178558">II</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="75.900299"
+       y="15.740292"
+       id="text776567"><tspan
+         sodipodi:role="line"
+         id="tspan776565"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="75.900299"
+         y="15.740292">III</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="22.385969"
+       y="15.945229"
+       id="text782775"><tspan
+         sodipodi:role="line"
+         id="tspan782773"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="22.385969"
+         y="15.945229">IV</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="166.98535"
+       y="32.514648"
+       id="text810007"><tspan
+         sodipodi:role="line"
+         id="tspan810005"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="166.98535"
+         y="32.514648">ISM</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="166.98535"
+         y="41.334099"
+         id="tspan914257">ε=0 (cold)</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="166.98535"
+         y="50.153549"
+         id="tspan1032435">ρ = ρ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1074149">ISM</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="114.18178"
+       y="32.82238"
+       id="text818987"><tspan
+         sodipodi:role="line"
+         id="tspan818985"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="114.18178"
+         y="32.82238">Shocked ISM</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="114.18178"
+         y="41.64183"
+         id="tspan958927">ε'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan985331">2</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="114.18178"
+         y="50.461281"
+         id="tspan1196903">B'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1286878">2</tspan> , F<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1290420">ν;FS</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="114.18178"
+         y="59.280731"
+         id="tspan1131215">ρ'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1068033">2  </tspan>, M<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1095479">2</tspan> , V'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1140515">2</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="114.18178"
+         y="68.100182"
+         id="tspan1343446">dR<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1362964">FS</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="57.769646"
+       y="32.640594"
+       id="text827991"><tspan
+         sodipodi:role="line"
+         id="tspan827989"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="57.769646"
+         y="32.640594">Shocked Ejecta</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="57.769646"
+         y="41.460045"
+         id="tspan952145">ε'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan971649">3</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="57.769646"
+         y="50.279495"
+         id="tspan1135699">B'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1276974">3</tspan> , F<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1282892">ν;RS</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="57.769646"
+         y="59.098946"
+         id="tspan1258387">ρ'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1064419">3 </tspan>, M<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1115229">3</tspan> ,V'<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1136823">3</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="57.769646"
+         y="67.918396"
+         id="tspan1356450">dR<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1358930">RS</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="12.524289"
+       y="33.073402"
+       id="text835777"
+       inkscape:export-filename="/media/vsevolod/3538-3931/Work/GIT/GitHub/presentations/afterglow_for_potsdam_astp/figures/blast_wave_struct.png"
+       inkscape:export-xdpi="260.89999"
+       inkscape:export-ydpi="260.89999"><tspan
+         sodipodi:role="line"
+         id="tspan835775"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="12.524289"
+         y="33.073402">Ejecta</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="12.524289"
+         y="41.892853"
+         id="tspan937695">ε<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan995515">4</tspan>=0 (cold)</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="12.524289"
+         y="50.712303"
+         id="tspan1050087">ρ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1061387">4</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="90.098434"
+       y="77.070457"
+       id="text844955"><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="90.098434"
+         y="77.070457"
+         id="tspan845023">Contact </tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="90.098434"
+         y="85.889908"
+         id="tspan893834">discontinuity</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="136.65619"
+       y="77.512077"
+       id="text873389"><tspan
+         sodipodi:role="line"
+         id="tspan873387"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="136.65619"
+         y="77.512077">Forward Shock</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="31.27264"
+       y="77.441513"
+       id="text881634"><tspan
+         sodipodi:role="line"
+         id="tspan881632"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="31.27264"
+         y="77.441513">Reverse Shock</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';white-space:pre;inline-size:0;stroke-width:0.264583"
+       x="87.411461"
+       y="207.3214"
+       id="text900077"
+       transform="translate(116.12214,-190.47581)"><tspan
+         id="tspan900075"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="87.411461"
+         y="207.3214">Γ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+       x="102.01276"
+       y="6.7257543"
+       id="text1393664"><tspan
+         sodipodi:role="line"
+         id="tspan1393662"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="102.01276"
+         y="6.7257543">R(t)</tspan></text>
+  </g>
+</svg>
