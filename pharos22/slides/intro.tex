@@ -16,7 +16,7 @@
                         \item Short gamma-ray bursts (sGRB) and kilonovae (kN) -- electromagnetic counterparts of (at least some) binary neutron star mergers (BNS). 
                         \item \textbf{Afterglow} -- non-thermal emission from electrons in (external) shocks created by ejecta moving through ISM. 
                         \item GRBs, kNe and their afterglows $\propto$ properties of ejecta.
-                        \item Ejecta properties $\propto$ binary properties, NS equation of state.
+                        \item Ejecta properties $\propto$ (i) binary properties, \\(ii) \textbf{NS equation of state}.
                     \end{itemize}
 %                    Short gamma-ray burst (likely) projenitors are compact object mergers
 %                    \textbf{Messengers:}
@@ -132,7 +132,7 @@
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.8cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.7cm)}]current page.center){
                 \parbox{0.65\textwidth}{
                     \textbf{Kilonova afterglow}:\\ 
                     Peaks in radio bands on timescale of years \\
@@ -228,9 +228,9 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.7cm,2.0cm)}]current page.center){
                 \parbox{0.60\textwidth}{
-                    \textbf{ Numerical relativity simulations show:}
+                    \textbf{ Numerical relativity simulations show}:
                     \begin{itemize}
-                        \item presence of the dynamial ejecta \textit{fast tail, }
+                        \item presence of the dynamial ejecta \textit{fast tail},
 %                        \item ejecta properties depend in the binary parameters
                         \item complex velocity- \& lateral- structure. 
                     \end{itemize}
@@ -281,10 +281,10 @@
         \uncover<2->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,1.7cm)}]current page.center){
                 \parbox{0.60\textwidth}{
-                    \textbf{NR-informed light curves showed}:
+                    \textbf{NR-informed light curves show}:
                     \begin{itemize}
-                        \item consistency with observations, %$(t_p, F_{\nu=1\text{keV} p})$ 
-                        \item very energetic ejecta disfavoured,
+                        \item consistency with observations; %$(t_p, F_{\nu=1\text{keV} p})$ 
+                        \item very energetic ejecta disfavoured;
                         \item $\rightarrow$ low $\tilde{\Lambda}$ and $q=1$ disfavoured.
                     \end{itemize}
             }};
@@ -315,7 +315,7 @@
                     \vspace{5mm}
                     \textbf{Unknowns}:
                     \begin{itemize}
-                        \item will NR-informed kilonova ejecta catch up with observations-informed GRB one and when?
+                        \item will NR-informed kilonova ejecta "catch up" with observations-informed GRB one and when?
                         \item how the GRB ejecta evacuating ISM affects kN ejecta dynamics \& emission?
                     \end{itemize}
                 }};
@@ -414,12 +414,12 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,0.0cm)}]current page.center){
                 \parbox{0.68\textwidth}{
-                    \textbf{Synchrotron from ``thermal" electrons}:
+                    \textbf{Emission from ``thermal" electrons}:
                     \begin{itemize}
-                        \item Peaks at low-$\nu$, early-$t$
-                        \item Brighter for high $\Gamma\beta$, $n_0$
-                        \item Evolves as blast decelerates
-                        \item Introduces spectral evolution
+                        \item peaks at low-$\nu$, early-$t$;
+                        \item brighter for high $\Gamma\beta$, $n_0$;
+                        \item evolves as ejecta decelerates;
+                        \item introduces additional spectral evolution;
                         % In $\nu>1\,$GGz, emission from n is dominant ($\rho_{\rm ISM}$ is too low)
                     \end{itemize}
                     % $\{E_{\rm ej}^{\rm GRB},\Gamma_{\rm ej}^{\rm GRB}\}$,
@@ -457,15 +457,21 @@
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,1.5cm)}]current page.center){
-                \parbox{0.60\textwidth}{
-                    \textbf{Dynamics in the }
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.cm,0.6cm)}]current page.center){
+                \parbox{0.54\textwidth}{
+                    \textbf{Dynamics:}
                     \begin{itemize}
-                        \item "catching-up" coincides with spreading ($\Gamma^{\rm GRB}_{0}$)
-                        \item "catching-up" may not occur ($\Gamma^{\rm GRB}_{N}$)
-                        \item $\{M_{i,j}^{\rm kN}\} \gg \{M_{0}^{\rm GRB}\}$ (given layer)
-                        \item Duration of "break-through" $f(\Gamma^{\rm kN}_{\rm ej})$
-                        \item Flow largely subsonic
+                        \item kilonova ejecta elements "catch-up" with GRB ejecta on various timescales; 
+                        \item at "catch up" $\rho>\rho_{\rm ISM}$ and \\
+                        (i) fast ones -- "break through", \\
+                        (ii) slow ones -- "stall behind";%  "catching-up" %may coincide with spreading %($\Gamma^{\rm GRB}_{0}$)
+                        %\item or may not occur; %($\Gamma^{\rm GRB}_{N}$)
+                        \item far behind GRB ejecta, kilonova one is subsonic;
+                        \item shock can form only right before the "catch up";
+%                        \item 
+%                        \item $\{M_{i,j}^{\rm kN}\} \gg \{M_{0}^{\rm GRB}\}$ (given layer)
+%                        \item Duration of "break-through" $f(\Gamma^{\rm kN}_{\rm ej})$
+%                        \item Flow largely subsonic
                     \end{itemize}
                     %\textbf{Early-time} dynamics is not significantly affected
                     %Dynamics depends on $\{E_{\rm ej}^{\rm kn},\Gamma_{\rm ej}^{\rm kn}\}$,
@@ -485,18 +491,18 @@
                     %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
             }};
         }
-        \uncover<1-1>{ % <-> |
-            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.5cm,-2.4cm)}]current page.center){
-                \parbox{0.5\textwidth}{
-                    % \includegraphics[width=0.49\textwidth]{figs/fast_ej_fast_jet.pdf}
-                    % \includegraphics[width=0.49\textwidth]{figs/slow_ej_fast_jet.pdf}
-                    % \includegraphics[width=0.49\textwidth]{figs/fast_ej_slow_jet.pdf}
-                    %\vspace{-5mm}
-                    %\vspace{-mm}
-                    \includegraphics[width=0.40\textwidth]{../figs/ejecta_ek_dist_init_blh_q1_lk_sr.pdf}
-                    %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
-            }};
-        }
+%        \uncover<1-1>{ % <-> |
+%            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.5cm,-2.4cm)}]current page.center){
+%                \parbox{0.5\textwidth}{
+%                    % \includegraphics[width=0.49\textwidth]{figs/fast_ej_fast_jet.pdf}
+%                    % \includegraphics[width=0.49\textwidth]{figs/slow_ej_fast_jet.pdf}
+%                    % \includegraphics[width=0.49\textwidth]{figs/fast_ej_slow_jet.pdf}
+%                    %\vspace{-5mm}
+%                    %\vspace{-mm}
+%                    \includegraphics[width=0.40\textwidth]{../figs/ejecta_ek_dist_init_blh_q1_lk_sr.pdf}
+%                    %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
+%            }};
+%        }
 %        \uncover<1->{ % <-> |
 %            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,-0.5cm)}]current page.center){
 %                \parbox{0.68\textwidth}{
@@ -514,15 +520,14 @@
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,1.5cm)}]current page.center){
-                \parbox{0.56\textwidth}{
-                    \textbf{Dynamics: main features}
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,1.2cm)}]current page.center){
+                \parbox{0.54\textwidth}{
+                    \textbf{Change in observed radiation:}
                     \begin{itemize}
-                        \item No emission from $\rho$-evacuated region
-                        \item Subsonic flow -- no shock, no emission
-                        \item $\rightarrow$ "Dip" in observed emission
-                        \item Shock at "catch-up", emission excess
-                        \item Emission excess "smeared" by the structure
+                        \item no emission from $\rho$-evacuated region;
+                        \item for subsonic flow -- no shock, no emission $\rightarrow$ "Dip" in $F_{\nu}$;
+                        \item at "catch-up" -- excess in $F_{\nu}$;
+                        \item excess is "smeared over time" due to \\(i) kilonova ejecta structure, \\(ii) GRB lateral expansion.
                     \end{itemize}
                     %\textbf{Early-time} dynamics is not significantly affected
                     %Dynamics depends on $\{E_{\rm ej}^{\rm kn},\Gamma_{\rm ej}^{\rm kn}\}$,
@@ -593,7 +598,7 @@
                     \begin{itemize}
                         \item naturally expected if kilonova was observed;
                         \item requires close source in high density environment;
-                        \item traces properties of the fastest ejecta, and this the mechanism of its formation;
+                        \item traces properties of the fastest ejecta $\rightarrow$ the mechanism of its formation;
                     \end{itemize}
                     \textbf{Thermal electron population:}
                     \begin{itemize}
