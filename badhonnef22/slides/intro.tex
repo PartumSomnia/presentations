@@ -14,7 +14,7 @@
                 \parbox{0.7\textwidth}{
                     \begin{itemize}
                         \item Unknown properties on NS matter;
-                        \item Nuetron star mergers;
+                        \item Neutron star mergers;
                         \item Multimessenger astronomy;
                         \item EOS constraints.
                     \end{itemize}
@@ -373,7 +373,7 @@
                     \vspace{5mm}
                     \textbf{Unknowns}:
                     \begin{itemize}
-                        \item will NR-informed kilonova ejecta "catch up" with observations-informed GRB one and when?
+                        \item will NR-informed kilonova ejecta ``break through'' observations-informed GRB one and when?
                         \item how the GRB ejecta evacuating ISM affects kN ejecta dynamics \& emission?
                     \end{itemize}
                 }};
@@ -386,6 +386,12 @@
                     %\includesvg[height=7.2cm]{figures/structure2}
             }};
         }
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.7cm,3.75cm)}]current page.center){
+                \parbox{0.35\textwidth}{
+                    \textcolor{gray}{\footnotesize{VN+ (arxiv:2208.01558) }}
+            }};
+        }
     \end{tikzpicture}
 \end{frame}
 
@@ -395,21 +401,21 @@
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.cm,1.2cm)}]current page.center){
-                \parbox{0.8\textwidth}{
+                \parbox{0.80\textwidth}{
                     \textbf{Structure:} laterally structured GRB ejecta, and laterally and velocity structured kN ejecta. 
                     \textbf{Semi-analytic model} (energy conservation): 
                     thin-shell approximation \textcolor{red}{(!)} 
                     \vspace{-2mm}
                     \begin{equation*}
-                        dE_{\rm tot} = 0 \rightarrow d [ \Gamma (M_0 + m) c^2 + \Gamma_{\rm eff}E_{\rm int}' ] = \textcolor{red}{\Gamma_{\rm ISM}} dm c^2 + \Gamma_{\rm eff} dE_{\rm rad}'
+                        dE_{\rm tot} = 0 \rightarrow d [ \Gamma (M_0 + m) c^2 + \Gamma_{\rm eff}E_{\rm int}' ] = \textcolor{red}{\Gamma_{\rm CBM}} dm c^2 + \Gamma_{\rm eff} dE_{\rm rad}'
                     \end{equation*}
 %                    with $\rho_{\rm ISM}=f(R)$, $\Gamma_{\rm ISM}=f(R)$ (using Sedov-Taylor profile)
                     \vspace{-8mm}
                     \begin{itemize}
-                        \item GRB ejecta: $\{E_{i, 0},\Gamma_{i,0} \} = f(\theta)$, $d\theta_{\rm jet}/dR=f(c_{s})$
-                        \item kN ejecta: $\{E_{i, 0},\Gamma_{i,0} \}=f(\Gamma,\theta)$, $\rho_{\rm ISM}=f(R)$, $\Gamma_{\rm ISM}=f(R)$
+                        \item GRB ejecta: $\{E_{i, 0},\Gamma_{i,0} \} = f(\theta)$; %spreading: $d\theta_{\rm jet}/dR=f(c_{s})$
+                        \item kN ejecta: $\{E_{i, 0},\Gamma_{i,0} \}=f(\Gamma,\theta)$, with $\rho_{\rm CBM},\Gamma_{\rm CBM}=f(R)$
                         \item GRB ejecta laterally expands $\{d\theta_i/dR_i\}$
-                        \item GRB ejecta removes ISM
+                        \item GRB ejecta alters ISM
 %                        \item thermal electrons contribute to synchrotron emission from kilonova ejecta
                     \end{itemize}
             }};
@@ -446,6 +452,12 @@
                     \textbf{EATS integration}
             }};
         }
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.7cm,3.75cm)}]current page.center){
+                \parbox{0.35\textwidth}{
+                    \textcolor{gray}{\footnotesize{VN+ (arxiv:2208.01558) }}
+            }};
+        }
     
 %        \uncover<1-1>{ % <-> |
 %            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.3cm)}]current page.center){
@@ -466,7 +478,7 @@
 \end{frame}
 
 % =============================================================================================
-\section{Thermal electrons}
+\section{Results}%{Thermal electrons}
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
@@ -499,11 +511,17 @@
                     %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
             }};
         }
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.7cm,3.75cm)}]current page.center){
+                \parbox{0.35\textwidth}{
+                    \textcolor{gray}{\footnotesize{VN+ (arxiv:2208.01558) }}
+            }};
+        }
     \end{tikzpicture}
 \end{frame}
 
 % =============================================================================================
-\section{altered ISM}
+%\section{altered ISM}
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
@@ -511,8 +529,8 @@
                 \parbox{0.54\textwidth}{
                     \textbf{Dynamics:}
                     \begin{itemize}
-                        \item kilonova ejecta elements "catch up" with GRB ejecta on various timescales; 
-                        \item at ``break through'' $\rho>\rho_{\rm ISM}$ \\
+                        \item \textbf{Some} kilonova ejecta elements ``break through'' GRB ejecta but on various timescales; 
+                        %\item at ``break through'' $\rho>\rho_{\rm ISM}$ \\
 %                        \item 
 %                        \item $\{M_{i,j}^{\rm kN}\} \gg \{M_{0}^{\rm GRB}\}$ (given layer)
 %                        \item Duration of "break-through" $f(\Gamma^{\rm kN}_{\rm ej})$
@@ -532,8 +550,8 @@
 %                        (i) fast ones -- "break through", \\
 %                        (ii) slow ones -- "stall behind";%  "catching-up" %may coincide with spreading %($\Gamma^{\rm GRB}_{0}$)
                         %\item or may not occur; %($\Gamma^{\rm GRB}_{N}$)
-                        \item far behind GRB ejecta, kilonova ejecta moves subsonically;
-                        \item shock can form only right before the ``break through'';
+                        \item Far behind GRB ejecta, kilonova ejecta moves subsonically;
+                        \item Shock can form only right before the ``break through'';
                         %                        \item 
                         %                        \item $\{M_{i,j}^{\rm kN}\} \gg \{M_{0}^{\rm GRB}\}$ (given layer)
                         %                        \item Duration of "break-through" $f(\Gamma^{\rm kN}_{\rm ej})$
@@ -569,13 +587,19 @@
                     %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
             }};
         }
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.7cm,3.75cm)}]current page.center){
+                \parbox{0.35\textwidth}{
+                    \textcolor{gray}{\footnotesize{VN+ (arxiv:2208.01558) }}
+            }};
+        }
     \end{tikzpicture}
 \end{frame}
 
 
 
 % =============================================================================================
-\section{kN \& GRB}
+%\section{kN \& GRB}
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
@@ -607,7 +631,12 @@
                     \includegraphics[width=0.55\textwidth]{../figs/lcs_grb_kn_vla_dthdr01_nism005_thetaobs60_epse02_epsb0005_p215_epst10_.pdf}
             }};
         }
-
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.7cm,3.75cm)}]current page.center){
+                \parbox{0.35\textwidth}{
+                    \textcolor{gray}{\footnotesize{VN+ (arxiv:2208.01558) }}
+            }};
+        }
         %        \uncover<1->{ % <-> |
             %            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,-0.5cm)}]current page.center){
                 %                \parbox{0.68\textwidth}{
@@ -623,7 +652,8 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.7cm,3.0cm)}]current page.center){
                 \parbox{1.\textwidth}{
-                    \textbf{Radio-image} $\{ \text{shape}, $\text{brightness}$ \} = f(\{E^{\rm kn}_{i, 0},\Gamma^{\rm kn}_{i,0} \})$. Dim. Require close source.
+                    \textbf{Preliminary results: radio image.} \\
+                    Sky map $\{ \text{shape}, $\text{brightness}$ \} = f(\{E^{\rm kn}_{i, 0},\Gamma^{\rm kn}_{i,0} \})$. Dim. Require close source.
                     %                    \begin{itemize}
                         %                        \item Traces fastest ejecta geometry 
                         %                        \item Might be detectable with future observatories
@@ -632,10 +662,16 @@
             }};
         }
         \uncover<1-1>{ % <-> |
-            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.5cm,-0.9cm)}]current page.center){
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-1.8cm,-0.9cm)}]current page.center){
                 \parbox{0.9\textwidth}{
-                    \includegraphics[width=1.\textwidth]{../figs/int_BLh_M13641364_M0_LK_SR_times220_2500_skymaps_ejecta_nlayers80_theta45_nism000031_p205_epse01_epsb001_epst1_dl00413.pdf}
+                    \includegraphics[width=1.15\textwidth]{../figs/int_BLh_M13641364_M0_LK_SR_times220_2500_skymaps_ejecta_nlayers80_theta45_nism000031_p205_epse01_epsb001_epst1_dl00413.pdf}
                     %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
+            }};
+        }
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.7cm,3.75cm)}]current page.center){
+                \parbox{0.35\textwidth}{
+                    \textcolor{gray}{\footnotesize{VN+ (in prep.) }}
             }};
         }
     \end{tikzpicture}
