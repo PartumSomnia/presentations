@@ -107,69 +107,71 @@
 \begin{frame}{}  %% ---------- Intro/motivation 
     \begin{tikzpicture}[overlay,remember picture]
         \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,1.0cm)}]current page.center){
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,3.0cm)}]current page.center){
                 \parbox{0.6\textwidth}{
-                    \textit{Early time:} 
-                    \begin{itemize}
-                        \item Precursor (\orange{obs.}, \green{mod.}, \red{MM})
-                        \item Kilonova (\green{obs.}, \green{mod.}, \green{MM})
-                        \item GRB (\green{obs.}, \green{mod.}, \red{MM})
-                     \end{itemize}
-                     \textit{Late time:}
-                     \begin{itemize}
-                        \item Kilonova nebular (\orange{obs.}, \green{mod.}, \red{MM})
-                        \item GRB afterglow (\green{obs.}, \green{mod.}, \orange{MM})
-                        \item \textbf{Kilonova afterglow} (\red{obs.}, \green{mod.}, \red{MM})
-                    \end{itemize}
+%                    \textit{Early time:} 
+%                    \begin{itemize}
+%                        \item Precursor (\orange{obs.}, \green{mod.}, \red{MM})
+%                        \item Kilonova (\green{obs.}, \green{mod.}, \green{MM})
+%                        \item GRB (\green{obs.}, \green{mod.}, \red{MM})
+%                     \end{itemize}
+%                     \textit{Late time:}
+%                     \begin{itemize}
+%                        \item Kilonova nebular (\orange{obs.}, \green{mod.}, \red{MM})
+%                        \item GRB afterglow (\green{obs.}, \green{mod.}, \orange{MM})
+%                        \item \textbf{Kilonova afterglow} (\red{obs.}, \green{mod.}, \red{MM})
+%                    \end{itemize}
+%                    \textbf{GRB + kilonova examples}\\
+                    \textbf{GRB afterglow with NIR excess} 
             }};
         }
-        \uncover<1->{ % <-> |
-            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.0cm,-2.5cm)}]current page.center){
-                \parbox{0.65\textwidth}{
-                    Afterglows 
-                    $\xrightarrow[\text{}]{\text{Models}}$
-                    Ejecta properties 
-                    $\xrightarrow[\text{}]{\text{MM}}$
-                    EOS const. 
-            }};
-        }
-        \uncover<1-1>{ % <-> |
-            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.2cm,-0.8cm)}]current page.center){
-                \parbox{0.5\textwidth}{
-                    \includegraphics[height=7.0cm]{../figs/Ascenzi20_EjectaEMPicture.pdf}
-                    
-                    %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
-            }};
-        }
+%        \uncover<1->{ % <-> |
+%            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.0cm,-2.5cm)}]current page.center){
+%                \parbox{0.65\textwidth}{
+%                    Afterglows 
+%                    $\xrightarrow[\text{}]{\text{Models}}$
+%                    Ejecta properties 
+%                    $\xrightarrow[\text{}]{\text{MM}}$
+%                    EOS const. 
+%            }};
+%        }
+%        \uncover<1-1>{ % <-> |
+%            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.2cm,-0.8cm)}]current page.center){
+%                \parbox{0.5\textwidth}{
+%                    \includegraphics[height=7.0cm]{../figs/Ascenzi20_EjectaEMPicture.pdf}
+%                    
+%                    %\small{\textbf{Artist depiction of ejecta$^\text{\citep{Ascenzi:2020xqi}}$}}
+%            }};
+%        }
 %
-%        \uncover<2-3>{ % <-> |
-%            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(1.2cm,-2.1cm)}]current page.center){
+        \uncover<2-3>{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(1.2cm,-2.1cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \GRB{} \\
+                    \includegraphics[height=3.5cm]{../figs/Chirlanda_Villar_170817.pdf}
+            }};
+        }
+        \uncover<3-3>{ % <-> |
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.2cm,1.6cm)}]current page.center){
+            \parbox{0.5\textwidth}{
+                GRB211211A \\
+                \includegraphics[height=3.7cm]{../figs/Rastinejad22_GRB211211_2.pdf}
+        }};
+        }
+%        \uncover<1-1>{ % <-> |
+%            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(1.5cm,-1.8cm)}]current page.center){
 %                \parbox{0.5\textwidth}{
-%                    \GRB{} \\
-%                    \includegraphics[height=3.5cm]{../figs/Chirlanda_Villar_170817.pdf}
+%                    \GRB{} \\ 
+%                    \includegraphics[height=4.0cm]{../figs/Hajela21_ChangeGW170817-2.pdf}
 %            }};
 %        }
-%        \uncover<3-3>{ % <-> |
-%        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.2cm,1.6cm)}]current page.center){
-%            \parbox{0.5\textwidth}{
-%                GRB211211A \\
-%                \includegraphics[height=3.7cm]{../figs/Rastinejad22_GRB211211_2.pdf}
-%        }};
-%        }
-%%        \uncover<1-1>{ % <-> |
-%%            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(1.5cm,-1.8cm)}]current page.center){
-%%                \parbox{0.5\textwidth}{
-%%                    \GRB{} \\ 
-%%                    \includegraphics[height=4.0cm]{../figs/Hajela21_ChangeGW170817-2.pdf}
-%%            }};
-%%        }
-%        \uncover<1-3>{ % <-> |
-%            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.85cm)}]current page.center){
-%                \parbox{0.5\textwidth}{
-%                    GRB160821B \\
-%                    \includegraphics[height=4.02cm]{../figs/Lamb19_GRB160821B.pdf}
-%            }};
-%        }
+        \uncover<1-3>{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.85cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    GRB160821B \\
+                    \includegraphics[height=4.02cm]{../figs/Lamb19_GRB160821B.pdf}
+            }};
+        }
     \end{tikzpicture}
 \end{frame}
 
@@ -180,13 +182,13 @@
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.7cm)}]current page.center){
                 \parbox{0.65\textwidth}{
                     \textbf{Kilonova afterglow}:\\ 
-                    Peaks in radio bands on timescale of years \\
+                    peaks in radio bands on timescale of years; \\
                     \hspace*{5mm}\textcolor{gray}{\footnotesize{(Nakar, E., Piran, T., 2011, Nature 478)}} \\
-                    Velocity and angular ejecta distribution are important \\ 
+                    depends on velocity and angular ejecta distributions; \\ 
                     \hspace*{5mm}\textcolor{gray}{\footnotesize{(Piran, T., Nakar, E., Rosswog, S., 2013, MNRAS 430 3)}} \\
-                    Expected but so far not observed\textcolor{red}{*} \\
+                    expected but so far not observed\textcolor{red}{*}. \\
                     \hspace*{5mm}\textcolor{gray}{\footnotesize{(Hajela, A., ... VN et.~al., 2021, ApJL 927 1, L17)}}\\ 
-                    \textcolor{red}{*}\textit{GRB170817A late time light curve change\textcolor{red}{**}  }
+                    \hspace*{3mm}\textcolor{red}{*}\textit{GRB170817A late time light curve change\textcolor{red}{**}.  }
 %                    GRB afterglow $+$ kilonova \textcolor{darkgreen}{\cmark} \\
 %                    GRB afterglow $+$ kilonova afterlow -- not yet \textcolor{red}{\xmark}
 %                    \begin{itemize}
@@ -631,12 +633,56 @@
                     \includegraphics[width=0.55\textwidth]{../figs/lcs_grb_kn_vla_dthdr01_nism005_thetaobs60_epse02_epsb0005_p215_epst10_.pdf}
             }};
         }
-        \uncover<1->{ % <-> |
+        \uncover<1-1>{ % <-> |
             \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.7cm,3.75cm)}]current page.center){
                 \parbox{0.35\textwidth}{
                     \textcolor{gray}{\footnotesize{VN+ (arxiv:2208.01558) }}
             }};
         }
+        
+        %        \uncover<1->{ % <-> |
+            %            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,-0.5cm)}]current page.center){
+                %                \parbox{0.68\textwidth}{
+                    %                   
+                    %            }};
+            %        }
+        % Margalit B., Piran T., 2020, MNRAS, 495, 4981
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{}  %% ---------- Intro/motivation 
+    \begin{tikzpicture}[overlay,remember picture]
+        \uncover<1->{ % <-> |
+            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.5cm,2.2cm)}]current page.center){
+                \parbox{0.75\textwidth}{
+                    \textbf{Very fast tail in very high resolution BNS simulations} \\
+                    \textcolor{gray}{(\footnotesize{Fujibayashi S. et al., 2022, 2205.05557)}.}
+                    \begin{itemize}
+                        \item At lower densities, off-axis emission resembles GRB170817A
+                        \item GRB flux centroid can break degeneracy
+                        %                        \item for subsonic flow -- no shock, no emission $\rightarrow$ "Dip" in $F_{\nu}$;
+                        %                        \item at "catch-up" -- excess in $F_{\nu}$;
+                        %                        \item excess is "smeared over time" due to \\(i) kilonova ejecta structure, \\(ii) GRB lateral expansion.
+                    \end{itemize}
+                    %\textbf{Early-time} dynamics is not significantly affected
+                    %Dynamics depends on $\{E_{\rm ej}^{\rm kn},\Gamma_{\rm ej}^{\rm kn}\}$,
+                    %and on the $t^{\rm GRB}_{\rm dec}$ and $c_s$. 
+                    % $\{E_{\rm ej}^{\rm GRB},\Gamma_{\rm ej}^{\rm GRB}\}$,
+            }};
+        }
+        \uncover<1-1>{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.6cm,-1.55cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \includegraphics[width=0.59\textwidth]{../figs/Fujibayashi22_DynEjectaBNS_FastTailPlot.pdf}
+            }};
+        }
+        \uncover<1->{ % <-> |
+            \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(3.6cm,-1.6cm)}]current page.center){
+                \parbox{0.5\textwidth}{
+                    \includegraphics[width=0.55\textwidth]{../figs/lcs_preliminary.pdf}
+            }};
+        }
+        
         %        \uncover<1->{ % <-> |
             %            \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,-0.5cm)}]current page.center){
                 %                \parbox{0.68\textwidth}{
@@ -652,7 +698,7 @@
         \uncover<1->{ % <-> |
             \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.7cm,3.0cm)}]current page.center){
                 \parbox{1.\textwidth}{
-                    \textbf{Preliminary results: radio image.} \\
+                    \textbf{Preliminary result: radio image.} \\
                     Sky map $\{ \text{shape}, $\text{brightness}$ \} = f(\{E^{\rm kn}_{i, 0},\Gamma^{\rm kn}_{i,0} \})$. Dim. Require close source.
                     %                    \begin{itemize}
                         %                        \item Traces fastest ejecta geometry 
