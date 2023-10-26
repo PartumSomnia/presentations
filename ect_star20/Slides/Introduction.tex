@@ -1,0 +1,66 @@
+%% --------------------------------------------------------------
+%%
+%% I N T R O D U C T I O N
+%%
+%% --------------------------------------------------------------
+
+\begin{frame}{Introduction}  %% ---------- Intro/motivation 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,1.2cm)}]current page.center){
+        \parbox{1.1\textwidth}{
+            Binary neutron star (BNS) mergers are unique cosmic laboratories to study 
+            \begin{itemize}
+                \item theory of gravity in a strong field regime,
+                \item properties of matter at supranuclear densities,
+                \item cosmic chemical evolution,%\nuc{} of the heaviest elements in the Universe,
+                \item cosmology.%, using \ac{BNS} mergers as standard sirens
+            \end{itemize}
+    }};
+}
+
+\uncover<2->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.0cm,-2.2cm)}]current page.center){
+        \parbox{1.1\textwidth}{
+            In August 2017, the Event was detected as a source of 
+        
+            \begin{itemize}
+                \item \acp{GW}, \GW{},
+                \item thermal \ac{EM} emission, \ac{kN}, \AT{}; (\rproc{}),
+                \item non-thermal \ac{EM} \ac{SGRB}, \GRB{},
+            \end{itemize}
+            
+            Wealth of information about different physical processes occurring in \ac{BNS}.\\
+            %\red{Questions}: remnant's lifetime; ejecta mass/composition; sources of \rproc{} elements
+    }};
+}
+
+\uncover<3->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(0.0cm,-3.8cm)}]current page.center){
+        \parbox{1.1\textwidth}{
+            \red{Questions}: remnant's lifetime; ejecta properties; \rproc{} cites
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.5cm,-0.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=6cm]{../phd_figs/remnant/dens_modes/modes_rho_dd2.pdf}
+            \hspace*{10mm} Density modes in the remnant 
+            %Modes analysis for exemplary equal-mass long-live and short-lived
+            %        remnants. The evolution of the $m=2$ and the $m=1$ monitored by
+            %        Eq.~\eqref{eq:modes} is shown for the DD2 and LS220 remnant with and
+            %        without turbulent viscosity. The $m=2$ mode in the long-lived
+            %        remnant is strongly damped by the emission of gravitational
+            %        radiation and becomes comparable to the $m=1$ mode on a timescale of
+            %        ${\gtrsim}20\,$ms. Turbulent viscosity sustain the $m=2$ mode for
+            %        a longer period. The $m=2$ mode is instead dominant to collapse in
+            %        the short-lived remnant.
+            %        (Adopted from \cite{Nedora:2020pak})
+    }};
+}
+
+\end{tikzpicture}
+\end{frame}

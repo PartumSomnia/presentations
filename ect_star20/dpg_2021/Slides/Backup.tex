@@ -1,0 +1,717 @@
+\begin{frame}{}  %% ---------- Intro/motivation 
+
+\centering \Huge{Thank you for your attention}
+
+\end{frame}
+
+
+
+
+
+
+
+%% =======================================================
+%%
+%%                   Method
+%%
+%% =======================================================
+
+\begin{frame}{Method} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.9cm,-0.7cm)}]current page.center){
+        \parbox{0.53\textwidth}{
+            Passing through the cold ISM, shock front 
+            \begin{itemize}
+            \item randomizes the particles' $\vec{\upsilon}$,
+            \item compresses the plasma,
+            \item amplifies the magnetic fields 
+            \item accelerates the inbound particles. % to a power-law distribution function.
+            \end{itemize}
+            
+            \textbf{Dynamics} is guvenred by 
+            %A relativistic shock propagating into a cold upstream medium.
+            $3$ conservation laws: baryon number, energy, momentum fluxes across shock front.
+            %            The latter two $T^{\mu\nu} = (\rho' c^2 + p') u^{\mu} u^{\nu} + p' g^{\mu\nu},$
+            %
+            %            These equations can be written as 
+            %
+            %            \begin{equation} % subequations
+            %            \begin{aligned} % align
+            %            \frac{e_2'}{n_2'} &= (\gamma_{21} - 1)m_p c^2 \\
+            %            \frac{n_2'}{n_1'} &= \frac{\hat{\gamma}\gamma_{21} + 1}{\hat{\gamma}-1} \\
+            %            \gamma_{1s}^2 &= \frac{(\gamma_{21} + 1) [\hat{\gamma}(\gamma_{21}-1)+1]^2}{\hat{\gamma}(2-\hat{\gamma})(\gamma_{21}-1)+2}
+            %            \end{aligned} % align
+            %            \label{eq:afterglow:blast}
+            %            \end{equation} % subequations
+            %
+            %            \begin{figure*}[t]
+            %            \centering 
+            %            \includegraphics[width=0.45\textwidth]{Fig_8_KZ.pdf}
+            %            \caption{
+            %                This is a schematic sketch of a pair of shocks produced when a relativistic
+            %                jet from a \ac{GRB} collides with the \ac{CBM}, as viewed from the
+            %                rest frame of unshocked \ac{CBM}. Regions 2 \& 3 represent shocked \ac{CBM} and \ac{GRB}
+            %                jet respectively. They move together with the same \ac{LF} ($\gamma_2$, as viewed
+            %                by a stationary observer in the unshocked \ac{CBM}), and have the same pressure but
+            %                different densities.
+            %                (Adapted from \citet{Kumar:2014upa}, figure~8)
+            %            }
+            %            \label{fig:aafg:theory:sr8}
+            %            \end{figure*}
+            %
+            %            where subscripts $2$ and $1$ stand for downstream and upstream respectively, 
+            %            $e'$ is the internal energy density, $n'$ is the proton number density, 
+            %            $\gamma_{21}$ is the relative \ac{LF} of plasma in region 
+            %            $2$ with respect to the region $1$
+            %            $\gamma_{1s}$ is the relative \ac{LF} of plasma in region $1$ with respect to the shock front,
+            %            $\hat{\gamma}$ is the adiabatic index of the fluid, for the ideal, relativistic 
+            %            fluid is $\hat{\gamma}=4/3$ and subrelativisitc $\hat{\gamma}=5/3$.
+            %            The $2$ and $1$ regions are also shown in Fig.~\ref{fig:aafg:theory:sr8} 
+            %            (see also \cite{Nava:2013} for a more comprehensive take).
+            %            %
+            %            Solving the system Eq.~\eqref{eq:afterglow:blast} gives the full evolution 
+            %            of the \blast{}. 
+            
+            \textbf{Electrons}: continuity eq. in energy space, 
+            \begin{equation*}
+            \frac{\partial }{\partial t}\frac{d n_e}{d\gamma_e} + \frac{\partial}{\partial \gamma_e}\Big[ \dot{\gamma_e}\frac{dn_e}{d\gamma_e} \Big] = S(\gamma_e), \rightarrow \frac{d n_e}{d\gamma_e} \propto \gamma^{-p}.
+            \end{equation*}
+            %
+            Charactersitc, $\gamma_c$ , $\gamma_M$ , $\gamma_m$.
+            %
+            %            where $\dot{\gamma_e} = -\sigma_T B^2 \gamma_e^2 / (6\pi m_e c)$ is the rate at 
+            %            which electron \ac{LF} changes due to losses, $S(\gamma_e)$ is the injection 
+            %            rate of electrons into the system.
+            %            %
+            %            Assume that the minimum \ac{LF} of injected electrons is $\gamma_m$, \eg, 
+            %            where $S(\gamma_e) = 0$ for $\gamma_e < \gamma_m$.
+            %            %
+            %            \begin{equation}
+            %            dn_e/d\gamma_e \propto 
+            %            \begin{cases}
+            %            \gamma_e^{-2} &\text{ if } \gamma_c < \gamma_e < \gamma_m, \\
+            %            \gamma_e^{-p-1} &\text{ if } \gamma_e > \gamma_c > \gamma_m
+            %            \end{cases}
+            %            \label{eq:afterglow:elec_dist}
+            %            \end{equation}
+            
+    }};
+    
+    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(3.9cm,-0.7cm)}]current page.center){
+        \parbox{0.53\textwidth}{
+            \textbf{Synchrotron emission}: %\citep{RybickiLightman:1985} --
+            %
+            %        \begin{equation*}
+            %        P_{syn} = \frac{2q^4 E^2}{3c^3 m_e^2}
+            %        \,
+            %        \omega_{syn}\sim\frac{qB\gamma_e^2}{m_e c}
+            %        %\,
+            %        %P_{syn}(\nu_{syn}) \sim P_{syn}/\nu_{syn}
+            %        \end{equation*}
+            %
+            \begin{equation*}
+            f_{\nu} = \int_{\gamma_{\nu}}^{\infty} d\gamma_e \frac{dn_e}{d\gamma_e}P_{syn}(\nu) 
+            \end{equation*}
+            
+            For the $dn_e/d\gamma_e\propto\gamma_e^{-p}$, the 
+            $f_{\nu} = f_{\nu}(\nu_m,\nu_c)$
+            
+            \vspace{5mm}
+            
+            \textbf{Equal time arrival surface} integration
+            %
+            \begin{equation*}
+            F(\nu,t) \sim c\int_0^{\theta}\int_{0}^{r}\frac{P'(\nu',t_{em},r)}{\Gamma^2(1-\beta\cos\theta)^2}r^2 dr d\cos\theta,
+            \end{equation*}
+            %with $c = (1+z) / (2d_L^2)$
+            including relativistic effects.
+    }};
+}
+\end{tikzpicture}
+\end{frame}
+
+%% =======================================================
+%%
+%%                   Method :: Code
+%%
+%% =======================================================
+
+\begin{frame}{Method :: \texttt{PyBlastAfterglow}} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+\node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.9cm,-0.7cm)}]current page.center){
+    \parbox{0.53\textwidth}{
+        \textbf{Blast wave dynamics}
+        \begin{itemize}
+        \item[\textcolor{black}{$\blacksquare$}] uniform ISM; FS only$^\text{\citep{Peer:2012}}$
+        \item[\textcolor{blue}{$\blacksquare$}] $\forall$ ISM; FS/RS; Rad.Loss$^\text{\citep{Nava:2013}}$
+        \end{itemize}
+        \textbf{Transrelativisitc equation of state}
+        \begin{itemize}
+        \item[\textcolor{black}{$\blacksquare$}]Assymptic$^\text{\citep{Nava:2013}}$
+        \item[\textcolor{blue}{$\blacksquare$}] HD-simulation informed$^\text{\citep{Peer:2012}}$
+        \end{itemize}
+        \textbf{Lateral Spreading}
+        \begin{itemize}
+        \item[\textcolor{black}{$\blacksquare$}] Speed of sound limited$^\text{\citep{Huang:1999di}}$
+        \item[\textcolor{blue}{$\blacksquare$}] 2D HD -informed$^\text{\citep{Granot:2012}}$ 
+        \end{itemize}
+}};
+}
+
+\uncover<1->{ % <-> |
+\node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(3.9cm,-0.7cm)}]current page.center){
+    \parbox{0.53\textwidth}{
+        \textbf{Electron distribution} 
+        \begin{itemize}
+        \item[\textcolor{black}{$\blacksquare$}] Simple 2-segment \ac{BPL}
+        \item[\textcolor{blue}{$\blacksquare$}] \ac{BPL} with accurate crit. Lorentz fact.
+        \item[\textcolor{gray}{$\blacksquare$}] $\forall$ segmented electron distribution
+        \end{itemize}
+        \textbf{Synchrotron spectrum}
+        \begin{itemize}
+        \item[\textcolor{black}{$\blacksquare$}] 3-segment \ac{BPL} $^\text{\citep{Sari:1997qe}}$
+        \item[\textcolor{blue}{$\blacksquare$}] Smooth \ac{BPL}$^\text{\citep{Johannesson:2006zs}}$ + SSA$^\text{\citep{Johannesson:2018cdl}}$
+        \item[\textcolor{gray}{$\blacksquare$}] Direct integration of syntronton function$^\text{\citep{Dermer:2009}}$
+        \end{itemize}
+        \textbf{Equal time arrival surface integrator}
+        \begin{itemize}
+        \item[\textcolor{black}{$\blacksquare$}] Piece-wise sum (including $\mathcal{D}$)$^\text{\citep{Fernandez:2021xce}}$
+        \end{itemize}
+}};
+}
+\end{tikzpicture}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%% ----------------------------------------------------------------
+%%
+%% Spiral Arms
+%%
+%% ----------------------------------------------------------------
+
+%% FROM LETTER 
+
+%From the fluid's stress energy tensor,
+%we compute the angular momentum density flux $J_r = T_{ra}(\partial_\phi)^a$,
+%where $\phi$ is the cylindrical angular coordinate;
+%angular momentum is conserved if $(\partial_\phi)^a$ is a Killing vector.
+%
+%% FROM PAPER 
+
+%The fluid's angular momentum analysis in the remnant and disk is performed
+%assuming axisymmetry,
+%%(see Appendix~\ref{app:ang} for derivation)
+%that is, we assume $\phi^{\mu} = (\partial_{\phi})^{\mu}$ is a Killing
+%vector. Accordingly, the conservation law (Eq.~\eqref{eq:theory:tmunu_eq_0}) 
+%reads
+%%
+%\begin{equation}
+%\partial_t(T^{\mu\nu}\phi_{\nu}n_{\nu}\sqrt{\gamma}) -
+%\partial_i(\alpha T^{i \nu}\phi_{\nu}\sqrt{\gamma}) = 0 \ ,
+%\end{equation}
+%%
+%where $n^\mu$ is the normal vector to the spacelike hypersurfaces of
+%the spacetime's $3+1$ decomposition.
+%%
+%The equation implies the conservation of the angular momentum 
+%\begin{equation}
+%J = % \int j dV = 
+%%- \int \, T_{\mu\nu}n^{\mu}\phi^{\nu}\,\dd ^3x = 
+%-\int \,
+%T_{\mu\nu}n^{\mu}\phi^{\nu}\,\sqrt{\gamma}\, \dd^3 x\ .
+%\end{equation}
+%%
+%In the cylindrical coordinates $x^i=(r,\phi,z)$ adapted to the symmetry
+%the angular momentum density is  
+%%
+%\begin{equation}
+%j = %-
+%\rho h W^2 v_{\phi} \ ,
+%\label{eq:method:ang_mom}
+%\end{equation}
+%%
+%and the angular momentum flux is 
+%%
+%\begin{equation}
+%\alpha\sqrt{\gamma}T^r _{\nu}\phi^{\nu} =
+%\alpha\sqrt{\gamma}\rho h W^2 (v^{r}v_{\phi}) .
+%\end{equation}
+%
+%We evaluate these quantities from the 3D snapshots of our simulations.
+
+
+\begin{frame}{Spiral arms in \pmerg{} remnant$^\text{\citep{Nedora:2019jhl}}$} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.2cm,1.2cm)}]current page.center){
+        \parbox{0.65\textwidth}{
+            The angular momentum flux in the cylindrical coordinates.% $x^i=(r,\phi,z)$.
+            % $\phi^{\nu}$ is the generator of the rotations in the orbital plane.
+            \begin{equation*}
+            \alpha\sqrt{\gamma}T^r _{\nu}\phi^{\nu} =
+            \alpha\sqrt{\gamma}\rho h W^2 (v^{r}v_{\phi})\, ,
+            \end{equation*}
+            assiming $\phi^{\mu} = (\partial_{\phi})^{\mu}$ is a Killing vector. % angular momentum is conserved
+    }};
+}
+
+\uncover<1-1>{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.3cm,-0.6cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=6cm]{raycasting_smooth_cropped.pdf}
+            
+            \hspace*{2.8mm}Spiral arms within the disk
+    }};
+}
+
+%shocks are generated at the collisional interface of the \acp{NS} cores,
+%as well as, tidal torques exerted by the non axisymmetric remnant result in a formation
+%of the disk.
+%Matter, energy and angular momentum are injected into the disk as the spiral 
+%density waves propagate outwards from the mass-shedding \ac{MNS} remnant
+\uncover<1->{ % <-> |
+    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.5cm,-1.8cm)}]current page.center){
+        \parbox{0.6\textwidth}{
+            \begin{itemize}
+                \item Shocks and tidal torques exerted from non-axisymmetric remnant $\rightarrow$ disk;
+                \item spiral arms is a generic hydrodynamic effect.
+            \end{itemize}
+            Injection of matter, energy and angular momentum.
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+
+%% ----------------------------------------------------------------
+%%
+%% Angular momentum trasport
+%%
+%% ----------------------------------------------------------------
+
+\begin{frame}{Angular momentum transport in \pmerg{} remnant$^\text{\citep{Nedora:2020pak}}$} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (img2) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-0.2cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5.5cm]{remnant/evol_jflux_2d_DD2_M13641364_M0_SR_R1.pdf}
+            
+            \hspace*{2.8mm}Ang. mom. transport through disk
+    }};
+}
+%shocks are generated at the collisional interface of the \acp{NS} cores,
+%as well as, tidal torques exerted by the non axisymmetric remnant result in a formation
+%of the disk.
+%Matter, energy and angular momentum are injected into the disk as the spiral 
+%density waves propagate outwards from the mass-shedding \ac{MNS} remnant
+
+\uncover<1->{ % <-> |
+    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-0.8cm)}]current page.center){
+        \parbox{0.6\textwidth}{
+            \begin{itemize}
+                \item The $J$ is transported via spiral waves induced by $m=\{1,2\}$ modes.
+                \item Spiral density modes inject ${\sim}0.1-0.4\,\Msun$ into the disk
+                \item ${\sim}50\%$ of $J$ remnant $\rightarrow$ disk
+                \item Mass injection is stronger in models with stiffer EOS. 
+                \item Accretion, mass-shedding, weak processes
+                \item Larger temperatures lead to lower rotational frequency at which the mass 
+                shedding occurs% \citep{Kaplan:2013wra}. 
+            \end{itemize}
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+
+
+%% ----------------------------------------------------------------
+%%
+%% Long-term Evolution
+%%
+%% ----------------------------------------------------------------
+
+
+
+%\begin{frame}{Long term evolution \& remnant's fate$^\text{\citep{Nedora:2020pak}}$} %% ---------- title 
+%
+%%As the disk expands and cools, the recombination of nucleons into alpha particles 
+%%starts to take place. The energy, released in recombination, might be sufficient 
+%%for the outermost layers to become unbound, generating an outflow and contributing 
+%%to the disk depletion \citep{Beloborodov:2008nx,Lee:2009uc,Fernandez:2013tya}.
+%%%
+%%This process however is expected to take place on timescales, longer than
+%%those that are simulated here. On the $\sim100$~ms timescale, however, the outflows 
+%%are driven by the neutrino heating, above the remnant, the so-called neutrino-driven 
+%%wind (\nwind; \citep{Dessart:2008zd,Perego:2014fma,Just:2014fka}), and by the dynamical 
+%%interactions between the \ac{MNS} remnant and the disk, the \swind{} \citep{Nedora:2019jhl}.
+%%%
+%%We discuss the properties of the \nwind{} found in our simulations
+%%in Sec.~\ref{sec:bns_sims:nwind} and the properties of the 
+%%\swind{} in Sec.~\ref{sec:bns_sims:sww}.
+%
+%\begin{tikzpicture}[overlay,remember picture]
+%
+%%We evaluate the amount of angular momentum lost to \acp{GW} following the 
+%%\citet{Damour:2011fu,Bernuzzi:2012ci,Bernuzzi:2015rla}\footnote{
+%%    The radiated angular momentum is computed from the 
+%%    multipole loments $N_{lm}$ for the \ac{NR} complex "news function" at infinity. 
+%%    The $J_{z;\text{rad}}(t)$ is computed as \citep{Damour:2011fu} 
+%%    \begin{equation*}
+%%    \Delta J_{z\text{rad}}(t) \frac{1}{16}\sum_{l,m}^{l_{max}}\int_{t_0}^{t} dt' m \mathcal{L}[h_{lm}(t')(N_{lm}(t'))^*],
+%%    \end{equation*}
+%%    where $h_{lm}$ is the multipolar metric waveform, 
+%%    $N_{lm}(t) = dh_{lm}(t) / dt$, the news function, and $l_{max}=8$.
+%%    The $J$ loss is metric dependent ($h$).
+%%    The $h$ (strain???) is computed from $\Psi_4(t) = dN/dt = d^2h/dt^2$ by a 
+%%    frequency-domain integration procedure with a low-frequency cut 
+%%    $\omega_0 = 0.032/(m_1+m_2)$.
+%%    The routines used for the calculation are taken from the scientific library
+%%    \texttt{scidata}, available at \url{https://bitbucket.org/dradice/scidata}.
+%%}.
+%
+%\uncover<1->{ % <-> |
+%    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,0.5cm)}]current page.center){
+%        \parbox{0.7\textwidth}{
+%            \begin{itemize}
+%                \item Remnant borm with excess in $M_b$ and $J$ (HMNS)
+%                \item GWs remove some $J$
+%                \item Massive outflows from expanded disk
+%                driven by $m=\{1,2\}$ and $J$ transport
+%                \item \swind{} Removes $J$ and $M_b$
+%                \item The remannt can reach stable configuration
+%                \item Study of remnant's fate requries long 3D NR simulations
+%            \end{itemize}
+%    }};
+%}
+%
+%\uncover<1->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.6cm,-0.2cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=6cm]{ejecta_sec/secular_j_mb_RNS_blh.pdf}
+%%            Baryon mass vs angular momentum diagram for the BLh $q=1$ remnant.
+%%            The colored diamond marks the baryonic mass and angular momentum at the end
+%%            of the dynamical gravitational-wave dominated phase.
+%%            After the GW phase, the evolution is driven by the massive outflows.
+%%            The solid black line is the $M_b$ and $J$ estimated from the 3D data
+%%            integrals under the assumption of axisymmetry.
+%%            The green dashed line is a conservative estimate
+%%            of the mass ejection and a possible trajectory for the viscous
+%%            evolution as estimated in \citet{Radice:2018xqa}. The crosses are
+%%            a linear extrapolation in time of the solid black line. The gray
+%%            shaded region is the region of stability of rigidly rotating NS equilibria.
+%%            Adopted from \cite{Nedora:2020pak}
+%    }};
+%}
+%
+%%\uncover<1->{ % <-> |
+%%    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-1.8cm)}]current page.center){
+%%        \parbox{0.6\textwidth}{
+%%            \begin{itemize}
+%%            \item The long-term evolution of the disk is driven by its interaction with the \ac{MNS} 
+%%            remnant and cooling.
+%%            \item Accretion vs. mass shedding
+%%            \item spiral density waves inject mass and energy into disk and it heats up \& expands
+%%            \item Softness \ac{EOS} (strong desntiy modes) \& high temps (allowed by \ac{EOS}) $\rightarrow$ mass-shedding
+%%            \end{itemize}
+%%    }};
+%%}
+%
+%\end{tikzpicture}
+%
+%\end{frame}
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+\begin{frame}{Disk mass evolution} %% ---------- title 
+
+%During the merger, shocks, generated at the collisional interface of the \ac{NS} cores,
+%as well as, tidal torques exerted by the non axisymmetric remnant, result in a formation
+%of the disk. Matter, energy and angular momentum are injected into the disk as the spiral 
+%density waves propagate outwards from the mass-shedding \ac{MNS} remnant 
+%\citep{Bernuzzi:2015opx,Radice:2018xqa}.
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,1.0cm)}]current page.center){
+        \parbox{0.6\textwidth}{
+            The disk baryonic mass is computed as the volume integral of the conserved rest-mass density 
+            %
+            \begin{equation*}
+            \label{eq:method:mdisk}
+            M_{\text{disk}} = \int_{\rho>10^{13}\,\text{\gcm}} \sqrt{\gamma}~W\rho \dd^3 x
+            \end{equation*}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.8cm,-0.2cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=6cm]{disk/total_disk_mass_evo.pdf}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (t2) [anchor=center,scale=1,opacity=1] at ([shift={(-3.8cm,-2.2cm)}]current page.center){
+        \parbox{0.6\textwidth}{
+            \begin{itemize}
+            \item The long-term evolution of the disk is driven by its interaction with the remnant and cooling.
+            \item Accretion vs. mass shedding
+            \item spiral density waves inject mass and energy into disk and it heats up \& expands
+            \item Soft EOS (strong desntiy modes) \& high temps (allowed by EOS) $\rightarrow$ mass-shedding
+            \end{itemize}
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+\begin{frame}{The evolution of the mass-weighted electron fraction} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.6cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item During the formation, shocks and spiral waves raise the disk $Y_e\sim0.25$
+            \item The bulk, shielded from neutrinos, returns to $Y_e\lesssim0.1$.
+            \item The outer part of the disk, is subjected to the strong irradiation and reaches $Y_e\sim0.4$.
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.5cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{disk/final_disk_timecorr_blh_q1_Lk.pdf}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.5cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{disk/final_disk_timecorr_ls220_q14_LK.pdf}
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+%\includegraphics[width=0.49\textwidth]{disk/final_disk_timecorr_blh_q1_Lk.pdf}
+%\includegraphics[width=0.49\textwidth]{disk/final_disk_timecorr_ls220_q14_LK.pdf}
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+
+\begin{frame}{Final disk structure} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item Low $Y_e$ inner disk
+            \item High $Y_e$ outer disk
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{disk/final_structure/slice_xz_entr_ye_blh_q1_rl3.pdf}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
+    }};
+}
+
+\end{tikzpicture}
+
+\end{frame}
+
+%\includegraphics[width=0.49\textwidth]{disk/final_structure/slice_xz_entr_ye_blh_q1_rl3.pdf}
+%\includegraphics[width=0.49\textwidth]{disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+
+\begin{frame}{Final disk properties \& composition} %% ---------- title 
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item Bimodal structure in $\langle Y_e \rangle$ and $\langle s \rangle$, second peak \ac{EOS} \& \mr{} dependent
+            \item High $Y_e$ outer disk
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(0.0cm,-1.5cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \includegraphics[height=5cm]{disk/final_structure/disk_hist_shared.pdf}
+    }};
+}
+
+%\uncover<1->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=5cm]{disk/final_structure/slice_xy_entr_ye_blh_q1_rl3.pdf}
+%    }};
+%}
+
+\end{tikzpicture}
+
+\end{frame}
+
+
+
+% ---------------------------------------------------------
+%
+% Spiral wave wind
+%
+% --------------------------------------------------------
+
+
+\begin{frame}{Spiral-wave wind -- Mass}
+\begin{tikzpicture}[overlay,remember picture]
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-3.1cm,0.5cm)}]current page.center){
+        \parbox{0.7\textwidth}{
+            Bernoulli criterion ($hu_t < -1$, stationary flow)\\
+            \begin{itemize}
+            \item is an idicator of the remnant lifetime,
+            \item is larger if \ac{EOS} is softer (as $m=1$ is stronger) % stiffer \ac{EOS} leads to a more massive disk 
+            \item is larger if $q>1$
+            \item increases if turbulent viscocity is present
+            \end{itemize}
+            $M_{\text{wind}}$ is larger for more extended disks. % that in turn depend on thermal pressure
+    }};
+}
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.2cm,-0.2cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=6cm]{ejecta_postdyn/wind_mass_flux.pdf}
+    }};
+}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Spiral-wave wind \& neutrino-driven wind} %% ---------- title 
+
+%% --------------------------------------------------------------------------------------------
+%%
+%%
+%%
+%% --------------------------------------------------------------------------------------------
+
+%    \includegraphics[width=0.49\textwidth]{slices/slice_xz_ye_hu_1.pdf}
+%\includegraphics[width=0.49\textwidth]{slices/slice_xz_abs_energy_hu_3.pdf}
+%\includegraphics[width=0.49\textwidth]{slices/slice_xy_ye_hu_1.pdf}
+%\includegraphics[width=0.49\textwidth]{slices/slice_xy_abs_energy_hu_3.pdf}
+
+\begin{tikzpicture}[overlay,remember picture]
+
+\uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+        \parbox{1.0\textwidth}{
+            \begin{itemize}
+            \item absorption of $\nu_e$ neutrinos raises the $Y_e$ of the polar outflow, drives outflow
+            \item \nwind{} is not a steady state outflow, ${\sim}10^{-3}-10^{-4}M_{\odot}$
+            %% The strongest neutrino heating occurs in the vicinity of the remnant at densities $\rho\sim10^{11}$~\gcm,
+            \end{itemize}
+    }};
+}
+
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{slices/slice_xz_ye_hu_1.pdf}
+    }};
+}
+%\uncover<2->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.0cm,-1.5cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=5cm]{slices/slice_xy_ye_hu_1.pdf}
+%    }};
+%}
+
+%%% Right: $-hu_0$ and the absorption energy rate $Q_{\text{abs};\:\bar{\nu}_e}$ 
+%%% of electron antineutrinos normalized to the fluid density $D$.
+%%%  heating energy rate due to electron anti-neutrino absorption $Q_{\text{abs};\:\bar{\nu}_e}$
+\uncover<1->{ % <-> |
+    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+        \parbox{0.5\textwidth}{
+            \includegraphics[height=5cm]{slices/slice_xz_abs_energy_hu_3.pdf}
+    }};
+}
+%\uncover<2->{ % <-> |
+%    \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-4.0cm,-1.5cm)}]current page.center){
+%        \parbox{0.5\textwidth}{
+%            \includegraphics[height=5cm]{slices/slice_xy_abs_energy_hu_3.pdf}
+%    }};
+%}
+
+\end{tikzpicture}
+
+\end{frame}

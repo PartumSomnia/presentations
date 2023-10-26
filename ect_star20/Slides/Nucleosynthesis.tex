@@ -1,0 +1,171 @@
+%% --------------------------------------------------------------
+%%
+%% N U C L E O S Y N T H E S I S
+%%
+%% --------------------------------------------------------------
+\begin{frame}{Nucleosynthesis} %% ---------- title 
+\begin{tikzpicture}[overlay,remember picture]
+
+    \uncover<1->{ % <-> |
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.5cm,1.2cm)}]current page.center){
+            \parbox{0.7\textwidth}{
+                Heaviest elements in the Universe
+                \begin{itemize}
+                    \item Produced via \rproc{} \& \sproc{}.
+                    \item Compact object mergers.
+                    \item Magnetorotationally driven CCSN.
+                \end{itemize}
+                %                $M_{\text{wind}}$ is larger for more extended disks. % that in turn depend on thermal pressure
+        }};
+    }
+    \uncover<1->{ % <-> |
+    \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-2.5cm,-2.2cm)}]current page.center){%([shift={(7.0cm,1.7cm)}]current page.center){
+        \parbox{0.7\textwidth}{
+            Observational constrains
+            \begin{itemize}
+                \item MP stars: \rproc{} material came early 
+                \item UFG: support rare high-yeld events
+                \item In the galaxy \rproc{} is uniform
+                %\item broad distribution around the binary plane, high $0.1\lesssim \ayw\lesssim0.4$ peak ${\simeq}0.35$.%$\langle Y_e \rangle$
+                %\item The low electron fraction material originates primarily at early times, when the material did not have enough time to be processed by neutrinos and before the outflow reaches quasi-steady state.
+                %\item $\avw$ is ${\sim}0.1\,$c / ${\sim}0.2\,$c for soft/still \acp{EOS}
+            \end{itemize}
+    }};
+    
+    \uncover<1->{ % <-> |
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(4.15cm,-0.5cm)}]current page.center){
+            \parbox{0.5\textwidth}{
+                \includegraphics[height=5.5cm]{Fig_1_1_Lip.pdf}
+                Observed abundances in Solar System$^\text{\citep{Lippuner:2018phd}}$
+%                    \caption{Observed abundances in our solar system as a function of mass number
+%                    $A$. The lightest elements were created in the Big Bang and fusion in stars predominantly
+%                    creates alpha elements. The iron peak is made in core-collapse and type
+%                    Ia \acp{SN}. Elements beyond the iron peak are synthesized by the slow ($s$) and
+%                    rapid ($r$) neutron capture processes. These processes produce three distinct double
+%                    peaks. Abundance data from \citet{Lodders:2003}. (Adapted from \citet{Lippuner:2018phd})
+%                }
+        }};
+    }
+}
+\end{tikzpicture}
+\end{frame}
+
+%Heaviest elements in the Universe
+%\begin{itemize}
+%    \item Produced via \rproc{} \& \sproc{}
+%    \item For \rproc{} peaks at $A=80,\:130,\:194$ correspond to magic numbers (closed neutron shells)
+%    \item Solar \rproc{} abundance pattern is consistent,
+%\end{itemize}
+%
+%Possible $r$-process sites
+%\begin{itemize}
+%    \item Magnetorotationally driven \acp{CCSN} with collimated bipolar jet %\citep{Wheeler:2000,Akiyama:2003,Burrows:2007yx,Mosta:2014jaa,Mosta:2015}
+%    \item Compact object mergers
+%    \item \ac{BNS} and \ac{NSBH} mergers eject neutron rich material
+%\end{itemize}
+%
+%Galactic chemical evolution
+%\begin{itemize}
+%    \item Very early source of \rproc{} material for the observed \rproc{} enrichment of \ac{MP} stars 
+%    \item Observed rather uniform distribution of \rproc{} material in the Galaxy
+%    \item \acp{UFG} observations point toward rare and high-yield events
+%\end{itemize}
+%
+%Modeling the coupled nuclear reactions via \ac{NRN}
+%\begin{itemize}
+%    \item and \texttt{SkyNet} by \citet{Lippuner:2015gwa}\footnote{\url{https://bitbucket.org/jlippuner/skynet}}.
+%    \item Observed rather uniform distribution of \rproc{} material in the Galaxy
+%    \item \acp{UFG} observations point toward rare and high-yield events
+%\end{itemize}
+%
+%\end{frame}
+
+%% --------------------------------------------------------------
+%%
+%% N R N
+%%
+%% --------------------------------------------------------------
+
+\begin{frame}{Nuclear reaction network \& parameterized model}
+
+    %
+    Key to model \nuc{}: nuclide interactions \& single particle reaction. %\citep[\eg][]{Hix:1999},
+%    The key component of a \ac{NRN} is the interaction between two and more nuclides, 
+%    that are characterized by \ac{RR} as well as single particle reactions, such as $\beta$-decay.
+    %
+%    Describing particle interaction and nuclide transmutation it is common to introduce the entrance 
+%    and exit channels representing reactants and products. Then, \ac{RR} is defined as a speed 
+%    at which a reaction proceeds per particle in the entrance channel. 
+    %
+    \textit{Abundance}, $Y_i$, evolution is$^{\text{\citep{Hix:1999}}}$
+    %
+    \begin{equation*}
+    Y_i = \frac{n_i}{n_B} = \frac{N_i}{N_B}, \hspace{5mm}
+    \frac{\text{d}Y_i}{\text{d}t} = \sum\lambda_{\alpha}(-R_{i}^{\alpha}+P_{i}^{\alpha})N_{i}^{\alpha}\prod_{m\in\mathcal{R}_{\alpha}}Y_m^{N_{m}^{\alpha}}
+    \end{equation*}
+    %
+%    $N_i$ and $N_B$ are the total numbers of particles 
+%    where $\lambda_{\alpha}$ is the \ac{RR} of the forward process, $R_{i}^{\alpha}$ are reactants, 
+%    $P_{i}^{\alpha}$ are products, $N_{i}^{\alpha}$ number of particles of the species $i$ involved 
+%    and $Y_m^{N_{m}^{\alpha}}$ are the abundances of the particles of species $i$ involved 
+    %
+%    \texttt{SkyNet} solves a coupled, first-order, non-linear system of equation, 
+%    Eq.~\eqref{eq:theory:nuc:abundance} for a given set of reaction rates $\lambda_{\alpha}$. 
+%    The Eq.~\eqref{eq:theory:nuc:abundance} can be understood as following. 
+%    The time derivative of the species $i$ abundances is given by the sum over all reactions, 
+%    in which the species in question participate. Each reaction contribution consists of multiplies: 
+%    \ac{RR}, a factor describing creation or destruction of particles (of species $i$), 
+%    \ie, number of particles, and abundances of reactants. 
+    %
+    \texttt{SkyNet}$^{\text{\citep{Lippuner:2015gwa}}}$ solves 
+    system of stiff \acp{ODE} %requiring implicit or specialized explicit solvers
+    evolving the composition vector, $Y(t)$, %is evolved via implicit backward Euler method
+    %The multi-dimensional, $N\times N$, root-finding problem is solved via Newton-Raphson method
+    
+    \textbf{Parameterized model}$^{\text{\citep{Lippuner:2015gwa,Radice:2018pdn}}}$ -- pre-computed \nuc{} for homologously expanding ejecta, $Y_i=f(Y_e, \tau, s)$, where
+    %
+    \begin{equation*}
+        \rho(s, Y_e, T=6\text{GK})\Big(\frac{3\tau}{2.72 t}\Big)^3 = \rho(t) = \rho_E\Big(\frac{\upsilon_E}{r_E}t\Big)^{-3},
+    \end{equation*}
+    
+%    \begin{equation}
+%    \begin{aligned}
+%    \text{Nucleo }\rho(t) &= \rho(s, Y_e, T=6\text{GK})\Big(\frac{3\tau}{2.72 t}\Big)^3 \\
+%    \text{Ejecta }\rho(t) &= \rho_E\Big(\frac{\upsilon_E}{r_E}t\Big)^{-3},
+%    \label{eq:nuc:rho_homolog}
+%    \end{aligned}
+%    \end{equation}
+\end{frame}
+
+%% --------------------------------------------------------------
+%%
+%% Results
+%%
+%% --------------------------------------------------------------
+
+\begin{frame}{Nucleosynthesis in ejecta$^\text{\citep{Nedora:2019jhl,Nedora:2020pak}}$} %% ---------- title 
+    \begin{tikzpicture}[overlay,remember picture]
+    \uncover<1->{ % <-> |
+        \node (t1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.8cm,1.8cm)}]current page.center){
+            \parbox{1.0\textwidth}{
+                \begin{itemize}
+                    \item Final $Y_i$ in \textit{total} ejecta are agreement with solar across all \rproc{} peaks. 
+                    \item Actinide production depends strongly on the $Y_{e;\text{ej}}$, and thus, on the \mr{}.
+                    %% The strongest neutrino heating occurs in the vicinity of the remnant at densities $\rho\sim10^{11}$~\gcm,
+                \end{itemize}
+        }};
+    }
+    \uncover<1->{ % <-> |
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(-0.5cm,-1.5cm)}]current page.center){
+            \parbox{0.5\textwidth}{
+                \includegraphics[height=5cm]{nucleo/nucleo_dd2_blh.pdf}
+        }};
+    }
+    \uncover<1->{ % <-> |
+        \node (img1) [anchor=center,scale=1,opacity=1] at ([shift={(5.0cm,-1.5cm)}]current page.center){
+            \parbox{0.5\textwidth}{
+                \includegraphics[height=5.5cm]{nucleo/cc_nucleo_BLh_total.pdf}
+        }};
+    }
+    \end{tikzpicture}
+\end{frame}

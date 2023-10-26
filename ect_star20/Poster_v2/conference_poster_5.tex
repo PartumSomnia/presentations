@@ -1,0 +1,519 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a0poster Landscape Poster
+% LaTeX Template
+% Version 1.0 (22/06/13)
+%
+% The a0poster class was created by:
+% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0,landscape,20pt]{a0poster} % sciposter
+
+\usepackage{multicol} % This is so we can have multiple columns of text side-by-side
+\columnsep=100pt % This is the amount of white space between the columns in the poster
+\columnseprule=0pt % This is the thickness of the black line between the columns in the poster
+
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+
+\usepackage{times} % Use the times font
+%\usepackage{palatino} % Uncomment to use the Palatino font
+
+\usepackage{graphicx} % Required for including images
+%\graphicspath{{figures/}} % Location of the graphics files
+\graphicspath{{/home/vsevolod/GIT/GitHub/phd_thesis/v3/Figures/}}
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{wrapfig} % Allows wrapping text around tables and figures
+\usepackage{setspace}
+\usepackage[fontsize=50]{scrextend}
+\usepackage{acronym}
+\usepackage{geometry}
+
+%\usepackage{layouts} for getting \textwidth \linewidth in human readable units
+\geometry{
+    %paper=a4paper, % Change to letterpaper for US letter
+    top=1.0cm, % Top margin
+    bottom=2.35cm, % Bottom margin
+    left=3.2765cm,
+    right=2.32cm,
+    %width=16cm, %width of the text
+    %inner=2.5cm, % Inner margin
+    %outer=3.8cm, % Outer margin
+    %bindingoffset=.6cm, % Binding offset    
+    %showframe, % Uncomment to show how the type block is set on the page
+}
+
+
+\newcommand{\todo}[1]{\textcolor{red}{$\blacksquare$ TODO: #1}} 
+\newcommand{\red}[1]{\textcolor{red}{#1}} 
+\newcommand{\gray}[1]{\textcolor{gray}{#1}} 
+\newcommand{\magenta}[1]{\textcolor{magenta}{#1}} %% For terms/concepts to remember 
+\newcommand{\swind}{spiral-wave wind}
+\newcommand{\nwind}{$\nu$-component}
+\newcommand{\gcm}{g cm$^{-3}$}
+\def\igscm{{\rm cm^{2}\,g^{-1}}}
+\newcommand{\dd}{\text{d}}
+\newcommand{\Mmax}{\ensuremath{M_\text{max}^\text{TOV}}} % High-q paper
+
+\newcommand{\GW}{GW170817}
+\newcommand{\AT}{AT2017gfo} %{{SSS17a}} %{{AT170817A}} % AT2017gfo
+\newcommand{\GRB}{GRB170817A}
+
+\newcommand{\eff}{\mathrm{eff}}
+\newcommand{\cf}{\textit{cf.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\pz}{\phantom{0}}
+\newcommand{\SNR}{\mathrm{SNR}}
+
+\newcommand{\rproc}{$r$-process}
+\newcommand{\sproc}{$s$-process}
+\newcommand{\pmerg}{post-merger}
+\newcommand{\mr}{mass ratio}
+\newcommand{\nuc}{nucleosynthesis}
+\newcommand{\wisky}{\texttt{WhiskyTHC}}
+\newcommand{\bnc}{bounce} %% or re-bounce
+\newcommand{\trans}{trans-relativistic}
+\newcommand{\blast}{blast wave}
+\newcommand{\mm}{multi-messenger}
+\newcommand{\polql}{$P_2^2(q,\tilde{\Lambda})$}
+\newcommand{\polq}{$P_2^1(\tilde{\Lambda})$}
+
+\newcommand{\ndef}[1]{\textbf{#1}} %% for new definitions 
+
+\def\Msun{{\text{M}_{\odot}}}
+\def\Rsun{{\text{R}_{\odot}}}
+\def\md{M^{\text{d}}_{\text{ej}}}
+\def\vd{v^{\text{d}}_\infty}
+\def\yd{Y^{\text{d}}_{e}}
+\def\amd{\md}
+\def\avd{\langle\vd\rangle}
+\def\ayd{\langle\yd\rangle}
+\def\thetarms{\theta_{\rm RMS}}
+\def\athetarms{\langle\thetarms\rangle}
+\def\nism{n_{\text{ISM}}}
+% spiral-wind
+\def\mw{M^{\text{w}}_{\text{ej}}}
+\def\vw{v^{\text{w}}_\infty}
+\def\yw{Y^{\text{w}}_{e}}
+\def\amw{\mw}
+\def\avw{\langle\vw\rangle}
+\def\ayw{\langle\yw\rangle}
+% nu-wind
+\def\mnu{M^{\nu\text{w}}_{\text{ej}}}
+\def\vnu{v^{\nu\text{w}}_\infty}
+\def\ynu{Y^{\nu\text{w}}_e}
+\def\amnu{\mnu}
+\def\avnu{\langle\vnu\rangle}
+\def\aynu{\langle\ynu\rangle}
+
+\def\ccm{\,\text{cm}^{-3}}
+
+
+%----------------------------------------------------------------------------------------
+%    USER-SPECIFIC ACRONYMS (IF ANY)
+%----------------------------------------------------------------------------------------
+%\newacro{KH}{Kelvin-Helmholtz} %% NEVER USE IT! WILL BREACK YOUR LATEX
+\newacro{KHI}{Kelvin-Helmholtz instability}
+\newacro{MRI}{magnetorotational instability}
+
+\newacro{BH}{black hole}
+\newacro{BBH}{binary black-hole}
+\newacro{BHNS}{black-hole neutron-star}
+\newacro{BNS}{binary neutron star}
+\newacro{EM}{electromagnetic}
+\newacro{EOS}{equation of state}
+\newacroplural{EOS}[EOSs]{equations of state}
+\newacro{GR}{general relativity}
+\newacro{HD}{hydrodynamics}
+\newacro{MHD}{magnetohydrodynamics}
+\newacro{GRLES}{general-relativistic large-eddy simulation}
+\newacro{GRHD}{general-relativistic hydrodynamics}
+\newacro{GRMHD}{general-relativistic magnetohydrodynamics}
+\newacro{GW}{gravitational wave}
+\newacroplural{GW}[GWs]{gravitational waves}
+\newacro{LES}{large-eddy simulation}
+\newacroplural{LES}[LES]{large-eddy simulations}
+\newacro{GRLES}{general-relativistic large-eddy simulation}
+\newacro{NR}{numerical relativity}
+\newacro{NS}{neutron star}
+\newacroplural{NS}[NSs]{neutron stars}
+\newacro{GRB}{$\gamma$-ray burst}
+\newacro{SGRB}{short $\gamma$-ray burst}
+\newacro{ISM}{interstellar medium}
+\newacro{MNS}{massive neutron star}
+\newacro{NSBH}{neutron star-black hole}
+\newacro{NSE}{nuclear statistical equilibrium}
+\newacro{SN}{supernova}
+\newacroplural{SN}[SNe]{supernovae}
+\newacro{CCSN}{core-collapse supernova}
+\newacroplural{CCSN}[CCSNe]{Core-collapse supernovae}
+\newacro{BBN}{Big Bang nucleosynthesis}
+\newacro{MP}{metal-poor}
+\newacro{AGB}{asymptotic giant branch}
+\newacro{UFG}{ultra-faint dwarf galaxy}
+\newacroplural{UFG}[UFGs]{ultra-faint dwarf galaxies}
+\newacro{NRN}{nuclear reaction network}
+\newacroplural{NRN}[NRNs]{nuclear reaction networks}
+\newacro{kN}{kilonova}
+\newacroplural{kN}[kNe]{kilonovae}
+\newacro{RR}{reaction rate}
+\newacroplural{RR}[RRs]{reaction rates}
+\newacro{MBD}{Maxwell-Boltzmann distribution}
+\newacro{CS}{cross-section}
+\newacro{ODE}{ordinary differential equation}
+\newacroplural{ODE}[ODEs]{ordinary differential equations}
+\newacro{RK}{Runge-Kutta}
+\newacro{SPH}{smoothed particle hydrodynamics}
+\newacro{IR}{infrared}
+\newacro{NIR}{near-infrared}
+\newacro{LC}{light curve}
+\newacroplural{LC}[LCs]{light curves}
+\newacro{UV}{ultraviolet}
+\newacro{LTE}{local thermodynamic equilibrium}
+\newacro{TOV}{Tolman-Oppenheimer-Volkoff}
+\newacro{AH}{apparent horizon}
+\newacro{RMS}{root mean square}
+\newacro{MM}{multi-messenger}
+\newacro{LK}{light curve}
+\newacro{IC}{Inverse Compton}
+\newacro{CBM}{circumburst medium}
+\newacro{LF}{Lorentz factor}
+\newacro{DF}{Doppler factor}
+\newacro{SSC}{synchrotron self-Compton}
+\newacro{SSA}{synchrotron self-absorption}
+\newacro{CoE}{center of explostion}
+\newacro{FS}{forward shock}
+\newacro{RS}{reverse shock}
+\newacro{EFE}{Einstein’s field equations}
+\newacro{ADM}{Arnowitt, Deser and Misner}
+\newacro{IVP}{initial value problem}
+\newacro{RHS}{right hand side}
+\newacro{CTS}{conformal thin-sandwich} 
+\newacro{RMF}{relativistic mean-field}
+\newacro{BTE}{Boltzmann transport equation}
+\newacro{FV}{finite-volume}
+\newacro{FD}{finite-difference}%{finite-differencing}
+\newacro{HRSC}{high-resolution shock-capturing}
+\newacro{CFL}{Courant-Friedrichs-Lewy}
+\newacro{TVD}{total-variation diminishing}
+\newacro{BV}{bounded variation}
+\newacro{TV}{total variation}
+\newacro{PPM}{piecewise parabolic method}
+\newacro{PHM}{piecewise hyperbolic method}
+\newacro{ENO}{essentially non-oscillatory}
+\newacro{WENO}{weighted essentially non-oscillatory}
+\newacro{MP5}{monotonicity-preserving}
+\newacro{HLLE}{Harten, Lax, van Leer and Einfeldt}
+\newacro{HLLC}{Harten-Lax-van Leer-Contact}
+\newacro{LxF}{Lax and Friedrichs}
+\newacro{NT}{Nessyahu and Tadmor}
+\newacro{KT}{Kurganov and Tadmor}
+\newacro{AMR}{adaptive mesh refinement}
+\newacro{PPL}{positivity preserving limiter}
+\newacro{SSP}{strong stability preserving}
+\newacro{PDE}{partial differential equation}
+\newacroplural{PDE}[PDEs]{partial differential equations}
+\newacro{MOL}{method of lines}
+\newacro{EM}{electromagnetic}
+\newacro{HMNS}{hyper-massive neutron star}
+\newacro{SMNS}{supra-massive neutron star}
+\newacro{EATS}{equal time arrival surface}
+\newacroplural{EATS}[EATSs]{equal time arrival surfaces}
+\newacro{JWST}{James Webb Space Telescope}
+\newacro{QCD}{quantum-chromodynamic}
+\newacro{PN}{post-Newtonian}
+\newacro{EOB}{effective-one-body}
+\newacro{SNR}{signal-to-noise ratio}
+\newacro{PC}{prompt collapse}
+\newacro{LIGO}{Laser Interferometer Gravitational-Wave Observatory}
+\newacro{MF}{magentic field}
+\newacroplural{MF}[MFs]{magnetic fields}
+
+
+\newacro{DE}{dynamical ejecta}
+\newacro{SWW}{\swind{}}
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into three boxes:
+% The first is 55% wide and houses the title, subtitle, names and university/organization
+% The second is 25% wide and houses contact information
+% The third is 19% wide and houses a logo for your university/organization or a photo of you
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+
+\begin{minipage}[b]{0.90\linewidth}
+\LARGE \color{NavyBlue} \textbf{Binary neutron star mergers} \color{Black}\\[0.5cm] % Title
+\Large\textit{Ejecta, Nucleosynthesis \& Electromagnetic Counterparts}\\[1cm] % Subtitle
+%\begin{large}
+\normalsize Vsevolod {Nedora}$^{1}$
+    %Federico {Schianchi}$^{2,1}$
+\normalsize Sebastiano {Bernuzzi}$^{1}$
+\normalsize David {Radice}$^{3,4,5}$
+    %Boris {Daszuta}$^{1}$
+    %Andrea {Endrizzi}$^{1}$
+\normalsize Albino {Perego}$^{6,7}$
+    %Aviral {Prakash}$^{3,4}$
+    %Francesco {Zappa}$^{1}$
+%\end{large}
+\\[0.5cm]
+\footnotesize ${}^1$Theoretisch-Physikalisches Institut, Friedrich-SchillerUniversit\"{a}t Jena, 07743, Jena, Germany 
+\footnotesize ${}^3$Institute for Gravitation \& the Cosmos, The Pennsylvania State University, University Park, PA 16802, USA 
+\footnotesize ${}^4$Department of Physics, The Pennsylvania State University, University Park, PA 16802, USA 
+\footnotesize ${}^5$Department of Astronomy \& Astrophysics, The Pennsylvania State University, University Park, PA 16802, USA 
+\footnotesize ${}^6$Dipartimento di Fisica, Universit\`{a} di Trento, Via Sommarive 14, 38123 Trento, Italy 
+\footnotesize ${}^7$INFN-TIFPA, Trento Institute for Fundamental Physics and Applications, via Sommarive 14, I-38123 Trento, Italy 
+
+
+\end{minipage}
+%
+\begin{minipage}[b]{0.05\linewidth}
+%\color{DarkSlateGray}\Large \textbf{Contact Information:}\\
+%Department Name\\ % Address
+%University Name\\
+%123 Broadway, State, Country\\\\
+%Phone: +1 (000) 111 1111\\ % Phone number
+%Email: \texttt{john@LaTeXTemplates.com}\\ % Email address
+\includegraphics[width=12cm]{uni_jena_logo_circle.jpg} % Logo or a photo of you, adjust its dimensions here
+\centering\includegraphics[width=12cm]{Core.png}
+\end{minipage}
+%
+%\begin{minipage}[b]{0.05\linewidth}
+%\centering\includegraphics[width=12cm]{Core.png} % Logo or a photo of you, adjust its dimensions here
+%\end{minipage}
+
+\vspace{-1.0cm} % A bit of extra whitespace between the header and poster content
+
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+%    Mergers of \acp{BNS} are unique cosmic laboratories to test the theory of \ac{GR} in 
+%    the strong field regime; matter at supranuclear densities; \rproc{} \nuc{}; cosmology. 
+    %
+    \GW{} provided a plethora of information on \ac{BNS} mergers and properties of matter at 
+    supranuclear densities.
+    %
+    We further explore the remaining open questions with 
+    %
+    long-term \ac{NR} \ac{BNS} merger simulations with code \wisky{}. 
+    %
+    Simulations include neutrino emission and reabsorption, magnetic field induced viscosity 
+    via an effective model, and microphysical \ac{EOS} with finite temperature effects.
+    %
+    We find (i) \pmerg{} evolution is accompanied by massive outflows, \swind{}, 
+    with 
+    %We find (i) that the interaction between non-axisymmetric \pmerg{} remnant and disk induce 
+    %massive outflows, \swind{}, with %properties that allow for weak \rproc{} and 
+    an \ac{EM} signature of a ``blue'' \ac{kN};
+    %(ii) \ac{HMNS} remnant can avoid the collapse to \ac{BH} by shedding mass via \swind{};
+    (ii) \rproc{} \nuc{} yields in total ejecta are compatible with solar.
+    % facilitating the role of \ac{BNS} mergers in cosmic chemical evolution;
+    (iii) non-thermal, \ac{kN} afterglow is compatible with the recently observed 
+    rebrightening of \GRB{}.%, shedding new light on the \ac{EOS} and binary properties of \GW{}. 
+\end{abstract}
+
+\begin{multicols}{4} % This is how many columns your poster will be broken into, a poster with many figures may benefit from less columns whereas a text-heavy poster benefits from more
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+%\color{Navy} % Navy color for the abstract
+
+
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+%\color{SaddleBrown} % SaddleBrown color for the introduction
+
+\section*{Remnant dynamics}
+
+Bar- $m=2$ and one-armed- $m=1$ 
+dynamical instabilities in the \pmerg{} remnant.
+
+\includegraphics[width=25cm]{remnant/dens_modes/modes_rho_dd2.pdf} % Logo or a photo of you, adjust its dimensions here
+
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+%\color{DarkSlateGray} % DarkSlateGray color for the rest of the content
+
+\section*{Evolution trajectory}
+
+%\begin{enumerate}
+%\item Lorem ipsum dolor sit amet, consectetur.
+%\item Nullam at mi nisl. Vestibulum est purus, ultricies cursus volutpat sit amet, vestibulum eu.
+%\item Praesent tortor libero, vulputate quis elementum a, iaculis.
+%\item Phasellus a quam mauris, non varius mauris. Fusce tristique, enim tempor varius porta, elit purus commodo velit, pretium mattis ligula nisl nec ante.
+%\item Ut adipiscing accumsan sapien, sit amet pretium.
+%\item Estibulum est purus, ultricies cursus volutpat
+%\item Nullam at mi nisl. Vestibulum est purus, ultricies cursus volutpat sit amet, vestibulum eu.
+%\item Praesent tortor libero, vulputate quis elementum a, iaculis.
+%\end{enumerate}
+
+\ac{HMNS} looses mass and angular momentum to \swind{}.
+
+\includegraphics[width=26cm]{ejecta_sec/secular_j_mb_RNS_blh.pdf} % Logo or a photo of you, adjust its dimensions here
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+
+\section*{Nucleosynthesis \& \ac{kN}}
+
+\includegraphics[width=26cm]{nucleo/cc_nucleo_BLh_total.pdf}
+
+%------------------------------------------------
+
+\subsection*{Mathematical Section}
+
+Nulla vel nisl sed mauris auctor mollis non sed. 
+
+\begin{equation}
+E = mc^{2}
+\label{eqn:Einstein}
+\end{equation}
+
+Curabitur mi sem, pulvinar quis aliquam rutrum. (1) edf (2)
+, $\Omega=[-1,1]^3$, maecenas leo est, ornare at. $z=-1$ edf $z=1$ sed interdum felis dapibus sem. $x$ set $y$ ytruem. 
+Turpis $j$ amet accumsan enim $y$-lacina; 
+ref $k$-viverra nec porttitor $x$-lacina. 
+
+Vestibulum ac diam a odio tempus congue. Vivamus id enim nisi:
+
+\begin{eqnarray}
+\cos\bar{\phi}_k Q_{j,k+1,t} + Q_{j,k+1,x}+\frac{\sin^2\bar{\phi}_k}{T\cos\bar{\phi}_k} Q_{j,k+1} &=&\nonumber\\ 
+-\cos\phi_k Q_{j,k,t} + Q_{j,k,x}-\frac{\sin^2\phi_k}{T\cos\phi_k} Q_{j,k}\label{edgek}
+\end{eqnarray}
+and
+\begin{eqnarray}
+\cos\bar{\phi}_j Q_{j+1,k,t} + Q_{j+1,k,y}+\frac{\sin^2\bar{\phi}_j}{T\cos\bar{\phi}_j} Q_{j+1,k}&=&\nonumber \\
+-\cos\phi_j Q_{j,k,t} + Q_{j,k,y}-\frac{\sin^2\phi_j}{T\cos\phi_j} Q_{j,k}.\label{edgej}
+\end{eqnarray} 
+
+Nulla sed arcu arcu. Duis et ante gravida orci venenatis tincidunt. Fusce vitae lacinia metus. Pellentesque habitant morbi. $\mathbf{A}\underline{\xi}=\underline{\beta}$ Vim $\underline{\xi}$ enum nidi $3(P+2)^{2}$ lacina. Id feugain $\mathbf{A}$ nun quis; magno. Fusce convallis rutrum turpis, quis aliquet enim accumsan id. Vestibulum ullamcorper porttitor convallis. Integer sagittis interdum malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed adipiscing tristique orci at ullamcorper. Morbi accumsan, urna et porttitor pulvinar, lacus risus dignissim massa. Proin sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh.
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 
+%----------------------------------------------------------------------------------------
+
+\section*{Results}
+
+Donec faucibus purus at tortor egestas eu fermentum dolor facilisis. Maecenas tempor dui eu neque fringilla rutrum. Mauris \emph{lobortis} nisl accumsan. Aenean vitae risus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
+%
+\begin{wraptable}{l}{12cm} % Left or right alignment is specified in the first bracket, the width of the table is in the second
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{\color{Green} Table caption}
+\end{wraptable}
+%
+Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et volutpat ante orci sagittis mi. Morbi rutrum laoreet semper. Morbi accumsan enim nec tortor consectetur non commodo nisi sollicitudin. Proin sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh.
+
+Nulla ut porttitor enim. Suspendisse venenatis dui eget eros gravida tempor. Mauris feugiat elit et augue placerat ultrices. Morbi accumsan enim nec tortor consectetur non commodo. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing. Quisque vestibulum eros eu. Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et volutpat ante orci sagittis mi. Morbi rutrum laoreet semper. Morbi accumsan enim nec tortor consectetur non commodo nisi sollicitudin.
+
+\begin{center}\vspace{1cm}
+%\includegraphics[width=0.8\linewidth]{placeholder}
+\captionof{figure}{\color{Green} Figure caption}
+\end{center}\vspace{1cm}
+
+In hac habitasse platea dictumst. Etiam placerat, risus ac.
+
+Adipiscing lectus in magna blandit:
+
+\begin{center}\vspace{1cm}
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2} \\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{\color{Green} Table caption}
+\end{center}\vspace{1cm}
+
+Vivamus sed nibh ac metus tristique tristique a vitae ante. Sed lobortis mi ut arcu fringilla et adipiscing ligula rutrum. Aenean turpis velit, placerat eget tincidunt nec, ornare in nisl. In placerat.
+
+\begin{center}\vspace{1cm}
+%\includegraphics[width=0.8\linewidth]{placeholder}
+\captionof{figure}{\color{Green} Figure caption}
+\end{center}\vspace{1cm}
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSIONS
+%----------------------------------------------------------------------------------------
+
+\color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
+
+\section*{Conclusions}
+
+\begin{itemize}
+\item Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh. Phasellus fermentum rutrum elementum. Nam quis justo lectus.
+\item Vestibulum sem ante, hendrerit a gravida ac, blandit quis magna.
+\item Donec sem metus, facilisis at condimentum eget, vehicula ut massa. Morbi consequat, diam sed convallis tincidunt, arcu nunc.
+\item Nunc at convallis urna. isus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
+\end{itemize}
+
+\color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
+
+%----------------------------------------------------------------------------------------
+%	FORTHCOMING RESEARCH
+%----------------------------------------------------------------------------------------
+
+\section*{Forthcoming Research}
+
+Vivamus molestie, risus tempor vehicula mattis, libero arcu volutpat purus, sed blandit sem nibh eget turpis. Maecenas rutrum dui blandit lorem vulputate gravida. Praesent venenatis mi vel lorem tempor at varius diam sagittis. Nam eu leo id turpis interdum luctus a sed augue. Nam tellus.
+
+ %----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\nocite{*} % Print all references regardless of whether they were cited in the poster or not
+\bibliographystyle{plain} % Plain referencing style
+\bibliography{sample} % Use the example bibliography file sample.bib
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\section*{Acknowledgements}
+
+Etiam fermentum, arcu ut gravida fringilla, dolor arcu laoreet justo, ut imperdiet urna arcu a arcu. Donec nec ante a dui tempus consectetur. Cras nisi turpis, dapibus sit amet mattis sed, laoreet.
+
+%----------------------------------------------------------------------------------------
+
+\end{multicols}
+\end{document}
